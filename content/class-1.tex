@@ -129,16 +129,17 @@ $$
 \end{itemize}
 
 可以用程序验证答案：
-
+\begin{center}
 \begin{lstlisting}[language=Python]
 import sympy as sp
 from sympy.solvers.solveset import linsolve
-x, y, z, u = sp.symbols('x, y, z, u')
+x, y, z, u = sp.symbols("x,y,z,u")
 linsolve(
     [u*x + y + z - 1, x + u*y + z - u, x + y + u*z - u**2],
     (x, y, z)
 )
 \end{lstlisting}
+\end{center}
 
 \vspace{2em}
 
@@ -146,11 +147,18 @@ linsolve(
 $$A = \begin{pmatrix} a_{11} & \cdots & a_{1n} \\ \vdots & \ddots & \vdots \\ a_{s1} & \cdots & a_{sn} \end{pmatrix}, \quad B = \begin{pmatrix} b_{11} & \cdots & b_{1n} \\ \vdots & \ddots & \vdots \\ b_{\ell 1} & \cdots & b_{\ell n} \end{pmatrix}$$
 若$A$与$B$的行等价，判断(I)与(II)是否等价，并证明你的结论。
 
-{\bf 解}：
+{\bf 解}：若$A$与$B$的行等价，那么矩阵$P_{\ell\times s}$，使得$P_{\ell\times s}A = B$，同时存在矩阵$Q_{s\times \ell}$，使得$Q_{s\times \ell}B = A$。设$x$满足$Ax = 0$，那么
+$Bx = P_{\ell\times s}Ax = P_{\ell\times s}\cdot 0 = 0$。反过来，若$x$满足$Bx = 0$，那么
+$Ax = Q_{s\times \ell}Bx = Q_{s\times \ell}\cdot 0 = 0$。所以齐次线性方程组(I), (II)同解，即是等价的。
+
+将$A$记作$\begin{pmatrix} a_1 \\ \vdots \\ a_s \end{pmatrix}$，将$B$记作$\begin{pmatrix} b_1 \\ \vdots \\ b_{\ell} \end{pmatrix}$，这里的$a_i, b_j$为$n$维行向量。$A$与$B$的行等价即为$A$与$B$的行空间相同，即
+$$C(A) = \operatorname{span}\{a_1, \cdots, a_s\} = \operatorname{span}\{b_1, \cdots, b_{\ell}\} = C(B)$$
+所以相应的零空间，即解空间相同
+$$N(A) = C(A)^{\perp} = C(B)^{\perp} = N(B)$$
 
 \vspace{2em}
 
-{\bf 习题1.1 第2题} (1). 求证：如果复数集合的子集$P$包含至少一个非零数，并且对加、减、乘、除（除数不为0）封闭，则$P$包含0,1，从而是数域。
+{\bf 习题1.1 第2题} (1). 求证：如果复数集合的子集$P$包含至少一个非零数，并且对加、减、乘、除（除数不为$0$）封闭，则$P$包含$0,1$，从而是数域。
 
 (2). 求证：所有的数域都包含有理数域。
 
@@ -158,6 +166,36 @@ $$A = \begin{pmatrix} a_{11} & \cdots & a_{1n} \\ \vdots & \ddots & \vdots \\ a_
 
 (4). 试求包含$\sqrt[3]{2}$ 的最小的数域。
 
-{\bf 解}：
+{\bf 解}：(1). 设$P$包含非零数$a$，则$0 = a-a \in P$, $1 = a/a \in P$，所以$P$是数域。
+
+(2). 任意一个数域$F$都包含$0,1$，且对加、减、乘、除封闭，故$F$包含整数$\mathbb{Z}$（包含$0,1$且对加、减封闭），进而包含有理数域$\mathbb{Q}$（对乘、除封闭）。有理数域$\mathbb{Q}$与有限域$\mathbb{F}_p$，$p$为素数，为最小的域，即不真包含更小的域，称为素域。
+
+(3) 集合$F = \{ a+b\sqrt{2} \ |\ a,b\in\mathbb{Q} \}$包含$0,1$ （分别令$(a,b) = (0,0)$与$(a,b) = (1,0)$）。设$a_1, b_1, a_2, b_2 \in \mathbb{Q}$，下面验证
+\begin{itemize}
+    \item 加、减法封闭：
+    $$(a_1+b_1\sqrt{2}) \pm (a_2+b_2\sqrt{2}) = (a_1 \pm a_2) + (b_1 \pm b_2)\sqrt{2}$$
+    \item 乘法封闭：
+    $$(a_1+b_1\sqrt{2}) \cdot (a_2+b_2\sqrt{2}) = (a_1a_2+2b_1b_2) + (a_1b_2 + a_2b_1)\sqrt{2}$$
+    \item 除法封闭（$a_2, b_2$不同时为零）：
+    $$(a_1+b_1\sqrt{2}) / (a_2+b_2\sqrt{2}) = \dfrac{a_1a_2-2b_1b_2}{a_2^2-2b_2^2} + \dfrac{a_2b_1-a_1b_2}{a_2^2-2b_2^2}\sqrt{2}$$
+\end{itemize}
+
+(4). 包含$\sqrt[3]{2}$的最小的数域为
+$$\mathbb{Q}(\sqrt[3]{2}) = \{ a + b\sqrt[3]{2} + c\sqrt[3]{4} \ |\ a,b,c\in\mathbb{Q} \}$$
+
+很容易看到任何包含$\sqrt[3]{2}$的数域都必须包含$\sqrt[3]{2}, \sqrt[3]{4}$，从而包含$\mathbb{Q}(\sqrt[3]{2})$，那么只要证明$\mathbb{Q}(\sqrt[3]{2})$是一个数域。设$m(x) = x^3 - 2$，这是$\sqrt[3]{2}$的所谓的（首一的, monic）极小多项式\footnote{使得满足$f(\sqrt[3]{2})=0$的$\mathbb{Q}$系数多项式中次数最低的，如果要求是首一的，即最高次项系数为1，则这样的多项式是唯一的。}(minimal polynomial over $\mathbb{Q}$。令$F = \mathbb{Q}[x] / (m(x))$为$\mathbb{Q}$系数多项式全体的等价类组成的集合，其中的等价关系为
+$$f_1(x) \sim f_2(x) \quad \Longleftrightarrow \quad \exists g(x) \ s.t.\ f_1(x)-f_2(x) = g(x)m(x)$$
+作为一个$\mathbb{Q}$线性空间，$F$的一组基可以取作$1, \overline{x}, \overline{x}^2$。这是因为对于任意一个$f(x) \in \mathbb{Q}[x]$，都存在$g(x), r(x)$，$\deg r(x) < \deg m(x)$，使得
+$$f(x) = g(x)m(x) + r(x)$$
+于是
+$$F = \{ a + b\overline{x} + c\overline{x}^2 \ |\ a,b,c\in\mathbb{Q} \}$$
+定义
+$$\varphi : F \to \mathbb{Q}(\sqrt[3]{2}), \overline{x} \mapsto \sqrt[3]{2}$$
+可以验证
+\begin{itemize}
+    \item $F$关于加、减、乘、除封闭；
+    \item $\varphi$是一个一一对应（且保运算，即是一个域同构）。
+\end{itemize}
+
 
 \end{document}
