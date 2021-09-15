@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% this file contains common preambles for the notes/articles, etc. (other than beamer)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[UTF8, 12pt]{article}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{pst-func}
+\usepackage{float}
+\usepackage[justification = centering]{caption}
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+% \usepackage[UTF8]{ctex}
+% \usepackage{fontspec}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\usepackage[slantfont,boldfont]{xeCJK}
+\usepackage{fontspec}
+
+% set font
+\setmainfont[Path = fonts/, BoldFont = timesbd.ttf, ItalicFont= timesi.ttf]{times.ttf}
+\setsansfont[Path = fonts/, BoldFont = timesbd.ttf, ItalicFont= timesi.ttf]{times.ttf}
+
+% set chn font
+% \setCJKmainfont[Path = fonts/, BoldFont = simhei.ttf]{simfang.ttf}
+% \setCJKsansfont[Path = fonts/, BoldFont = simhei.ttf]{simfang.ttf}
+
+\setCJKmainfont[Path = fonts/, BoldFont = simhei.ttf]{JDLangZhengTi.ttf}
+\setCJKsansfont[Path = fonts/, BoldFont = simhei.ttf]{JDLangZhengTi.ttf}
+
+\usepackage{latexsym,amscd,color}
+\usepackage{amsmath,amsfonts,amssymb,mathrsfs}
+\usepackage{enumerate,euscript}
+\usepackage{amssymb,url,xspace}
+\usepackage{tikz-cd}
+\usepackage[all,cmtip]{xy}
+\usepackage{dashbox}
+\usepackage{tikz}
+\usetikzlibrary{trees,arrows,decorations.pathmorphing,shapes,backgrounds,positioning,calc,tikzmark}
+\usepackage{xcolor}
+\usepackage{hyperref}
+% \usepackage[cmintegrals,cmbraces]{newtxmath}
+% \usepackage{ebgaramond-maths}
+
+\usepackage{datetime2}
+\usepackage{listings}
+
+\usepackage[ruled,noend]{algorithm2e}
+% \usepackage{tcolorbox}
+% \newtcolorbox{mybox}[2]{
+%     arc=0pt,
+%     boxrule=#2pt,
+%     colback=#1,
+%     halign=center,
+% }
+
+% \newcommand{\tikzmark}[1]{\tikz[baseline,remember picture] \coordinate (#1) {};}
+
+% \usepackage{natbib}  % bibliography package
+\usepackage{bibentry}         %  full citation in the body of the text (turn off natbib if use it)
+\nobibliography*                   % no bib at the end
+
+
+% https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+% \usepackage[hang,flushmargin]{footmisc}
+
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{ \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\fieldc}{\mathbb{C}}
+\newcommand{\fieldr}{\mathbb{R}}
+\newcommand{\fieldq}{\mathbb{Q}}
+\newcommand{\ringz}{\mathbb{Z}}
+\newcommand{\fp}[1]{\mathbb{F}_{{#1}}}
+\newcommand{\vs}{vector space}
+\newcommand{\sheafl}{\mathscr{L}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\gl}{\operatorname{\mathfrak{g}\mathfrak{l}}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Ind}{\operatorname{Ind}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\Inf}{\operatorname{Inf}}
+
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\SPEC}{\mathbf{Spec}}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\PROJ}{\mathbf{Proj}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\expectation}{\mathbb{E}}
+
+
+\newtheorem{thm_cn}{定理}[section]
+\newtheorem{prop_cn}[thm_cn]{命题}
+\newtheorem{Def_cn}[thm_cn]{定义}
+\newtheorem{lem_cn}[thm_cn]{引理}
+\newtheorem{conj_cn}[thm_cn]{猜想}
+\newtheorem{cor_cn}[thm_cn]{推论}
+\newtheorem{remark_cn}[thm_cn]{注记}
+\newtheorem{eg_cn}[thm_cn]{例}
+\newtheorem{recall_cn}[thm_cn]{回忆}
+\newtheorem{question_cn}[thm_cn]{问题}
+\newtheorem{observation_cn}[thm_cn]{观察}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{Def}[thm]{Definition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{eg}[thm]{Example}
+\newtheorem{recall}[thm]{Recall}
+\newtheorem{question}[thm]{Question}
+\newtheorem{observation}[thm]{Observation}
+
+% https://tex.stackexchange.com/questions/2233/whats-the-best-way-make-an-augmented-coefficient-matrix
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\allowdisplaybreaks
+

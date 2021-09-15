@@ -1,0 +1,163 @@
+
+
+\date{2021-09-17}
+
+\begin{document}
+
+\maketitle
+
+{\bf 习题1.2 第3题} 已知两个变量$x,y$之间有某种函数关系$y=f(x)$，并且有如下对应值
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \toprule
+         x & 1 & 2 & 3 & 4 \\ \hline
+         y & 2 & 7 & 16 & 29 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+问：$y$是否可能是$x$的二次函数？如果可能，试求出满足要求的二次函数。
+
+{\bf 解}：假设$y$是$x$的二次函数，即存在实数$a,b,c$使得
+$$y = a + bx + cx^2$$
+我们有
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \toprule
+         x & 1 & 2 & 3 & 4 \\ \hline
+         $x^2$ & 1 & 4 & 9 & 16 \\ \hline
+         y & 2 & 7 & 16 & 29 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+上式需要满足
+$$\begin{pmatrix} 2 \\ 7 \\ 16 \\ 29 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & 4 \\ 1 & 3 & 9 \\ 1 & 4 & 16 \end{pmatrix} \begin{pmatrix} a \\ b \\ c \end{pmatrix}$$
+高斯消元法化简得
+$$\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} a \\ b \\ c \end{pmatrix} = \begin{pmatrix} 1 \\ -1 \\ 2 \\ 2 \end{pmatrix}$$
+得$(a,b,c) = (1,-1,2)$, 即$y = 1 - x + 2x^2$。
+
+\vspace{2em}
+
+{\bf 习题1.2 第4题} 在实数范围内解线性方程组
+$$\begin{cases}
+x + 3y + 2z = 4 \\
+2x + 5y -3z = -1 \\
+4x + 11y + z = 7
+\end{cases}$$
+
+这个方程组的解集在3维空间中的图像$\Pi$是什么？
+
+将这个方程组的常数项全部变成0，得到的方程组的解集在3维空间中的图像$\Pi_0$是什么？$\Pi_0$与$\Pi$有什么关系？
+
+{\bf 解}：该线性方程组的增广系数矩阵为
+$$\begin{pmatrix}[ccc|c]
+  1 & 3 & 2 & 4\\
+  2 & 5 & -3 & -1 \\
+  4 & 11 & 1 & 7
+\end{pmatrix}$$
+通过高斯消元法化为阶梯形
+$$\begin{pmatrix}[ccc|c]
+  1 & 0 & -19 & -23\\
+  0 & 1 & 7 & 9
+\end{pmatrix}$$
+所以解集为$(x,y,z) = (19t-23,-7t+9,t)$, $t\in\mathbb{R}$. 它在3维空间中的图像$\Pi$是一条直线。将这个方程组的常数项全部变成0，得到的方程组的解集在3维空间中的图像$\Pi_0$一条过原点的直线。$\Pi_0$与$\Pi$之间可以通过平移相互得到，即$\Pi = \Pi_0 + \begin{pmatrix} -23 \\ 9 \\ 0 \end{pmatrix}$，$\begin{pmatrix} -23 \\ 9 \\ 0 \end{pmatrix}$可以换为原非齐次线性方程组的任意一个特解。
+
+\vspace{2em}
+
+{\bf 习题1.3 第2题} 讨论当$\lambda$取什么值时下面的方程组有解
+$$\begin{cases}
+\lambda x_1 + x_2 + x_3 = 1 \\
+x_1 + \lambda x_2 + x_3 = \lambda \\
+x_1 + x_2 + \lambda x_3 = \lambda^2 \\
+\end{cases}$$
+当方程组有解时求出解来，并讨论$\lambda$取什么值时方程组有唯一解，什么时候有无穷多组解。
+
+{\bf 解}：对增广系数矩阵做行变换
+\begin{align*}
+& \begin{pmatrix}[ccc|c]
+  \lambda & 1 & 1 & 1\\
+  1 & \lambda & 1 & \lambda \\
+  1 & 1 & \lambda & \lambda^2
+\end{pmatrix}
+\to
+\begin{pmatrix}[ccc|c]
+  1 & 1 & \lambda & \lambda^2 \\
+  1 & \lambda & 1 & \lambda \\
+  \lambda & 1 & 1 & 1
+\end{pmatrix} \\
+\to &
+\begin{pmatrix}[ccc|c]
+  1 & 1 & \lambda & \lambda^2 \\
+  0 & \lambda-1 & -(\lambda-1) & -\lambda(\lambda-1) \\
+  0 & -(\lambda-1) & -(\lambda-1)(\lambda+1) & -(\lambda-1)(\lambda^2+\lambda+1)
+\end{pmatrix} \\
+\to &
+\begin{pmatrix}[ccc|c]
+  1 & 1 & \lambda & \lambda^2 \\
+  0 & \lambda-1 & -(\lambda-1) & -\lambda(\lambda-1) \\
+  0 & 0 & (\lambda-1)(\lambda+2) & (\lambda-1)(\lambda+1)^2
+\end{pmatrix}
+\end{align*}
+所以
+\begin{itemize}
+\item 当$\lambda = 1$时，增广系数矩阵化为$\begin{pmatrix}[ccc|c] 1 & 1 & 1 & 1 \end{pmatrix}$，原线性方程组有无穷多组解
+$$\begin{pmatrix}
+  1 - t_1 - t_2 \\ t_1 \\ t_2
+\end{pmatrix}, \quad t_1, t_2 \in \mathbb{R}.$$
+\item 当$\lambda = -2$时，增广系数矩阵化为
+$$\begin{pmatrix}[ccc|c] 1 & 1 & -2 & 4 \\ 0 & -3 & 3 & -6 \\ 0 & 0 & 0 & -3 \end{pmatrix}$$
+此时原线性方程组无解。
+\item 其余情况，增广系数矩阵可进一步约化
+\begin{align*}
+& \to
+\begin{pmatrix}[ccc|c]
+  1 & 1 & \lambda & \lambda^2 \\
+  0 & 1 & -1 & -\lambda \\
+  0 & 0 & 1 & \frac{(\lambda+1)^2}{\lambda+2}
+\end{pmatrix} \to
+\begin{pmatrix}[ccc|c]
+  1 & 0 & 0 & -\frac{\lambda+1}{\lambda+2} \\
+  0 & 1 & 0 & \frac{1}{\lambda+2} \\
+  0 & 0 & 1 & \frac{(\lambda+1)^2}{\lambda+2}
+\end{pmatrix}
+\end{align*}
+此时原线性方程组有唯一解
+$$
+\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} -\frac{\lambda+1}{\lambda+2} \\ \frac{1}{\lambda+2} \\ \frac{(\lambda+1)^2}{\lambda+2} \end{pmatrix}
+$$
+\end{itemize}
+
+可以用程序验证答案：
+
+\begin{lstlisting}[language=Python]
+import sympy as sp
+from sympy.solvers.solveset import linsolve
+x, y, z, u = sp.symbols('x, y, z, u')
+linsolve(
+    [u*x + y + z - 1, x + u*y + z - u, x + y + u*z - u**2],
+    (x, y, z)
+)
+\end{lstlisting}
+
+\vspace{2em}
+
+{\bf 习题四} 设齐次线性方程组(I), (II)的系数矩阵分别为
+$$A = \begin{pmatrix} a_{11} & \cdots & a_{1n} \\ \vdots & \ddots & \vdots \\ a_{s1} & \cdots & a_{sn} \end{pmatrix}, \quad B = \begin{pmatrix} b_{11} & \cdots & b_{1n} \\ \vdots & \ddots & \vdots \\ b_{\ell 1} & \cdots & b_{\ell n} \end{pmatrix}$$
+若$A$与$B$的行等价，判断(I)与(II)是否等价，并证明你的结论。
+
+{\bf 解}：
+
+\vspace{2em}
+
+{\bf 习题1.1 第2题} (1). 求证：如果复数集合的子集$P$包含至少一个非零数，并且对加、减、乘、除（除数不为0）封闭，则$P$包含0,1，从而是数域。
+
+(2). 求证：所有的数域都包含有理数域。
+
+(3). 求证：集合$F = \{ a+b\sqrt{2} \ |\ a,b\in\mathbb{Q} \}$ 是数域。（其中$\mathbb{Q}$是有理数域。）
+
+(4). 试求包含$\sqrt[3]{2}$ 的最小的数域。
+
+{\bf 解}：
+
+\end{document}
