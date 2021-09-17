@@ -164,7 +164,7 @@ $$\mathbb{Q}(\sqrt[3]{2}) = \{ a + b\sqrt[3]{2} + c\sqrt[3]{4} \ |\ a,b,c\in\mat
 
 很容易看到任何包含$\sqrt[3]{2}$的数域都必须包含$\sqrt[3]{2}, \sqrt[3]{4}$，从而包含$\mathbb{Q}(\sqrt[3]{2})$，那么只要证明$\mathbb{Q}(\sqrt[3]{2})$是一个数域。设$m(x) = x^3 - 2$，这是$\sqrt[3]{2}$的所谓的（首一的,
 monic）极小多项式[^1](minimal polynomial over
-$\mathbb{Q}$。令$F = \mathbb{Q}[x] / (m(x))$为$\mathbb{Q}$系数多项式全体的等价类组成的集合，其中的等价关系为
+$\mathbb{Q}$)。令$F = \mathbb{Q}[x] / (m(x))$为$\mathbb{Q}$系数多项式全体的等价类组成的集合，其中的等价关系为
 $$f_1(x) \sim f_2(x) \quad \Longleftrightarrow \quad \exists g(x) \ s.t.\ f_1(x)-f_2(x) = g(x)m(x)$$
 作为一个$\mathbb{Q}$线性空间，$F$的一组基可以取作$1, \overline{x}, \overline{x}^2$。这是因为对于任意一个$f(x) \in \mathbb{Q}[x]$，都存在$g(x), r(x)$，$\deg r(x) < \deg m(x)$，使得
 $$f(x) = g(x)m(x) + r(x)$$ 于是
@@ -173,7 +173,7 @@ $$F = \{ a + b\overline{x} + c\overline{x}^2 \ |\ a,b,c\in\mathbb{Q} \}$$
 $$\varphi : F \to \mathbb{Q}(\sqrt[3]{2}), \overline{x} \mapsto \sqrt[3]{2}$$
 可以验证
 
--   $F$关于加、减、乘、除封闭；
+-   $F$关于加、减、乘、除封闭。加、减、乘封闭很容易验证。任取$f(x)\\in \mathbb{Q}[x] \setminus m(x)\cdot\mathbb{Q}[x]$，即$\overline{f} \neq 0 \in F$，那么$f(x)$与$m(x)$互素，即他们的最大公因子为$1$，记作$(f(x), m(x)) = 1$。于是（通过辗转相除法）存在$g_1(x), g_2(x) \in \mathbb{Q}[x]$，使得$g_1(x)f(x) + g_2(x)m(x) = 1$，于是$\overline{f}$在$F$中的逆元即为$\overline{g}_1$。
 
 -   $\varphi$是一个一一对应（且保运算，即是一个域同构）。
 
