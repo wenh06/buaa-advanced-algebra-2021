@@ -14,7 +14,7 @@ from PIL import Image
 _EMAIL = "wenh06@buaa.edu.cn"
 _SERVER = "mail.buaa.edu.cn"
 _PORT = 993
-_PATTERN = "^(?P<id>[\d]{8})-(?P<name>[\w]{2,10})-第(?P<no>[\d一二三四五六七八九十]{1,2})次作业"
+_SUBJECT_PATTERN = "^(?P<id>[\d]{8})[\s]*-[\s]*(?P<name>[\w]{2,10})[\s]*-[\s]*第(?P<no>[\d一二三四五六七八九十]{1,2})次作业"
 
 _zh2num = {k:v for k,v in zip("一二三四五六七八九十", range(1,11))}
 for k in "一二三四五六七八九":
@@ -71,9 +71,9 @@ def collect():
                         subject = subject.decode(encoding)
                     except:
                         pass
-                if not isinstance(subject, str) or not re.search(_PATTERN, subject):
+                if not isinstance(subject, str) or not re.search(_SUBJECT_PATTERN, subject):
                     continue
-                subject_content = list(re.finditer(_PATTERN, subject))[0].groupdict()
+                subject_content = list(re.finditer(_SUBJECT_PATTERN, subject))[0].groupdict()
                 student_id = int(subject_content["id"])
                 student_name = subject_content["name"]
                 assignment_no = subject_content["no"]
