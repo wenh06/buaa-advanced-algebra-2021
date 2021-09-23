@@ -15,7 +15,7 @@ _EMAIL = "wenh06@buaa.edu.cn"
 _SERVER = "mail.buaa.edu.cn"
 _PORT = 993  # 接收端口
 _SUBJECT_PATTERN = "^(?P<id>[\d]{8})(?:[\s]*[\-_][\s]*)?(?P<name>[\u4e00-\u9FFF]{0,10})(?:[\s]*[\-_][\s]*)?第(?P<no>[\d一二三四五六七八九十]{1,2})次作业"
-_BASE64_UTF8_PATTERN = "^=\?(?:utf|UTF)\-8\?(?:b|B)\?(?P<base64_string>.*)\?=$"
+# _BASE64_UTF8_PATTERN = "^=\?(?:utf|UTF)\-8\?(?:b|B)\?(?P<base64_string>.*)\?=$"
 
 _zh2num = {k:v for k,v in zip("一二三四五六七八九十", range(1,11))}
 for k in "一二三四五六七八九":
@@ -128,11 +128,12 @@ def collect():
                 
                 msg_content_type = msg.get_content_type()
                 
-                if msg_content_type == "multipart/mixed":  # with attachments
-                    print("with attachments")
+                if msg_content_type in ["multipart/mixed", "multipart/related"]:  # with attachments or inline image
+                    print("with attachments or inline images")
                     for part in msg.get_payload():
                         content_type = part.get_content_type()
                         content_disposition = str(part.get("Content-Disposition"))
+                        content_transfer_encoding = part.get("Content-Transfer-Encoding")
                         if content_type == "text/plain" and "attachment" not in content_disposition:
                             try:
                                 body = part.get_payload(decode=True).decode()
@@ -140,33 +141,16 @@ def collect():
                                 body = ""
                             # print text/plain emails and skip attachments
                             print(body)
-                        elif "attachment" in content_disposition:
+                        elif "attachment" in content_disposition or content_type.startswith("image"):
                             # download attachment
-                            filename = part.get_filename()
-                            if re.search(_BASE64_UTF8_PATTERN, filename):
-                                filename = re.findall(_BASE64_UTF8_PATTERN, filename)[0]
-                                filename = base64.b64decode(filename).decode("utf-8")
+                            filename, encoding = decode_header(part.get_filename())[0]
+                            if encoding:
+                                filename = filename.decode(encoding)
                             if filename:
+                                filename = re.sub("[\s]+", "-", filename)
                                 filepath = os.path.join(save_folder_name, filename)
-                                # download attachment and save it
+                                # download attachment or inline image and save it
                                 open(filepath, "wb").write(part.get_payload(decode=True))
-                elif msg_content_type == "multipart/related":  # inline image
-                    print("with inline image")
-                    img_no = 1
-                    for part in msg.get_payload():
-                        if part.get("Content-Type").startswith("image") and part.get("Content-Transfer-Encoding") == "base64":
-                            imgdata = base64.b64decode(part.get_payload())
-                            img = Image.open(io.BytesIO(imgdata))
-                            filepath = os.path.join(save_folder_name, f"image-{img_no}.jpg")
-                            img.save(filepath)
-                            img_no += 1
-                        if part.get("Content-Type") == "text/plain" and "attachment" not in part.get("Content-Disposition"):
-                            try:
-                                body = part.get_payload(decode=True).decode()
-                            except:
-                                body = ""
-                            # print text/plain emails and skip attachments
-                            print(body)
                 print("="*100)
     df_stats.to_csv(_STATS_FILE, index=False)
     print(f"collection used {time.time()-start:.2f} seconds")
