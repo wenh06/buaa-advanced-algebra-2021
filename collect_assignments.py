@@ -13,8 +13,8 @@ from PIL import Image
 
 _EMAIL = "wenh06@buaa.edu.cn"
 _SERVER = "mail.buaa.edu.cn"
-_PORT = 993
-_SUBJECT_PATTERN = "^(?P<id>[\d]{8})(?:[\s]*-[\s]*)?(?P<name>[\w]{2,10})(?:[\s]*-[\s]*)?第(?P<no>[\d一二三四五六七八九十]{1,2})次作业"
+_PORT = 993  # 接收端口
+_SUBJECT_PATTERN = "^(?P<id>[\d]{8})(?:[\s]*[\-_][\s]*)?(?P<name>[\u4e00-\u9FFF]{0,10})(?:[\s]*[\-_][\s]*)?第(?P<no>[\d一二三四五六七八九十]{1,2})次作业"
 _BASE64_UTF8_PATTERN = "^=\?(?:utf|UTF)\-8\?(?:b|B)\?(?P<base64_string>.*)\?=$"
 
 _zh2num = {k:v for k,v in zip("一二三四五六七八九十", range(1,11))}
@@ -64,28 +64,6 @@ def collect():
             if isinstance(response, tuple):
                 # parse a bytes email into a message object
                 msg = email.message_from_bytes(response[1])
-                # decode the email subject
-                subject, encoding = decode_header(msg["Subject"])[0]
-                if isinstance(subject, bytes):
-                    # if it"s a bytes, decode to str
-                    try:
-                        subject = subject.decode(encoding)
-                    except:
-                        pass
-                if not isinstance(subject, str) or not re.search(_SUBJECT_PATTERN, subject):
-                    continue
-                subject_content = list(re.finditer(_SUBJECT_PATTERN, subject))[0].groupdict()
-                student_id = int(subject_content["id"])
-                student_name = subject_content["name"]
-                assignment_no = subject_content["no"]
-                assignment_no = _zh2num.get(assignment_no, assignment_no)
-
-                df_assignment = df_stats[(df_stats["学号"]==student_id) & (~df_stats[f"第{assignment_no}次作业"].isna())]
-
-                if not df_assignment.empty:
-                    print(f"{student_name}({student_id}) 第{assignment_no}次作业 already collected.")
-                    print("Continue.")
-                    continue
 
                 # decode email sender
                 From, encoding = decode_header(msg.get("From"))[0]
@@ -98,6 +76,35 @@ def collect():
                     From_email = re.findall("\<(?P<email>[\w\d\_\-]+@[\w\d\.\_\-]+)\>", msg.get("From"))[0]
                 except:
                     From_email = ""
+
+                # decode the email subject
+                subject, encoding = decode_header(msg["Subject"])[0]
+                if isinstance(subject, bytes):
+                    # if it"s a bytes, decode to str
+                    try:
+                        subject = subject.decode(encoding)
+                    except:
+                        pass
+                if isinstance(subject, str):
+                    subject = re.sub("高代|高等代数", "", subject)
+                if not isinstance(subject, str) or not re.search(_SUBJECT_PATTERN, subject):
+                    continue
+                subject_content = list(re.finditer(_SUBJECT_PATTERN, subject))[0].groupdict()
+                student_id = int(subject_content["id"])
+                student_name = subject_content["name"]
+                assignment_no = subject_content["no"]
+                assignment_no = _zh2num.get(assignment_no, assignment_no)
+
+                if student_name == "" and From!= "" and isChinese(From, strict=True):
+                    student_name = From
+
+                df_assignment = df_stats[(df_stats["学号"]==student_id) & (~df_stats[f"第{assignment_no}次作业"].isna())]
+
+                if not df_assignment.empty:
+                    print(f"{student_name}({student_id}) 第{assignment_no}次作业 already collected.")
+                    print("Continue.")
+                    continue
+
                 print("Subject:", subject)
                 print("From:", From)
                 print("Email address:", From_email)
@@ -162,6 +169,21 @@ def collect():
                 print("="*100)
     df_stats.to_csv(_STATS_FILE, index=False)
     print(f"collection used {time.time()-start:.2f} seconds")
+
+
+def isChinese(text:str, strict:bool=False) -> bool:
+    """
+    """
+    pattern = "[\u4e00-\u9FFF]"
+    if not re.search(pattern, text):  # contains Chinese
+        return False
+    if not strict:
+        pattern = "^[\u4e00-\u9FFF0-9a-zA-Z]+$"  # allow for Chinese along with numbers and English characters
+    else:
+        pattern = "^[\u4e00-\u9FFF]+$"  # only Chinese
+    if not re.search(pattern, text):
+        return False
+    return True
 
 
 if __name__ == "__main__":
