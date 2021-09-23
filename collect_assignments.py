@@ -103,6 +103,7 @@ def collect():
                 if not df_assignment.empty:
                     print(f"{student_name}({student_id}) 第{assignment_no}次作业 already collected.")
                     print("Continue.")
+                    print("="*100)
                     continue
 
                 print("Subject:", subject)
