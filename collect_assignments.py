@@ -14,7 +14,8 @@ from PIL import Image
 _EMAIL = "wenh06@buaa.edu.cn"
 _SERVER = "mail.buaa.edu.cn"
 _PORT = 993
-_SUBJECT_PATTERN = "^(?P<id>[\d]{8})[\s]*-[\s]*(?P<name>[\w]{2,10})[\s]*-[\s]*第(?P<no>[\d一二三四五六七八九十]{1,2})次作业"
+_SUBJECT_PATTERN = "^(?P<id>[\d]{8})(?:[\s]*-[\s]*)?(?P<name>[\w]{2,10})(?:[\s]*-[\s]*)?第(?P<no>[\d一二三四五六七八九十]{1,2})次作业"
+_BASE64_UTF8_PATTERN = "^=\?(?:utf|UTF)\-8\?(?:b|B)\?(?P<base64_string>.*)\?=$"
 
 _zh2num = {k:v for k,v in zip("一二三四五六七八九十", range(1,11))}
 for k in "一二三四五六七八九":
@@ -78,14 +79,14 @@ def collect():
                 student_name = subject_content["name"]
                 assignment_no = subject_content["no"]
                 assignment_no = _zh2num.get(assignment_no, assignment_no)
-                
+
                 df_assignment = df_stats[(df_stats["学号"]==student_id) & (~df_stats[f"第{assignment_no}次作业"].isna())]
-                
+
                 if not df_assignment.empty:
                     print(f"{student_name}({student_id}) 第{assignment_no}次作业 already collected.")
                     print("Continue.")
                     continue
-                
+
                 # decode email sender
                 From, encoding = decode_header(msg.get("From"))[0]
                 if isinstance(From, bytes):
@@ -100,11 +101,11 @@ def collect():
                 print("Subject:", subject)
                 print("From:", From)
                 print("Email address:", From_email)
-                
+
                 folder_name = os.path.join(_PWD, "attachments", f"{student_id}-{student_name}")
                 save_folder_name = os.path.join(folder_name, f"第{assignment_no}次作业")
                 os.makedirs(save_folder_name, exist_ok=True)
-                
+
                 if student_id not in df_stats.学号.values.tolist():
                     df_stats = df_stats.append({
                     "学号": student_id,
@@ -113,42 +114,51 @@ def collect():
                 }, ignore_index=True)
                 else:
                     df_stats.loc[df_stats["学号"]==student_id, f"第{assignment_no}次作业"] = -1
+                    
+                if not msg.is_multipart():
+                    continue
                 
-                # if the email message is multipart
-                if msg.is_multipart():
-                    print("is multipart")
-                    # iterate over email parts
-                    for part in msg.walk():
-                        # extract content type of email
+                msg_content_type = msg.get_content_type()
+                
+                if msg_content_type == "multipart/mixed":  # with attachments
+                    print("with attachments")
+                    for part in msg.get_payload():
                         content_type = part.get_content_type()
                         content_disposition = str(part.get("Content-Disposition"))
-                        try:
-                            # get the email body
-                            body = part.get_payload(decode=True).decode()
-                        except Exception as e:
-                            pass
-                        if content_type == "multipart/related":  # inline image
-                            body = part.get_payload()
-                            img_no = 1
-                            for item in body:
-                                if item.get("Content-Type").startswith("image") and item.get("Content-Transfer-Encoding") == "base64":
-                                    imgdata = base64.b64decode(item.get_payload())
-                                    img = Image.open(io.BytesIO(imgdata))
-                                    filepath = os.path.join(save_folder_name, f"image-{img_no}.jpg")
-                                    img.save(filepath)
-                                    img_no += 1
-                        elif content_type == "text/plain" and "attachment" not in content_disposition:
+                        if content_type == "text/plain" and "attachment" not in content_disposition:
+                            try:
+                                body = part.get_payload(decode=True).decode()
+                            except:
+                                body = ""
                             # print text/plain emails and skip attachments
                             print(body)
                         elif "attachment" in content_disposition:
                             # download attachment
                             filename = part.get_filename()
+                            if re.search(_BASE64_UTF8_PATTERN, filename):
+                                filename = re.findall(_BASE64_UTF8_PATTERN, filename)[0]
+                                filename = base64.b64decode(filename).decode("utf-8")
                             if filename:
                                 filepath = os.path.join(save_folder_name, filename)
                                 # download attachment and save it
                                 open(filepath, "wb").write(part.get_payload(decode=True))
-                else:
-                    print("not multipart")
+                elif msg_content_type == "multipart/related":  # inline image
+                    print("with inline image")
+                    img_no = 1
+                    for part in msg.get_payload():
+                        if part.get("Content-Type").startswith("image") and part.get("Content-Transfer-Encoding") == "base64":
+                            imgdata = base64.b64decode(part.get_payload())
+                            img = Image.open(io.BytesIO(imgdata))
+                            filepath = os.path.join(save_folder_name, f"image-{img_no}.jpg")
+                            img.save(filepath)
+                            img_no += 1
+                        if part.get("Content-Type") == "text/plain" and "attachment" not in part.get("Content-Disposition"):
+                            try:
+                                body = part.get_payload(decode=True).decode()
+                            except:
+                                body = ""
+                            # print text/plain emails and skip attachments
+                            print(body)
                 print("="*100)
     df_stats.to_csv(_STATS_FILE, index=False)
     print(f"collection used {time.time()-start:.2f} seconds")

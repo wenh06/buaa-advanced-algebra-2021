@@ -171,5 +171,7 @@ dmypy.json
 # compiled files
 *.mexa64
 
+*.ipynb
+
 统计.csv
 attachments/
