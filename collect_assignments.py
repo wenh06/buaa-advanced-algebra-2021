@@ -7,6 +7,7 @@ import email
 from email.header import decode_header
 import imaplib
 import getpass
+import warnings
 from typing import NoReturn
 
 import chardet
@@ -60,6 +61,8 @@ def collect() -> NoReturn:
     else:
         df_stats = pd.DataFrame(columns=_COLS)
 
+    newly_collected = 0
+    new_attachment = 0
     for i in mail_ids:
         # fetch the email message by ID
         res, msg = mail.fetch(i, "(RFC822)")
@@ -125,6 +128,7 @@ def collect() -> NoReturn:
                 }, ignore_index=True)
                 else:
                     df_stats.loc[df_stats["学号"]==student_id, f"第{assignment_no}次作业"] = -1
+                    newly_collected += 1
                     
                 if not msg.is_multipart():
                     continue
@@ -155,9 +159,15 @@ def collect() -> NoReturn:
                                 # download attachment or inline image and save it
                                 with open(filepath, "wb") as f:
                                     f.write(part.get_payload(decode=True))
+                                    new_attachment += 1
+                            else:
+                                warnings.warn(f"{student_name}({student_id}) 第{assignment_no}次作业未找到附件或内嵌图片")
+                else:
+                    warnings.warn(f"{student_name}({student_id}) 第{assignment_no}次作业未找到附件或内嵌图片")
                 print("="*100)
     df_stats.to_csv(_STATS_FILE, index=False)
     print(f"collection used {time.time()-start:.2f} seconds")
+    print(f"新收取作业{newly_collected}份，附件{new_attachment}份")
 
 
 def isChinese(text:str, strict:bool=False) -> bool:
