@@ -1,12 +1,15 @@
 """
 """
 
-import os, io, re, base64, time
+import os, sys, io, time
+import re, base64
 import email
 from email.header import decode_header
 import imaplib
 import getpass
+from typing import NoReturn
 
+import chardet
 import pandas as pd
 from PIL import Image
 
@@ -26,7 +29,7 @@ _STATS_FILE = os.path.join(_PWD, "统计.csv")
 _COLS = ["学号", "姓名",] + [f"第{i}次作业" for i in range(1,20)]
 
 
-def collect():
+def collect() -> NoReturn:
     """
     """
     start = time.time()
@@ -150,7 +153,8 @@ def collect():
                                 filename = re.sub("[\s]+", "-", filename)
                                 filepath = os.path.join(save_folder_name, filename)
                                 # download attachment or inline image and save it
-                                open(filepath, "wb").write(part.get_payload(decode=True))
+                                with open(filepath, "wb") as f:
+                                    f.write(part.get_payload(decode=True))
                 print("="*100)
     df_stats.to_csv(_STATS_FILE, index=False)
     print(f"collection used {time.time()-start:.2f} seconds")
