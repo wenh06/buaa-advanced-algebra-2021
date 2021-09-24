@@ -128,7 +128,7 @@ def collect() -> NoReturn:
                 }, ignore_index=True)
                 else:
                     df_stats.loc[df_stats["学号"]==student_id, f"第{assignment_no}次作业"] = -1
-                    newly_collected += 1
+                newly_collected += 1
                     
                 if not msg.is_multipart():
                     continue
@@ -157,6 +157,7 @@ def collect() -> NoReturn:
                                 filename = re.sub("[\s]+", "-", filename)
                                 filepath = os.path.join(save_folder_name, filename)
                                 # download attachment or inline image and save it
+                                # TODO: compress before saving
                                 with open(filepath, "wb") as f:
                                     f.write(part.get_payload(decode=True))
                                     new_attachment += 1
