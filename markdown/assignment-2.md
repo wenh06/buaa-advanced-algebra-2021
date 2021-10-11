@@ -1,8 +1,3 @@
----
-date: 第二次作业
-title: 2021秋高等代数课后习题
----
-
 **习题2.1 第1题**
 
 向量组$\mathbf{\alpha}_1, \cdots, \mathbf{\alpha}_m$是否线性相关等价于线性方程组$\lambda_1\mathbf{\alpha}_1 + \cdots + \lambda\mathbf{\alpha}_m = 0$是否有非零解。
