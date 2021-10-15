@@ -6,12 +6,17 @@
 
 -   将$S$扩充为$S\cup T$的一个极大线性无关组$T_1 = \{ \alpha_1, \cdots, \alpha_s, \beta_{i_1}, \cdots, \beta_{i_k} \}$，则$T_1$与$T$等价，且$s+k\leqslant t$。
 
+-   （Steinitz替换定理）可以用向量$\alpha_1, \cdots, \alpha_s$替换向量$\beta_1, \cdots, \beta_t$中某$s$个向量$\beta_{i_1}, \cdots, \beta_{i_s}$，使得到的向量组$\{ \alpha_1, \cdots, \alpha_s, \beta_{i_{s+1}}, \cdots, \beta_{i_t} \}$与$\{ \beta_1, \cdots, \beta_t \}$等价。
+
 **证明：**(1).
 $T$作为子集，显然可以由$S\cup T$线性表出。任取向量$v\in S\cup T$，若$v\not\in T$，则$v\in S$。由于$S$可以由$T$线性表出，故$v$可以由$T$线性表出。所以由$S\cup T$可以由$T$线性表出。故向量组$T$与$S\cup T$等价。
 
 (2).
 容易看出$T_1$可以由向量组$T$线性表出。若$T$不能由$T_1$线性表出，则存在$\beta \in T\setminus T_1$，使得$\beta$不能表示为$T_1$中向量的线性组合。将$\beta$添加到$T_1$中得到$T_1'$，则$T_1'$是线性无关组且元素个数比$T_1$多，这与$T_1$是$S\cup T$的一个极大线性无关组矛盾。所以$T$能由$T_1$线性表出，故二者等价。而且有
-$$s+k = \operatorname{rank}(T_1) = \operatorname{rank}(T) \leqslant \# T = t$$
+$$s+k = \operatorname{rank}(T_1) = \operatorname{rank}(T) \leqslant \# T = t.$$
+
+(3).
+由第(2)问知存在向量组$T = \{ \beta_1, \cdots, \beta_t \}$中$k$个线性无关的向量$\beta_{j_1}, \cdots, \beta_{j_k}$，使得向量组$T_1 = \{ \alpha_1, \cdots, \alpha_s, \beta_{j_1}, \cdots, \beta_{j_k} \}$与向量组$T$等价，而且有$s+k\leqslant t$。向量组$T$的秩为$s+k$。于是从$\beta_{j_1}, \cdots, \beta_{j_k}$这$k$个线性无关的向量出发，在$T$中剩下的$t-k\geqslant s$个向量中，可以添加$s$个向量$\beta_{i_1}, \cdots, \beta_{i_s}$，使得$\{ \beta_{j_1}, \cdots, \beta_{j_k}, \beta_{i_1}, \cdots, \beta_{i_s} \}$构成向量组$T$的一组极大线性无关组。那么将$\beta_{i_1}, \cdots, \beta_{i_s}$替换为$\alpha_1, \cdots, \alpha_s$，得到的向量组（向量组$T_1$是其子集，同时其本身又是$S\cup T$的子集）即与原来的向量组$T$等价。
 
 **习题2.5 第8题**
 
@@ -27,7 +32,7 @@ $$s+k = \operatorname{rank}(T_1) = \operatorname{rank}(T) \leqslant \# T = t$$
 
 **习题2.6 第2题**
 
-将副书记何$\mathbb{C}$看成实数域上的线性空间$\mathbb{C}_{\mathbb{R}}$。求$\mathbb{C}_{\mathbb{R}}$与实数域上2维数组空间$\mathbb{R}^2 = \{ (x,y) \ \|\ x,y\in\mathbb{R} \}$之间的同构映射$\sigma$，将$1+i,1-i$分别映到$(1,0), (0,1)$.
+将复数集合$\mathbb{C}$看成实数域上的线性空间$\mathbb{C}_{\mathbb{R}}$。求$\mathbb{C}_{\mathbb{R}}$与实数域上2维数组空间$\mathbb{R}^2 = \{ (x,y) \ \|\ x,y\in\mathbb{R} \}$之间的同构映射$\sigma$，将$1+i,1-i$分别映到$(1,0), (0,1)$.
 
 **解：**$\mathbb{C}_{\mathbb{R}}$的一组基可以取为$1,i$
 有$\sigma(a+bi) = a\sigma(1) + b\sigma(i)$，只要确定$\sigma(1), \sigma(i)$的值即可确定同构映射$\sigma$。由
