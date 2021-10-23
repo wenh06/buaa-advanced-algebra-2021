@@ -25,7 +25,7 @@ $$D_n = (b_1-b_2) \det (\alpha-b_1\beta, \beta) = (b_1-b_2)((a_1-b_1)-(a_2-b_1))
 D_n & = \det (-2e_1+3\beta, -e_2+3\beta, 3\beta, e_4+3\beta, \cdots, (n-3)e_n+3\beta) \\
 & = \det (-2e_1, -e_2, 3\beta, e_4, \cdots, (n-3)e_n)
 \end{align*}
-于是当$n \geqslant 3$时，$D_n = 6*(n-3)!$，$D_2 = -4$, $D_1 = 1$.
+于是当$n \geqslant 3$时，$D_n = 6 \cdot (n-3)!$，$D_2 = -4$, $D_1 = 1$.
 
 \newpageorvspace
 
@@ -45,7 +45,8 @@ D_n & = \begin{vmatrix} x-a & a & a & \cdots & a \\ 0 & x & a & \cdots & a \\ 0 
 & = (x-a)^{n-1} x + \dfrac{(x+a)^n-(x+a)(x-a)^{n-1}}{2}, \quad a \neq 0 \\
 & = \dfrac{(x+a)^n+(x-a)^n}{2}, \quad a \neq 0
 \end{align*}
-容易验证，当$n = 1$以及当$a = 0$时的特殊情况也符合这个通项公式，所以$D_n = \dfrac{(x+a)^n+(x-a)^n}{2}$.
+容易验证，当$n = 1$以及当$a = 0$时的特殊情况也符合这个通项公式，所以
+$$D_n = \dfrac{(x+a)^n+(x-a)^n}{2}.$$
 
 (4). 令原行列式为$D_n$，从第$n$行开始，逐行乘以$x$加到上一行，有
 \begin{align*}
