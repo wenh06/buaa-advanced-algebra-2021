@@ -12,14 +12,16 @@ $$\begin{aligned}
 D_n & = \det (\alpha-b_1\beta, \alpha-b_2\beta, \cdots, \alpha-b_n\beta) \\
 & = \det (\alpha-b_1\beta, (b_1-b_2)\beta, \cdots, (b_1-b_n)\beta)\end{aligned}$$
 于是，因为后$n-1$列秩至多为1，若$n \geqslant 3$，那么$D_n = 0$；若$n \leqslant 2$，那么
-$$D_n = (b_1-b_2) \det (\alpha-b_1\beta, \beta) = (b_1-b_2)((a_1-b_1)-(a_2-b_1)) = (b_1-b_2)(a_1-a_2).$$
+$$\begin{gathered}
+    D_2 = (b_1-b_2) \det (\alpha-b_1\beta, \beta) = (b_1-b_2)((a_1-b_1)-(a_2-b_1)) = (b_1-b_2)(a_1-a_2), \\
+    D_1 = a_1-b_1\end{gathered}$$
 
 (3). 令原行列式为$D_n$，$e_i, i=1,\cdots,n,$
 为$\mathbb{F}^n$的自然基，$\beta = \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix}$,
 那么有 $$\begin{aligned}
 D_n & = \det (-2e_1+3\beta, -e_2+3\beta, 3\beta, e_4+3\beta, \cdots, (n-3)e_n+3\beta) \\
 & = \det (-2e_1, -e_2, 3\beta, e_4, \cdots, (n-3)e_n)\end{aligned}$$
-于是当$n \geqslant 3$时，$D_n = 6 \cdot (n-3)!$，$D_2 = -4$, $D_1 = 1$.
+于是当$n \geqslant 3$时，$D_n = 6 \cdot (n-3)!$，$D_2 = -7$, $D_1 = 1$.
 
 **习题3.3 第1题**. 计算$n$阶行列式
 
