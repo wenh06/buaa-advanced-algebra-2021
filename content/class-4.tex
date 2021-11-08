@@ -77,4 +77,41 @@ A & = \begin{pmatrix} a & b & c \\ c & a & b \\ b & c & a \end{pmatrix} \to \beg
 考虑到$\det\begin{pmatrix} a & b \\ c & a \end{pmatrix} = \frac12\left( a^2-bc\right)$，此式等于$0$当且仅当$a=b=c=0$，但此时$\ell_1,\ell_2,\ell_3$就不是直线方程了。所以在$a+b+c=0$的情况下，总有$\operatorname{rank}(A) = 2$。于是
 $$\ell_1,\ell_2,\ell_3 \text{ 交于一点 } \Longleftrightarrow \ a+b+c=0$$
 
+\newpageorvspace
+
+{\bf 第5题} 求循环矩阵（Circulant Matrix）$A$的行列式，
+$$A = \begin{pmatrix} a_0 & a_1 & a_2 & \cdots & a_{n-1} \\ a_{n-1} & a_0 & a_1 & \cdots & a_{n-2} \\ \vdots & \vdots & \vdots & & \vdots \\ a_1 & a_2 & a_3 & \cdots & a_0 \end{pmatrix}, \quad a_0,\ldots,a_{n-1} \in \mathbb{C}$$
+
+{\bf 解：}设$u$为任一$n$次单位根，令$\mu = \begin{pmatrix} 1 \\ u \\ \vdots \\ u^{n-1} \end{pmatrix}$, 那么有
+$$A\mu = \begin{pmatrix} a_0 + a_1u + \cdots + a_{n-1}u^{n-1} \\ a_{n-1} + a_0u + \cdots + a_{n-2}u^{n-1} \\ \vdots \\ a_1 + a_2u + \cdots + a_0u^{n-1} \end{pmatrix} = \begin{pmatrix} f(u) \\ uf(u) \\ \vdots \\ u^{n-1}f(u) \end{pmatrix} = f(u)\mu,$$
+其中$f(u) = a_0 + a_1u + \cdots + a_{n-1}u^{n-1}$. 现令$u = \exp(2\pi i/n)$为$n$次本原单位根，$\omega_j = \begin{pmatrix} 1 \\ u^j \\ \vdots \\ u^{(n-1)j} \end{pmatrix}$, $j=0,\ldots,n-1$, 那么有$A\omega_j = f(u^j)\omega_j$. 又令$W = (\omega_0, \cdots, \omega_{n-1})$, 有
+$$AW = (A\omega_0, \cdots, A\omega_{n-1}) = (f(u^0)\omega_0, \cdots, f(u^{n-1})\omega_{n-1}).$$
+于是有
+$$\det A \cdot \det W = \det(AW) = \det(f(u^0)\omega_0, \cdots, f(u^{n-1})\omega_{n-1}) = \prod_{j=0}^{n-1}f(u^j) \det W$$
+因为$u$为$n$次本原单位根，$u^0, \ldots, u^{n-1}$互不相同，$\det W \neq 0$, 上式两边同时消去$\det W$有
+\begin{align*}
+& \det A = \prod_{j=0}^{n-1}f(u^j), \\
+& \text{其中}\  u = \exp(2\pi i/n), \ f(u) = a_0 + a_1u + \cdots + a_{n-1}u^{n-1}
+\end{align*}
+
+{\bf 习题3.5 第1题}. (2). 记$D_n = \begin{vmatrix} 1+x_1 & 1+x_1^2 & \cdots & 1+x_1^n \\ 1+x_2 & 1+x_2^2 & \cdots & 1+x_2^n \\ \vdots & \vdots & & \vdots \\ 1+x_n & 1+x_n^2 & \cdots & 1+x_n^n \end{vmatrix}$, 令$\alpha_i = \begin{pmatrix} x_1^i \\ \vdots \\ x_n^i \end{pmatrix}$, $e = \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix}$, 那么
+\begin{align*}
+D_n & = \det (e+\alpha_1, e+\alpha_2, \cdots, e+\alpha_n) \\
+& = \det(\alpha_1, \cdots, \alpha_n) + \det(e, \alpha_2, \cdots, \alpha_n) + \cdots + \det(\alpha_1, \cdots, \alpha_{n-1}, e) \\
+& = \det(\alpha_1, \cdots, \alpha_n) + \det(e, \alpha_2, \cdots, \alpha_n) + \cdots + (-1)^{n-1}\det(e, \alpha_1, \cdots, \alpha_{n-1}) \\
+& = 2\det(\alpha_1, \cdots, \alpha_n) - \left\{(-1)^2\det(\alpha_1, \cdots, \alpha_n) + \cdots + (-1)^{n+2} \det(e, \alpha_1, \cdots, \alpha_{n-1})\right\} \\
+& = 2\det(\alpha_1, \cdots, \alpha_n) - \det\begin{pmatrix} 1 & 1 & \cdots & 1 \\ e & \alpha_1 & \cdots & \alpha_n \end{pmatrix} \\
+& = 2x_1\cdots x_n \prod_{1\leqslant i<j \leqslant n} (x_j-x_i) - \prod_{0\leqslant i<j \leqslant n} (x_j-x_i) \quad (\text{其中$x_0=1$}) \\
+& = \left( 2\prod_{k=1}^n x_k - \prod_{k=1}^n(x_k-1) \right) \prod_{1\leqslant i<j \leqslant n} (x_j-x_i)
+\end{align*}
+
+\newpageorvspace
+
+{\bf 习题3.5 第2题}. 记$D = \begin{vmatrix} 0 & a_1+a_2 & \cdots & a_1+a_n \\ a_2+a_1 & 0 & \cdots & a_2+a_n \\ a_n+a_2 & a_n+a_2 & \cdots & 0 \end{vmatrix}$, 令$\alpha_1 = \begin{pmatrix} -a_1 \\ a_2 \\ \vdots \\ a_n \end{pmatrix}$, $\ldots$, $\alpha_n = \begin{pmatrix} a_1 \\ \vdots \\ a_{n-1} \\ -a_n \end{pmatrix}$, $e = \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix}$, 那么类似上一题有
+\begin{align*}
+D_n & = \det(\alpha_1 + a_1e, \cdots, \alpha_n + a_ne) \\
+& = 2\det(\alpha_1, \cdots, \alpha_n) - \det\begin{pmatrix} 1 & a_1 & \cdots & a_n \\ e & \alpha_1 & \cdots & \alpha_n \end{pmatrix}
+\end{align*}
+这两个都是比较好计算的行列式。
+
 \end{document}
