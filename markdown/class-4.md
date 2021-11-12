@@ -5,13 +5,13 @@
     \det A(\lambda) & = \begin{vmatrix} 1 & \cdots & 1 & \lambda \\ 1 & \cdots & \lambda & 1 \\ \vdots & \reflectbox{$\ddots$} & \vdots & \vdots \\ \lambda & \cdots & 1 & 1 \end{vmatrix} = \begin{vmatrix} 1 & \cdots & 1 & \lambda \\ 0 & \cdots & \lambda-1 & 1-\lambda \\ \vdots & \reflectbox{$\ddots$} & \vdots & \vdots \\ \lambda-1 & \cdots & 0 & 1-\lambda \end{vmatrix} \\
     & = \begin{vmatrix} 1 & \cdots & 1 & \lambda + (n-1) \\ 0 & \cdots & \lambda-1 & 0 \\ \vdots & \reflectbox{$\ddots$} & & \vdots \\ \lambda-1 & \cdots & \cdots & 0 \end{vmatrix} \\
     & = (-1)^{\frac{n(n-1)}{2}} (\lambda+(n-1))(\lambda-1)^{n-1}\end{aligned}$$
-所以当$n\neq 1, 1-n$时，矩阵$A(\lambda)$行列式不为$0$，从而满秩，秩为$n$.
+所以当$\lambda \neq 1, 1-n$时，矩阵$A(\lambda)$行列式不为$0$，从而满秩，秩为$n$.
 当$n = 1$时，矩阵$A(\lambda)$所有元素值都为$1$，这样的矩阵秩为$1$.
 当$n = 1-n$时，矩阵$A(\lambda)$在之前求行列式化简到最后一步对应的矩阵为
 $$\begin{pmatrix} 1 & \cdots & 1 & 0 \\ 0 & \cdots & -n & 0 \\ \vdots & \reflectbox{$\ddots$} & & \vdots \\ -n & \cdots & \cdots & 0 \end{pmatrix}$$
 很容易看出这个矩阵的秩为$n-1$. 另一种做法是把矩阵$A(\lambda)$化为阶梯形
 $$\begin{aligned}
-    A(\lambda) & = \begin{pmatrix} 1 & \cdots & 1 & 1-n \\ 1 & \cdots & 1-n & 1 \\ \vdots & \reflectbox{$\ddots$} & \vdots & \vdots \\ 1-n & \cdots & 1 & 1 \end{pmatrix} \to \begin{pmatrix} 1 & \cdots & 1 & 1-n \\ 0 & \cdots & -n & n \\ \vdots & \reflectbox{$\ddots$} & \vdots & \vdots \\ -n & \cdots & 0 & n \end{pmatrix} \\
+    A(1-n) & = \begin{pmatrix} 1 & \cdots & 1 & 1-n \\ 1 & \cdots & 1-n & 1 \\ \vdots & \reflectbox{$\ddots$} & \vdots & \vdots \\ 1-n & \cdots & 1 & 1 \end{pmatrix} \to \begin{pmatrix} 1 & \cdots & 1 & 1-n \\ 0 & \cdots & -n & n \\ \vdots & \reflectbox{$\ddots$} & \vdots & \vdots \\ -n & \cdots & 0 & n \end{pmatrix} \\
     & \to \begin{pmatrix} 1 & \cdots & 1 & 1-n \\ 0 & \cdots & 1 & -1 \\ \vdots & \reflectbox{$\ddots$} & \vdots & \vdots \\ 1 & \cdots & 0 & -1 \end{pmatrix} \to \begin{pmatrix} 0 & \cdots & 0 & 0 \\ 0 & \cdots & 1 & -1 \\ \vdots & \reflectbox{$\ddots$} & \vdots & \vdots \\ 1 & \cdots & 0 & -1 \end{pmatrix} \to \begin{pmatrix} 1 & 0 & \cdots & 0 & -1 \\ 0 & 1 & \cdots & 0 & -1 \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & \cdots & 1 & -1 \\ 0 & 0 & \cdots & 0 & 0 \end{pmatrix}\end{aligned}$$
 
 **第2题**.
@@ -26,7 +26,8 @@ $$v = (\lambda_{11} + i\lambda_{12})\alpha_1 + \cdots + (\lambda_{n1} + i\lambda
 
 若$V$是数域$\mathbb{F}$上的$n$维线性空间，$\mathbb{F}$是子域$\mathbb{F}_0$的$m$维线性空间，那么$V$是域$\mathbb{F}_0$上的$mn$维线性空间。设$\mathbb{F}$作为$\mathbb{F}_0$上线性空间的一组基为$\mu_1, \ldots, \mu_m$,
 那么$V$作为域$\mathbb{F}_0$上的线性空间的一组基可以取为
-$$\left\{ \mu_i\alpha_j \ \middle|\ 1 \leqslant i \leqslant m, 1 \leqslant j \leqslant n \right\}$$
+$$\left\{ \mu_i\alpha_j \ \middle|\ 1 \leqslant i \leqslant m, 1 \leqslant j \leqslant n \right\}.$$
+利用同样的方法可以证明以上这组向量在可以在$\mathbb{F}_0$上线性表出$V$中所有向量，并且在$\mathbb{F}_0$上线性无关。
 
 **第3题**. 设$V = \mathbb{F}^n$,
 $W = \left\{ \begin{pmatrix} a_1 \\ \vdots \\ a_n \end{pmatrix} \ \middle|\ a_1+a_2=a_2-a_3=0 \right\}$.
@@ -47,7 +48,7 @@ $\overline{v}_2 = v_2 + W$.
 
 **证明：**求三条直线方程交点的方程组可写为
 $$A\begin{pmatrix} x \\ y \\ 1 \end{pmatrix} = 0, \quad \text{ 其中 } A = \begin{pmatrix} a & b & c \\ c & a & b \\ b & c & a \end{pmatrix}.$$
-$\ell_1,\ell_2,\ell_3$交于一点当且仅当$A\begin{pmatrix} x \\ y \\ 1 \end{pmatrix} = 0$有唯一解，这又等价于$A\begin{pmatrix} x \\ y \\ z \end{pmatrix} = 0$解空间维数为$1$，即$A$的秩为2。对$A$做行、列的初等变换有
+$\ell_1,\ell_2,\ell_3$交于一点当且仅当$A\begin{pmatrix} x \\ y \\ 1 \end{pmatrix} = 0$有唯一解，这又等价于$A\begin{pmatrix} x \\ y \\ z \end{pmatrix} = 0$解空间维数为$1$，即$A$的秩为2，且在$z$轴上的投影非平凡。对$A$做行、列的初等变换有
 $$\begin{aligned}
 A & = \begin{pmatrix} a & b & c \\ c & a & b \\ b & c & a \end{pmatrix} \to \begin{pmatrix} a & b & c \\ c & a & b \\ a+b+c & a+b+c & a+b+c \end{pmatrix}\end{aligned}$$
 
@@ -80,7 +81,10 @@ $$\det A \cdot \det W = \det(AW) = \det(f(u^0)\omega_0, \cdots, f(u^{n-1})\omega
 因为$u$为$n$次本原单位根，$u^0, \ldots, u^{n-1}$互不相同，$\det W \neq 0$,
 上式两边同时消去$\det W$有 $$\begin{aligned}
 & \det A = \prod_{j=0}^{n-1}f(u^j), \\
-& \text{其中}\  u = \exp(2\pi i/n), \ f(u) = a_0 + a_1u + \cdots + a_{n-1}u^{n-1}\end{aligned}$$
+& \text{其中}\  u = \exp(2\pi i/n), \ f(u) = a_0 + a_1u + \cdots + a_{n-1}u^{n-1}.\end{aligned}$$
+以上情况比较特殊，实际上我们直接观察出来了$A$的所有特征向量与特征值，于是有
+$$AW = W\operatorname{diag}(f(u^0), \ldots, f(u^{n-1})),$$
+从而有$\det A = \det(\operatorname{diag}(f(u^0), \ldots, f(u^{n-1})))$.
 
 **习题3.5 第1题**. (2).
 记$D_n = \begin{vmatrix} 1+x_1 & 1+x_1^2 & \cdots & 1+x_1^n \\ 1+x_2 & 1+x_2^2 & \cdots & 1+x_2^n \\ \vdots & \vdots & & \vdots \\ 1+x_n & 1+x_n^2 & \cdots & 1+x_n^n \end{vmatrix}$,
@@ -96,7 +100,7 @@ D_n & = \det (e+\alpha_1, e+\alpha_2, \cdots, e+\alpha_n) \\
 & = \left( 2\prod_{k=1}^n x_k - \prod_{k=1}^n(x_k-1) \right) \prod_{1\leqslant i<j \leqslant n} (x_j-x_i)\end{aligned}$$
 
 **习题3.5 第2题**.
-记$D = \begin{vmatrix} 0 & a_1+a_2 & \cdots & a_1+a_n \\ a_2+a_1 & 0 & \cdots & a_2+a_n \\ a_n+a_2 & a_n+a_2 & \cdots & 0 \end{vmatrix}$,
+记$D = \begin{vmatrix} 0 & a_1+a_2 & \cdots & a_1+a_n \\ a_2+a_1 & 0 & \cdots & a_2+a_n \\ \vdots & \vdots & \ddots & \vdots \\ a_n+a_2 & a_n+a_2 & \cdots & 0 \end{vmatrix}$,
 令$\alpha_1 = \begin{pmatrix} -a_1 \\ a_2 \\ \vdots \\ a_n \end{pmatrix}$,
 $\ldots$,
 $\alpha_n = \begin{pmatrix} a_1 \\ \vdots \\ a_{n-1} \\ -a_n \end{pmatrix}$,
