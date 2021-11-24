@@ -27,6 +27,12 @@ $$d_{ij} = (AB)_{ji} = (-1)^{i+j} \det(\widehat{A}_j \widetilde{B}_i).$$
 
 于是，对于所有的$1\leqslant i,j \leqslant n$, 都有$c_{ij} = d_{ij}$，所以相应的矩阵是同一矩阵，即$(AB)^* = B^*A^*$.
 
+另一种解法：当$A,B$都是可逆阵的时候，有
+$$(AB)^* = \det(AB) \cdot (AB)^{-1} = (\det B \cdot B^{-1}) \cdot (\det A \cdot A^{-1}) = B^*A^*.$$
+若$A$不可逆，则考虑$A(\lambda) = lambda I + A$; 若$B$不可逆，$B(\lambda) = lambda I + B$. 由于$\det A(\lambda)$, $\det B(\lambda)$都是$\lambda$的多项式，至多有有限多个根，在$0$的一个小的去心领域$\mathring{U}(0,\delta)$内，$A(\lambda), B(\lambda)$总是可逆的，从而有
+$$(A(\lambda)B(\lambda))^* = B(\lambda)^*A(\lambda)^*$$
+对上式取极限$\lim\limits_{\mathring{U}(0,\delta) \ni x\to 0}$即有$(AB)^* = B^*A^*$.
+
 (3). 由于$A^*$的每个元素都是$A$的某个$n-1$阶代数余子式，所以若$r(A)\leqslant n-2$, 那么$A^* = 0$. 又由于$AA^* = \det A I_n$, 所以当$r(A) = n$时，$r(A^*) = n$. 当$r(A) = n-1$时，由于$r(A^*) + r(A) - n \leqslant r(AA^*)$, 所以$r(A^*) \leqslant 1$, 同时$A$至少有一个非零子式，即$A^*$至少有一个非零元，所以$r(A*) \geqslant 1$, 从而必须由$r(A^*) = 1$. 于是，我们证明了
 $$r(A^*) = \begin{cases} n, & \text{ 若 } r(A) = n \\ 1, & \text{ 若 } r(A) = n-1 \\ 0, & \text{ 其余情况} \end{cases}$$
 所以当$n > 2$时，当$r(A) = n$时，
