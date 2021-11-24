@@ -41,7 +41,7 @@ $$(A^*)^* = \det A^* \cdot (A^*)^{-1} = (\det A)^{n-1} (\det A \cdot A^{-1})^{-1
 
 \newpageorvspace
 
-{\bf 习题4.3 第9题}. 设方阵$A = (a_{ij})_{n\times n} \in \mathbb{F}^{n\times n}$的行列式$|A| \neq 0$, $\beta\in\mathbb{n\times 1}$, 则线性方程组$AX=\beta$有唯一解$X = A^{-1}\beta$. 利用$A^{-1}$的表达式$A^{-1} = \frac{1}{|A|}A^*$证明Cramer法则。
+{\bf 习题4.3 第9题}. 设方阵$A = (a_{ij})_{n\times n} \in \mathbb{F}^{n\times n}$的行列式$|A| \neq 0$, $\beta\in\mathbb{F}^{n\times 1}$, 则线性方程组$AX=\beta$有唯一解$X = A^{-1}\beta$. 利用$A^{-1}$的表达式$A^{-1} = \frac{1}{|A|}A^*$证明Cramer法则。
 
 {\bf 证明：}线性方程组$AX=\beta$的解$X = A^{-1}\beta = \frac{1}{|A|}A^*\beta$. 记$X = (x_1, \cdots, x_n)^T, A^* = (c_{ij}), \beta = (b_1, \cdots, b_n)^T$, 其中$c_{ij} = A_{ji}$为方阵$A$的第$(j,i)$位代数余子式。那么有
 $$x_i = \frac{c_{i1}b_1 + \cdots + c_{in}b_n}{|A|} = \frac{A_{1i}b_1 + \cdots + A_{ni}b_n}{|A|}$$
