@@ -12,8 +12,11 @@
 所以$(\lambda A)_{(i,j)} = \lambda^{n-1} A_{(i,j)}$,
 进而有$(\lambda A)^* = \lambda^{n-1}A^*$.
 
-(2). 令$B^*A^* = (c_{ij})$, 那么
-$$c_{ij} = \sum\limits_{k=1}^n B_{ki} A_{jk} = (-1)^{2k}(-1)^{i+j} \det(\widehat{A}_j \widetilde{B}_i),$$
+(2). 令$B^*A^* = (c_{ij})$, 那么 $$\begin{aligned}
+c_{ij} & = \sum\limits_{k=1}^n B_{ki} A_{jk} \\
+& = \sum\limits_{k=1}^n (-1)^{k+j}\det A\begin{pmatrix} 1,\cdots,j-1,j+1,\cdots,n \\ 1,\cdots,k-1,k+1,\cdots,n \end{pmatrix} \cdot (-1)^{k+i} \det B\begin{pmatrix} 1,\cdots,k-1,k+1,\cdots,n \\ 1,\cdots,i-1,i+1,\cdots,n \end{pmatrix} \\
+& = (-1)^{i+j} \sum\limits_{k=1}^n \det\widehat{A}_j\begin{pmatrix} 1,\cdots,n-1 \\ 1,\cdots,k-1,k+1,\cdots,n \end{pmatrix} \cdot \det \widetilde{B}_i\begin{pmatrix} 1,\cdots,k-1,k+1,\cdots,n \\ 1,\cdots,n-1 \end{pmatrix} \\
+& = (-1)^{i+j} \det(\widehat{A}_j \widetilde{B}_i),\end{aligned}$$
 其中$B_{ki}, A_{jk}$分别为$B$在第$(k,i)$位的代数余子式与$A$在第$(j,k)$位的代数余子式，$\widehat{A}_j$为方阵$A$删掉第$j$行得到的$(n-1)\times n$的矩阵，$\widetilde{B}_i$为方阵$B$删掉第$i$列得到的$n\times (n-1)$的矩阵。后面这个等号是根据Binet-Cauchy公式（课本定理4.5.3(3)）得到的。
 
 另一方面，方阵$(AB)^*$的第$(i,j)$位元素，记为$d_{ij}$，为方阵$AB$的第$(j,i)$位代数余子式$(AB)_{ji}$,
@@ -38,8 +41,8 @@ $$(A(\lambda)B(\lambda))^* = B(\lambda)^*A(\lambda)^*$$
 所以当$r(A) = n$时，$r(A^*) = n$.
 当$r(A) = n-1$时，由于$r(A^*) + r(A) - n \leqslant r(AA^*)$,
 所以$r(A^*) \leqslant 1$,
-同时$A$至少有一个非零子式，即$A^*$至少有一个非零元，所以$r(A*) \geqslant 1$,
-从而必须由$r(A^*) = 1$. 于是，我们证明了
+同时$A$至少有一个非零子式，即$A^*$至少有一个非零元，所以$r(A^*) \geqslant 1$,
+从而必须有$r(A^*) = 1$. 于是，我们证明了
 $$r(A^*) = \begin{cases} n, & \text{ 若 } r(A) = n \\ 1, & \text{ 若 } r(A) = n-1 \\ 0, & \text{ 其余情况} \end{cases}$$
 所以当$n > 2$时，当$r(A) = n$时，
 $$(A^*)^* = \det A^* \cdot (A^*)^{-1} = (\det A)^{n-1} (\det A \cdot A^{-1})^{-1} = (\det A)^{n-2} A.$$
