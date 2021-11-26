@@ -29,8 +29,8 @@ $$d_{ij} = (AB)_{ji} = (-1)^{i+j} \det(\widehat{A}_j \widetilde{B}_i).$$
 
 另一种解法：当$A,B$都是可逆阵的时候，有
 $$(AB)^* = \det(AB) \cdot (AB)^{-1} = (\det B \cdot B^{-1}) \cdot (\det A \cdot A^{-1}) = B^*A^*.$$
-若$A$不可逆，则考虑$A(\lambda) = lambda I + A$;
-若$B$不可逆，$B(\lambda) = lambda I + B$. 由于$\det A(\lambda)$,
+若$A$不可逆，则考虑$A(\lambda) = \lambda I + A$;
+若$B$不可逆，$B(\lambda) = \lambda I + B$. 由于$\det A(\lambda)$,
 $\det B(\lambda)$都是$\lambda$的多项式，至多有有限多个根，在$0$的一个小的去心领域$\mathring{U}(0,\delta)$内，$A(\lambda), B(\lambda)$总是可逆的，从而有
 $$(A(\lambda)B(\lambda))^* = B(\lambda)^*A(\lambda)^*$$
 对上式取极限$\lim\limits_{\mathring{U}(0,\delta) \ni x\to 0}$即有$(AB)^* = B^*A^*$.
