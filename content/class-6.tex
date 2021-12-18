@@ -38,7 +38,7 @@ $$a_n = \begin{cases}\pm 1 & \text{$k$为奇数}, \\ 1 & \text{$k$为偶数}. \e
 
 假设除$a_n$外还有系数非零，最高次项为$a_mx^m$, $0 \leqslant m \leqslant n-1$, 那么$f(x) = a_nx^n + a_mx^m + g(x)$, 其中$\deg g < m$. 那么
 \begin{align*}
-& (f(x))^k = a_n^kx^{kn} + ka_mx^{(k-1)n+m} + h(x) \\
+& (f(x))^k = a_n^kx^{kn} + ka_n^{k-1}a_mx^{(k-1)n+m} + h(x) \\
 & f(x^k) = a_nx^{kn} + a_mx^{km} + g(x^k)
 \end{align*}
 其中$\deg h < (k-1)n+m$. 因为$0 \leqslant m \leqslant n-1$且$k\geqslant 2$, 所以$(k-1)n+m \neq km$. 所以要使$f(x^k) = (f(x))^k$, 必须有$ka_m = 0$, 即$a_m = 0$. 这与假设矛盾. 所以除最高次项外, $f(x)$没有其他非零项。所以
@@ -112,7 +112,7 @@ f(x) & = f_0(x) \mod g_1(x)g_2(x) = (g_1(x)u(x)r_2(x) + g_2(x)v(x)r_1(x)) \mod g
 
 (2). 对于$f(x) = x^n + \cdots + x + 1 \in V_n$, 求$f(x)$在上述基下的坐标。
 
-{\bf 解}：这题基本与习题2.7第7题类似。在哪里我们考察的是$x-c$, $c\in\mathbb{F}$, 是比$x-1$更一般的情况。 以下我们都考察$x-c$的情形。
+{\bf 解}：这题基本与习题2.7第7题类似。在哪里我们考察的是$x-c$, $c\in\mathbb{F}$, $c\neq 0$ 是比$x-1$更一般的情况。 以下我们都考察$x-c$的情形。
 
 (1). 只要证明$1, (x-c), (x-c)^2, \cdots, (x-c)^n$线性无关即可。假设存在不全为0的实数$\lambda_0,\cdots,\lambda_n$使得
 $$f_0(x) = \lambda_0 + \lambda_1(x-c) + \cdots + \lambda_n(x-c)^n = 0$$
