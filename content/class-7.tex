@@ -65,20 +65,22 @@ $$m|k, n|k'$$
 
 {\bf 习题5.5 第2题}. 整系数多项式$f(x)$能否同时满足$f(10)=10, f(20)=20, f(30)=40$?
 
-{\bf 解.} 假设$f(x) = a_nx^n + \cdots + a_1x + a_0$满足题设条件。任取$\alpha,\beta\in\mathbb{Z}$, 有
+{\bf 解.} 如果是有理系数的话，则肯定有这样的多项式，Lagrange插值多项式
+\begin{align*}
+L(x) & = 10\frac{(x-20)(x-30)}{(10-20)(10-30)} + 20\frac{(x-10)(x-30)}{(20-10)(20-30)} + 40\frac{(x-10)(x-20)}{(30-10)(30-20)} \\
+& = \frac{x^2}{20} - \frac{x}{2} + 10
+\end{align*}
+即是满足$L(10)=10, L(20)=20, L(30)=40$的有理系数多项式。假设存在题设的整系数多项式$f(x)$, 考虑$g(x) = f(x) - L(x)$, $g(x) \neq 0$. 那么
+$$(x-10)(x-20)(x-30) \ |\ g(x)$$
+也就是说存在（整系数）多项式$h(x)$, 使得$f(x) = (x-10)(x-20)(x-30)h(x) + L(x)$. 那么$L(x)$是$f(x)$除以$(x-10)(x-20)(x-30)$的余项。但这是不可能的，因为整系数多项式除以首一的整系数多项式的余项也应该是整系数的。所以这样的整系数多项式$f(x)$不存在。
+
+另一种证法：假设$f(x) = a_nx^n + \cdots + a_1x + a_0$满足题设条件。任取$\alpha,\beta\in\mathbb{Z}$, 有
 \begin{align*}
 f(\alpha) - f(\beta) & = a_n(\alpha^n-\beta^n) + \cdots + a_1(\alpha-\beta) \\
 & = a_n(\alpha-\beta)(\alpha^{n-1}+\alpha^{n-2}\beta+\cdots+\alpha\beta^{n-2}+\beta^{n-1}) + \cdots + a_1(\alpha-\beta),
 \end{align*}
 所以$(\alpha-\beta) \ |\ (f(\alpha) - f(\beta))$, 但题目中有
 $$(30-10) \nmid (f(30)-f(10)).$$
-
-如果是有理系数的话，则肯定有这样的多项式：Lagrange插值多项式
-\begin{align*}
-f(x) & = 10\frac{(x-20)(x-30)}{(10-20)(10-30)} + 20\frac{(x-10)(x-30)}{(20-10)(20-30)} + 40\frac{(x-10)(x-20)}{(30-10)(30-20)} \\
-& = \frac{x^2}{20} - \frac{x}{2} + 10
-\end{align*}
-即是满足$f(10)=10, f(20)=20, f(30)=40$的有理系数多项式。
 
 
 \newpageorvspace
