@@ -69,6 +69,8 @@ $BA = \begin{pmatrix} \cos 2\beta & \sin 2\beta \\ \sin 2\beta & -\cos 2\beta \e
 $$S_{A'B'C'D'} = |\det(Au, Av)| = |\det(A(u, v))| = |\det A| \cdot |\det (u, v))| = |\det A| S_{ABCD}$$
 平面上任意图形可以用正方形覆盖（的极限）计算面积，因此其经过变换$\mathscr{A}$之后的面积为变换前的$|\det A|$倍。
 
+事实上，$n$维空间中由（线性无关）向量组$v_1,\ldots,v_n$确定的多面体（有向）体积等于$\det(v_1,\ldots,v_n)$. 对一个积分做变量替换之后要乘以Jacobi矩阵的行列式，原因也在于此。
+
 （2）由第（1）问知$S_{C_1} = |\det A|\cdot S_{C} = |b/a|\cdot \pi a^2 = \pi |ab|$, 其中$A = \begin{pmatrix} 1 & 0 \\ 0 & \frac{b}{a} \end{pmatrix}$
 
 （3）
@@ -107,10 +109,18 @@ $$S_{A'B'C'D'} = |\det(Au, Av)| = |\det(A(u, v))| = |\det A| \cdot |\det (u, v))
 {\bf 习题6.2 第11题}. 设$F_n[x]$是数域$F$上次数低于$n$的一元多项式组成的$n$维空间，$n \geqslant 2$。$\mathscr{A}: f(x) \mapsto f(x+1)$与 $\mathscr{D}: f(x) \mapsto f'(x)$是$F_n[x]$的线性变换。求证
 $$\mathscr{A} = \mathscr{I} + \dfrac{\mathscr{D}}{1!} + \dfrac{\mathscr{D}^2}{2!} + \cdots + \dfrac{\mathscr{D}^{n-1}}{(n-1)!}$$
 
-{\bf 证明}：令$\mathscr{B} = \mathscr{A} - \left( \mathscr{I} + \dfrac{\mathscr{D}}{1!} + \dfrac{\mathscr{D}^2}{2!} + \cdots + \dfrac{\mathscr{D}^{n-1}}{(n-1)!} \right)$. 任取$f \in F_n[x]$, 令$g = \mathscr{B}(f) \in F_n[x]$. 将$g$写为$g(x) = a_0 + a_1x + \cdots + a_{n-1}x^{n-1}$. 那么$\mathscr{D}^{n-1}(g) = (n-1)! a_{n-1}$. 另一方面，
-$$\mathscr{D}^{n-1} \mathscr{B} = \mathscr{D}^{n-1} \mathscr{A} - \left( \mathscr{D}^{n-1} + \dfrac{\mathscr{D}^n}{1!} + \dfrac{\mathscr{D}^{n+1}}{2!} + \cdots + \dfrac{\mathscr{D}^{2n-2}}{(n-1)!} \right) = \mathscr{D}^{n-1} \mathscr{A} - \mathscr{D}^{n-1} = \mathscr{O}.$$
-其中$\mathscr{O}$为$F_n[x]$上的零变换，将任意元素映为$0$. 于是$a_{n-1} = 0$, 从而有$g\in F_{n-1}[x] \subset F_n[x]$. 再依次考察$\mathscr{D}^{n-2}(g), \cdots, \mathscr{D}(g)$, 可得出$a_{n-2} = \cdots = a_1 = 0$. 令$f(x) = b_0 + b_1x + \cdots + b_{n-1}x^{n-1}$, 那么
-$$a_0 = g(0) = f(1) - \left( f(0) + \dfrac{f'(0)}{1!} + \dfrac{f''(0)}{2!} + \cdots + \dfrac{f^{(n-1)}(0)}{(n-1)!} \right) = \sum_{i=0}^{n-1} b_i - \sum_{i=0}^{n-1} b_i = 0.$$
+% {\bf 证明}：令$\mathscr{B} = \mathscr{A} - \left( \mathscr{I} + \dfrac{\mathscr{D}}{1!} + \dfrac{\mathscr{D}^2}{2!} + \cdots + \dfrac{\mathscr{D}^{n-1}}{(n-1)!} \right)$. 任取$f = b_0 + b_1x + \cdots + b_{n-1}x^{n-1} \in F_n[x]$, 令$g = \mathscr{B}(f) \in F_n[x]$. 将$g$写为$g(x) = a_0 + a_1x + \cdots + a_{n-1}x^{n-1}$. 那么$\mathscr{D}^{n-1}(g) = (n-1)! a_{n-1}$. 另一方面，
+% $$\mathscr{D}^{n-1} \mathscr{B} = \mathscr{D}^{n-1} \mathscr{A} - \left( \mathscr{D}^{n-1} + \dfrac{\mathscr{D}^n}{1!} + \dfrac{\mathscr{D}^{n+1}}{2!} + \cdots + \dfrac{\mathscr{D}^{2n-2}}{(n-1)!} \right) = \mathscr{D}^{n-1} \mathscr{A} - \mathscr{D}^{n-1} = \mathscr{O}.$$
+% 其中$\mathscr{O}$为$F_n[x]$上的零变换，将任意元素映为$0$. 于是$a_{n-1} = 0$, 从而有$g\in F_{n-1}[x] \subset F_n[x]$. 再依次考察$\mathscr{D}^{n-2}(g), \cdots, \mathscr{D}(g)$, 可得出$a_{n-2} = \cdots = a_1 = 0$. 那么
+% $$a_0 = g(0) = f(1) - \left( f(0) + \dfrac{f'(0)}{1!} + \dfrac{f''(0)}{2!} + \cdots + \dfrac{f^{(n-1)}(0)}{(n-1)!} \right) = \sum_{i=0}^{n-1} b_i - \sum_{i=0}^{n-1} b_i = 0.$$
+
+{\bf 证明}：令$\mathscr{B} = \mathscr{A} - \left( \mathscr{I} + \dfrac{\mathscr{D}}{1!} + \dfrac{\mathscr{D}^2}{2!} + \cdots + \dfrac{\mathscr{D}^{n-1}}{(n-1)!} \right)$. 要证明$\mathscr{B}$在$F_n[x]$上是零变换，只要证明$\mathscr{B}$在$F_n[x]$的一组基上取值都是零即可。取这组基为$\{ 1, x, \ldots, x^{n-1} \}$. 对于$0 \leqslant k \leqslant n-1$, 有
+\begin{align*}
+\mathscr{B}(x^k) & = \mathscr{A}(x) - \left( \mathscr{I}(x) + \dfrac{\mathscr{D}(x)}{1!} + \dfrac{\mathscr{D}^2(x)}{2!} + \cdots + \dfrac{\mathscr{D}^{n-1}(x)}{(n-1)!} \right) \\
+& = (x+1)^k - \left( x^k + \dfrac{kx^{k-1}}{1!} + \dfrac{k(k-1)x^{k-2}}{2!} + \cdots + \dfrac{k(k-1)\cdots 1 x^0}{k!} + 0 + \cdots + 0 \right) \\
+& = \sum_{t=0}^{k} C_k^tx^t - \left( \dfrac{k!}{0!(k-0)!}x^k + \dfrac{k!}{1!(k-1)!}x^{k-1} + \dfrac{k!}{2!(k-2)!}x^{k-2} + \cdots + \dfrac{k!}{k!(k-k)!} \right) \\
+& = 0
+\end{align*}
 
 
 \newpageorvspace
