@@ -78,13 +78,13 @@ P^{-1}BP & = \operatorname{diag} (\mu_{11}, \ldots, \mu_{1r_1}, \ldots, \mu_{m1}
 \theta: & V \to V, X \mapsto PXP^{-1},\\
 \mu: & V \to V, X \mapsto D_A X - X D_B.
 \end{align*}
-若$X$为$\mu$的特征向量，即$\mu(X) = \lambda X$, $\lambda \in \mathbb{F}$, 那么
+若$X$为$\mu$的特征向量（假设有），即$\mu(X) = \lambda X$, $\lambda \in \mathbb{F}$, 那么
 \begin{align*}
 \sigma(\theta(X)) & = A PXP^{-1} - PXP^{-1} B = PP^{-1}APXP^{-1} - PXP^{-1}BPP^{-1} \\
 & = P(D_AX - XD_B)P^{-1} = P(\mu(X))P^{-1} = P (\lambda X) P^{-1} = \lambda PXP^{-1} \\
 & = \lambda \theta(X).
 \end{align*}
-任取$X = (x_{ij}) \in M_n (\mathbb{F})$, 那么
+那么，$\theta(X)$是$\sigma$的特征向量，对应的特征值是$\lambda$. 任取$X = (x_{ij}) \in M_n (\mathbb{F})$, 那么
 \begin{align*}
 D_AX - XD_B & = \operatorname{diag}(a_1, \ldots, a_n) X - X \operatorname{diag}(b_1, \ldots, b_n) \\
 & = \begin{pmatrix} a_1x_{11} & \cdots & a_1x_{1n} \\ \vdots & & \vdots \\ a_nx_{n1} & \cdots & a_nx_{nn} \end{pmatrix} - \begin{pmatrix} b_1x_{11} & \cdots & b_nx_{1n} \\ \vdots & & \vdots \\ b_1x_{n1} & \cdots & b_nx_{nn} \end{pmatrix} \\
