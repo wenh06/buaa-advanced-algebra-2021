@@ -1,0 +1,90 @@
+
+% \renewcommand{\newpageorvspace}{\newpage}
+\renewcommand{\newpageorvspace}{\vspace{2em}}
+
+\date{2022-4-8  第三次习题课}
+
+\begin{document}
+
+\maketitle
+
+
+{\bf 第一题（习题7.1第2题）}. 已知5阶方阵$A$相似与Jordan形矩阵$J$，且满足条件
+$$\operatorname{rank}A = 3, \operatorname{rank}A^2 = 2, \operatorname{rank}(A+I) = 4, \operatorname{rank}(A+I)^2 = 3.$$
+求$J$.
+
+{\bf 解}. 由于$\operatorname{rank}A = 3 < 5$, 所以$\det A = 0$, 故$0$是$A$的特征值. 类似可知$-1$也是$A$的特征值。由于$\operatorname{rank}A^2 = 2, \operatorname{rank}(A+I)^2 = 3$, 即知
+$$\dim \ker A^2 + \dim \ker (A+I)^2 = (5-2) + (5-3) = 5,$$
+故（可以考虑根子空间分解）$A$的特征值只有$-1, 0$. 并且由上式可知$\operatorname{rank}A^k = 2, \operatorname{rank}(A+I)^k = 3$对任意$k\geqslant 2$成立。于是，由定理7.1.1知，$J$中
+\begin{itemize}
+\item $1$阶Jordan块$J_1(0)$的数量为$(5 - \operatorname{rank}A) - (\operatorname{rank}A - \operatorname{rank}A^2) = 1$;
+\item $2$阶Jordan块$J_2(0)$的数量为$(\operatorname{rank}A - \operatorname{rank}A^2) = 1$;
+\item $1$阶Jordan块$J_1(-1)$的数量为$(5 - \operatorname{rank}(A+I)) - (\operatorname{rank}(A+I) - \operatorname{rank}(A+I)^2) = 0$;
+\item $2$阶Jordan块$J_2(-1)$的数量为$(\operatorname{rank}(A+I) - \operatorname{rank}(A+I)^2) = 1$.
+\end{itemize}
+所以
+$$J = \operatorname{diag} (J_1(0), J_2(0), J_2(-1)).$$
+
+
+\newpageorvspace
+
+
+{\bf 第二题（习题7.1第3题第（2）问）}. 已知矩阵$A = \begin{pmatrix} 4 & 0 & 0 & 0 \\ 0 & 4 & 0 & 0 \\ 3 & 0 & 4 & 0 \\ 2 & 3 & 0 & 4 \end{pmatrix}$相似于Jordan形$J$. 根据条件$\operatorname{rank}(A - \lambda_i I)^k = \operatorname{rank}(J - \lambda_i I)^k$（$\lambda_i$取遍$A$的各特征值，$k=1,2,\ldots$），求$J$.
+
+{\bf 解}：容易计算$A$的特征多项式为$f(\lambda) = \det (\lambda I - A) = (\lambda - 4)^4$
+
+
+\newpageorvspace
+
+
+{\bf 第三题}. 设$A = J_5(0)^2$相似于一个Jordan形矩阵$J$, 求$J$.
+
+{\bf 证明}：
+
+
+\newpageorvspace
+
+
+{\bf 第四题}. 设$\mathscr{A} \in \mathcal{L}(V)$在基$M$下的矩阵是$A\in M_n(\mathbb{C})$. 若$d_A(\lambda) = (\lambda-\lambda_0)^m g(\lambda)$, $g(\lambda_0) \neq 0$, 是$A$的一个极小多项式，以及$u(\lambda), v(\lambda) \in \mathbb{C}[\lambda]$使得
+$$u(\lambda)(\lambda-\lambda_0)^m + v(\lambda)g(\lambda) = 1.$$
+令$W = u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m V$. 证明$(\mathscr{A} - \lambda_0\mathscr{I})|_W$是可逆线性变换。
+
+
+{\bf 证明}：
+
+
+\newpageorvspace
+
+
+{\bf 第五题（习题7.1第1题）}. 已知$A = \begin{pmatrix} 0 & 0 & -2 \\ 1 & 0 & 3 \\ 0 & 1 & 0 \end{pmatrix}$, 求$A^n$.
+
+{\bf 解}. 
+
+
+\newpageorvspace
+
+
+{\bf 第六题（习题7.1第3题）}. 已知下面的矩阵$A$相似与Jordan形$J$. 根据条件$\operatorname{rank}(A - \lambda_i I)^k = \operatorname{rank}(J - \lambda_i I)^k$（$\lambda_i$取遍$A$的各特征值，$k=1,2,\ldots$），求$J$.
+
+(3) $\begin{pmatrix} 1 & 2 & 4 & 7 \\ 0 & 1 & 3 & 6 \\ 0 & 0 & 1 & 4 \\ 0 & 0 & 0 & 3 \end{pmatrix}$; \quad (4) $\begin{pmatrix} 4 & -3 & 0 & 0 \\ -3 & 2 & 0 & 0 \\ 1 & 2 & -3 & 2 \\ 4 & 3 & 8 & 5 \end{pmatrix}$.
+
+{\bf 解}. 
+
+\newpageorvspace
+
+
+{\bf 第七题（习题7.1第4题）}. (1) 已知Jordan形矩阵$J$满足条件$\operatorname{rank} J^k = \operatorname{rank} J^{k+1} = r$, 根据$J^k$所满足的条件，对任意正整数$s$求$\operatorname{rank} J^{k+s}$.
+
+(1) 已知方阵$A$相似于Jordan形矩阵$J$. 且$\operatorname{rank} A^k = \operatorname{rank} A^{k+1} = r$. 对任意正整数$s$求$\operatorname{rank} A^{k+s}$.
+
+{\bf 解}. 
+
+\newpageorvspace
+
+
+{\bf 第八题（习题7.1第5题）}. 已知$n$阶方阵$A \in \mathbb{F}^{n\times n}$相似于Jordan形矩阵$J$, 且满足条件$A^n = O \neq A^{n-1}$. 求$J$.
+
+{\bf 解}. 
+
+
+\end{document}
