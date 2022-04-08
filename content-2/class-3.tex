@@ -67,9 +67,9 @@ $$J = \operatorname{diag} (J_2(0), J_3(0)).$$
 $$u(\lambda)(\lambda-\lambda_0)^m + v(\lambda)g(\lambda) = 1.$$
 令$W = u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m V$. 证明$(\mathscr{A} - \lambda_0\mathscr{I})|_W$是可逆线性变换。
 
-{\bf 证明}：首先，容易看出$W$是$(\mathscr{A} - \lambda_0\mathscr{I})$的不变子空间。由于$d_A(\lambda)$是$A$的一个极小多项式，所以$d_A(\mathscr{A}) = \mathscr{O}$为$V$上的零映射。
+{\bf 证明}：首先，容易看出$W$是$(\mathscr{A} - \lambda_0\mathscr{I})$的不变子空间。由于$d_A(\lambda)$是$A$的一个极小多项式，所以$d_A(\mathscr{A}) = \mathscr{O}$为$V$上的零映射。要证明$(\mathscr{A} - \lambda_0\mathscr{I})|_W$是可逆线性变换，只要证明$\ker (\mathscr{A} - \lambda_0\mathscr{I})|_W = \{0\}$即可。
 
-任取$\alpha \in \ker (\mathscr{A} - \lambda_0\mathscr{I})|_W \subset W$. 由于$W = u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m V$, 所以存在$\beta \in V$, 使得
+任取$\alpha \in \ker (\mathscr{A} - \lambda_0\mathscr{I})|_W \subset W$. 我们想证明$\alpha = 0$. 由于$W = u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m V$, 所以存在$\beta \in V$, 使得
 $$\alpha = u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m \beta.$$
 又由于$u(\lambda)(\lambda-\lambda_0)^m + v(\lambda)g(\lambda) = 1,$ 所以有$u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m \beta = (\mathscr{I} - v(\mathscr{A})g(\mathscr{A})) \beta$. 所以有
 \begin{align*}
