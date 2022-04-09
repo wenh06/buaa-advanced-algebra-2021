@@ -9,6 +9,57 @@
 \maketitle
 
 
+{\bf 一个重要结论}：考虑$m$阶Jordan块$J_m(0)$, 容易看到当$1\leqslant k \leqslant m-1$时，$J_m(0)^k$是一个第$(i, i+k)$位（或者第第$(i+k, i)$位），$i=1,\ldots m-k$, 元素值为$1$, 其余位置为$0$的方阵，因此
+$$\operatorname{rank} J_m(0)^k = \max\{0, m-k\}.$$
+这个关于$k$的函数，以及它的一二阶差分图像如下
+
+\begin{figure}[!htb]
+\minipage{0.32\textwidth}
+\scalebox{0.9}{
+  \begin{tikzpicture}
+  \draw[gray, ->] (-1, 0) -- (4, 0) node[right] {$k$};
+  \draw[gray, ->] (0, -1) -- (0, 3) node[above] {$rank$};
+  \draw[domain=0:2, smooth, variable=\x, blue] plot ({\x}, {2-\x});
+  \draw[domain=2:4, smooth, variable=\x, blue]  plot ({\x}, {0});
+  \node [left] at (0, 2) {$m$};
+  \node [below] at (2, 0) {$m$};
+\end{tikzpicture}
+}
+\endminipage\hfill
+\minipage{0.32\textwidth}
+\scalebox{0.9}{
+  \begin{tikzpicture}
+  \draw[gray, ->] (-1, 0) -- (4, 0) node[right] {$k$};
+  \draw[gray, ->] (0, -1) -- (0, 3) node[above] {$rank'$};
+  \draw[domain=0:2, smooth, variable=\x, blue] plot ({\x}, {1});
+  \draw[domain=2:4, smooth, variable=\x, blue]  plot ({\x}, {0});
+  \draw[domain=0:1, smooth, variable=\y, blue, dashed]  plot ({2}, {\y});
+  \node [left] at (0, 1) {$1$};
+  \node [below] at (2, 0) {$m$};
+\end{tikzpicture}
+}
+\endminipage\hfill
+\minipage{0.32\textwidth}
+\scalebox{0.9}{
+  \begin{tikzpicture}
+  \draw[gray, ->] (-1, 0) -- (4, 0) node[right] {$k$};
+  \draw[gray, ->] (0, -1) -- (0, 3) node[above] {$rank''$};
+  \draw[domain=0:2, smooth, variable=\x, blue] plot ({\x}, {0});
+  \draw[domain=2:4, smooth, variable=\x, blue]  plot ({\x}, {0});
+  \draw[domain=0:1, smooth, variable=\y, blue, dashed]  plot ({2}, {\y});
+  \draw[domain=0:2, smooth, variable=\x, blue, dashed]  plot ({\x}, {1});
+  \node [left] at (0, 1) {$1$};
+  \node [below] at (2, 0) {$m$};
+  \node [scale=0.3, circle, draw=blue, fill=white] at (2, 0) {};
+  \node [scale=0.3, circle, fill, blue] at (2, 1) {};
+\end{tikzpicture}
+}
+\endminipage
+\end{figure}
+一个由$J_{m_1}(0), \ldots, J_{m_r}(0)$组成的准对角矩阵（Jordan形矩阵）的$k$次方的秩即为以上的函数（图像）进行求和。这样就很容易得出课本上定理7.1.1的结论。
+
+\vspace{2em}
+
 {\bf 第一题（习题7.1第2题）}. 已知5阶方阵$A$相似与Jordan形矩阵$J$，且满足条件
 $$\operatorname{rank}A = 3, \operatorname{rank}A^2 = 2, \operatorname{rank}(A+I) = 4, \operatorname{rank}(A+I)^2 = 3.$$
 求$J$.
