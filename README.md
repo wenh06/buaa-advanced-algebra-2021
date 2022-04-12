@@ -26,3 +26,8 @@
 ## 编译
 
 可以通过`TexLive`，`latexmk`（需要较新版本）或`pandoc`等工具编译，或者导入[`Overleaf`](https://www.overleaf.com/dash)编译。
+
+
+## 注意
+
+目前，gitee对带数学表达式的markdown文件的支持比GitHub更好，在[gitee](https://gitee.com/wenh06/buaa-advanced-algebra-2021/markdown/)下大部分内容能正确显示。
