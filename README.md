@@ -30,4 +30,4 @@
 
 ## 注意
 
-目前，gitee对带数学表达式的markdown文件的支持比GitHub更好，在[gitee](https://gitee.com/wenh06/buaa-advanced-algebra-2021/markdown/)下大部分内容能正确显示。
+目前，gitee对带数学表达式的markdown文件的支持比GitHub更好，在[gitee](https://gitee.com/wenh06/buaa-advanced-algebra-2021/tree/master/markdown)下大部分内容能正确显示。
