@@ -1,0 +1,166 @@
+**一个重要结论**：考虑$m$阶Jordan块$J_m(0)$,
+容易看到当$1\leqslant k \leqslant m-1$时，$J_m(0)^k$是一个第$(i, i+k)$位（或者第第$(i+k, i)$位），$i=1,\ldots m-k$,
+元素值为$1$, 其余位置为$0$的方阵，因此
+$$\operatorname{rank} J_m(0)^k = \max\{0, m-k\}.$$
+这个关于$k$的函数，以及它的一二阶差分图像如下
+
+一个由$J_{m_1}(0), \ldots, J_{m_r}(0)$组成的准对角矩阵（Jordan形矩阵）的$k$次方的秩即为以上的函数（图像）进行求和。这样就很容易得出课本上定理7.1.1的结论。
+
+**第一题（习题7.1第2题）**.
+已知5阶方阵$A$相似与Jordan形矩阵$J$，且满足条件
+$$\operatorname{rank}A = 3, \operatorname{rank}A^2 = 2, \operatorname{rank}(A+I) = 4, \operatorname{rank}(A+I)^2 = 3.$$
+求$J$.
+
+**解**. 由于$\operatorname{rank}A = 3 < 5$, 所以$\det A = 0$,
+故$0$是$A$的特征值.
+类似可知$-1$也是$A$的特征值。由于$\operatorname{rank}A^2 = 2, \operatorname{rank}(A+I)^2 = 3$,
+即知 $$\dim \ker A^2 + \dim \ker (A+I)^2 = (5-2) + (5-3) = 5,$$
+故（可以考虑根子空间分解）$A$的特征值只有$-1, 0$.
+并且由上式可知$\operatorname{rank}A^k = 2, \operatorname{rank}(A+I)^k = 3$对任意$k\geqslant 2$成立。于是，由定理7.1.1知，$J$中
+
+-   $1$阶Jordan块$J_1(0)$的数量为$(5 - \operatorname{rank}A) - (\operatorname{rank}A - \operatorname{rank}A^2) = 1$;
+
+-   $2$阶Jordan块$J_2(0)$的数量为$(\operatorname{rank}A - \operatorname{rank}A^2) = 1$;
+
+-   $1$阶Jordan块$J_1(-1)$的数量为$(5 - \operatorname{rank}(A+I)) - (\operatorname{rank}(A+I) - \operatorname{rank}(A+I)^2) = 0$;
+
+-   $2$阶Jordan块$J_2(-1)$的数量为$(\operatorname{rank}(A+I) - \operatorname{rank}(A+I)^2) = 1$.
+
+所以 $$J = \operatorname{diag} (J_1(0), J_2(0), J_2(-1)).$$
+
+**第二题（习题7.1第3题第（2）问）**.
+已知矩阵$A = \begin{pmatrix} 4 & 0 & 0 & 0 \\ 0 & 4 & 0 & 0 \\ 3 & 0 & 4 & 0 \\ 2 & 3 & 0 & 4 \end{pmatrix}$相似于Jordan形$J$.
+根据条件$\operatorname{rank}(A - \lambda_i I)^k = \operatorname{rank}(J - \lambda_i I)^k$（$\lambda_i$取遍$A$的各特征值，$k=1,2,\ldots$），求$J$.
+
+**解**：容易计算$A$的特征多项式为$f(\lambda) = \det (\lambda I - A) = (\lambda - 4)^4$,
+于是矩阵$A$有$4$重特征值$4$. 那么
+
+-   $\operatorname{rank}(A - 4 I) = \operatorname{rank}(J - 4 I) = \operatorname{rank} \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 3 & 0 & 0 & 0 \\ 2 & 3 & 0 & 0 \end{pmatrix} = 2;$
+
+-   $\operatorname{rank}(A - 4 I)^k = \operatorname{rank}(J - 4 I)^k = \operatorname{rank} \mathbf{0} = 0, \forall k \geqslant 2.$
+
+那么由定理7.1.1知
+
+-   $1$阶Jordan块$J_1(4)$的数量为$(4 - \operatorname{rank}(A - 4 I)) - (\operatorname{rank}(A - 4 I) - \operatorname{rank}(A - 4 I)^2) = 0$;
+
+-   $2$阶Jordan块$J_2(4)$的数量为$(\operatorname{rank}(A - 4 I) - \operatorname{rank}(A - 4 I)^2) = 2$.
+
+所以 $$J = \operatorname{diag} (J_2(4), J_2(4)).$$
+
+**第三题**. 设$A = J_5(0)^2$相似于一个Jordan形矩阵$J$, 求$J$.
+
+**解**：易知$\operatorname{rank}A = \operatorname{rank} J_5(0)^2 = 3$,
+$\operatorname{rank}A^2 = \operatorname{rank} J_5(0)^4 = 1;$
+$\operatorname{rank}A^k = \operatorname{rank} J_5(0)^{2k} = 0;$
+$k \geqslant 3$. 那么由定理7.1.1知
+
+-   $1$阶Jordan块$J_1(0)$的数量为$(5 - \operatorname{rank}A) - (\operatorname{rank}A - \operatorname{rank}A^2) = 0$;
+
+-   $2$阶Jordan块$J_2(0)$的数量为$(\operatorname{rank}A - \operatorname{rank}A^2) - (\operatorname{rank}A^2 - \operatorname{rank}A^3) = 1$.
+
+-   $3$阶Jordan块$J_3(0)$的数量为$(\operatorname{rank}A^2 - \operatorname{rank}A^3) = 1$.
+
+所以 $$J = \operatorname{diag} (J_2(0), J_3(0)).$$
+
+**第四题**.
+设$\mathscr{A} \in \mathcal{L}(V)$在基$M$下的矩阵是$A\in M_n(\mathbb{C})$.
+若$d_A(\lambda) = (\lambda-\lambda_0)^m g(\lambda)$,
+$g(\lambda_0) \neq 0$,
+是$A$的一个极小多项式，以及$u(\lambda), v(\lambda) \in \mathbb{C}[\lambda]$使得
+$$u(\lambda)(\lambda-\lambda_0)^m + v(\lambda)g(\lambda) = 1.$$
+令$W = u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m V$.
+证明$(\mathscr{A} - \lambda_0\mathscr{I})|_W$是可逆线性变换。
+
+**证明**：首先，容易看出$W$是$(\mathscr{A} - \lambda_0\mathscr{I})$的不变子空间。由于$d_A(\lambda)$是$A$的一个极小多项式，所以$d_A(\mathscr{A}) = \mathscr{O}$为$V$上的零映射。要证明$(\mathscr{A} - \lambda_0\mathscr{I})|_W$是可逆线性变换，只要证明$\ker (\mathscr{A} - \lambda_0\mathscr{I})|_W = \{0\}$即可。
+
+任取$\alpha \in \ker (\mathscr{A} - \lambda_0\mathscr{I})|_W \subset W$.
+我们想证明$\alpha = 0$.
+由于$W = u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m V$,
+所以存在$\beta \in V$, 使得
+$$\alpha = u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m \beta.$$
+又由于$u(\lambda)(\lambda-\lambda_0)^m + v(\lambda)g(\lambda) = 1,$
+所以有$u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m \beta = (\mathscr{I} - v(\mathscr{A})g(\mathscr{A})) \beta$.
+所以有 $$\begin{aligned}
+0 = (\mathscr{A} - \lambda_0\mathscr{I})^m \alpha & = (\mathscr{A} - \lambda_0\mathscr{I})^m u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m \beta \\
+& = (\mathscr{A} - \lambda_0\mathscr{I})^m (\mathscr{I} - v(\mathscr{A})g(\mathscr{A})) \beta \\
+& = (\mathscr{A} - \lambda_0\mathscr{I})^m \beta - v(\mathscr{A}) (\mathscr{A} - \lambda_0\mathscr{I})^m g(\mathscr{A}) \beta \\
+& = (\mathscr{A} - \lambda_0\mathscr{I})^m \beta - v(\mathscr{A}) d_A(\mathscr{A}) \beta \\
+& = (\mathscr{A} - \lambda_0\mathscr{I})^m \beta - v(\mathscr{A}) \mathscr{O} \beta \\
+& = (\mathscr{A} - \lambda_0\mathscr{I})^m \beta\end{aligned}$$
+从而知$\alpha = u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m \beta = 0$,
+所以$\ker (\mathscr{A} - \lambda_0\mathscr{I})|_W = \{0\}$,
+故$(\mathscr{A} - \lambda_0\mathscr{I})|_W$是$W$上的可逆线性变换。
+
+**第五题（习题7.1第1题）**.
+已知$A = \begin{pmatrix} 0 & 0 & -2 \\ 1 & 0 & 3 \\ 0 & 1 & 0 \end{pmatrix}$,
+求$A^n$.
+
+**解**. $A$的特征多项式
+$$f_A(\lambda) = \det (\lambda I_3 - A) = \det \begin{pmatrix} \lambda & 0 & 2 \\ -1 & \lambda & -3 \\ 0 & -1 & \lambda \end{pmatrix} = \lambda \begin{vmatrix} \lambda & -3 \\ -1 & \lambda \end{vmatrix} - (-1) \begin{vmatrix} 0 & 2 \\ -1 & \lambda \end{vmatrix} = \lambda(\lambda^2-3) + 2.$$
+可算得$A$的特征值为$1, 1, -2$.
+
+由$(A - I) v = 0$解得$v = k \begin{pmatrix} 2 \\ -1 \\ -1 \end{pmatrix}$,
+$k \neq 0$. 由此可知$A$的Jordan标准形有$1$个$2$阶Jordan块$J_2(1)$,
+以及$1$个$1$阶Jordan块$J_1(-2)$.
+
+继续解$(A - I) v' = v$得$v' = k' \begin{pmatrix} 2 \\ -1 \\ -1 \end{pmatrix} - k \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}$
+（和之前同一个$k$. $k'$任取）。
+
+解$(A + 2I) w = w$得$w = t \begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}$,
+$t \neq 0$. 那么令$k = t = 1, k' = 0$,
+取$P = (v, v', w) = \begin{pmatrix} 2 & -2 & 1 \\ -1 & -1 & -2 \\ -1 & 0 & 1 \end{pmatrix}$,
+即有
+$$AP = (Av, Av', Aw) = (v, v+v', -2w) = (v, v', w) \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -2 \end{pmatrix} = P \cdot \operatorname{diag}(J_2(1), J_1(-2)).$$
+从而有$A = P \cdot \operatorname{diag}(J_2(1), J_1(-2)) \cdot P^{-1}$,
+其中$P^{-1} = \dfrac{1}{9} \begin{pmatrix} 1 & -2 & -5 \\ -3 & -3 & -3 \\ 1 & -2 & 4 \end{pmatrix}$.
+所以 $$\begin{aligned}
+A^n & = (P \cdot \operatorname{diag}(J_2(1), J_1(-2)) \cdot P^{-1})^n = P \cdot \operatorname{diag}(J_2(1)^n, J_1(-2)^n) \cdot P^{-1} \\
+& = P \cdot \begin{pmatrix} 1 & n & 0 \\ 0 & 1 & 0 \\ 0 & 0 & (-2)^n \end{pmatrix} \cdot P^{-1} \\
+& = \dfrac{1}{9} \begin{pmatrix} 2 & -2 & 1 \\ -1 & -1 & -2 \\ -1 & 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} 1 & n & 0 \\ 0 & 1 & 0 \\ 0 & 0 & (-2)^n \end{pmatrix} \cdot \begin{pmatrix} 1 & -2 & -5 \\ -3 & -3 & -3 \\ 1 & -2 & 4 \end{pmatrix} \\
+& = \dfrac{1}{9} \begin{pmatrix} 8-6n+(-2)^{n} & 2-6n+(-2)^{n+1} & -4-6n+(-2)^{n+2} \\ 2+3n+(-2)^{n+1} & 5+3n+(-2)^{n+2} & 8+3n+(-2)^{n+3} \\ -1+3n+(-2)^{n} & 2+3n+(-2)^{n+1} & 5+3n+(-2)^{n+2} \end{pmatrix}\end{aligned}$$
+
+**第六题（习题7.1第4题）**. (1)
+已知Jordan形矩阵$J$满足条件$\operatorname{rank} J^k = \operatorname{rank} J^{k+1} = r$,
+根据$J^k$所满足的条件，对任意正整数$s$求$\operatorname{rank} J^{k+s}$.
+
+\(2\) 已知方阵$A$相似于Jordan形矩阵$J$.
+且$\operatorname{rank} A^k = \operatorname{rank} A^{k+1} = r$.
+对任意正整数$s$求$\operatorname{rank} A^{k+s}$.
+
+**解**. (1) 考察任意的Jordan块$J_m(\lambda) = \lambda I_m + \Lambda$,
+其中$\Lambda$为次对角线（$(i,i+1)$位，$i=1,\ldots,m-1$）元素值为$1$,
+其余位置元素值为$0$的方阵。$\Lambda$和$\lambda I_m$可交换，且有
+$$J_m(\lambda)^k = (\lambda I_m + \Lambda)^k = \sum\limits_{i=0}^k C_{k}^i \lambda^{k-i} I_m \Lambda^{i}.$$
+那么
+
+-   若$\lambda = 0$,
+    那么$\operatorname{rank} J_m(\lambda)^k = \operatorname{rank} \Lambda^k = \max\{0, m-k\}$;
+
+-   若$\lambda \neq 0$, 那么$\operatorname{rank} J_m(\lambda)^k = m$;
+
+令$k_0$为$J$中对应于特征值$0$的Jordan块的阶数的最大值（若没有这样的Jordan块则令$k_0 = 0$）。由以上讨论，以及由题设条件$\operatorname{rank} J^k = \operatorname{rank} J^{k+1} = r$知$k \geqslant k_0$,
+否则$\operatorname{rank} J^{k+1}$必然小于$\operatorname{rank} J^k$.
+对于任意的$k'\geqslant k \geqslant k_0$, 有
+$$\operatorname{rank} J^{k_0} = \operatorname{rank} J^{k_0+1} = \cdots = \operatorname{rank} J^{k'} = r,$$
+故对任意的正整数$s$, 有$\operatorname{rank} J^{k+s} = r$.
+
+\(2\) 设有可逆矩阵$P$, 使得$A = PJP^{-1}$,
+其中$J$为$A$的Jordan标准形。那么$\operatorname{rank} A = \operatorname{rank} J$.
+由第(1)问可知对任意正整数$s$求$\operatorname{rank} A^{k+s} = r$.
+
+**第七题（习题7.1第5题）**.
+已知$n$阶方阵$A \in \mathbb{F}^{n\times n}$相似于Jordan形矩阵$J$,
+且满足条件$A^n = O \neq A^{n-1}$. 求$J$.
+
+**解**.
+由条件$A^n = O \neq A^{n-1}$知$A$的极小多项式为$f_A(\lambda) = \lambda^n$,
+所以$A$的特征值都是$0$, 其Jordan型可写为
+$$J = \operatorname{diag} (J_{r_1}(0), \ldots, J_{r_m}(0)), \quad r_1 + \cdots + r_m = n.$$
+由第六题的讨论知，
+$$\operatorname{rank} J_{r_i}(0)^k = \max\{0, r_i-k\}.$$ 所以
+$$\operatorname{rank} A^k = \operatorname{rank} J^k = \sum\limits_{i=1}^m \max\{0, r_i-k\}.$$
+由条件$A^n = O \neq A^{n-1}$知$\operatorname{rank} A^{n-1} > 0$,
+所以我们有 $$\begin{cases}
+\sum\limits_{i=1}^m \max\{0, r_i - (n-1)\} > 0, \\
+\sum\limits_{i=1}^m r_i = n.
+\end{cases}$$ 于是必然有$m = 1, r_1 = n$. 故$J = J_n(0)$.

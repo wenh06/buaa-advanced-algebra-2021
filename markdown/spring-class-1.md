@@ -1,0 +1,92 @@
+**习题6.1 第2题**.
+（1）设$\mathscr{A, B}$是平面上绕原点分别旋转角$\alpha, \beta$的变换。试分别写出$\mathscr{A, B}$的矩阵$A,B$，计算$\mathscr{BA}$的矩阵$BA$，它表示什么变换？
+
+（2）设在直角坐标平面上将$x$轴绕原点沿逆时针方向旋转角$\alpha, \beta$分别得到直线$\ell_{\alpha}, \ell_{\beta}$.
+$\mathscr{A, B}$是平面上的点分别关于直线$\ell_{\alpha}, \ell_{\beta}$作轴对称的变换。试分别写出$\mathscr{A, B}$的矩阵$A,B$，计算$\mathscr{BA}$的矩阵$BA$和计算$\mathscr{AB}$的矩阵$AB$，它们分别表示什么变换？
+
+**解**：任取平面上非原点的一点，设其坐标为$(r\cos\theta, r\sin\theta)^T$,
+那么其绕原点（逆时针）旋转$\alpha$角之后的坐标为 $$\begin{aligned}
+(r\cos(\theta+\alpha), r\sin(\theta+\alpha))^T & = (r\cos\theta\cos\alpha - r\sin\theta\sin\alpha, r\sin\theta\cos\alpha + r\cos\theta\sin\alpha)^T \\
+& = \begin{pmatrix} \cos\alpha & -\sin\alpha \\ \sin\alpha & \cos\alpha \end{pmatrix} (r\cos\theta, r\sin\theta)^T.\end{aligned}$$
+于是$A = \begin{pmatrix} \cos\alpha & -\sin\alpha \\ \sin\alpha & \cos\alpha \end{pmatrix}$,
+同理$B = \begin{pmatrix} \cos\beta & -\sin\beta \\ \sin\beta & \cos\beta \end{pmatrix}$,
+$BA = \begin{pmatrix} \cos(\alpha+\beta) & -\sin(\alpha+\beta) \\ \sin(\alpha+\beta) & \cos(\alpha+\beta) \end{pmatrix}$.
+$\mathscr{BA}$表示的是平面上绕原点（逆时针）旋转角$\alpha+\beta$的变换。
+
+（2）任取$r > 0$为实数，则$v_{\alpha} = (r\cos\alpha, r\sin\alpha)^T$为直线$\ell_{\alpha}$上的一个向量。在平面上任取一点$P = (x,y)^T$,
+那么向量$v_P = \overrightarrow{OP}$在$v_{\alpha}$上的投影（即在直线$\ell_{\alpha}$上的投影）为$\frac{1}{r^2} \langle v_{\alpha}, v_P \rangle v_{\alpha}$.
+点$P$指向投影点的向量为$-v_P + \frac{1}{r^2} \langle v_{\alpha}, v_P \rangle v_{\alpha}$,
+所以$P$点关于直线$\ell_{\alpha}$对称点的坐标为 $$\begin{aligned}
+& \frac{1}{r^2} \langle v_{\alpha}, v_P \rangle v_{\alpha} + (-v_P + \frac{1}{r^2} \langle v_{\alpha}, v_P \rangle v_{\alpha}) \\
+= & \frac{2}{r^2}\langle v_{\alpha}, v_P \rangle v_{\alpha} - v_P \\
+= & \begin{pmatrix} 2x\cos^2\alpha + 2y\sin\alpha\cos\alpha - x \\ 2x\sin\alpha\cos\alpha + 2y\sin^2\alpha - y \end{pmatrix} \\
+= & \begin{pmatrix} 2\cos^2\alpha - 1 & 2\sin\alpha\cos\alpha \\ 2\sin\alpha\cos\alpha & 2\sin^2\alpha - 1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} \\
+= & \begin{pmatrix} \cos 2\alpha & \sin 2\alpha \\ \sin 2\alpha & -\cos 2\alpha \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}\end{aligned}$$
+所以$\mathscr{A}$对应的矩阵$A = \begin{pmatrix} \cos 2\alpha & \sin 2\alpha \\ \sin 2\alpha & -\cos 2\alpha \end{pmatrix}$.
+同理$\mathscr{B}$对应的矩阵$B = \begin{pmatrix} \cos 2\beta & \sin 2\beta \\ \sin 2\beta & -\cos 2\beta \end{pmatrix}$.
+
+$BA = \begin{pmatrix} \cos 2\beta & \sin 2\beta \\ \sin 2\beta & -\cos 2\beta \end{pmatrix} \begin{pmatrix} \cos 2\alpha & \sin 2\alpha \\ \sin 2\alpha & -\cos 2\alpha \end{pmatrix} = \begin{pmatrix} \cos 2(\beta-\alpha) & -\sin 2(\beta-\alpha) \\ \sin 2(\beta-\alpha) & \cos 2(\beta-\alpha) \end{pmatrix}$,
+代表绕原点旋转$2(\beta-\alpha)$角度的变换。
+同理，$AB = \begin{pmatrix} \cos 2(\alpha-\beta) & -\sin 2(\alpha-\beta) \\ \sin 2(\alpha-\beta) & \cos 2(\alpha-\beta) \end{pmatrix}$,
+代表绕原点旋转$2(\alpha-\beta)$角度的变换。
+
+**习题6.1 第3题**.
+由2阶可逆实方阵$A$在直角坐标平面$\mathbb{R}^2$上定义可逆线性变换$\mathscr{A}: \begin{pmatrix} x \\ y \end{pmatrix} \mapsto A \begin{pmatrix} x \\ y \end{pmatrix}$.
+
+（1）$\mathscr{A}$将平行四边形$ABCD$变到平行四边形$A'B'C'D'$,
+求证：变换后和变换前的面积比$k = \dfrac{S_{A'B'C'D'}}{S_{ABCD}} = |\det A|$；由此可以得出平面上任何图形经过变换$\mathscr{A}$之后的面积为变换前的$|\det A|$倍。
+
+（2）用线性变换$\mathscr{A}: \begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} 1 & 0 \\ 0 & \frac{b}{a} \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}$将圆$C: x^2 + y^2 = a^2$变成椭圆$C_1: \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$.
+利用$C_1$与$C$的面积比得出椭圆$C_1$面积公式。
+
+（3）画出下图经过线性变换$\mathscr{A}: \begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} 1.2 & -0.8 \\ -0.4 & 1.1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}$得到的图形。
+
+**证明**：（1）令向量$\overrightarrow{AB} = v, \overrightarrow{AC} = u$（列向量）,
+那么平行四边形$ABCD$的面积$S_{ABCD} = |\det(u ,v)|$.
+同理平行四边形$A'B'C'D'$的面积有
+$$S_{A'B'C'D'} = |\det(Au, Av)| = |\det(A(u, v))| = |\det A| \cdot |\det (u, v))| = |\det A| S_{ABCD}$$
+平面上任意图形可以用正方形覆盖（的极限）计算面积，因此其经过变换$\mathscr{A}$之后的面积为变换前的$|\det A|$倍。
+
+事实上，$n$维空间中由（线性无关）向量组$v_1,\ldots,v_n$确定的多面体（有向）体积等于$\det(v_1,\ldots,v_n)$.
+对一个积分做变量替换之后要乘以Jacobi矩阵的行列式，原因也在于此。
+
+（2）由第（1）问知$S_{C_1} = |\det A|\cdot S_{C} = |b/a|\cdot \pi a^2 = \pi |ab|$,
+其中$A = \begin{pmatrix} 1 & 0 \\ 0 & \frac{b}{a} \end{pmatrix}$
+
+（3）
+
+**习题6.2 第11题**.
+设$F_n[x]$是数域$F$上次数低于$n$的一元多项式组成的$n$维空间，$n \geqslant 2$。$\mathscr{A}: f(x) \mapsto f(x+1)$与
+$\mathscr{D}: f(x) \mapsto f'(x)$是$F_n[x]$的线性变换。求证
+$$\mathscr{A} = \mathscr{I} + \dfrac{\mathscr{D}}{1!} + \dfrac{\mathscr{D}^2}{2!} + \cdots + \dfrac{\mathscr{D}^{n-1}}{(n-1)!}$$
+
+**证明**：令$\mathscr{B} = \mathscr{A} - \left( \mathscr{I} + \dfrac{\mathscr{D}}{1!} + \dfrac{\mathscr{D}^2}{2!} + \cdots + \dfrac{\mathscr{D}^{n-1}}{(n-1)!} \right)$.
+要证明$\mathscr{B}$在$F_n[x]$上是零变换，只要证明$\mathscr{B}$在$F_n[x]$的一组基上取值都是零即可。取这组基为$\{ 1, x, \ldots, x^{n-1} \}$.
+对于$0 \leqslant k \leqslant n-1$, 有 $$\begin{aligned}
+\mathscr{B}(x^k) & = \mathscr{A}(x) - \left( \mathscr{I}(x) + \dfrac{\mathscr{D}(x)}{1!} + \dfrac{\mathscr{D}^2(x)}{2!} + \cdots + \dfrac{\mathscr{D}^{n-1}(x)}{(n-1)!} \right) \\
+& = (x+1)^k - \left( x^k + \dfrac{kx^{k-1}}{1!} + \dfrac{k(k-1)x^{k-2}}{2!} + \cdots + \dfrac{k(k-1)\cdots 1 x^0}{k!} + 0 + \cdots + 0 \right) \\
+& = \sum_{t=0}^{k} C_k^tx^t - \left( \dfrac{k!}{0!(k-0)!}x^k + \dfrac{k!}{1!(k-1)!}x^{k-1} + \dfrac{k!}{2!(k-2)!}x^{k-2} + \cdots + \dfrac{k!}{k!(k-k)!} \right) \\
+& = 0\end{aligned}$$
+
+**习题6.2 第4题**.
+设$\mathbb{R}_n[t]$是实数域$\mathbb{R}$上以$t$为字母、次数$<n$的多项式及零组成的线性空间。$V=\left\{ f(\cos x) \ |\ f \in \mathbb{R}_n[t] \right\}$.
+试写出$V$中的基$M_1 = \left\{ 1, \cos x, \cos^2 x, \cdots, \cos^{n-1} x \right\}$到$M_2 = \left\{ 1, \cos x, \cos 2x, \cdots, \cos (n-1)x \right\}$的过渡矩阵。
+
+**解**.
+有$\cos kx + i\sin kx = e^{ikx} = \left( e^{ix} \right)^k = \left( \cos x + i\sin x \right)^k$,
+那么 $$\begin{aligned}
+\cos kx & = \mathfrak{R}\mathfrak{e}\left( \cos x + i\sin x \right)^k \\
+& = \sum_{t=0}^{\lfloor k/2 \rfloor} (-1)^t C_k^{2t} \cos^{k-2t} x \sin^{2t} x \\
+& = \sum_{t=0}^{\lfloor k/2 \rfloor} (-1)^t C_k^{2t} \cos^{k-2t} x (1-\cos^2x)^t \\
+& = \sum_{t=0}^{\lfloor k/2 \rfloor} (-1)^t C_k^{2t} \cos^{k-2t} x \sum_{s=0}^t (-1)^s C_t^s \cos^{2s} x \\
+& = \sum_{t=0}^{\lfloor k/2 \rfloor} C_k^{2t} \sum_{s=0}^t (-1)^{t+s} C_t^s \cos^{k-2t+2s} x \\
+& = \sum_{t=0}^{\lfloor k/2 \rfloor} C_k^{2t} \sum_{s=0}^t (-1)^{2t-s} C_t^{t-s} \cos^{k-2s} x \\
+& = \sum_{t=0}^{\lfloor k/2 \rfloor} C_k^{2t} \sum_{s=0}^t (-1)^s C_t^s \cos^{k-2s} x \\
+& = \sum_{t=0}^{\lfloor k/2 \rfloor} (-1)^t \left(\sum_{m=t}^{\lfloor k/2 \rfloor}  C_k^{2m} C_m^t \right) \cos^{k-2t} x \\\end{aligned}$$
+设过渡矩阵为$A$, 即$M_1A = M_2$, 那么$A$的第$k$列为 $$\begin{aligned}
+\left(0, (-1)^{\lfloor k/2 \rfloor} k\cos x, 0, \cdots, 0, (-1)^t \left(\sum_{m=t}^{\lfloor k/2 \rfloor}  C_k^{2m} C_m^t \right), 0, \cdots 0, \sum_{m=0}^{\lfloor k/2 \rfloor}  C_k^{2m}, 0, \cdots \right)^T, & \text{$k$为奇数} \\
+\left((-1)^{\lfloor k/2 \rfloor} k\cos x, 0, \cdots, 0, (-1)^t \left(\sum_{m=t}^{\lfloor k/2 \rfloor}  C_k^{2m} C_m^t \right), 0, \cdots 0, \sum_{m=0}^{\lfloor k/2 \rfloor}  C_k^{2m}, 0, \cdots \right)^T, & \text{$k$为偶数} \\\end{aligned}$$
+上式中的$t$对应相应向量的第$k-2t$位。以上即为第一类切比雪夫多项式（Chebyshev
+polynomials of the first
+kind）的系数。第一类切比雪夫多项式的一种定义方式即为
+$$T_k(\cos x) = \cos (kx)$$
