@@ -31,7 +31,7 @@ $$
 
 于是，当$n$为偶数时，$\mathscr{A}$对应于特征值$\lambda = 1$有$\dfrac{n}{2}$个特征向量$\alpha_i + \alpha_{n+1-i}, ~ i = 1, \ldots, \dfrac{n}{2},$ $\mathscr{A}$对应于特征值$\lambda = -1$有$\dfrac{n}{2}$个特征向量$\alpha_i - \alpha_{n+1-i}, ~ i = 1, \ldots, \dfrac{n}{2}.$ 所以此时$\mathscr{A}$可以对角化。
 
-当$n$是奇数的时候，$\mathscr{A}$对应于特征值$\lambda = 1$有$\dfrac{n-1}{2}$个特征向量$\alpha_i + \alpha_{n+1-i}, ~ i = 1, \ldots, \dfrac{n-1}{2},$ $\mathscr{A}$对应于特征值$\lambda = -1$有$\dfrac{n-1}{2}$个特征向量$\alpha_i - \alpha_{n+1-i}, ~ i = 1, \ldots, \dfrac{n-1}{2}.$ 所以此时$\mathscr{A}$不能对角化。
+当$n$是奇数的时候，$\mathscr{A}$对应于特征值$\lambda = 1$有$\dfrac{n+1}{2}$个特征向量$\alpha_i + \alpha_{n+1-i}, ~ i = 1, \ldots, \dfrac{n-1}{2},$ 以及$\alpha_{(n+1)/2}$。$\mathscr{A}$对应于特征值$\lambda = -1$有$\dfrac{n-1}{2}$个特征向量$\alpha_i - \alpha_{n+1-i}, ~ i = 1, \ldots, \dfrac{n-1}{2}.$ 所以此时$\mathscr{A}$也可以对角化。
 
 另一种解法：$\mathscr{A}$在这组基$\alpha_1, \alpha_2, \ldots, \alpha_n$下的矩阵表示为$A = \begin{pmatrix} & & 1 \\ & \reflectbox{$\ddots$} & \\ 1 & & \end{pmatrix}$, 那么
 $$\lambda I - A = \begin{pmatrix} \lambda & & & & & -1 \\ & \ddots & & & \reflectbox{$\ddots$} & \\ & & \lambda & -1 & & \\ & & -1 & \lambda & & \\ & \reflectbox{$\ddots$} & & & \ddots & \\ -1 & & & & & \lambda \end{pmatrix}, \quad \text{$n$为偶数,}$$
