@@ -61,30 +61,18 @@ $A$的极小多项式与特征多项式都是$f(\lambda) = \lambda^n$.
 **证明**: 由于$s = \dim (\ker (0 I - J_1))$,
 $t = \dim (\ker (0 I - J_2))$
 为特征值$0$对应的特征空间的维数，而$J_1, J_2$都相似于$A$, 所以
-$$s = t = \dim(\ker (0 I - A)) = \dim(\ker A)$$
+$$s = t = \dim(\ker (0 I - A)) = \dim(\ker A).$$
 
-令$J_1, J_2$对应的空间的（循环）分解分别为$V_1\oplus V_2 \oplus \cdots \oplus V_s$与$W_1\oplus W_2 \oplus \cdots \oplus W_s$.
-那么对于$V_1$, 有直和分解
-$$V_1 = V_1 \cap \mathbb{F}^n = V_1 \cap (W_1\oplus W_2 \oplus \cdots \oplus W_s) = (V_1 \cap W_1) \oplus \cdots \oplus (V_1 \cap W_s)$$
-如果上式右边有至少2个空间$V_1 \oplus W_i, V_1 \oplus W_j, i\neq j$,
-是非平凡的，那么$J_{m_1}(0), m_1\geqslant 2$,
-就可以准对角化，但这是不可能的。于是存在$i_1 \in \{1, \ldots, s\}$,
-使得$V_1 = W_{i_1}$. 同理可知，对于$V_2, \ldots, V_s$,
-都分别存在$i_2, \ldots, i_s$,
-使得$V_2 = W_{i_2}, \ldots, V_s = W_{i_s}$,
-而且这些$i_1, i_2, \ldots, i_s$显然都是互异的，即$\{i_1, \ldots, i_s\} = \{1, 2, \ldots, s\}$。因此
-$$m_j = \dim V_j = \dim W_{i_j} = n_{i_j}, \quad j = 1, 2, \ldots, s,$$
-从而适当调换顺序之后有 $$(m_1, \ldots, m_s) = (n_1, \ldots, n_s)$$
-或者更准确来说，是
-$$(m_1, \ldots, m_s) = \begin{pmatrix} 1 2 \cdots s \\ i_1 i_2 \cdots i_s \end{pmatrix} (n_1, \ldots, n_s).$$
-
-注：关于$J_{r}(0), r \geqslant 2$不能准对角化的证明：
-
-假设$J_{r}(0)$可以准对角化为$\begin{pmatrix} M_1 & \\ & M_2 \end{pmatrix}$,
-那么$M_1, M_2$都只有特征值$0$.
-于是$M_1, M_2$可以通过循环分解，分解为对角线元素都是$0$的上三角矩阵，即
-$$\begin{aligned}
-J_{r}(0) & = \begin{pmatrix} Q_1 & \\ & Q_2 \end{pmatrix} \begin{pmatrix} M_1 & \\ & M_2 \end{pmatrix} \begin{pmatrix} Q_1^{-1} & \\ & Q_2^{-1} \end{pmatrix} \\
-& = \begin{pmatrix} Q_1 & \\ & Q_2 \end{pmatrix} \begin{pmatrix} P_1^{-1} & \\ & P_2^{-1} \end{pmatrix} \begin{pmatrix} P_1M_1P_1^{-1} & \\ & P_2M_2P_2^{-1} \end{pmatrix} \begin{pmatrix} P_1 & \\ & P_2 \end{pmatrix} \begin{pmatrix} Q_1^{-1} & \\ & Q_2^{-1} \end{pmatrix} \\
-& = \begin{pmatrix} Q_1 & \\ & Q_2 \end{pmatrix} \begin{pmatrix} P_1^{-1} & \\ & P_2^{-1} \end{pmatrix} \begin{pmatrix} \begin{pmatrix} 0 & & \ast \\ & \ddots & \\ & & 0 \end{pmatrix} & \\ & \begin{pmatrix} 0 & & \ast \\ & \ddots & \\ & & 0 \end{pmatrix} \end{pmatrix} \begin{pmatrix} P_1 & \\ & P_2 \end{pmatrix} \begin{pmatrix} Q_1^{-1} & \\ & Q_2^{-1} \end{pmatrix}\end{aligned}$$
-比较两边的秩可知上式不可能成立。
+由于$A, J_1, J_2$相似，所以$\forall k \in \mathbb{N}$, 有
+$$\operatorname{rank} A^k = \operatorname{rank} J_1^k = \operatorname{rank} J_2^k.$$
+对于$r$阶Jordan块$J_r(0)$,
+有$\operatorname{rank} J_r(0)^k = \max \{ 0, r-k \}$, 进而有
+$$\operatorname{rank} J_1^k = \sum_{i=1}^s \max \{ 0, m_i-k \}, \quad \operatorname{rank} J_1^k = \sum_{i=1}^s \max \{ 0, n_i-k \}.$$
+他们的二阶差分分别为（$k\geqslant 1$） $$\begin{aligned}
+D_1(k) & := \operatorname{rank} J_1^{k+1} + \operatorname{rank} J_1^{k-1} - 2 \operatorname{rank} J_1^{k} = \# \{ i \ |\ 1 \leqslant i \leqslant s, ~ m_i = k \} \\
+D_2(k) & := \operatorname{rank} J_2^{k+1} + \operatorname{rank} J_2^{k-1} - 2 \operatorname{rank} J_2^{k} = \# \{ i \ |\ 1 \leqslant i \leqslant s, ~ n_i = k \}\end{aligned}$$
+于是对于任意$k\geqslant 1$都有
+$$\# \{ i \ |\ 1 \leqslant i \leqslant s, ~ m_i = k \} = D_1(k) = D_2(k) = \# \{ i \ |\ 1 \leqslant i \leqslant s, ~ n_i = k \}$$
+所以存在$s$阶对称群中的一个元素$\sigma$,
+使得$\sigma(m_1, \cdots, m_s) = (n_1, \cdots, n_s)$,
+即在不计一个置换作用的意义下，$A$的Jordan标准形是唯一的。
