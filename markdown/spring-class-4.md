@@ -45,21 +45,29 @@ $$\mathscr{A}(f(x)) = f'(x), ~ \mathscr{B}(f(x)) = xf(x), \quad \forall f(x) \in
 那么$\mathscr{BA}(f(x)) = na_nx^n + \cdots + a_1x \in W$.
 所以$W$是$\mathscr{BA}$的不变子空间。
 
-(2)由$\mathscr{BA}(a_nx^n + \cdots + a_1x + a_0) = na_nx^n + \cdots + a_1x$容易看出$(\mathscr{BA})^n(a_nx^n + \cdots + a_1x + a_0) = n^na_nx^n + \cdots + a_1x$.
+(2).
+我们首先将$\mathscr{BA}$视作$W$上的线性变换。由$\mathscr{BA}(a_nx^n + \cdots + a_1x + a_0) = na_nx^n + \cdots + a_1x$容易看出$(\mathscr{BA})^n(a_nx^n + \cdots + a_1x + a_0) = n^na_nx^n + \cdots + a_1x$.
 
 所以当$\operatorname{char}(\mathbb{F}) = 0$时，任取$g(x) = b_nx^n + \cdots + b_1x$,
 总有$(\mathscr{BA})^n\left(\dfrac{b_n}{n^n} x^n + \cdots + b_1x\right) = g(x).$
 于是
 $$\operatorname{Im}((\mathscr{BA})^n) = \{ a_nx^n + \cdots + a_1x \ |\ a_i\in\mathbb{F},~ 1\leqslant i \leqslant n \}$$
+其维数为$n$, 基可取为$\{x^n, \ldots, x\}$.
 $\ker((\mathscr{BA})^n)$维数为$1$，可取常值函数（多项式）$f(x) = 1$为其一组基。
 
 当$\operatorname{char}(\mathbb{F}) = p$, $p$为某个素数时，有
 $$(\mathscr{BA})^n(a_nx^n + \cdots + a_1x + a_0) = \sum_{\substack{1\leqslant k \leqslant n \\ p\nmid k}} k^n a_k x^k$$
 此时有
 $$\operatorname{Im}((\mathscr{BA})^n) = \left\{ \sum_{\substack{1\leqslant k \leqslant n \\ p\nmid k}} a_k x^k \ \middle|\ a_k\in\mathbb{F},~ 1\leqslant k \leqslant n, ~ p\nmid k \right\}$$
+它的一组基可取为$\{ x^k \ |\ 1 \leqslant k \leqslant n, q\nmid k \}$,
+维数等于$n - \left\lfloor \dfrac{n}{p} \right\rfloor$.
 $\ker((\mathscr{BA})^n)$维数等于$\# (\{ 0 \} \cup \{ k \ |\ 1\leqslant k \leqslant n, ~ p\nmid k \}) = 1 + \left\lfloor \dfrac{n}{p} \right\rfloor.$
-它的一组基可以取为$1, a^p, \ldots, a^{mp}$,
+它的一组基可以取为$1, x^p, \ldots, x^{mp}$,
 其中$m = \left\lfloor \dfrac{n}{p} \right\rfloor.$
+
+若将$\mathscr{BA}$视作$V$上的线性变换，则以上关于核空间的论断不变。$\operatorname{char}(\mathbb{F}) = 0$时，象空间基为$\{x^m \ |\ m\in\mathbb{N}_+ \}$,
+是一个无穷维线性空间。$\operatorname{char}(\mathbb{F}) = p$时象空间基为$\{ x^m \ |\ m\in\mathbb{N}_+, ~ p \nmid m \}$,
+也是一个无穷维线性空间。
 
 **第三题**. 在$V = M_n(\mathbb{F})$中定义变换$\sigma: X \mapsto AX$,
 $\forall X\in V$,
@@ -101,7 +109,12 @@ $g(\lambda_0) \neq 0$.
 用$W_{\lambda_0}$表示$V$的属于$\lambda_0$的根子空间，证明
 $$W_{\lambda_0} = \{ g(\mathscr{A})\alpha \ |\ \alpha \in V \}.$$
 
-**证明**：习题课讲过类似的题目。任取$\beta \in W_{\lambda_0}$,
+**证明**：习题课讲过类似的题目。任取$\alpha \in V$,
+有$(\mathscr{A} - \lambda_0)^m g(\mathscr{A}) (\alpha) = \varphi_{\mathscr{A}}(\mathscr{A}) (\alpha) = 0$,
+所以$W \supseteq \{ g(\mathscr{A})\alpha \ |\ \alpha \in V \}.$
+下证$W \subseteq \{ g(\mathscr{A})\alpha \ |\ \alpha \in V \}.$
+
+任取$\beta \in W_{\lambda_0}$,
 那么存在非负整数$k$使得$(\mathscr{A} - \lambda_0)^k \beta = 0$.
 我们希望找到某个$\alpha \in V$, 使得$g(\mathscr{A}) \alpha = \beta$.
 
@@ -128,7 +141,7 @@ $$W_{\lambda_0} = \{ g(\mathscr{A})\alpha \ |\ \alpha \in V \}.$$
 证明 $$r(A) \leqslant \dfrac{(m-1)n}{m}.$$
 
 **证明**.
-由于$A$是$n$阶幂零矩阵，所以$A$的Jordan标准形可以写为$\operatorname{diag}(J_{r_1}(0), \ldots, J_{r_s}(0))$.
+将$A$视作$\mathbb{F}$的代数闭包$\overline{\mathbb{F}}$上的矩阵，秩不改变。由于$A$是$n$阶幂零矩阵，所以$A$的Jordan标准形可以写为$\operatorname{diag}(J_{r_1}(0), \ldots, J_{r_s}(0))$.
 由于$A$的最小多项式$d(\lambda) = \lambda^m$,
 所以$\forall 1 \leqslant i \leqslant s$, 有$r_i \leqslant m$. 于是我们有
 $$\begin{cases}
@@ -137,6 +150,11 @@ $$\begin{cases}
 r_i \leqslant m, ~ \forall 1 \leqslant i \leqslant s.
 \end{cases}$$
 于是$\operatorname{rank} A = n - s \leqslant n - \dfrac{n}{m} = \dfrac{(m-1)n}{m}$.
+
+我们以下说明，可以不用将$A$视作$\overline{\mathbb{F}}$上的矩阵，也有$A$相似于Jordan形$\operatorname{diag}(J_{r_1}(0), \ldots, J_{r_s}(0))$的结论。我们考虑$A$的有理标准形（或循环标准形）$\operatorname{diag}(C_{r_1}, \ldots, C_{r_s})$,
+这些$C_{r_i}$是$A$的不变因子组$\lambda^{r_i}$的友阵。多项式$\lambda^{r_i}$的友阵是$\begin{pmatrix} 0 & & & 0 \\ 1 & \ddots & & \vdots \\ & \ddots & \ddots & \vdots \\ & & 1 & 0 \end{pmatrix}$,
+这是一个Jordan块（或其转置）$J_{r_i}(0).$
+因此$A$相似于Jordan形$\operatorname{diag}(J_{r_1}(0), \ldots, J_{r_s}(0))$.
 
 **第六题**.
 设$\mathscr{A}$是$n$维向量空间$V$的一个线性变换。对于$V$的一组基$\alpha_1, \alpha_2, \ldots, \alpha_n$和$\alpha = x_1\alpha_1 + \cdot + x_n\alpha_n$,
