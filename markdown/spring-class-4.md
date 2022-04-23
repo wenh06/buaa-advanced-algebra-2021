@@ -157,8 +157,8 @@ r_i \leqslant m, ~ \forall 1 \leqslant i \leqslant s.
 因此$A$相似于Jordan形$\operatorname{diag}(J_{r_1}(0), \ldots, J_{r_s}(0))$.
 
 **第六题**.
-设$\mathscr{A}$是$n$维向量空间$V$的一个线性变换。对于$V$的一组基$\alpha_1, \alpha_2, \ldots, \alpha_n$和$\alpha = x_1\alpha_1 + \cdot + x_n\alpha_n$,
-有 $$\mathscr{A}\alpha = x_n\alpha_1 + \cdot + x_1\alpha_n,$$
+设$\mathscr{A}$是$n$维向量空间$V$的一个线性变换。对于$V$的一组基$\alpha_1, \alpha_2, \ldots, \alpha_n$和$\alpha = x_1\alpha_1 + \cdots + x_n\alpha_n$,
+有 $$\mathscr{A}\alpha = x_n\alpha_1 + \cdots + x_1\alpha_n,$$
 判断$\mathscr{A}$是否可对角化，并证明你的结论。
 
 **解**:
