@@ -2,8 +2,8 @@
 
 
 
-\renewcommand{\newpageorvspace}{\newpage}
-% \renewcommand{\newpageorvspace}{\vspace{2em}}
+% \renewcommand{\newpageorvspace}{\newpage}
+\renewcommand{\newpageorvspace}{\vspace{2em}}
 
 \date{2022-5-6  第五次习题课}
 
@@ -12,18 +12,18 @@
 \maketitle
 
 {
-\larger[3]
+% \larger[3]
 
 {\bf 第一题}. 习题6.8第4题涉及的牛顿公式：记$f_n(X) = X^n + a_1 X^{n-1} + \cdots + a_n = X_n + (-1)^1 \sigma_1 X^{n-1} + \cdots + (-1)^n \sigma_n$, 其复根$k$次幂之和记为$S_k = S_k(f_n)$. 那么当$m \leqslant n$时，有
 $$S_m + a_1S_{m-1} + \cdots + a_{m-1}S_1 + ma_m = 0;$$
 当$m > n$时，有
 $$S_m + a_1S_{m-1} + \cdots + a_nS_{m-n} = 0.$$
 
-\newpageorvspace
+% \newpageorvspace
 
 {\bf 证明}. 记$f_n(X)$的所有复根为$x_1,\ldots,x_n$. 那么
 \begin{align*}
-S_k & = \sum\limits_{i=1}^n x^k, \\
+S_k & = \sum\limits_{i=1}^n x_i^k, \\
 \sigma_k & = \operatorname{Sym}_k^1(x_1,\ldots,x_n) = \sum\limits_{\substack{0 \leqslant k_1,\ldots,k_n \leqslant 1 \\ k_1+\cdots+k_n=k}} x_1^{k_1} \cdots x_n^{k_n} \\
 & = \sum\limits_{1 \leqslant h_1 < \cdots < h_k \leqslant n} x_{h_1} \cdots x_{h_k}
 \end{align*}
@@ -83,12 +83,11 @@ $$
 
 {\bf 第二题}. 习题7.2第4题. (1). 设$\mathscr{A,B}$为奇数维实线性空间$V$上的线性变换且$\mathscr{AB} = \mathscr{BA}$, 求证$\mathscr{A,B}$有公共特征向量。
 
-\newpageorvspace
+% \newpageorvspace
 
 {\bf 证明}：(1). $\mathscr{A,B}$的特征多项式都是奇数阶的首一的实系数多项式。一个实系数多项式$f(X)$有分解
 \begin{multline*}
-f(X) = (X-x_1) \cdots (X-x_k) (X^2 - (z_1+\overline{z}_1)X + z_1\overline{z}_1) \\
-\cdots (X^2 - (z_m+\overline{z}_m)X + z_m\overline{z}_m),
+f(X) = (X-x_1) \cdots (X-x_k) (X^2 - (z_1+\overline{z}_1)X + z_1\overline{z}_1) \cdots (X^2 - (z_m+\overline{z}_m)X + z_m\overline{z}_m),
 \end{multline*}
 其中$x_1, \cdots, x_k$为实根, $z_1, \overline{z}_1, \cdots, z_m, \overline{z}_m$为复根。奇数阶的实系数多项式至少有一个实根，而且至少有一个实根的代数重数为奇数。
 
@@ -101,15 +100,6 @@ $(\mathscr{A} - \lambda_0)^s \beta = 0$的最小的正整数，$s \geqslant 1$. 
 (\mathscr{B} - \mu_0) \beta' & = (\mathscr{A} - \lambda_0)^{s-1} ((\mathscr{B} - \mu_0) \beta) = 0.
 \end{align*}
 于是$\beta'$是$\mathscr{A,B}$的公共特征向量。
-
-% \newpageorvspace
-
-
-% {\bf 第三题}. 习题7.2第6题. $V$是复数域上$n$维线性空间。$f,g$是$V$上线性变换，且满足$fg - gf = f$. 求证：$f$的特征值都是$0$, 且$f,g$有公共特征向量。
-
-% \newpageorvspace
-
-% {\bf 证明}：
 
 
 \newpageorvspace
@@ -131,7 +121,7 @@ $$f_i(\lambda) = \prod\limits_{\substack{1 \leqslant j \leqslant t \\ j \neq i}}
 
 {\bf 第四题}. 习题7.3第6题. 设向量$\alpha, \beta$相对于线性变换$\mathscr{A}$的最小多项式$d_{\alpha}(\lambda)$与$d_{\beta}(\lambda)$互素。求证：$\mathbb{F}[\mathscr{A}]\alpha \oplus \mathbb{F}[\mathscr{A}]\beta = \mathbb{F}[\mathscr{A}](\alpha + \beta)$.
 
-\newpageorvspace
+% \newpageorvspace
 
 {\bf 证明}. 这题实际上是要证明两个结论：
 
@@ -160,9 +150,9 @@ $$\gamma = f_1(\mathscr{A})\alpha = f_2(\mathscr{A})\beta.$$
 \newpageorvspace
 
 
-{\bf 第五题}. 设$\mathscr{A}$是$n$维线性空间$V$的线性变换，且存在循环向量向量$\alpha \in V$, 使得$V = \mathbb{F}[\mathscr{A}]\alpha$. 求证：与$\mathscr{A}$可交换的$V$上任一线性变换$\mathscr{B}$必为$\mathscr{A}$的多项式。
+{\bf 第五题}. 设$\mathscr{A}$是$n$维线性空间$V$的线性变换，且存在循环向量$\alpha \in V$, 使得$V = \mathbb{F}[\mathscr{A}]\alpha$. 求证：与$\mathscr{A}$可交换的$V$上任一线性变换$\mathscr{B}$必为$\mathscr{A}$的多项式。
 
-\newpageorvspace
+% \newpageorvspace
 
 {\bf 证明}: 由于$V = \mathbb{F}[\mathscr{A}]\alpha$, 所以存在非零多项式$f_1, \ldots, f_n$使得$f_1(\mathscr{A})(\alpha), \ldots, f_n(\mathscr{A})(\alpha)$为$V$的一组基。故存在数$a_1, \ldots, a_n$, 使得$\mathscr{B}(\alpha) = a_1 f_1(\mathscr{A})(\alpha) + \cdots + a_n f_n(\mathscr{A})(\alpha) = f(\mathscr{A})(\alpha)$, 其中$f = a_1 f_1 + \cdots a_n f_n$.
 
@@ -183,7 +173,7 @@ $$\gamma = f_1(\mathscr{A})\alpha = f_2(\mathscr{A})\beta.$$
 
 {\bf 第六题}. 设$\mathscr{A}$为线性空间$V$上的线性变换。求证：若$\mathscr{A}^2$有循环向量，即存在$\alpha\in V$使得$V = \mathbb{F}[\mathscr{A}^2](\alpha)$, 则$\mathscr{A}$也有循环向量。请问反过来是否成立？
 
-\newpageorvspace
+% \newpageorvspace
 
 {\bf 证明}: 我们有
 \begin{align*}
@@ -210,7 +200,7 @@ $$\mathscr{A}: \begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} 0 & 
 $$W = (W \cap W_1) \oplus\cdots\oplus (W \cap W_s)$$
 对于一个一般的$W$，请问此结论是否成立？
 
-\newpageorvspace
+% \newpageorvspace
 
 {\bf 证明}: (1). 设$\mathscr{A}$的特征多项式为
 $$f(\lambda) = (\lambda-\lambda_1)^{n_1}\cdots(\lambda-\lambda_s)^{n_s},$$
@@ -231,7 +221,7 @@ $$(\lambda-\lambda_i)^{n_i}u_i(\mathscr{A})f_i(\mathscr{A})(\alpha) = u_i(\maths
 $$(W \cap W_1) \oplus\cdots\oplus (W \cap W_s) = (W \cap W_1) +\cdots+ (W \cap W_s) \subseteq W.$$
 
 下面证明另一边的包含关系。任取$\alpha \in W$, 有
-$$\alpha = \mathscr{E}_1(\alpha) + \cdots \mathscr{E}_s(\alpha)$$
+$$\alpha = \mathscr{E}_1(\alpha) + \cdots + \mathscr{E}_s(\alpha)$$
 $\mathscr{E}_i$是(1)中定义的正则投影变换，是$\mathscr{A}$的多项式，$\mathscr{E}_i(\alpha) \in W_i$. 由于$W$是$\mathscr{A}$的不变子空间，从而也是$\mathscr{A}$的多项式的不变子空间，所以$\mathscr{E}_i(\alpha) \in W$, 进而有$\mathscr{E}_i(\alpha) \in W\cap W_i$. 这就证明了
 $\alpha \in (W \cap W_1) \oplus\cdots\oplus (W \cap W_s)$.
 
