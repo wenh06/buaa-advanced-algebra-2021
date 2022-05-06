@@ -11,7 +11,8 @@
 
 \maketitle
 
-% {\larger
+{
+\larger[3]
 
 {\bf 第一题}. 习题6.8第4题涉及的牛顿公式：记$f_n(X) = X^n + a_1 X^{n-1} + \cdots + a_n = X_n + (-1)^1 \sigma_1 X^{n-1} + \cdots + (-1)^n \sigma_n$, 其复根$k$次幂之和记为$S_k = S_k(f_n)$. 那么当$m \leqslant n$时，有
 $$S_m + a_1S_{m-1} + \cdots + a_{m-1}S_1 + ma_m = 0;$$
@@ -28,14 +29,19 @@ S_k & = \sum\limits_{i=1}^n x^k, \\
 \end{align*}
 我们有
 \begin{align*}
-\sigma_1 S_{m-1} & = (x_1 + \cdots + x_n) (x_1^{m-1} + \cdots + x_n^{m-1}) = S_m + \sum_{\substack{1 \leqslant i,j \leqslant n \\ i\neq j}} x_i^{m-1} x_j = {\color{red} S_m} + \mathcal{S}(x_1^{m-1}x_2) \\
-\sigma_2 S_{m-2} & = \left( \sum_{\substack{1 \leqslant i,j \leqslant n \\ i\neq j}} x_i x_j \right) (x_1^{m-2} + \cdots + x_n^{m-2}) = \mathcal{S}(x_1^{m-1}x_2) + \mathcal{S}(x_1^{m-2}x_2x_3) \\
+\sigma_1 S_{m-1} & = (x_1 + \cdots + x_n) (x_1^{m-1} + \cdots + x_n^{m-1}) \\
+& = S_m + \sum_{\substack{1 \leqslant i,j \leqslant n \\ i\neq j}} x_i^{m-1} x_j = {\color{red} S_m} + \mathcal{S}(x_1^{m-1}x_2) \\
+\sigma_2 S_{m-2} & = \left( \sum_{1 \leqslant i < j \leqslant n } x_i x_j \right) (x_1^{m-2} + \cdots + x_n^{m-2}) \\
+& = \mathcal{S}(x_1^{m-1}x_2) + \mathcal{S}(x_1^{m-2}x_2x_3) \\
 & \vdots \\
 \sigma_k S_{m-k} & = \left( \sum\limits_{1 \leqslant h_1 < \cdots < h_k \leqslant n} x_{h_1} \cdots x_{h_k} \right) (x_1^{m-k} + \cdots + x_n^{m-k}) \\
 & = \mathcal{S}(x_1^{m-k+1}x_2\cdots x_k) + \mathcal{S}(x_1^{m-k}x_2\cdots x_{k+1})
 \end{align*}
 以上的$\mathcal{S}(x_1,\cdots,x_n) = \mathcal{S}(\ast)$为首项为$\ast$的对称多项式，即满足对于任意的$n$阶置换$s\in \mathcal{S}_n$, 有$\mathcal{S}(x_{s(1)},\cdots,x_{s(n)}) = \mathcal{S}(x_1,\cdots,x_n)$. 可以通过对首项的下标用$n$阶置换群$\mathcal{S}_n$作用，剔除重复项之后求和得到。那么，当$m\leqslant n$时，我们有
-$$\sigma_{m-1} S_1 = (x_1\cdots x_{m-1} + \cdots + x_{n-m+1}\cdots x_{n}) (x_1 + \cdots + x_{n}) = \mathcal{S}(x_1^2x_2\cdots x_{m-1}) + {\color{red} m\sigma_m}$$
+\begin{align*}
+\sigma_{m-1} S_1 & = (x_1\cdots x_{m-1} + \cdots + x_{n-m+1}\cdots x_{n}) (x_1 + \cdots + x_{n}) \\
+& = \mathcal{S}(x_1^2x_2\cdots x_{m-1}) + {\color{red} m\sigma_m}
+\end{align*}
 交错求和得
 \begin{align*}
 & -a_1 S_{m-1} - a_2 S_{m-2} - \cdots - a_{m-1} S_1 \\
@@ -47,12 +53,19 @@ $$S_m + a_1S_{m-1} + \cdots + a_{m-1}S_1 + ma_m = 0.$$
 当$m > n$时，最后一个等式变为
 $$\sigma_n S_{m-n} = x_1\cdots x_n (x_1^{m-n} + \cdots + x_n^{m-n}) = \mathcal{S}(x_1^{m-n+1}x_2 \cdots x_n),$$
 交错求和得
-$$-a_1 S_{m-1} - a_2 S_{m-2} - \cdots - a_n S_{m-n} = \sigma_1 S_{m-1} - \sigma_2 S_{m-2} + \cdots + (-1)^{m} \sigma_n S_{m-n} = S_m$$
+\begin{align*}
+& -a_1 S_{m-1} - a_2 S_{m-2} - \cdots - a_n S_{m-n} \\
+= & \sigma_1 S_{m-1} - \sigma_2 S_{m-2} + \cdots + (-1)^{m} \sigma_n S_{m-n} = S_m
+\end{align*}
 即
 $$S_m + a_1 S_{m-1} + \cdots + a_n S_{m-n} = 0.$$
 
 回到6.8第4题。我们要证明$A, B$特征值对应相等$\Longleftrightarrow$ $\operatorname{tr} A^k = \operatorname{tr} B^k$, $\forall k \in \mathbb{N}_+$. （在代数闭域下）将$A,B$分别上三角化为$T_1, T_2$，对角线元素为$A$的特征值$\lambda_1,\ldots,\lambda_n$以及$B$的特征值$\mu_1,\ldots,\mu_n$, 那么我们只要证明
-$$f_A(X) = f_B(X) \Longleftrightarrow \{\lambda_i\}, \{\mu_j\}\text{对应相等} \Longleftrightarrow \operatorname{tr} T_1^k = \operatorname{tr} T_2^k \Longleftrightarrow S_k(f_A(X)) = S_k(f_B(X)), \forall k \in \mathbb{N}_+$$
+\begin{align*}
+f_A(X) = f_B(X) & \Longleftrightarrow \{\lambda_i\}, \{\mu_j\}\text{对应相等} \\
+& \Longleftrightarrow \operatorname{tr} T_1^k = \operatorname{tr} T_2^k, \forall k \in \mathbb{N}_+ \\
+& \Longleftrightarrow S_k(f_A(X)) = S_k(f_B(X)), \forall k \in \mathbb{N}_+
+\end{align*}
 其中$f_A, f_B$分别为$A,B$的特征多项式。$\Longrightarrow$是显然的，我们只要证明$\Longleftarrow$. 取$k = 1, 2, \ldots, n$, 那么根据$k \leqslant n$时的牛顿公式
 $$
 \begin{cases}
@@ -73,12 +86,15 @@ $$
 \newpageorvspace
 
 {\bf 证明}：(1). $\mathscr{A,B}$的特征多项式都是奇数阶的首一的实系数多项式。一个实系数多项式$f(X)$有分解
-$$f(X) = (X-x_1) \cdots (X-x_k) (X^2 - (z_1+\overline{z}_1)X + z_1\overline{z}_1) \cdots (X-x_k) (X^2 - (z_m+\overline{z}_m)X + z_m\overline{z}_m),$$
+\begin{multline*}
+f(X) = (X-x_1) \cdots (X-x_k) (X^2 - (z_1+\overline{z}_1)X + z_1\overline{z}_1) \\
+\cdots (X^2 - (z_m+\overline{z}_m)X + z_m\overline{z}_m),
+\end{multline*}
 其中$x_1, \cdots, x_k$为实根, $z_1, \overline{z}_1, \cdots, z_m, \overline{z}_m$为复根。奇数阶的实系数多项式至少有一个实根，而且至少有一个实根的代数重数为奇数。
 
 令$\lambda_0$为$\mathscr{A}$的一个代数重数为奇数的实根，令$W_{\lambda_0}$为其根子空间，维数为奇数。任取$\alpha \in W_{\lambda_0}$, 有足够大的正整数$s$满足
-$$\mathscr{A}^s(\mathscr{B}(\alpha)) = \mathscr{B} (\mathscr{A}^s(\alpha)) = \mathscr{B}(0) = 0.$$
-故$\mathscr{B}(\alpha) \in W_{\lambda_0}$, 即知$W_{\lambda_0}$是$\mathscr{B}$的不变子空间。由于$W_{\lambda_0}$是奇数维的，故存在实特征值$\mu_0$以及对应的特征向量$\beta \in W_{\lambda_0}$, 满足$\mathscr{B}(\beta) = \mu_0 \beta$. 由于$\beta \in W_{\lambda_0}$, 令$s$为满足
+$$(\mathscr{A}-\lambda_0)^s(\mathscr{B}(\alpha)) = \mathscr{B} ((\mathscr{A}-\lambda_0)^s(\alpha)) = \mathscr{B}(0) = 0.$$
+故$\mathscr{B}(\alpha) \in W_{\lambda_0}$, 即知$W_{\lambda_0}$是$\mathscr{B}$的不变子空间。由于$W_{\lambda_0}$是奇数维的实线性空间，故存在实特征值$\mu_0$以及对应的特征向量$\beta \in W_{\lambda_0}$, 满足$\mathscr{B}(\beta) = \mathscr{B}|_{W_{\lambda_0}}(\beta) = \mu_0 \beta$. 由于$\beta \in W_{\lambda_0}$, 令$s$为满足
 $(\mathscr{A} - \lambda_0)^s \beta = 0$的最小的正整数，$s \geqslant 1$. 令$\beta' = (\mathscr{A} - \lambda_0)^{s-1} \beta \neq 0$, 有
 \begin{align*}
 (\mathscr{A} - \lambda_0) \beta' & = (\mathscr{A} - \lambda_0)^s \beta = 0, \\
@@ -103,9 +119,11 @@ $(\mathscr{A} - \lambda_0)^s \beta = 0$的最小的正整数，$s \geqslant 1$. 
 
 \newpageorvspace
 
-{\bf 证明}：由于$\alpha_1 + \cdots + \alpha_t \in \mathbb{F}\alpha_1 \oplus \cdots \oplus \mathbb{F}\alpha_t$, 所以$U = \mathbb{F}[\mathscr{A}](\alpha_1 + \cdots + \alpha_t) \subseteq \mathbb{F}\alpha_1 \oplus \cdots \oplus \mathbb{F}\alpha_t$. 我们来证明另一个方向的包含关系。我们希望证明，任取$1 \leqslant i \leqslant t$, 都有$\alpha_i \in \mathbb{F}[\mathscr{A}](\alpha_1 + \cdots + \alpha_t)$. 我们需要寻找一个多项式$f(\lambda)$, 使得$f(\mathscr{A}) (\alpha_1 + \cdots + \alpha_t) = \alpha_i$. 我们可以取
-$$f(\lambda) = \prod\limits_{\substack{1 \leqslant j \leqslant t \\ j \neq i}} \dfrac{\lambda - \lambda_j}{\lambda_i - \lambda_j},$$
-这个多项式满足$f(\mathscr{A})(\alpha_i) = \alpha_i$, $f(\mathscr{A})(\alpha_i) = 0$, $\forall j \neq i$. 
+{\bf 证明}：由于$\mu_1\alpha_1 + \cdots + \mu_t\alpha_t \in \mathbb{F}\alpha_1 \oplus \cdots \oplus \mathbb{F}\alpha_t$对任意一组数$\mu_1,\ldots,\mu_t$, 而且任取$f(\lambda) \in \mathbb{F}[\lambda]$, 有$f(\mathscr{A})(\alpha_i) = f(\lambda_i) \alpha_i$, 所以$\mathbb{F}[\mathscr{A}](\alpha_1 + \cdots + \alpha_t) \subseteq \mathbb{F}\alpha_1 \oplus \cdots \oplus \mathbb{F}\alpha_t$.
+
+我们来证明另一个方向的包含关系。我们希望证明，任取$1 \leqslant i \leqslant t$, 都有$\alpha_i \in \mathbb{F}[\mathscr{A}](\alpha_1 + \cdots + \alpha_t)$. 我们需要寻找一个多项式$f_i(\lambda)$, 使得$f_i(\mathscr{A}) (\alpha_1 + \cdots + \alpha_t) = \alpha_i$. 我们可以取
+$$f_i(\lambda) = \prod\limits_{\substack{1 \leqslant j \leqslant t \\ j \neq i}} \dfrac{\lambda - \lambda_j}{\lambda_i - \lambda_j},$$
+这个多项式满足$f_i(\mathscr{A})(\alpha_i) = \alpha_i$, $f_i(\mathscr{A})(\alpha_j) = 0$, $\forall j \neq i$. 
 
 
 \newpageorvspace
@@ -115,11 +133,15 @@ $$f(\lambda) = \prod\limits_{\substack{1 \leqslant j \leqslant t \\ j \neq i}} \
 
 \newpageorvspace
 
-{\bf 证明}. 这题实际上是要证明两个结论：1. $\mathbb{F}[\mathscr{A}]\alpha + \mathbb{F}[\mathscr{A}]\beta = \mathbb{F}[\mathscr{A}]\alpha \oplus \mathbb{F}[\mathscr{A}]\beta$; 2. $\mathbb{F}[\mathscr{A}]\alpha \oplus \mathbb{F}[\mathscr{A}]\beta = \mathbb{F}[\mathscr{A}](\alpha + \beta)$.
+{\bf 证明}. 这题实际上是要证明两个结论：
 
-对于第1个结论，我们只要证明$\mathbb{F}[\mathscr{A}]\alpha \cap \mathbb{F}[\mathscr{A}]\beta = \{0\}$. 任取$\gamma \in \mathbb{F}[\mathscr{A}]\alpha \cap \mathbb{F}[\mathscr{A}]\beta$, 那么存在多项式$f_1, f_2$使得
+1. $\mathbb{F}[\mathscr{A}]\alpha + \mathbb{F}[\mathscr{A}]\beta = \mathbb{F}[\mathscr{A}]\alpha \oplus \mathbb{F}[\mathscr{A}]\beta$;
+
+2. $\mathbb{F}[\mathscr{A}]\alpha \oplus \mathbb{F}[\mathscr{A}]\beta = \mathbb{F}[\mathscr{A}](\alpha + \beta)$.
+
+对于第1个结论，我们只要证明$\mathbb{F}[\mathscr{A}]\alpha \cap \mathbb{F}[\mathscr{A}]\beta = \{0\}$. 任取$\gamma \in \mathbb{F}[\mathscr{A}]\alpha \cap \mathbb{F}[\mathscr{A}]\beta$, 那么存在多项式$f_1(\lambda), f_2(\lambda) \in \mathbb{F}[\lambda]$使得
 $$\gamma = f_1(\mathscr{A})\alpha = f_2(\mathscr{A})\beta.$$
-由于$d_{\alpha}(\lambda)$与$d_{\beta}(\lambda)$互素，所以存在多项式$u,v$使得$u(\lambda)d_{\alpha}(\lambda) + v(\lambda)d_{\beta}(\lambda) = 1$, 那么
+由于$d_{\alpha}(\lambda)$与$d_{\beta}(\lambda)$互素，所以存在多项式$u(\lambda), v(\lambda) \in \mathbb{F}[\lambda]$使得$u(\lambda)d_{\alpha}(\lambda) + v(\lambda)d_{\beta}(\lambda) = 1$, 那么
 \begin{align*}
 \gamma & = (u(\mathscr{A})d_{\alpha}(\mathscr{A}) + v(\mathscr{A})d_{\beta}(\mathscr{A})) (\gamma) \\
 & = f_1(\mathscr{A})u(\mathscr{A})(d_{\alpha}(\mathscr{A})(\alpha)) + f_2(\mathscr{A})v(\mathscr{A})(d_{\beta}(\mathscr{A})(\beta)) \\
@@ -153,7 +175,7 @@ $$\gamma = f_1(\mathscr{A})\alpha = f_2(\mathscr{A})\beta.$$
 & = f(\mathscr{A}) (b_1 f_1(\mathscr{A})(\alpha) + \cdots + b_n f_n(\mathscr{A})(\alpha)) \\
 & = f(\mathscr{A}) (\beta)
 \end{align*}
-所以有$\mathscr{B} = f(\mathscr{A})$.
+由于$\beta$是任取的，所以有$\mathscr{B} = f(\mathscr{A})$.
 
 
 \newpageorvspace
@@ -168,12 +190,56 @@ $$\gamma = f_1(\mathscr{A})\alpha = f_2(\mathscr{A})\beta.$$
 V & \supseteq \mathbb{F}[\mathscr{A}](\alpha) \supseteq \operatorname{span} \{ \alpha, \mathscr{A}\alpha, \mathscr{A}^2\alpha, \ldots, \mathscr{A}^{2k-1}\alpha, \mathscr{A}^{2k}\alpha, \ldots \} \\
 & \supseteq \operatorname{span} \{ \alpha, \mathscr{A}^2\alpha, \ldots, \mathscr{A}^{2k}\alpha, \ldots \} = \mathbb{F}[\mathscr{A}^2](\alpha) = V
 \end{align*}
-所以，上式涉及的$\subseteq$实际上都是相等，于是$V = \mathbb{F}[\mathscr{A}](\alpha)$, $\alpha$也是$\mathscr{A}$的循环向量。
+所以，上式涉及的$\supseteq$实际上都是相等，于是$V = \mathbb{F}[\mathscr{A}](\alpha)$, $\alpha$也是$\mathscr{A}$的循环向量。
 
 反过来是不成立的。例如习题7.3第4题中大家举的例子：
 $$\mathscr{A}: \begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} y \\ 0 \end{pmatrix},$$
 任一满足$y \neq 0$的向量$\alpha = \begin{pmatrix} x \\ y \end{pmatrix}$都是$\mathscr{A}$的循环向量。但$\mathscr{A}^2 = 0$, 所以$\mathscr{A}^2$不可能有循环向量。
 
 
+\newpageorvspace
+
+
+{\bf 第七题}. 设$V = W_1 \oplus\cdots\oplus W_s$是线性空间$V$对于线性变换$\mathscr{A}$的根子空间分解，
+
+(1). 求证：正则投影变换$\mathscr{E}_i: V \to W_i$是$\mathscr{A}$的多项式。
+
+注：这里的正则投影变换指的是如下变换：任取$\alpha \in V$, $\alpha$可唯一表示为$\alpha = \beta_1 + \cdots + \beta_s$, 其中$\beta_i \in W_i, i = 1, \ldots, s$. 投影变换$\mathscr{E}_i$在向量$\alpha$上的作用为$\mathscr{E}_i(\alpha) = \beta_i$.
+
+(2). 设$W$是$\mathscr{A}$的任意一个不变子空间，求证
+$$W = (W \cap W_1) \oplus\cdots\oplus (W \cap W_s)$$
+对于一个一般的$W$，请问此结论是否成立？
+
+\newpageorvspace
+
+{\bf 证明}: (1). 设$\mathscr{A}$的特征多项式为
+$$f(\lambda) = (\lambda-\lambda_1)^{n_1}\cdots(\lambda-\lambda_s)^{n_s},$$
+那么$W_i = \ker (\lambda-\lambda_i)^{n_i}$. 对于$i = 1, \ldots, s$, 令
+$$f_i(\lambda) = \prod\limits_{\substack{1 \leqslant j \leqslant s \\ j\neq i}} (\lambda - \lambda_j)^{n_j}$$
+那么多项式$f_1, \ldots, f_s$互素，故存在多项式$u_1, \ldots, u_s \in \mathbb{F}[\lambda]$使得
+$$u_1(\lambda)f_1(\lambda) + \cdots + u_s(\lambda)f_s(\lambda) = 1.$$
+那么任取$\alpha \in V$, 有
+\begin{align*}
+\alpha & = (u_1(\mathscr{A})f_1(\mathscr{A}) + \cdots + u_s(\mathscr{A})f_s(\mathscr{A})) (\alpha) \\
+& = u_1(\mathscr{A})f_1(\mathscr{A})(\alpha) + \cdots + u_s(\mathscr{A})f_s(\mathscr{A})(\alpha)
+\end{align*}
+对任意$i$, 有
+$$(\lambda-\lambda_i)^{n_i}u_i(\mathscr{A})f_i(\mathscr{A})(\alpha) = u_i(\mathscr{A})f(\mathscr{A})(\alpha) = 0,$$
+从而知$\beta_i := u_i(\mathscr{A})f_i(\mathscr{A})(\alpha) \in W_i$. 由于$\alpha$是任取的，所以$\mathscr{E}_i = u_i(\mathscr{A})f_i(\mathscr{A})$, 是$\mathscr{A}$的多项式。
+
+(2). 由于$(W\cap W_i) \cap (W\cap W_j) = W \cap W_i \cap W_j = \{0\},$ 对任意$i\neq j$成立，所以$(W \cap W_1) +\cdots+ (W \cap W_s)$是直和，且有
+$$(W \cap W_1) \oplus\cdots\oplus (W \cap W_s) = (W \cap W_1) +\cdots+ (W \cap W_s) \subseteq W.$$
+
+下面证明另一边的包含关系。任取$\alpha \in W$, 有
+$$\alpha = \mathscr{E}_1(\alpha) + \cdots \mathscr{E}_s(\alpha)$$
+$\mathscr{E}_i$是(1)中定义的正则投影变换，是$\mathscr{A}$的多项式，$\mathscr{E}_i(\alpha) \in W_i$. 由于$W$是$\mathscr{A}$的不变子空间，从而也是$\mathscr{A}$的多项式的不变子空间，所以$\mathscr{E}_i(\alpha) \in W$, 进而有$\mathscr{E}_i(\alpha) \in W\cap W_i$. 这就证明了
+$\alpha \in (W \cap W_1) \oplus\cdots\oplus (W \cap W_s)$.
+
+对于一个一般的$W$，此结论一般不成立。例如
+$$\mathscr{A}: \begin{pmatrix} x \\ y \end{pmatrix} \mapsto \begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x \\ 2y \end{pmatrix},$$
+$V = \ker (\mathscr{A} - 1) \oplus \ker (\mathscr{A} - 2)$
+但$W = \left\{ k(1,1)^T \ \middle|\ k\in\mathbb{F} \right\}$不满足
+$W = (W \cap \ker (\mathscr{A} - 1)) \oplus (W \cap \ker (\mathscr{A} - 2))$, 后者是平凡空间$\{0\}$.
+
 \end{document}
-% }
+}
