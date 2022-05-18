@@ -1,0 +1,100 @@
+\usepackage{relsize}
+
+\renewcommand{\newpageorvspace}{\newpage}
+% \renewcommand{\newpageorvspace}{\vspace{2em}}
+
+\date{2022-5-20  第六次习题课}
+
+\begin{document}
+
+\maketitle
+
+
+\larger[2]
+
+
+{\bf 第一题}. 9.2例3（最小二乘法）求直线$y = kx + b$尽可能接近已知数据点$(x_i, y_i)$ $(1 \leqslant i \leqslant n)$, 也就是使$d(k, b) = \sum\limits_{i=1}^n (kx_i + b - y_i)^2$达到最小值。
+
+\newpageorvspace
+
+{\bf 解}. 我们首先从分析的角度来看这个问题。$d(k, b) = \sum\limits_{i=1}^n (kx_i + b - y_i)^2$关于$k, b$都是（下）凸的，所以满足$\operatorname{grad} d(k, b) = (0,0)^T$的点都是使$d(k, b)$达到最小值的点。计算梯度得
+$$
+\operatorname{grad} d(k, b) = \begin{pmatrix} 2 \sum\limits_{i=1}^n x_i (kx_i + b - y_i) \\ 2 \sum\limits_{i=1}^n (kx_i + b - y_i) \end{pmatrix}
+$$
+得方程组
+$$
+\begin{cases}
+k \sum\limits_{i=1}^n x_i^2 + b \sum\limits_{i=1}^n x_i - \sum\limits_{i=1}^n x_i y_i = 0 \\
+k \sum\limits_{i=1}^n x_i + nb - \sum\limits_{i=1}^n y_i = 0
+\end{cases}
+$$
+或者写成矩阵的形式
+$$
+M \begin{pmatrix} k \\ b \end{pmatrix} = \begin{pmatrix} \sum\limits_{i=1}^n x_i^2 & \sum\limits_{i=1}^n x_i \\ \sum\limits_{i=1}^n x_i & n \end{pmatrix} \begin{pmatrix} k \\ b \end{pmatrix} = \begin{pmatrix} \sum\limits_{i=1}^n x_i y_i \\ \sum\limits_{i=1}^n y_i \end{pmatrix}
+$$
+只要满足$x_i$不全相等，系数矩阵就非奇异，$(k, b)$有唯一解
+$$\begin{pmatrix} k \\ b \end{pmatrix} = M^{-1}\begin{pmatrix} \sum\limits_{i=1}^n x_i y_i \\ \sum\limits_{i=1}^n y_i \end{pmatrix}$$
+令$A = \begin{pmatrix} x_1 & 1 \\ \vdots & \vdots \\ x_n & 1 \end{pmatrix}$, $\mathbf{y} = \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix}$, 那么$M = A^TA$, 上述解又可以写为
+$$(A^TA)^{-1}A^T\mathbf{y}$$
+
+下面，我们从代数的角度来解这个问题。在最理想的情况下，所有数据点都满足某个线性方程$y = kx + b$, 写成矩阵的形式即为
+$$
+\begin{pmatrix} x_1 & 1 \\ \vdots & \vdots \\ x_n & 1 \end{pmatrix} \begin{pmatrix} k \\ b \end{pmatrix} = \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix}
+$$
+一般情况下，满足上式的$(k,b)$不存在。我们考虑更一般的形式$A\mathbf{x} = \mathbf{b}$. 
+
+
+\newpageorvspace
+
+
+{\bf 第二题}. 习题9.2第8题. 用向量的内积证明平面外一点到平面的线段长以垂线段最短，并推广到$n$维欧氏空间：
+
+(1) 取平面上任一点为原点$O$, 将空间$V$每一点$P$用向量$\overrightarrow{OP}$表示，则平面是一个2维子空间$W$. 设$A$是空间中给定的任一点，$B$是平面内任一点，分别对应于向量$\alpha = \overrightarrow{OA}, \beta = \overrightarrow{OB}$, 则$\lvert AB \rvert = \lvert \alpha - \beta \rvert$. 求证：当$\alpha - \beta \in W^{\perp}$时$\lvert \alpha - \beta \rvert$取最小值；
+
+(2) 设$E(\mathbb{R})$是欧氏空间，$W$是它的任意子空间，$\alpha$是$E(\mathbb{R})$任意给定的向量。求证：当$\alpha - \beta \in W^{\perp}$时，$\lvert \alpha - \beta \rvert$ $(\beta \in W)$取最小值；
+
+(3) 设$E(\mathbb{R})$是欧氏空间，$\alpha \in E(\mathbb{R})$, $W$是由$\alpha_1, \ldots, \alpha_k \in E(\mathbb{R})$生成的子空间。当$x_1, \ldots, x_k \in \mathbb{R}$满足什么条件时，$\lvert \alpha - (x_1\alpha_1 + \cdots + x_n\alpha_n) \rvert$取最小值？
+
+\newpageorvspace
+
+{\bf 证明}：
+
+
+\newpageorvspace
+
+
+{\bf 第三题}. 习题9.2第9题. (1) 设$W$是$\mathbb{R}^3$中过点$(0,0,0), (1,2,2), (3,4,0)$的平面，求点$A (5,0,0)$到平面$W$的最短距离；
+
+(2) 求方程组
+$$
+\begin{cases}
+0.39x - 1.89y = 1 \\
+0.61x - 1.80y = 1 \\
+0.93x - 1.68y = 1 \\
+1.35x - 1.50y = 1
+\end{cases}
+$$
+的最小二乘解。
+
+(3) 设$A\in\mathbb{R}^{m\times n}, X = (x_1,\cdots,x_n)^T, \beta\in\mathbb{R}^{m\times 1}$. 如果实系数线性方程组$AX = \beta$无解，我们可以求$X$使$\mathbb{R}^{m\times 1}$中的向量$\delta = AX - \beta$的长度$\lvert \delta \rvert$取最小值。满足这个条件的解$X$称为方程组$AX = \beta$的最小二乘解。设$A$的各列依次为$\alpha_1, \ldots, \alpha_n$, 则$AX = x_1\alpha_1 + \cdots + x_n\alpha_n$. 求证：
+$$\lvert \delta \rvert \text{取最小值} \Longleftrightarrow (\delta, \alpha_i) = 0 (\forall 1\leqslant i \leqslant n) \Longleftrightarrow A^TAX = A^T\beta$$
+
+\newpageorvspace
+
+{\bf 证明}：
+
+
+\newpageorvspace
+
+
+{\bf 第四题}. 习题9.3第6题. 给定$0 \neq \alpha \in E_n(\mathbb{R})$. 定义$E_n(\mathbb{R})$中的线性变换$\tau_{\alpha}: \beta \mapsto \beta - \dfrac{2(\beta, \alpha)}{(\alpha, \alpha)} \alpha$, 求证：
+
+(1) $\tau_{\alpha}$是正交变换；
+
+(2) $\tau_{\alpha}$在适当的标准正交基下的矩阵为$\operatorname{diag}(-1, 1, \cdots, 1)$.
+
+\newpageorvspace
+
+{\bf 证明}. 
+
+\end{document}
