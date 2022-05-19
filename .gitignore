@@ -1,6 +1,7 @@
 *.pdf
 !pdf/*
 *.aux
+*.auxlock
 *.glo
 *.idx
 *.log
@@ -19,7 +20,7 @@
 *.lof
 *.lot
 *.maf
-.mtc
+*.mtc
 *.out
 *.bak
 *.ps
@@ -29,6 +30,8 @@
 *.fdb_latexmk
 *.fls
 *.tmppart
+
+tikz/
 
 tensorboard_data
 .ipynb_checkpoints
