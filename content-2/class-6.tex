@@ -209,7 +209,6 @@ x_1 \\ x_2
 25 & -11 \\ -11 & 9
 \end{pmatrix}
 \begin{pmatrix}
-\begin{pmatrix}
 5 \\ 15
 \end{pmatrix} = \dfrac{1}{104} \begin{pmatrix}
 -40 \\ 80
@@ -236,10 +235,10 @@ $$
 \begin{lstlisting}
 >>> import numpy as np
 
->>> A = np.array([[0.39,-1.89], [0.61, -1.80], [0.93, -1.68], [1.35, -1.50]])
+>>> A = np.array([[0.39,-1.89], [0.61,-1.80], [0.93,-1.68], [1.35,-1.50]])
 >>> b = np.array([1,1,1,1])
 
->>> sol = np.linalg.inv(A.T@A)@A.T@b
+>>> sol = np.linalg.inv(A.T @ A) @ A.T @ b
 >>> sol
 array([ 0.19722003, -0.48807896])
 \end{lstlisting}
@@ -259,11 +258,11 @@ array([ 0.19722003, -0.48807896])
 \newpageorvspace
 
 {\bf 证明}. (1). 要证$\tau_{\alpha}$是正交变换，我们只要证明任取$\beta_1, \beta_2 \in E_n(\mathbb{R})$都有$\langle \tau_{\alpha}(\beta_1), \tau_{\alpha}(\beta_2) \rangle = \langle \beta_1, \beta_2 \rangle$. 我们来验证这个结论。
-$$
+\begin{align*}
 \langle \tau_{\alpha}(\beta_1), \tau_{\alpha}(\beta_2) \rangle & = \langle \beta_1 - \dfrac{2(\beta_1, \alpha)}{(\alpha, \alpha)} \alpha, \beta_2 - \dfrac{2(\beta_2, \alpha)}{(\alpha, \alpha)} \alpha  \rangle \\
 & = \langle \beta_1, \beta_2 \rangle - \dfrac{2\langle \beta_2, \alpha \rangle \langle \beta_1, \alpha \rangle}{\langle \alpha, \alpha \rangle}- \dfrac{2\langle \beta_1, \alpha \rangle \langle \alpha, \beta_2 \rangle}{\langle \alpha, \alpha \rangle} + \dfrac{4\langle \beta_1, \alpha \rangle \langle \beta_2, \alpha \rangle \langle \alpha, \alpha \rangle}{\langle \alpha, \alpha \rangle^2} \\
 & = \langle \beta_1, \beta_2 \rangle
-$$
+\end{align*}
 
 (2) 对于线性变换$\tau_{\alpha}: \beta \mapsto \beta - \dfrac{2(\beta, \alpha)}{(\alpha, \alpha)} \alpha$, 我们容易发现如下结论
 \begin{itemize}
