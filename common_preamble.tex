@@ -65,7 +65,8 @@
 \usepackage[all,cmtip]{xy}
 \usepackage{dashbox}
 \usepackage{tikz}
-\usetikzlibrary{trees,arrows,decorations.pathmorphing,shapes,backgrounds,positioning,calc,tikzmark}
+\usetikzlibrary{trees,arrows,decorations.pathmorphing,shapes,backgrounds,positioning,calc,tikzmark,external}
+\tikzexternalize[prefix=tikz/]
 \usepackage{xcolor}
 \usepackage{hyperref}
 % \usepackage[cmintegrals,cmbraces]{newtxmath}
@@ -168,4 +169,31 @@
 
 \newcommand{\newpageorvspace}{\newpage}
 % \newcommand{\newpageorvspace}{\vspace{2em}}
+
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{RGB}{242,242,235}
+
+\lstset{frame=tb,
+  language=Python,
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,              
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2,
+  numbers=left,
+  xleftmargin=1em,
+  numbersep=7pt,
+}
 
