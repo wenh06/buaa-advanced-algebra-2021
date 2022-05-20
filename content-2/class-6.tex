@@ -1,7 +1,7 @@
 \usepackage{relsize}
 
-\renewcommand{\newpageorvspace}{\newpage}
-% \renewcommand{\newpageorvspace}{\vspace{2em}}
+% \renewcommand{\newpageorvspace}{\newpage}
+\renewcommand{\newpageorvspace}{\vspace{2em}}
 
 \date{2022-5-20  第六次习题课}
 
@@ -10,12 +10,12 @@
 \maketitle
 
 
-\larger[2]
+% \larger[2]
 
 
 {\bf 第一题}. 9.2例3（最小二乘法）求直线$y = kx + b$尽可能接近已知数据点$(x_i, y_i)$ $(1 \leqslant i \leqslant n)$, 也就是使$d(k, b) = \sum\limits_{i=1}^n (kx_i + b - y_i)^2$达到最小值。
 
-\newpageorvspace
+% \newpageorvspace
 
 {\bf 解}. 我们首先从分析的角度来看这个问题。$d(k, b) = \sum\limits_{i=1}^n (kx_i + b - y_i)^2$关于$k, b$都是（下）凸的，所以满足$\operatorname{grad} d(k, b) = (0,0)^T$的点都是使$d(k, b)$达到最小值的点。计算梯度得
 $$
@@ -89,7 +89,7 @@ $$\widehat{\mathbf{x}} = (A^TA)^{-1}A^T\mathbf{b}.$$
 
 (3) 设$E(\mathbb{R})$是欧氏空间，$\alpha \in E(\mathbb{R})$, $W$是由$\alpha_1, \ldots, \alpha_k \in E(\mathbb{R})$生成的子空间。当$x_1, \ldots, x_k \in \mathbb{R}$满足什么条件时，$\lvert \alpha - (x_1\alpha_1 + \cdots + x_k\alpha_k) \rvert$取最小值？
 
-\newpageorvspace
+% \newpageorvspace
 
 {\bf 证明}：我们还用一下上一题的图，从而有一个比较直观的认识：我们设$\beta \in W$是使得向量$\beta-\alpha$垂直于$W$的向量，$\beta' \in W$是空间$W$中任意的另外一个向量，那么$\beta'-\alpha, \beta-\alpha, \beta'-\beta$组成了一个直角三角形，以$\beta'-\alpha$为斜边，垂线段$\beta-\alpha$是一条直角边，必然比斜边短。
 
@@ -123,7 +123,7 @@ $$\widehat{\mathbf{x}} = (A^TA)^{-1}A^T\mathbf{b}.$$
 \begin{align*}
 \lvert \alpha - \beta' \rvert^2 & = \lvert (\alpha - \beta) + (\beta - \beta') \rvert^2 \\
 & = \langle (\alpha - \beta) + (\beta - \beta'), (\alpha - \beta) + (\beta - \beta') \rangle \\
-& = \lvert \alpha - \beta \rvert^2 - 2\langle \alpha-\beta, \beta-\beta' \rangle + \lvert \beta - \beta' \rvert^2 \\
+& = \lvert \alpha - \beta \rvert^2 + 2\langle \alpha-\beta, \beta-\beta' \rangle + \lvert \beta - \beta' \rvert^2 \\
 & = \lvert \alpha - \beta \rvert^2 + \lvert \beta - \beta' \rvert^2 \\
 & \geqslant \lvert \alpha - \beta \rvert^2
 \end{align*}
@@ -153,7 +153,7 @@ x_1 \\ \vdots \\ x_k
 $$
 当$x_1, \ldots, x_k \in \mathbb{R}$是上述线性方程组的解时，$\lvert \alpha - (x_1\alpha_1 + \cdots + x_k\alpha_k) \rvert$取最小值。
 
-注意，假设我们在$E(\mathbb{R})$中取定了一组基，那么$\alpha, \alpha_1, \ldots, \alpha_k$就有（列向量形式的）坐标表示，这些坐标（列向量）我们还用$\alpha, \alpha_1, \ldots, \alpha_k$来记，并令矩阵$A = (\alpha_1, \ldots, \alpha_n)$, 那么上述方程就可以写为
+注意，假设我们在$E(\mathbb{R})$中取定了一组基，那么$\alpha, \alpha_1, \ldots, \alpha_k$就有（列向量形式的）坐标表示，这些坐标（列向量）我们还用$\alpha, \alpha_1, \ldots, \alpha_k$来记，并令矩阵$A = (\alpha_1, \ldots, \alpha_k)$, 那么上述方程就可以写为
 $$A^TA \begin{pmatrix} x_1 \\ \vdots \\ x_k \end{pmatrix} = A^T \alpha.$$
 
 
@@ -176,9 +176,9 @@ $$
 (3) 设$A\in\mathbb{R}^{m\times n}, X = (x_1,\cdots,x_n)^T, \beta\in\mathbb{R}^{m\times 1}$. 如果实系数线性方程组$AX = \beta$无解，我们可以求$X$使$\mathbb{R}^{m\times 1}$中的向量$\delta = AX - \beta$的长度$\lvert \delta \rvert$取最小值。满足这个条件的解$X$称为方程组$AX = \beta$的最小二乘解。设$A$的各列依次为$\alpha_1, \ldots, \alpha_n$, 则$AX = x_1\alpha_1 + \cdots + x_n\alpha_n$. 求证：
 $$\lvert \delta \rvert \text{取最小值} \Longleftrightarrow (\delta, \alpha_i) = 0 (\forall 1\leqslant i \leqslant n) \Longleftrightarrow A^TAX = A^T\beta$$
 
-\newpageorvspace
+% \newpageorvspace
 
-{\bf 解}：设$O = (0,0,0), P_1 = (1,2,2), P_2 = (3,4,0)$, 那么$W$正好是过原点的由$\alpha_1 = \overrightarrow{OP_1} = (1,2,2), \alpha_2 = \overrightarrow{OP_1} = (3,4,0)$张成的线性空间。设$\beta' = \overrightarrow{OA'}$是$\beta = \overrightarrow{OA} = (5,0,0)$在$W$上的投影，则$\lvert \overrightarrow{AA'} \rvert$即是点$A$到平面$W$的最短距离。设$\beta' = x_1 \alpha_1 + x_2 \alpha_2 \in W$, 那么根据上一题的结论，$(x_1, x_2)$需要是如下的线性方程组的解
+{\bf 解}：设$O = (0,0,0), P_1 = (1,2,2), P_2 = (3,4,0)$, 那么$W$正好是过原点的由$\alpha_1 = \overrightarrow{OP_1} = (1,2,2), \alpha_2 = \overrightarrow{OP_2} = (3,4,0)$张成的线性空间。设$\beta' = \overrightarrow{OA'}$是$\beta = \overrightarrow{OA} = (5,0,0)$在$W$上的投影，则$\lvert \overrightarrow{AA'} \rvert$即是点$A$到平面$W$的最短距离。设$\beta' = x_1 \alpha_1 + x_2 \alpha_2 \in W$, 那么根据上一题的结论，$(x_1, x_2)$需要是如下的线性方程组的解
 $$
 \begin{pmatrix}
 \langle \alpha_1, \alpha_1 \rangle & \langle \alpha_1, \alpha_2 \rangle \\
@@ -252,13 +252,13 @@ array([ 0.19722003, -0.48807896])
 \newpageorvspace
 
 
-{\bf 第四题}. 习题9.3第6题. 给定$0 \neq \alpha \in E_n(\mathbb{R})$. 定义$E_n(\mathbb{R})$中的线性变换$\tau_{\alpha}: \beta \mapsto \beta - \dfrac{2(\langle \beta, \alpha \rangle}{\langle \alpha, \alpha \rangle} \alpha$, 求证：
+{\bf 第四题}. 习题9.3第6题. 给定$0 \neq \alpha \in E_n(\mathbb{R})$. 定义$E_n(\mathbb{R})$中的线性变换$\tau_{\alpha}: \beta \mapsto \beta - \dfrac{2\langle \beta, \alpha \rangle}{\langle \alpha, \alpha \rangle} \alpha$, 求证：
 
 (1) $\tau_{\alpha}$是正交变换；
 
 (2) $\tau_{\alpha}$在适当的标准正交基下的矩阵为$\operatorname{diag}(-1, 1, \cdots, 1)$.
 
-\newpageorvspace
+% \newpageorvspace
 
 {\bf 证明}. (1). 要证$\tau_{\alpha}$是正交变换，我们只要证明任取$\beta_1, \beta_2 \in E_n(\mathbb{R})$都有$\langle \tau_{\alpha}(\beta_1), \tau_{\alpha}(\beta_2) \rangle = \langle \beta_1, \beta_2 \rangle$. 我们来验证这个结论。
 \begin{align*}
