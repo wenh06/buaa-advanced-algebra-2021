@@ -26,7 +26,8 @@ $$f_0(x) = \lambda_0 + \lambda_1(x-c) + \cdots + \lambda_n(x-c)^n = 0$$
 设$f(x) = a_0 + a_1x + \cdots + a_nx^n = \lambda_0 + \lambda_1(x-c) + \cdots + \lambda_n(x-c)^n$，那么$f_0^{(n)}(x) = n! a_n = n! \lambda_n$，故$\lambda_n = a_n$。将所得的$\lambda_n,\cdots,\lambda_{n-k}$回代，并考察$f_0^{(n-k-1)}(0)$，有
 $$f_0^{(n-k-1)}(0) = (n-k-1)!a_{n-k-1} = (n-k-1)!\lambda_{n-k-1} + \dfrac{(n-k)!}{1!} (0-c)\lambda_{n-k} + \cdots + \dfrac{n!}{(k+1)!} (0-c)^{k+1}\lambda_{n}$$
 得$a_{n-k-1} = \lambda_{n-k-1} + C_{n-k}^1(-c)\lambda_{n-k} + \cdots + C_{n}^{k+1}(-c)^{k+1}\lambda_{n}$
-所以有 $$\begin{pmatrix} a_n \\ \vdots \\ a_0 \end{pmatrix}
+所以有
+$$\begin{pmatrix} a_n \\ \vdots \\ a_0 \end{pmatrix}
 = \begin{pmatrix} 1 & & & & \\ C_{n}^1(-c) & 1 & & & \\ C_{n}^2(-c)^2 & C_{n-1}^1(-c) & 1 & & \\ \vdots & \vdots & \vdots & \ddots & \\ C_{n}^n(-c)^n & C_{n-1}^{n-1}(-c)^{n-1} & C_{n-2}^{n-2}(-c)^{n-2} & \cdots & 1 \end{pmatrix}
 \begin{pmatrix} \lambda_n \\ \vdots \\ \lambda_0 \end{pmatrix}
 = A \begin{pmatrix} \lambda_n \\ \vdots \\ \lambda_0 \end{pmatrix}$$
@@ -36,7 +37,8 @@ $$\begin{pmatrix} \lambda_n \\ \vdots \\ \lambda_0 \end{pmatrix} = A^{-1} \begin
 若考察$f_0^{(n-k-1)}(c)$，则有
 $$f_0^{(n-k-1)}(c) = (n-k-1)!\lambda_{n-k-1} = (n-k-1)!a_{n-k-1} + \dfrac{(n-k)!}{1!} c a_{n-k} + \cdots + \dfrac{n!}{(k+1)!} c^{k+1} a_{n}$$
 得$\lambda_{n-k-1} = a_{n-k-1} + C_{n-k}^1c a_{n-k} + \cdots + C_{n}^{k+1}c^{k+1} a_{n}$
-所以有 $$\begin{pmatrix} \lambda_n \\ \vdots \\ \lambda_0 \end{pmatrix}
+所以有
+$$\begin{pmatrix} \lambda_n \\ \vdots \\ \lambda_0 \end{pmatrix}
 = \begin{pmatrix} 1 & & & & \\ C_{n}^1c & 1 & & & \\ C_{n}^2c^2 & C_{n-1}^1c & 1 & & \\ \vdots & \vdots & \vdots & \ddots & \\ C_{n}^nc^n & C_{n-1}^{n-1}c^{n-1} & C_{n-2}^{n-2}c^{n-2} & \cdots & 1 \end{pmatrix}
 \begin{pmatrix} a_n \\ \vdots \\ a_0 \end{pmatrix}$$
 
@@ -61,7 +63,8 @@ a_3-a_2 = a_2-a_1 \\
 a_4-a_3 = a_3-a_2 \\
 \cdots\cdots \\
 a_n-a_{n-1} = a_{n-1}-a_{n-2}
-\end{cases}$$ 系数矩阵秩为$n-2$，从而$W$维数为$n-(n-2)=2$.
+\end{cases}$$
+系数矩阵秩为$n-2$，从而$W$维数为$n-(n-2)=2$.
 
 **习题2.6 第1题**
 
@@ -74,7 +77,8 @@ $$(\alpha_1+\lambda\alpha_2, \cdots, \alpha_{n-1}+\lambda\alpha_n, \alpha_n+\lam
 $\{ \alpha_1+\lambda\alpha_2, \cdots, \alpha_{n-1}+\lambda\alpha_n, \alpha_n+\lambda\alpha_1 \}$的秩即为矩阵$A$的秩。那么$A$的阶梯形为
 $$\begin{pmatrix}
 1 & & & & \lambda \\ & 1 & & & \lambda\cdot(-\lambda) \\ & & \ddots & & \\ & & & \ddots & \lambda\cdot(-\lambda)^{n-2} \\ & & & & 1 + \lambda\cdot(-\lambda)^{n-1}
-\end{pmatrix}$$ 所以$\lambda = -\zeta_{n}^k$,
+\end{pmatrix}$$
+所以$\lambda = -\zeta_{n}^k$,
 $k=0,1,\cdots, n-1$时，$A$的秩为$n-1$，其中$\zeta_{n} = e^{\frac{2\pi}{n}}$为$n$次单位根；其余情况，$A$的秩为$n$。
 
 **习题2.6 第3题**
@@ -95,7 +99,8 @@ $$\lambda_1 a_n + \lambda_2 b_n = \lambda_1 (a_{n-1}+a_{n-2}) + \lambda_2 (b_{n-
 故$\lambda_1\{a_n\} + \lambda_2\{b_n\} \in W$.
 所以$W$是$V$的线性子空间。由于$W$中向量的自由变量只有前两项$a_1,a_2$，故其维数为2。
 
-\(2\) 首先，检查$\sigma$是线性映射： $$\begin{aligned}
+\(2\) 首先，检查$\sigma$是线性映射：
+$$\begin{aligned}
 \sigma(\lambda_1(a_1,a_2)+\lambda_2(b_1,b_2)) & = \{\lambda_1a_1+\lambda_2b_1, \lambda_1a_2+\lambda_2b_2,\cdots\} \\
 & = \{\lambda_1a_1, \lambda_1a_2,\cdots\} + \{\lambda_2b_1, \lambda_2b_2,\cdots\} \\
 & = \lambda_1\sigma(a_1,a_2) + \lambda_2\sigma(b_1,b_2)\end{aligned}$$
@@ -121,7 +126,8 @@ $$F_n = \left( \frac{\sqrt{5}}{10} + \frac{1}{2} \right) \left( \dfrac{1+\sqrt{5
 -   实数集合$\mathbb{R}$按通常方式定义加法和乘法看成$\mathbb{R}$上的线性空间，求证：通常的这个线性空间$\mathbb{R}$与按上述方式定义的线性空间$\mathbb{R}^+$同构。并给出这两个空间之间的全部同构映射。
 
 **证明：**首先，很容易验证$\mathbb{R}^+$关于加法$a\oplus b$封闭，$1$为加法零元，$a\in\mathbb{R}^+$的加法逆元为$\frac{1}{a}\in\mathbb{R}^+$。任取$a,b\in\mathbb{R}^+$,
-$\lambda_1,\lambda_2\in\mathbb{R}$, 有 $$\begin{aligned}
+$\lambda_1,\lambda_2\in\mathbb{R}$, 有
+$$\begin{aligned}
 & 1\circ a = a^1 = a \\
 & \lambda_1 \circ (a\oplus b) = \lambda_1 \circ ab = (ab)^{\lambda_1} = a^{\lambda_1} b^{\lambda_1} = (\lambda_1\circ a) \oplus (\lambda_1\circ b) \\
 & (\lambda_1 + \lambda_2) \circ a = a^{\lambda_1 + \lambda_2} = a^{\lambda_1} a^{\lambda_2} = (\lambda_1 \circ a) \oplus (\lambda_2 \circ a) \\

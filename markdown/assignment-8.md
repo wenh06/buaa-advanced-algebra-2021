@@ -9,20 +9,23 @@ $\begin{vmatrix} x & y & x+y \\ y & x+y & x \\ x+y & x & y \end{vmatrix} = \begi
 类似的方阵经过行（或列）的调换后可以形成所谓的循环矩阵（Circulant
 matrix）。关于循环矩阵的行列式，有一般的结论。
 
-(5). $$\begin{aligned}
+(5).
+$$\begin{aligned}
 & \begin{vmatrix} a & b & c & d \\ a & a+b & a+b+c & a+b+c+d \\ a & 2a+b & 3a+2b+c & 4a+3b+2c+d \\ a & 3a+b & 6a+3b+c & 10a+6b+3c+d \end{vmatrix} = \begin{vmatrix} a & b & c & d \\ 0 & a & a+b & a+b+c \\ 0 & 2a & 3a+2b & 4a+3b+2c \\ 0 & 3a & 6a+3b & 10a+6b+3c \end{vmatrix} \\
 = & a \begin{vmatrix} a & a+b & a+b+c \\ 2a & 3a+2b & 4a+3b+2c \\ 3a & 6a+3b & 10a+6b+3c \end{vmatrix} = a \begin{vmatrix} a & a+b & a+b+c \\ 0 & a & 2a+b \\ 0 & 3a & 7a+3b \end{vmatrix} \\
 = & a^2 \begin{vmatrix} a & 2a+b \\ 3a & 7a+3b \end{vmatrix} = a^4\end{aligned}$$
 
 **习题3.2 第3题**. **证明：**
 
-(1). $$\begin{aligned}
+(1).
+$$\begin{aligned}
 \begin{vmatrix} b+c & c+a & a+b \\ q+r & r+p & p+q \\ y+z & z+x & x+y \end{vmatrix} & = \begin{vmatrix} b & c+a & a+b \\ q & r+p & p+q \\ y & z+x & x+y \end{vmatrix} + \begin{vmatrix} c & c+a & a+b \\ r & r+p & p+q \\ z & z+x & x+y \end{vmatrix} \\
 & = \begin{vmatrix} b & c+a & a \\ q & r+p & p \\ y & z+x & x \end{vmatrix} + \begin{vmatrix} c & a & a+b \\ r & p & p+q \\ z & x & x+y \end{vmatrix} \\
 & = \begin{vmatrix} b & c & a \\ q & r & p \\ y & z & x \end{vmatrix} + \begin{vmatrix} c & a & b \\ r & p & q \\ z & x & y \end{vmatrix} \\
 & = 2 \begin{vmatrix} a & b & c \\ p & q & r \\ x & y & z \end{vmatrix}\end{aligned}$$
 
-(2). $$\begin{aligned}
+(2).
+$$\begin{aligned}
 \begin{vmatrix} 1 & a & a^2-bc \\ 1 & b & b^2-ac \\ 1 & c & c^2-ab \end{vmatrix} & = \begin{vmatrix} 1 & a & a^2-bc \\ 0 & b-a & b^2-ac-a^2+bc \\ 0 & c-a & c^2-ab-a^2+bc \end{vmatrix} = \begin{vmatrix} b-a & (b-a)(a+b+c) \\ c-a & (c-a)(a+b+c) \end{vmatrix} = 0\end{aligned}$$
 
 **习题3.2 第4题**.
@@ -42,7 +45,8 @@ $$\begin{gathered}
 a_1 & b_2 & \cdots & b_n \\ c_2 & a_2 & & \\ \vdots & & \ddots & \\ c_n & & & a_n
 \end{vmatrix}$
 
-按最后一行展开有 $$\begin{aligned}
+按最后一行展开有
+$$\begin{aligned}
 D_n & = a_nD_{n-1} + b_nc_na_2\cdots a_{n-1} = a_n(a_{n-1}D_{n-2} + b_{n-1}c_{n-1}a_2\cdots a_{n-2}) + b_nc_na_2\cdots a_{n-1} \\
 & = a_na_{n-1}D_{n-2} + b_nc_na_2\cdots a_{n-1} + b_{n-1}c_{n-1}a_2\cdots a_{n-2}a_n \\
 & \cdots \\
@@ -51,7 +55,8 @@ D_n & = a_nD_{n-1} + b_nc_na_2\cdots a_{n-1} = a_n(a_{n-1}D_{n-2} + b_{n-1}c_{n-
 
 (3). 令原行列式为$D_n$，$e_i, i=1,\cdots,n,$
 为$\mathbb{F}^n$的自然基，$\beta = \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix}$,
-那么有 $$\begin{aligned}
+那么有
+$$\begin{aligned}
 D_n & = \det (-2e_1+3\beta, -e_2+3\beta, 3\beta, e_4+3\beta, \cdots, (n-3)e_n+3\beta) \\
 & = \det (-2e_1, -e_2, 3\beta, e_4, \cdots, (n-3)e_n)\end{aligned}$$
 于是当$n \geqslant 3$时，$D_n = 6 \cdot (n-3)!$，$D_2 = -7$, $D_1 = 1$.
@@ -60,7 +65,8 @@ D_n & = \det (-2e_1+3\beta, -e_2+3\beta, 3\beta, e_4+3\beta, \cdots, (n-3)e_n+3\
 x & a_1 & a_2 & \cdots & a_{n-1} \\ a_1 & x & a_2 & \cdots & a_{n-1} \\ a_1 & a_2 & x & \cdots & a_{n-1} \\ \vdots & \vdots & \vdots & & \vdots \\ a_1 & a_2 & \cdots & a_{n-1} & x
 \end{vmatrix}$
 
-有 $$\begin{aligned}
+有
+$$\begin{aligned}
 D_n & = \begin{vmatrix}
 x & a_1 & a_2 & \cdots & a_{n-1} \\ a_1 & x & a_2 & \cdots & a_{n-1} \\ a_1 & a_2 & x & \cdots & a_{n-1} \\ \vdots & \vdots & \vdots & & \vdots \\ a_1 & a_2 & \cdots & a_{n-1} & a_{n-1}
 \end{vmatrix} + \begin{vmatrix}
@@ -76,22 +82,26 @@ x-a_1 & a_1-a_2 & a_2-a_3 & \cdots & 0 \\ 0 & x-a_2 & a_2-a_3 & \cdots & 0 \\ 0 
 
 **习题3.3 第1题**.
 
-(1). $$\begin{aligned}
+(1).
+$$\begin{aligned}
 D_n & = \begin{vmatrix} x & y & 0 & \cdots & 0 & 0 \\ 0 & x & y & \cdots & 0 & 0 \\ \vdots & \vdots & \vdots & \cdots & \vdots & \vdots \\ 0 & 0 & 0 & \cdots & x & y \\ y & 0 & 0 & \cdots & 0 & x \end{vmatrix} = x \begin{vmatrix} x & y & \cdots & 0 & 0 \\ \vdots & \vdots & \cdots & \vdots & \vdots \\ 0 & 0 & \cdots & x & y \\ 0 & 0 & \cdots & 0 & x \end{vmatrix} + (-1)^{n+1}y \begin{vmatrix} y & 0 & \cdots & 0 & 0 \\ x & y & \cdots & 0 & 0 \\ \vdots & \vdots & \cdots & \vdots & \vdots \\ 0 & 0 & \cdots & x & y \end{vmatrix} \\
 & = x^n + (-1)^{n+1}y^n = x^n - (-y)^n\end{aligned}$$
 
-(3). $$\begin{aligned}
+(3).
+$$\begin{aligned}
 D_n & = \begin{vmatrix} a+b & a & 0 & \cdots & \cdots & 0 \\ b & a+b & a & \cdots & \cdots & 0 \\ 0 & b & a+b & \ddots & & \vdots \\ \vdots & \vdots & \ddots & \ddots & \ddots & \vdots \\ \vdots & \vdots & & \ddots & \ddots & a \\ 0 & 0 & \cdots & \cdots & b & a+b \end{vmatrix} = (a+b)D_{n-1} - b \begin{vmatrix} a & 0 & \cdots & \cdots & 0 \\ b & a+b & a & & \vdots \\ \vdots & \ddots & \ddots & \ddots & \vdots \\ \vdots & & \ddots & \ddots & a \\ 0 & \cdots & \cdots & b & a+b \end{vmatrix}_{n-1} \\
 & = (a+b)D_{n-1} - baD_{n-2}\end{aligned}$$
 所以$D_n = \lambda_1 a^n + \lambda_2 b^n$，代入$D_1=a+b,D_2=a^2+b^2+ab$得
 $$D_n = \begin{cases} \frac{1}{a-b}(a^{n+1} - b^{n+1}) & a \neq b \\ (n+1)a^b & a = b \end{cases}$$
 
-(5). 与第(3)小题类似求得递推公式 $$D_n = (x^2+1)D_{n-1} - x^2D_{n-2}$$
+(5). 与第(3)小题类似求得递推公式
+$$D_n = (x^2+1)D_{n-1} - x^2D_{n-2}$$
 令$D_n = \lambda_1 (x^2)^n + \lambda_2 1^n$，代入$D_1 = x^2+1, D_2 = x^4 + x^2 + 1$得
 $$D_n = 1+x^2+x^4+\cdots+x^{2n}$$
 
 **习题3.3 第2题**. 对于一个奇数阶($m\times m$)的反对称阵$M$, 有
-$$\det M = \det (-M^T) = (-1)^{m}\det M^T = -\det M,$$ 知$\det M = 0$.
+$$\det M = \det (-M^T) = (-1)^{m}\det M^T = -\det M,$$
+知$\det M = 0$.
 
 对于$A$, 考虑非对角元$a_{ij}$与$a_{ji}$, $i\neq j$,
 对应的代数余子式$A_{ij}$, $A_{ji}$相应的方阵$M_{ij}$, $M_{ji}$.
@@ -104,7 +114,8 @@ $$A_{ij} = (-1)^{i+j}\det M_{ij} = (-1)^{i+j}\det (-M_{ji}^T) = (-1)^{n-1}\cdot(
 
 **习题3.3 第3题**.
 记$\alpha_i = \begin{pmatrix} a_{i1} \\ \vdots \\ a_{in} \end{pmatrix}$为$A$的第$i$列，$e = \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix}$,
-那么 $$\begin{aligned}
+那么
+$$\begin{aligned}
 & \begin{vmatrix} a_{11} + x_1 & \cdots & a_{1n} + x_n \\ \vdots & & \vdots \\ a_{n1} + x_1 & \cdots & a_{nn} + x_n \end{vmatrix} = \det (\alpha_1+x_1e, \alpha_2+x_2e, \cdots, \alpha_n+x_ne) \\
 = & \det(\alpha_1, \alpha_2, \cdots, \alpha_n) + \det(x_1e, \alpha_2, \cdots, \alpha_n) + \det(\alpha_1, x_2e, \cdots, \alpha_n) + \cdots + \det(\alpha_1, \alpha_2, \cdots, x_ne) \\
 = & \det A + x_1\det(e, \alpha_2, \cdots, \alpha_n) + x_2\det(\alpha_1, e, \cdots, \alpha_n) + \cdots + x_n\det(\alpha_1, \alpha_2, \cdots, e) \\

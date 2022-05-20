@@ -12,7 +12,8 @@
 所以$(\lambda A)_{(i,j)} = \lambda^{n-1} A_{(i,j)}$,
 进而有$(\lambda A)^* = \lambda^{n-1}A^*$.
 
-(2). 令$B^*A^* = (c_{ij})$, 那么 $$\begin{aligned}
+(2). 令$B^*A^* = (c_{ij})$, 那么
+$$\begin{aligned}
 c_{ij} & = \sum\limits_{k=1}^n B_{ki} A_{jk} \\
 & = \sum\limits_{k=1}^n (-1)^{k+j}\det A\begin{pmatrix} 1,\cdots,j-1,j+1,\cdots,n \\ 1,\cdots,k-1,k+1,\cdots,n \end{pmatrix} \cdot (-1)^{k+i} \det B\begin{pmatrix} 1,\cdots,k-1,k+1,\cdots,n \\ 1,\cdots,i-1,i+1,\cdots,n \end{pmatrix} \\
 & = (-1)^{i+j} \sum\limits_{k=1}^n \det\widehat{A}_j\begin{pmatrix} 1,\cdots,n-1 \\ 1,\cdots,k-1,k+1,\cdots,n \end{pmatrix} \cdot \det \widetilde{B}_i\begin{pmatrix} 1,\cdots,k-1,k+1,\cdots,n \\ 1,\cdots,n-1 \end{pmatrix} \\

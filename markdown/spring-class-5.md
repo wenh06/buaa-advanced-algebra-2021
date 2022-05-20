@@ -1,14 +1,17 @@
 **第一题**.
 习题6.8第4题涉及的牛顿公式：记$f_n(X) = X^n + a_1 X^{n-1} + \cdots + a_n = X_n + (-1)^1 \sigma_1 X^{n-1} + \cdots + (-1)^n \sigma_n$,
 其复根$k$次幂之和记为$S_k = S_k(f_n)$. 那么当$m \leqslant n$时，有
-$$S_m + a_1S_{m-1} + \cdots + a_{m-1}S_1 + ma_m = 0;$$ 当$m > n$时，有
+$$S_m + a_1S_{m-1} + \cdots + a_{m-1}S_1 + ma_m = 0;$$
+当$m > n$时，有
 $$S_m + a_1S_{m-1} + \cdots + a_nS_{m-n} = 0.$$
 
-**证明**. 记$f_n(X)$的所有复根为$x_1,\ldots,x_n$. 那么 $$\begin{aligned}
+**证明**. 记$f_n(X)$的所有复根为$x_1,\ldots,x_n$. 那么
+$$\begin{aligned}
 S_k & = \sum\limits_{i=1}^n x_i^k, \\
 \sigma_k & = \operatorname{Sym}_k^1(x_1,\ldots,x_n) = \sum\limits_{\substack{0 \leqslant k_1,\ldots,k_n \leqslant 1 \\ k_1+\cdots+k_n=k}} x_1^{k_1} \cdots x_n^{k_n} \\
 & = \sum\limits_{1 \leqslant h_1 < \cdots < h_k \leqslant n} x_{h_1} \cdots x_{h_k}\end{aligned}$$
-我们有 $$\begin{aligned}
+我们有
+$$\begin{aligned}
 \sigma_1 S_{m-1} & = (x_1 + \cdots + x_n) (x_1^{m-1} + \cdots + x_n^{m-1}) \\
 & = S_m + \sum_{\substack{1 \leqslant i,j \leqslant n \\ i\neq j}} x_i^{m-1} x_j = {\color{red} S_m} + \mathcal{S}(x_1^{m-1}x_2) \\
 \sigma_2 S_{m-2} & = \left( \sum_{1 \leqslant i < j \leqslant n } x_i x_j \right) (x_1^{m-2} + \cdots + x_n^{m-2}) \\
@@ -22,23 +25,28 @@ S_k & = \sum\limits_{i=1}^n x_i^k, \\
 $$\begin{aligned}
 \sigma_{m-1} S_1 & = (x_1\cdots x_{m-1} + \cdots + x_{n-m+1}\cdots x_{n}) (x_1 + \cdots + x_{n}) \\
 & = \mathcal{S}(x_1^2x_2\cdots x_{m-1}) + {\color{red} m\sigma_m}\end{aligned}$$
-交错求和得 $$\begin{aligned}
+交错求和得
+$$\begin{aligned}
 & -a_1 S_{m-1} - a_2 S_{m-2} - \cdots - a_{m-1} S_1 \\
 = & \sigma_1 S_{m-1} - \sigma_2 S_{m-2} + \cdots + (-1)^{m} \sigma_{m-1} S_{1} \\
-= & S_m + m(-1)^{m}\sigma_m = S_m + ma_m\end{aligned}$$ 即有
+= & S_m + m(-1)^{m}\sigma_m = S_m + ma_m\end{aligned}$$
+即有
 $$S_m + a_1S_{m-1} + \cdots + a_{m-1}S_1 + ma_m = 0.$$
 当$m > n$时，最后一个等式变为
 $$\sigma_n S_{m-n} = x_1\cdots x_n (x_1^{m-n} + \cdots + x_n^{m-n}) = \mathcal{S}(x_1^{m-n+1}x_2 \cdots x_n),$$
-交错求和得 $$\begin{aligned}
+交错求和得
+$$\begin{aligned}
 & -a_1 S_{m-1} - a_2 S_{m-2} - \cdots - a_n S_{m-n} \\
 = & \sigma_1 S_{m-1} - \sigma_2 S_{m-2} + \cdots + (-1)^{m} \sigma_n S_{m-n} = S_m\end{aligned}$$
-即 $$S_m + a_1 S_{m-1} + \cdots + a_n S_{m-n} = 0.$$
+即
+$$S_m + a_1 S_{m-1} + \cdots + a_n S_{m-n} = 0.$$
 
 回到6.8第4题。我们要证明$A, B$特征值对应相等$\Longleftrightarrow$
 $\operatorname{tr} A^k = \operatorname{tr} B^k$,
 $\forall k \in \mathbb{N}_+$.
 （在代数闭域下）将$A,B$分别上三角化为$T_1, T_2$，对角线元素为$A$的特征值$\lambda_1,\ldots,\lambda_n$以及$B$的特征值$\mu_1,\ldots,\mu_n$,
-那么我们只要证明 $$\begin{aligned}
+那么我们只要证明
+$$\begin{aligned}
 f_A(X) = f_B(X) & \Longleftrightarrow \{\lambda_i\}, \{\mu_j\}\text{对应相等} \\
 & \Longleftrightarrow \operatorname{tr} T_1^k = \operatorname{tr} T_2^k, \forall k \in \mathbb{N}_+ \\
 & \Longleftrightarrow S_k(f_A(X)) = S_k(f_B(X)), \forall k \in \mathbb{N}_+\end{aligned}$$
@@ -110,14 +118,16 @@ $\mathbb{F}[\mathscr{A}]\alpha \oplus \mathbb{F}[\mathscr{A}]\beta = \mathbb{F}[
 那么存在多项式$f_1(\lambda), f_2(\lambda) \in \mathbb{F}[\lambda]$使得
 $$\gamma = f_1(\mathscr{A})\alpha = f_2(\mathscr{A})\beta.$$
 由于$d_{\alpha}(\lambda)$与$d_{\beta}(\lambda)$互素，所以存在多项式$u(\lambda), v(\lambda) \in \mathbb{F}[\lambda]$使得$u(\lambda)d_{\alpha}(\lambda) + v(\lambda)d_{\beta}(\lambda) = 1$,
-那么 $$\begin{aligned}
+那么
+$$\begin{aligned}
 \gamma & = (u(\mathscr{A})d_{\alpha}(\mathscr{A}) + v(\mathscr{A})d_{\beta}(\mathscr{A})) (\gamma) \\
 & = f_1(\mathscr{A})u(\mathscr{A})(d_{\alpha}(\mathscr{A})(\alpha)) + f_2(\mathscr{A})v(\mathscr{A})(d_{\beta}(\mathscr{A})(\beta)) \\
 & = 0\end{aligned}$$
 
 对于第2个结论，由于$\alpha + \beta \in \mathbb{F}[\mathscr{A}]\alpha \oplus \mathbb{F}[\mathscr{A}]\beta$,
 所以有$\mathbb{F}[\mathscr{A}]\alpha \oplus \mathbb{F}[\mathscr{A}]\beta \supseteq \mathbb{F}[\mathscr{A}](\alpha + \beta)$.
-我们来证明另一边的包含关系。我们有 $$\begin{aligned}
+我们来证明另一边的包含关系。我们有
+$$\begin{aligned}
 \alpha & = (u(\mathscr{A})d_{\alpha}(\mathscr{A}) + v(\mathscr{A})d_{\beta}(\mathscr{A})) (\alpha) \\
 & = 0 + v(\mathscr{A})d_{\beta}(\mathscr{A}) (\alpha) \\
 & = v(\mathscr{A})d_{\beta}(\mathscr{A}) (\alpha + \beta)\end{aligned}$$
@@ -136,7 +146,8 @@ $$\gamma = f_1(\mathscr{A})\alpha = f_2(\mathscr{A})\beta.$$
 其中$f = a_1 f_1 + \cdots a_n f_n$.
 
 任取$\beta = b_1 f_1(\mathscr{A})(\alpha) + \cdots + b_n f_n(\mathscr{A})(\alpha) \in V$,
-有 $$\begin{aligned}
+有
+$$\begin{aligned}
 \mathscr{B} (\beta) & = \mathscr{B} (b_1 f_1(\mathscr{A})(\alpha) + \cdots + b_n f_n(\mathscr{A})(\alpha)) \\
 & = b_1 f_1(\mathscr{A}) (\mathscr{B}(\alpha)) + \cdots + b_n f_n(\mathscr{A})(\mathscr{B}(\alpha)) \\
 & = b_1 f_1(\mathscr{A}) (f(\mathscr{A})(\alpha)) + \cdots + b_n f_n(\mathscr{A})(f(\mathscr{A})(\alpha)) \\
@@ -149,7 +160,8 @@ $$\gamma = f_1(\mathscr{A})\alpha = f_2(\mathscr{A})\beta.$$
 设$\mathscr{A}$为线性空间$V$上的线性变换。求证：若$\mathscr{A}^2$有循环向量，即存在$\alpha\in V$使得$V = \mathbb{F}[\mathscr{A}^2](\alpha)$,
 则$\mathscr{A}$也有循环向量。请问反过来是否成立？
 
-**证明**: 我们有 $$\begin{aligned}
+**证明**: 我们有
+$$\begin{aligned}
 V & \supseteq \mathbb{F}[\mathscr{A}](\alpha) \supseteq \operatorname{span} \{ \alpha, \mathscr{A}\alpha, \mathscr{A}^2\alpha, \ldots, \mathscr{A}^{2k-1}\alpha, \mathscr{A}^{2k}\alpha, \ldots \} \\
 & \supseteq \operatorname{span} \{ \alpha, \mathscr{A}^2\alpha, \ldots, \mathscr{A}^{2k}\alpha, \ldots \} = \mathbb{F}[\mathscr{A}^2](\alpha) = V\end{aligned}$$
 所以，上式涉及的$\supseteq$实际上都是相等，于是$V = \mathbb{F}[\mathscr{A}](\alpha)$,
@@ -181,7 +193,8 @@ $$f(\lambda) = (\lambda-\lambda_1)^{n_1}\cdots(\lambda-\lambda_s)^{n_s},$$
 $$f_i(\lambda) = \prod\limits_{\substack{1 \leqslant j \leqslant s \\ j\neq i}} (\lambda - \lambda_j)^{n_j}$$
 那么多项式$f_1, \ldots, f_s$互素，故存在多项式$u_1, \ldots, u_s \in \mathbb{F}[\lambda]$使得
 $$u_1(\lambda)f_1(\lambda) + \cdots + u_s(\lambda)f_s(\lambda) = 1.$$
-那么任取$\alpha \in V$, 有 $$\begin{aligned}
+那么任取$\alpha \in V$, 有
+$$\begin{aligned}
 \alpha & = (u_1(\mathscr{A})f_1(\mathscr{A}) + \cdots + u_s(\mathscr{A})f_s(\mathscr{A})) (\alpha) \\
 & = u_1(\mathscr{A})f_1(\mathscr{A})(\alpha) + \cdots + u_s(\mathscr{A})f_s(\mathscr{A})(\alpha)\end{aligned}$$
 对任意$i$, 有

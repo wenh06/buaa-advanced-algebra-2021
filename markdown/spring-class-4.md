@@ -138,7 +138,8 @@ $$W_{\lambda_0} = \{ g(\mathscr{A})\alpha \ |\ \alpha \in V \}.$$
 
 **第五题**.
 设$A$是数域$\mathbb{F}$上$n$阶幂零矩阵，且$A$的最小多项式$d(\lambda) = \lambda^m, m\leqslant n$.
-证明 $$r(A) \leqslant \dfrac{(m-1)n}{m}.$$
+证明
+$$r(A) \leqslant \dfrac{(m-1)n}{m}.$$
 
 **证明**.
 将$A$视作$\mathbb{F}$的代数闭包$\overline{\mathbb{F}}$上的矩阵，秩不改变。由于$A$是$n$阶幂零矩阵，所以$A$的Jordan标准形可以写为$\operatorname{diag}(J_{r_1}(0), \ldots, J_{r_s}(0))$.
@@ -158,17 +159,20 @@ r_i \leqslant m, ~ \forall 1 \leqslant i \leqslant s.
 
 **第六题**.
 设$\mathscr{A}$是$n$维向量空间$V$的一个线性变换。对于$V$的一组基$\alpha_1, \alpha_2, \ldots, \alpha_n$和$\alpha = x_1\alpha_1 + \cdots + x_n\alpha_n$,
-有 $$\mathscr{A}\alpha = x_n\alpha_1 + \cdots + x_1\alpha_n,$$
+有
+$$\mathscr{A}\alpha = x_n\alpha_1 + \cdots + x_1\alpha_n,$$
 判断$\mathscr{A}$是否可对角化，并证明你的结论。
 
 **解**:
 设$\lambda$为$\mathscr{A}$的一个特征值，$\sum\limits_{i=1}^n x_i \alpha_i \neq 0$为对应的特征向量，即$x_1,\ldots,x_n$不全为0，且有
 $$\lambda(\sum\limits_{i=1}^n x_i \alpha_i) = \mathscr{A}(\sum\limits_{i=1}^n x_i \alpha_i) = \sum\limits_{i=1}^n x_{n+1-i} \alpha_i.$$
-于是有 $$\begin{cases}
+于是有
+$$\begin{cases}
 \lambda x_i = x_{n+1-i} \\
 \lambda x_{n+1-i} = x_i \\
 \lambda \neq 0,
-\end{cases}$$ 解得$\lambda = \pm 1$.
+\end{cases}$$
+解得$\lambda = \pm 1$.
 
 于是，当$n$为偶数时，$\mathscr{A}$对应于特征值$\lambda = 1$有$\dfrac{n}{2}$个特征向量$\alpha_i + \alpha_{n+1-i}, ~ i = 1, \ldots, \dfrac{n}{2},$
 $\mathscr{A}$对应于特征值$\lambda = -1$有$\dfrac{n}{2}$个特征向量$\alpha_i - \alpha_{n+1-i}, ~ i = 1, \ldots, \dfrac{n}{2}.$
@@ -183,10 +187,12 @@ $\mathscr{A}$对应于特征值$\lambda = -1$有$\dfrac{n}{2}$个特征向量$\a
 $$\lambda I - A = \begin{pmatrix} \lambda & & & & & -1 \\ & \ddots & & & \reflectbox{$\ddots$} & \\ & & \lambda & -1 & & \\ & & -1 & \lambda & & \\ & \reflectbox{$\ddots$} & & & \ddots & \\ -1 & & & & & \lambda \end{pmatrix}, \quad \text{$n$为偶数,}$$
 或者
 $$\lambda I - A = \begin{pmatrix} \lambda & & & & & & -1 \\ & \ddots & & & & \reflectbox{$\ddots$} & \\ & & \lambda & & -1 & & \\ & & & {\color{red} \lambda - 1} & & & \\ & & -1 & & \lambda & & \\ & \reflectbox{$\ddots$} & & & & \ddots & \\ -1 & & & & & & \lambda \end{pmatrix}, \quad \text{$n$为奇数.}$$
-可以算得 $$\det (\lambda I - A) = \begin{cases}
+可以算得
+$$\det (\lambda I - A) = \begin{cases}
 (\lambda+1)^{\frac{n}{2}}(\lambda-1)^{\frac{n}{2}}, & \text{$n$为偶数,} \\
 (\lambda+1)^{\frac{n-1}{2}}(\lambda-1)^{\frac{n+1}{2}}, & \text{$n$为偶数,}
-\end{cases}$$ 解得特征值为$\pm 1$.
+\end{cases}$$
+解得特征值为$\pm 1$.
 通过解对应的特征方程得到和前一种解法一样的特征向量。
 
 解法三：容易看出$\mathscr{A}^2$是恒等映射，即$\mathscr{A}^2 = \mathscr{I}$,
@@ -224,7 +230,8 @@ $$\operatorname{rank} A^k = \operatorname{rank} J_1^k = \operatorname{rank} J_2^
 对于$r$阶Jordan块$J_r(0)$,
 有$\operatorname{rank} J_r(0)^k = \max \{ 0, r-k \}$, 进而有
 $$\operatorname{rank} J_1^k = \sum_{i=1}^s \max \{ 0, m_i-k \}, \quad \operatorname{rank} J_1^k = \sum_{i=1}^s \max \{ 0, n_i-k \}.$$
-他们的二阶差分分别为（$k\geqslant 1$） $$\begin{aligned}
+他们的二阶差分分别为（$k\geqslant 1$）
+$$\begin{aligned}
 D_1(k) & := \operatorname{rank} J_1^{k+1} + \operatorname{rank} J_1^{k-1} - 2 \operatorname{rank} J_1^{k} = \# \{ i \ |\ 1 \leqslant i \leqslant s, ~ m_i = k \} \\
 D_2(k) & := \operatorname{rank} J_2^{k+1} + \operatorname{rank} J_2^{k-1} - 2 \operatorname{rank} J_2^{k} = \# \{ i \ |\ 1 \leqslant i \leqslant s, ~ n_i = k \}\end{aligned}$$
 于是对于任意$k\geqslant 1$都有

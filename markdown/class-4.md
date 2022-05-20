@@ -1,7 +1,8 @@
 **第1题**.
 讨论参数$\lambda$决定$n\times n$的矩阵$A(\lambda) = \begin{pmatrix} 1 & \cdots & 1 & \lambda \\ 1 & \cdots & \lambda & 1 \\ \vdots & \reflectbox{$\ddots$} & \vdots & \vdots \\ \lambda & \cdots & 1 & 1 \end{pmatrix}$的秩
 
-**解：**首先计算$A(\lambda)$的行列式，有 $$\begin{aligned}
+**解：**首先计算$A(\lambda)$的行列式，有
+$$\begin{aligned}
     \det A(\lambda) & = \begin{vmatrix} 1 & \cdots & 1 & \lambda \\ 1 & \cdots & \lambda & 1 \\ \vdots & \reflectbox{$\ddots$} & \vdots & \vdots \\ \lambda & \cdots & 1 & 1 \end{vmatrix} = \begin{vmatrix} 1 & \cdots & 1 & \lambda \\ 0 & \cdots & \lambda-1 & 1-\lambda \\ \vdots & \reflectbox{$\ddots$} & \vdots & \vdots \\ \lambda-1 & \cdots & 0 & 1-\lambda \end{vmatrix} \\
     & = \begin{vmatrix} 1 & \cdots & 1 & \lambda + (n-1) \\ 0 & \cdots & \lambda-1 & 0 \\ \vdots & \reflectbox{$\ddots$} & & \vdots \\ \lambda-1 & \cdots & \cdots & 0 \end{vmatrix} \\
     & = (-1)^{\frac{n(n-1)}{2}} (\lambda+(n-1))(\lambda-1)^{n-1}\end{aligned}$$
@@ -40,7 +41,8 @@ $$\dim V/W = \dim V - \dim W = n - (n-2) = 2$$
 所以商空间$V / W$的一组基可以取为$\overline{v}_1 = v_1 + W$,
 $\overline{v}_2 = v_2 + W$.
 
-**第4题**. 设$\mathbb{R}^2$中三条不同直线的方程为 $$\begin{aligned}
+**第4题**. 设$\mathbb{R}^2$中三条不同直线的方程为
+$$\begin{aligned}
     \ell_1: & \quad ax+by+c=0 \\
     \ell_2: & \quad cx+ay+b=0 \\
     \ell_3: & \quad bx+cy+a=0 \\\end{aligned}$$
@@ -52,14 +54,16 @@ $\ell_1,\ell_2,\ell_3$交于一点当且仅当$A\begin{pmatrix} x \\ y \\ 1 \end
 $$\begin{aligned}
 A & = \begin{pmatrix} a & b & c \\ c & a & b \\ b & c & a \end{pmatrix} \to \begin{pmatrix} a & b & c \\ c & a & b \\ a+b+c & a+b+c & a+b+c \end{pmatrix}\end{aligned}$$
 
-若$a+b+c\neq 0$，则有进一步变换 $$\begin{aligned}
+若$a+b+c\neq 0$，则有进一步变换
+$$\begin{aligned}
 A & = \begin{pmatrix} a & b & c \\ c & a & b \\ b & c & a \end{pmatrix} \to \begin{pmatrix} a & b & c \\ c & a & b \\ a+b+c & a+b+c & a+b+c \end{pmatrix} \\
 & \to \begin{pmatrix} a & b & c \\ c & a & b \\ 1 & 1 & 1 \end{pmatrix} \to \begin{pmatrix} a-c & b-c & 0 \\ c-b & a-b & 0 \\ 0 & 0 & 1 \end{pmatrix}\end{aligned}$$
 由于$\det\begin{pmatrix} a-c & b-c \\ c-b & a-b \end{pmatrix} = a^2+b^2+c^2-ab-bc-ac = \frac12\left( (a-b)^2 + (b-c)^2 + (c-a)^2 \right)$.
 于是若有$a=b=c$，此时$\operatorname{rank}(A) = 1$，其余情况下$\operatorname{rank}(A) = 3$,
 都不满足$\operatorname{rank}(A) = 2$.
 
-若$a+b+c=0$，则进一步变换为 $$\begin{aligned}
+若$a+b+c=0$，则进一步变换为
+$$\begin{aligned}
 A & = \begin{pmatrix} a & b & c \\ c & a & b \\ b & c & a \end{pmatrix} \to \begin{pmatrix} a & b & c \\ c & a & b \\ a+b+c & a+b+c & a+b+c \end{pmatrix} = \begin{pmatrix} a & b & c \\ c & a & b \\ 0 & 0 & 0 \end{pmatrix}\\
 & \to \begin{pmatrix} a & b & a+b+c \\ c & a & a+b+c \\ 0 & 0 & 0 \end{pmatrix} = \begin{pmatrix} a & b & 0 \\ c & a & 0 \\ 0 & 0 & 0 \end{pmatrix}\end{aligned}$$
 考虑到$\det\begin{pmatrix} a & b \\ c & a \end{pmatrix} = \frac12\left( a^2-bc\right)$，此式等于$0$当且仅当$a=b=c=0$，但此时$\ell_1,\ell_2,\ell_3$就不是直线方程了。所以在$a+b+c=0$的情况下，总有$\operatorname{rank}(A) = 2$。于是
@@ -79,7 +83,8 @@ $$AW = (A\omega_0, \cdots, A\omega_{n-1}) = (f(u^0)\omega_0, \cdots, f(u^{n-1})\
 于是有
 $$\det A \cdot \det W = \det(AW) = \det(f(u^0)\omega_0, \cdots, f(u^{n-1})\omega_{n-1}) = \prod_{j=0}^{n-1}f(u^j) \det W$$
 因为$u$为$n$次本原单位根，$u^0, \ldots, u^{n-1}$互不相同，$\det W \neq 0$,
-上式两边同时消去$\det W$有 $$\begin{aligned}
+上式两边同时消去$\det W$有
+$$\begin{aligned}
 & \det A = \prod_{j=0}^{n-1}f(u^j), \\
 & \text{其中}\  u = \exp(2\pi i/n), \ f(u) = a_0 + a_1u + \cdots + a_{n-1}u^{n-1}.\end{aligned}$$
 以上情况比较特殊，实际上我们直接观察出来了$A$的所有特征向量与特征值，于是有

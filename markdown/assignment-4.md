@@ -24,7 +24,8 @@ $$\begin{pmatrix} e_1 \\ e_2 \\ e_3 \\ e_4 \end{pmatrix} = \begin{pmatrix}1 & -1
 **习题2.3 第5题**
 
 设齐次线性方程组系数矩阵为$A$，则任取$A$的一行$(a_1,\cdots,a_5)$，它必须满足三个方程
-$$(a_1,\cdots,a_5) \cdot X_i^T = 0, \quad i=1,2,3$$ 或者等价地，
+$$(a_1,\cdots,a_5) \cdot X_i^T = 0, \quad i=1,2,3$$
+或者等价地，
 $$\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix} X_1 \\ X_2 \\ X_3 \end{pmatrix} \cdot \begin{pmatrix} a_1 \\ \vdots \\ a_5 \end{pmatrix} = \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 1 & -1 & 1 & -1 & 1 \\ 1 & 2 & 4 & 8 & 16 \end{pmatrix} \cdot \begin{pmatrix} a_1 \\ \vdots \\ a_5 \end{pmatrix}.$$
 解得$(a_1,\cdots,a_5) = (6,1,-4,1,0) t_1 + (16,6,-11,0,1) t_2$.从中任取$n$个向量，只要这$n$个向量的秩为$2$，即可组成一个齐次线性方程组，使得$X_1,X_2,X_3$是其基础解系。
 
@@ -36,7 +37,8 @@ $t_1,t_2\in\mathbb{R}$.
 可知$t_1(X_2)$与知$t_1(X_3)$不同时为0，且$t_2(X_2)$与知$t_2(X_3)$不同时为0，否则向量组$X_1,X_2,X_3$秩小于3。于是相应齐次方程组的基础解系可以取为$X_2-X_1,X_3-X_1$。所以原方程的通解为
 $$(1,1,1,1,1) + t_1(0,1,2,3,4) + t_2(0,-1,-4,-3,-4), \quad t_1,t_2\in\mathbb{R}$$
 
-(2,3). 设原方程为$AX = \beta$, $\beta$非零向量。那么 $$\begin{gathered}
+(2,3). 设原方程为$AX = \beta$, $\beta$非零向量。那么
+$$\begin{gathered}
 A(X_1+X_2+X_3)= AX_1+AX_2+AX_3 = 3\beta \neq \beta \\
 A\left(\dfrac{1}{3}(X_1+X_2+X_3)\right)= \dfrac{1}{3}(AX_1+AX_2+AX_3) = \beta\end{gathered}$$
 所以$X_1+X_2+X_3$不是解，$\dfrac{1}{3}(X_1+X_2+X_3)$是解。
@@ -47,7 +49,8 @@ A\left(\dfrac{1}{3}(X_1+X_2+X_3)\right)= \dfrac{1}{3}(AX_1+AX_2+AX_3) = \beta\en
 
 (2). 设非齐次线性方程组(I),(II)分别为$A_1X=\beta_1, A_2X=\beta_2$.
 
-若他们等价，则可以通过初等行变换 $$\begin{aligned}
+若他们等价，则可以通过初等行变换
+$$\begin{aligned}
 \begin{pmatrix} A_1 \\ \mathbf{0} \end{pmatrix} X = \begin{pmatrix} \beta_1 \\ \mathbf{0} \end{pmatrix} & \to \begin{pmatrix} A_1 \\ A_2 \end{pmatrix} X = \begin{pmatrix} \beta_1 \\ \beta_2 \end{pmatrix} \Longrightarrow \text{(II)的解集为(I)的解集的子集} \\
 \begin{pmatrix} \mathbf{0} \\ A_2 \end{pmatrix} X = \begin{pmatrix} \mathbf{0} \\ \beta_2 \end{pmatrix} & \to \begin{pmatrix} A_1 \\ A_2 \end{pmatrix} X = \begin{pmatrix} \beta_1 \\ \beta_2 \end{pmatrix} \Longrightarrow \text{(I)的解集为(II)的解集的子集}\end{aligned}$$
 所以此时二者同解。
@@ -67,6 +70,7 @@ A_1X+(A_1X_0-\beta_1) = 0+0 = 0 & \Longrightarrow A_1(X+X_0)-\beta_1 = 0 \\
 
 设原方程为$AX = \beta$, $\beta$非零向量，那么
 $$A(\lambda_1X_1+\cdots+\lambda_kX_k) = \lambda_1AX_1+\cdots+\lambda_kAX_k = \lambda_1AX_1+\cdots+\lambda_kAX_k = (\lambda_1+\cdots+\lambda_k)\beta$$
-由于$\beta$非零向量，故 $$\begin{aligned}
+由于$\beta$非零向量，故
+$$\begin{aligned}
 \lambda_1X_1+\cdots+\lambda_kX_k \text{ 是解} & \Longleftrightarrow (\lambda_1+\cdots+\lambda_k)\beta = \beta \\
 & \Longleftrightarrow \lambda_1+\cdots+\lambda_k = 1\end{aligned}$$

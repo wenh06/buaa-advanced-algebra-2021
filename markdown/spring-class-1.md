@@ -5,7 +5,8 @@
 $\mathscr{A, B}$是平面上的点分别关于直线$\ell_{\alpha}, \ell_{\beta}$作轴对称的变换。试分别写出$\mathscr{A, B}$的矩阵$A,B$，计算$\mathscr{BA}$的矩阵$BA$和计算$\mathscr{AB}$的矩阵$AB$，它们分别表示什么变换？
 
 **解**：任取平面上非原点的一点，设其坐标为$(r\cos\theta, r\sin\theta)^T$,
-那么其绕原点（逆时针）旋转$\alpha$角之后的坐标为 $$\begin{aligned}
+那么其绕原点（逆时针）旋转$\alpha$角之后的坐标为
+$$\begin{aligned}
 (r\cos(\theta+\alpha), r\sin(\theta+\alpha))^T & = (r\cos\theta\cos\alpha - r\sin\theta\sin\alpha, r\sin\theta\cos\alpha + r\cos\theta\sin\alpha)^T \\
 & = \begin{pmatrix} \cos\alpha & -\sin\alpha \\ \sin\alpha & \cos\alpha \end{pmatrix} (r\cos\theta, r\sin\theta)^T.\end{aligned}$$
 于是$A = \begin{pmatrix} \cos\alpha & -\sin\alpha \\ \sin\alpha & \cos\alpha \end{pmatrix}$,
@@ -16,7 +17,8 @@ $\mathscr{BA}$表示的是平面上绕原点（逆时针）旋转角$\alpha+\bet
 （2）任取$r > 0$为实数，则$v_{\alpha} = (r\cos\alpha, r\sin\alpha)^T$为直线$\ell_{\alpha}$上的一个向量。在平面上任取一点$P = (x,y)^T$,
 那么向量$v_P = \overrightarrow{OP}$在$v_{\alpha}$上的投影（即在直线$\ell_{\alpha}$上的投影）为$\frac{1}{r^2} \langle v_{\alpha}, v_P \rangle v_{\alpha}$.
 点$P$指向投影点的向量为$-v_P + \frac{1}{r^2} \langle v_{\alpha}, v_P \rangle v_{\alpha}$,
-所以$P$点关于直线$\ell_{\alpha}$对称点的坐标为 $$\begin{aligned}
+所以$P$点关于直线$\ell_{\alpha}$对称点的坐标为
+$$\begin{aligned}
 & \frac{1}{r^2} \langle v_{\alpha}, v_P \rangle v_{\alpha} + (-v_P + \frac{1}{r^2} \langle v_{\alpha}, v_P \rangle v_{\alpha}) \\
 = & \frac{2}{r^2}\langle v_{\alpha}, v_P \rangle v_{\alpha} - v_P \\
 = & \begin{pmatrix} 2x\cos^2\alpha + 2y\sin\alpha\cos\alpha - x \\ 2x\sin\alpha\cos\alpha + 2y\sin^2\alpha - y \end{pmatrix} \\
@@ -62,7 +64,8 @@ $$\mathscr{A} = \mathscr{I} + \dfrac{\mathscr{D}}{1!} + \dfrac{\mathscr{D}^2}{2!
 
 **证明**：令$\mathscr{B} = \mathscr{A} - \left( \mathscr{I} + \dfrac{\mathscr{D}}{1!} + \dfrac{\mathscr{D}^2}{2!} + \cdots + \dfrac{\mathscr{D}^{n-1}}{(n-1)!} \right)$.
 要证明$\mathscr{B}$在$F_n[x]$上是零变换，只要证明$\mathscr{B}$在$F_n[x]$的一组基上取值都是零即可。取这组基为$\{ 1, x, \ldots, x^{n-1} \}$.
-对于$0 \leqslant k \leqslant n-1$, 有 $$\begin{aligned}
+对于$0 \leqslant k \leqslant n-1$, 有
+$$\begin{aligned}
 \mathscr{B}(x^k) & = \mathscr{A}(x) - \left( \mathscr{I}(x) + \dfrac{\mathscr{D}(x)}{1!} + \dfrac{\mathscr{D}^2(x)}{2!} + \cdots + \dfrac{\mathscr{D}^{n-1}(x)}{(n-1)!} \right) \\
 & = (x+1)^k - \left( x^k + \dfrac{kx^{k-1}}{1!} + \dfrac{k(k-1)x^{k-2}}{2!} + \cdots + \dfrac{k(k-1)\cdots 1 x^0}{k!} + 0 + \cdots + 0 \right) \\
 & = \sum_{t=0}^{k} C_k^tx^t - \left( \dfrac{k!}{0!(k-0)!}x^k + \dfrac{k!}{1!(k-1)!}x^{k-1} + \dfrac{k!}{2!(k-2)!}x^{k-2} + \cdots + \dfrac{k!}{k!(k-k)!} \right) \\
@@ -74,7 +77,8 @@ $$\mathscr{A} = \mathscr{I} + \dfrac{\mathscr{D}}{1!} + \dfrac{\mathscr{D}^2}{2!
 
 **解**.
 有$\cos kx + i\sin kx = e^{ikx} = \left( e^{ix} \right)^k = \left( \cos x + i\sin x \right)^k$,
-那么 $$\begin{aligned}
+那么
+$$\begin{aligned}
 \cos kx & = \mathfrak{R}\mathfrak{e}\left( \cos x + i\sin x \right)^k \\
 & = \sum_{t=0}^{\lfloor k/2 \rfloor} (-1)^t C_k^{2t} \cos^{k-2t} x \sin^{2t} x \\
 & = \sum_{t=0}^{\lfloor k/2 \rfloor} (-1)^t C_k^{2t} \cos^{k-2t} x (1-\cos^2x)^t \\
@@ -83,7 +87,8 @@ $$\mathscr{A} = \mathscr{I} + \dfrac{\mathscr{D}}{1!} + \dfrac{\mathscr{D}^2}{2!
 & = \sum_{t=0}^{\lfloor k/2 \rfloor} C_k^{2t} \sum_{s=0}^t (-1)^{2t-s} C_t^{t-s} \cos^{k-2s} x \\
 & = \sum_{t=0}^{\lfloor k/2 \rfloor} C_k^{2t} \sum_{s=0}^t (-1)^s C_t^s \cos^{k-2s} x \\
 & = \sum_{t=0}^{\lfloor k/2 \rfloor} (-1)^t \left(\sum_{m=t}^{\lfloor k/2 \rfloor}  C_k^{2m} C_m^t \right) \cos^{k-2t} x \\\end{aligned}$$
-设过渡矩阵为$A$, 即$M_1A = M_2$, 那么$A$的第$k$列为 $$\begin{aligned}
+设过渡矩阵为$A$, 即$M_1A = M_2$, 那么$A$的第$k$列为
+$$\begin{aligned}
 \left(0, (-1)^{\lfloor k/2 \rfloor} k\cos x, 0, \cdots, 0, (-1)^t \left(\sum_{m=t}^{\lfloor k/2 \rfloor}  C_k^{2m} C_m^t \right), 0, \cdots 0, \sum_{m=0}^{\lfloor k/2 \rfloor}  C_k^{2m}, 0, \cdots \right)^T, & \text{$k$为奇数} \\
 \left((-1)^{\lfloor k/2 \rfloor} k\cos x, 0, \cdots, 0, (-1)^t \left(\sum_{m=t}^{\lfloor k/2 \rfloor}  C_k^{2m} C_m^t \right), 0, \cdots 0, \sum_{m=0}^{\lfloor k/2 \rfloor}  C_k^{2m}, 0, \cdots \right)^T, & \text{$k$为偶数} \\\end{aligned}$$
 上式中的$t$对应相应向量的第$k-2t$位。以上即为第一类切比雪夫多项式（Chebyshev

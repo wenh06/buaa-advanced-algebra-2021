@@ -5,11 +5,13 @@ $$\begin{array}{c|cccccccc}
 c & & a_n & a_{n-1} & \cdots & a_i & \cdots & a_1 & a_0 \\
 & +) & & cb_{n-1} & \cdots & cb_i & \cdots & cb_1 & cb_0 \\ \hline
 & & b_{n-1} & b_{n-1} & \cdots & b_{i-1} & \cdots & b_0 & r
-\end{array}$$ 其中$b_{n-1} = a_n$,
+\end{array}$$
+其中$b_{n-1} = a_n$,
 $b_{i-1} = a_i + cb_i \ (\forall 1 \leqslant i \leqslant n)$,
 $r = a_0 + cb_0$.
 
-**证明**：考虑$f(x) = (x-c)g(x) + r$, 即 $$\begin{aligned}
+**证明**：考虑$f(x) = (x-c)g(x) + r$, 即
+$$\begin{aligned}
 a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0 = & \ (x-c) (b_{n-1}x^{n-1} + \cdots + b_1x + b_0) + r \\
 = & \ b_{n-1}x^{n} + \cdots + b_1x^2 + b_0x + r \\
 & \ - cb_{n-1}x^{n-1} - \cdots - cb_1x - cb_0\end{aligned}$$
@@ -28,7 +30,8 @@ $$a_n = \begin{cases}\pm 1 & \text{$k$为奇数}, \\ 1 & \text{$k$为偶数}. \e
 
 假设除$a_n$外还有系数非零，最高次项为$a_mx^m$,
 $0 \leqslant m \leqslant n-1$, 那么$f(x) = a_nx^n + a_mx^m + g(x)$,
-其中$\deg g < m$. 那么 $$\begin{aligned}
+其中$\deg g < m$. 那么
+$$\begin{aligned}
 & (f(x))^k = a_n^kx^{kn} + ka_mx^{(k-1)n+m} + h(x) \\
 & f(x^k) = a_nx^{kn} + a_mx^{km} + g(x^k)\end{aligned}$$
 其中$\deg h < (k-1)n+m$.
@@ -42,9 +45,11 @@ $$f(x) = \begin{cases}\pm x^n & \text{$k$为奇数}, \\ x^n & \text{$k$为偶数
 
 (1). $f(x) = x^3, g(x) = (x-3)^2$
 
-**解**：辗转相除有 $$\begin{aligned}
+**解**：辗转相除有
+$$\begin{aligned}
 x^3 & = (x+6) \cdot (x-3)^2 + 27(x-2) \\
-(x-3)^2 & = \frac{x-4}{27} \cdot 27(x-2) + 1\end{aligned}$$ 进行回代，有
+(x-3)^2 & = \frac{x-4}{27} \cdot 27(x-2) + 1\end{aligned}$$
+进行回代，有
 $$1 = \left( 1 + \frac{(x-4)(x+6)}{27} \right) \cdot (x-3)^2 + \frac{-x+4}{27} \cdot x^3$$
 于是$u(x) = \frac{-x+4}{27}$, $v(x) = \frac{x^2+2x+3}{27}$.
 
@@ -121,7 +126,8 @@ $$f_0(x) = \lambda_0 + \lambda_1(x-c) + \cdots + \lambda_n(x-c)^n = 0$$
 我们考虑一个更一般的$n$次多项式$f(x) = a_0 + a_1x + \cdots + a_nx^n = \lambda_0 + \lambda_1(x-c) + \cdots + \lambda_n(x-c)^n$，那么$f_0^{(n)}(x) = n! a_n = n! \lambda_n$，故$\lambda_n = a_n$。将所得的$\lambda_n,\cdots,\lambda_{n-k}$回代，并考察$f_0^{(n-k-1)}(c)$，则有
 $$f_0^{(n-k-1)}(c) = (n-k-1)!\lambda_{n-k-1} = (n-k-1)!a_{n-k-1} + \dfrac{(n-k)!}{1!} c a_{n-k} + \cdots + \dfrac{n!}{(k+1)!} c^{k+1} a_{n}$$
 得$\lambda_{n-k-1} = a_{n-k-1} + C_{n-k}^1c a_{n-k} + \cdots + C_{n}^{k+1}c^{k+1} a_{n}$
-所以有 $$\begin{pmatrix} \lambda_n \\ \vdots \\ \lambda_0 \end{pmatrix}
+所以有
+$$\begin{pmatrix} \lambda_n \\ \vdots \\ \lambda_0 \end{pmatrix}
 = \begin{pmatrix} 1 & & & & \\ C_{n}^1c & 1 & & & \\ C_{n}^2c^2 & C_{n-1}^1c & 1 & & \\ \vdots & \vdots & \vdots & \ddots & \\ C_{n}^nc^n & C_{n-1}^{n-1}c^{n-1} & C_{n-2}^{n-2}c^{n-2} & \cdots & 1 \end{pmatrix}
 \begin{pmatrix} a_n \\ \vdots \\ a_0 \end{pmatrix} = A\begin{pmatrix} a_n \\ \vdots \\ a_0 \end{pmatrix}.$$
 故$f(x) = a_0 + a_1x + \cdots + a_nx^n$在这组基下的坐标为
@@ -130,7 +136,8 @@ $$\begin{pmatrix} \lambda_n \\ \vdots \\ \lambda_0 \end{pmatrix} = A \begin{pmat
 若考察$f_0^{(n-k-1)}(0)$，则有
 $$f_0^{(n-k-1)}(0) = (n-k-1)!a_{n-k-1} = (n-k-1)!\lambda_{n-k-1} + \dfrac{(n-k)!}{1!} (0-c)\lambda_{n-k} + \cdots + \dfrac{n!}{(k+1)!} (0-c)^{k+1}\lambda_{n}$$
 得$a_{n-k-1} = \lambda_{n-k-1} + C_{n-k}^1(-c)\lambda_{n-k} + \cdots + C_{n}^{k+1}(-c)^{k+1}\lambda_{n}$
-所以有 $$\begin{pmatrix} a_n \\ \vdots \\ a_0 \end{pmatrix}
+所以有
+$$\begin{pmatrix} a_n \\ \vdots \\ a_0 \end{pmatrix}
 = \begin{pmatrix} 1 & & & & \\ C_{n}^1(-c) & 1 & & & \\ C_{n}^2(-c)^2 & C_{n-1}^1(-c) & 1 & & \\ \vdots & \vdots & \vdots & \ddots & \\ C_{n}^n(-c)^n & C_{n-1}^{n-1}(-c)^{n-1} & C_{n-2}^{n-2}(-c)^{n-2} & \cdots & 1 \end{pmatrix}
 \begin{pmatrix} \lambda_n \\ \vdots \\ \lambda_0 \end{pmatrix}
 = B \begin{pmatrix} \lambda_n \\ \vdots \\ \lambda_0 \end{pmatrix}$$

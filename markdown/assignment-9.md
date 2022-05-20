@@ -1,6 +1,7 @@
 **习题3.5 第1题**.
 
-(1). $$\begin{aligned}
+(1).
+$$\begin{aligned}
 D_n & = \begin{vmatrix} 1 & 2 & 3 & \cdots & n \\ x & 1 & 2 & \cdots & n-1 \\ x & x & 1 & \cdots & n-2 \\ \vdots & \vdots & \vdots & & \vdots \\ x & x & x & \cdots & 1 \end{vmatrix} = \begin{vmatrix} 1 & 1 & 1 & \cdots & 1 \\ x & 1-x & 1 & \cdots & 1 \\ \vdots & & \ddots & \ddots & \vdots \\ \vdots & & & \ddots & 1 \\ x & & & & 1-x \end{vmatrix} \\
 & = \begin{vmatrix} 1-x & 1 & 1 & \cdots & 1 \\ 0 & 1-x & 1 & \cdots & 1 \\ \vdots & & \ddots & \ddots & \vdots \\ 0 & & & \ddots & 1 \\ x^2 & & & & 1-x \end{vmatrix} = \begin{vmatrix} 1-x & 1 & 0 & \cdots & 0 \\ 0 & 1-x & x & \cdots & 0 \\ \vdots & & \ddots & \ddots & \vdots \\ 0 & & & \ddots & x \\ x^2 & & & & 1-x \end{vmatrix} \\
 & = (1-x) \begin{vmatrix} 1-x & x & & \\ & \ddots & \ddots & \\ & & \ddots & x \\ & & & 1-x \end{vmatrix} + (-1)^{n+1}x^2 \begin{vmatrix} 1 & & & \\ 1-x & x & & \\ & \ddots & \ddots & \\ & & 1-x & x \end{vmatrix} \\

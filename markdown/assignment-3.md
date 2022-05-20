@@ -59,7 +59,8 @@ $$(\alpha_{j_1},\cdots,\alpha_{j_s}) = (\beta_{i_1},\cdots,\beta_{i_r})A_{r\time
 $A_{r\times s}$为某个$r\times s$的矩阵。假设$s > r$，那么齐次线性方程组
 $$A_{r\times s} \begin{pmatrix}
 x_1 \\ \vdots \\ x_s
-\end{pmatrix} = 0$$ 必然有非零解。 那么
+\end{pmatrix} = 0$$
+必然有非零解。 那么
 $$(\alpha_{j_1},\cdots,\alpha_{j_s})\begin{pmatrix}
 x_1 \\ \vdots \\ x_s
 \end{pmatrix} = (\beta_{i_1},\cdots,\beta_{i_r})A_{r\times s}\begin{pmatrix}
@@ -67,7 +68,8 @@ x_1 \\ \vdots \\ x_s
 \end{pmatrix} = 0$$
 有非零解，从而$\{\alpha_{j_1},\cdots,\alpha_{j_s}\}$线性相关，这与它是极大线性无关组矛盾。
 
-其实，可以直接利用不等式 $$\begin{aligned}
+其实，可以直接利用不等式
+$$\begin{aligned}
 \operatorname{rank}(\alpha_{j_1},\cdots,\alpha_{j_s}) & \leqslant \min \{ \operatorname{rank}(\beta_{i_1},\cdots,\beta_{i_r}), \operatorname{rank}(A_{r\times s}) \} \\
 & \leqslant \min \{ r, \min \{ r,s \} \} = \min \{ r,s \} \\
 & \leqslant r\end{aligned}$$

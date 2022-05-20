@@ -14,7 +14,8 @@ $$\operatorname{rank}A = 3, \operatorname{rank}A^2 = 2, \operatorname{rank}(A+I)
 **解**. 由于$\operatorname{rank}A = 3 < 5$, 所以$\det A = 0$,
 故$0$是$A$的特征值.
 类似可知$-1$也是$A$的特征值。由于$\operatorname{rank}A^2 = 2, \operatorname{rank}(A+I)^2 = 3$,
-即知 $$\dim \ker A^2 + \dim \ker (A+I)^2 = (5-2) + (5-3) = 5,$$
+即知
+$$\dim \ker A^2 + \dim \ker (A+I)^2 = (5-2) + (5-3) = 5,$$
 故（可以考虑根子空间分解）$A$的特征值只有$-1, 0$.
 并且由上式可知$\operatorname{rank}A^k = 2, \operatorname{rank}(A+I)^k = 3$对任意$k\geqslant 2$成立。于是，由定理7.1.1知，$J$中
 
@@ -26,7 +27,8 @@ $$\operatorname{rank}A = 3, \operatorname{rank}A^2 = 2, \operatorname{rank}(A+I)
 
 -   $2$阶Jordan块$J_2(-1)$的数量为$(\operatorname{rank}(A+I) - \operatorname{rank}(A+I)^2) = 1$.
 
-所以 $$J = \operatorname{diag} (J_1(0), J_2(0), J_2(-1)).$$
+所以
+$$J = \operatorname{diag} (J_1(0), J_2(0), J_2(-1)).$$
 
 **第二题（习题7.1第3题第（2）问）**.
 已知矩阵$A = \begin{pmatrix} 4 & 0 & 0 & 0 \\ 0 & 4 & 0 & 0 \\ 3 & 0 & 4 & 0 \\ 2 & 3 & 0 & 4 \end{pmatrix}$相似于Jordan形$J$.
@@ -45,7 +47,8 @@ $$\operatorname{rank}A = 3, \operatorname{rank}A^2 = 2, \operatorname{rank}(A+I)
 
 -   $2$阶Jordan块$J_2(4)$的数量为$(\operatorname{rank}(A - 4 I) - \operatorname{rank}(A - 4 I)^2) = 2$.
 
-所以 $$J = \operatorname{diag} (J_2(4), J_2(4)).$$
+所以
+$$J = \operatorname{diag} (J_2(4), J_2(4)).$$
 
 **第三题**. 设$A = J_5(0)^2$相似于一个Jordan形矩阵$J$, 求$J$.
 
@@ -60,7 +63,8 @@ $k \geqslant 3$. 那么由定理7.1.1知
 
 -   $3$阶Jordan块$J_3(0)$的数量为$(\operatorname{rank}A^2 - \operatorname{rank}A^3) = 1$.
 
-所以 $$J = \operatorname{diag} (J_2(0), J_3(0)).$$
+所以
+$$J = \operatorname{diag} (J_2(0), J_3(0)).$$
 
 **第四题**.
 设$\mathscr{A} \in \mathcal{L}(V)$在基$M$下的矩阵是$A\in M_n(\mathbb{C})$.
@@ -80,7 +84,8 @@ $$u(\lambda)(\lambda-\lambda_0)^m + v(\lambda)g(\lambda) = 1.$$
 $$\alpha = u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m \beta.$$
 又由于$u(\lambda)(\lambda-\lambda_0)^m + v(\lambda)g(\lambda) = 1,$
 所以有$u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m \beta = (\mathscr{I} - v(\mathscr{A})g(\mathscr{A})) \beta$.
-所以有 $$\begin{aligned}
+所以有
+$$\begin{aligned}
 0 = (\mathscr{A} - \lambda_0\mathscr{I})^m \alpha & = (\mathscr{A} - \lambda_0\mathscr{I})^m u(\mathscr{A})(\mathscr{A} - \lambda_0\mathscr{I})^m \beta \\
 & = (\mathscr{A} - \lambda_0\mathscr{I})^m (\mathscr{I} - v(\mathscr{A})g(\mathscr{A})) \beta \\
 & = (\mathscr{A} - \lambda_0\mathscr{I})^m \beta - v(\mathscr{A}) (\mathscr{A} - \lambda_0\mathscr{I})^m g(\mathscr{A}) \beta \\
@@ -113,7 +118,8 @@ $t \neq 0$. 那么令$k = t = 1, k' = 0$,
 $$AP = (Av, Av', Aw) = (v, v+v', -2w) = (v, v', w) \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -2 \end{pmatrix} = P \cdot \operatorname{diag}(J_2(1), J_1(-2)).$$
 从而有$A = P \cdot \operatorname{diag}(J_2(1), J_1(-2)) \cdot P^{-1}$,
 其中$P^{-1} = \dfrac{1}{9} \begin{pmatrix} 1 & -2 & -5 \\ -3 & -3 & -3 \\ 1 & -2 & 4 \end{pmatrix}$.
-所以 $$\begin{aligned}
+所以
+$$\begin{aligned}
 A^n & = (P \cdot \operatorname{diag}(J_2(1), J_1(-2)) \cdot P^{-1})^n = P \cdot \operatorname{diag}(J_2(1)^n, J_1(-2)^n) \cdot P^{-1} \\
 & = P \cdot \begin{pmatrix} 1 & n & 0 \\ 0 & 1 & 0 \\ 0 & 0 & (-2)^n \end{pmatrix} \cdot P^{-1} \\
 & = \dfrac{1}{9} \begin{pmatrix} 2 & -2 & 1 \\ -1 & -1 & -2 \\ -1 & 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} 1 & n & 0 \\ 0 & 1 & 0 \\ 0 & 0 & (-2)^n \end{pmatrix} \cdot \begin{pmatrix} 1 & -2 & -5 \\ -3 & -3 & -3 \\ 1 & -2 & 4 \end{pmatrix} \\
@@ -157,10 +163,13 @@ $$\operatorname{rank} J^{k_0} = \operatorname{rank} J^{k_0+1} = \cdots = \operat
 所以$A$的特征值都是$0$, 其Jordan型可写为
 $$J = \operatorname{diag} (J_{r_1}(0), \ldots, J_{r_m}(0)), \quad r_1 + \cdots + r_m = n.$$
 由第六题的讨论知，
-$$\operatorname{rank} J_{r_i}(0)^k = \max\{0, r_i-k\}.$$ 所以
+$$\operatorname{rank} J_{r_i}(0)^k = \max\{0, r_i-k\}.$$
+所以
 $$\operatorname{rank} A^k = \operatorname{rank} J^k = \sum\limits_{i=1}^m \max\{0, r_i-k\}.$$
 由条件$A^n = O \neq A^{n-1}$知$\operatorname{rank} A^{n-1} > 0$,
-所以我们有 $$\begin{cases}
+所以我们有
+$$\begin{cases}
 \sum\limits_{i=1}^m \max\{0, r_i - (n-1)\} > 0, \\
 \sum\limits_{i=1}^m r_i = n.
-\end{cases}$$ 于是必然有$m = 1, r_1 = n$. 故$J = J_n(0)$.
+\end{cases}$$
+于是必然有$m = 1, r_1 = n$. 故$J = J_n(0)$.

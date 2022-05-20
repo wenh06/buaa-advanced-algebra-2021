@@ -36,7 +36,8 @@ $$x^{2n} + x^n + 1 = \prod_{k=0}^{n-1} \left(x - e^{\frac{\theta_1 i}{n} + \frac
 $$\begin{cases}
 e^{\frac{\theta_1 i}{n} + \frac{2k\pi i}{n}} + e^{\frac{\theta_2 i}{n} + \frac{2k'\pi i}{n}} = 2 \cos \left( \frac{\theta_1}{n} + \frac{2k\pi}{n} \right) = 2 \cos \left( \frac{2\pi}{3n} + \frac{2k\pi}{n} \right) \\
 e^{\frac{\theta_1 i}{n} + \frac{2k\pi i}{n}} \cdot e^{\frac{\theta_2 i}{n} + \frac{2k'\pi i}{n}} = 1
-\end{cases}$$ 所以$x^{2n} + x^n + 1$在实数域上的分解为
+\end{cases}$$
+所以$x^{2n} + x^n + 1$在实数域上的分解为
 $$x^{2n} + x^n + 1 = \prod_{k=0}^{n-1} \left( x^2 - 2 \cos \left( \frac{2\pi}{3n} + \frac{2k\pi}{n} \right) + 1 \right)$$
 
 **第三题**. 设正整数$m,n$满足$(m,n)=1$,
@@ -44,14 +45,17 @@ $$x^{2n} + x^n + 1 = \prod_{k=0}^{n-1} \left( x^2 - 2 \cos \left( \frac{2\pi}{3n
 
 **证明**：正整数$m,n$满足$(m,n)=1$, 则存在整数$a,b\in\mathbb{Z}$,
 使得$am+bn=1$. 任取$\alpha\in \Omega_m \cap \Omega_n$, 有
-$$\alpha^m = \alpha^n = 1,$$ 那么$\alpha^{am} = \alpha^{bn} = 1,$ 进而有
+$$\alpha^m = \alpha^n = 1,$$
+那么$\alpha^{am} = \alpha^{bn} = 1,$ 进而有
 $$\alpha = \alpha^{am+bn} = \alpha^{am} \cdot \alpha^{bn} = 1 \cdot 1 = 1$$
 
 另一种证明方法：$\Omega_m = \{ e^{\frac{2k\pi i}{m}} \ |\ 0\leqslant k \leqslant m-1 \}$,
 $\Omega_n = \{ e^{\frac{2k\pi i}{n}} \ |\ 0\leqslant k \leqslant n-1 \}$,
 那么只要证明任取$0 < k < m$, $0 < k' < n$,
 有$e^{\frac{2k\pi i}{m}} \neq e^{\frac{2k'\pi i}{n}}$即可。在这种情况下，只要证明$\frac{k}{m} \neq \frac{k'}{n}$即可。用反证法，假设$kn=k'm$,
-由于$(m,n)=1$, 所以必须有 $$m|k, n|k'$$ 同时成立，但这是不可能的。
+由于$(m,n)=1$, 所以必须有
+$$m|k, n|k'$$
+同时成立，但这是不可能的。
 
 **习题5.5 第2题**.
 整系数多项式$f(x)$能否同时满足$f(10)=10, f(20)=20, f(30)=40$?
@@ -62,12 +66,14 @@ L(x) & = 10\frac{(x-20)(x-30)}{(10-20)(10-30)} + 20\frac{(x-10)(x-30)}{(20-10)(2
 & = \frac{x^2}{20} - \frac{x}{2} + 10\end{aligned}$$
 即是满足$L(10)=10, L(20)=20, L(30)=40$的有理系数多项式。假设存在题设的整系数多项式$f(x)$,
 考虑$g(x) = f(x) - L(x)$, $g(x) \neq 0$. 那么
-$$(x-10)(x-20)(x-30) \ |\ g(x)$$ 也就是说存在（整系数）多项式$h(x)$,
+$$(x-10)(x-20)(x-30) \ |\ g(x)$$
+也就是说存在（整系数）多项式$h(x)$,
 使得$f(x) = (x-10)(x-20)(x-30)h(x) + L(x)$.
 那么$L(x)$是$f(x)$除以$(x-10)(x-20)(x-30)$的余项。但这是不可能的，因为整系数多项式除以首一的整系数多项式的余项也应该是整系数的。所以这样的整系数多项式$f(x)$不存在。
 
 另一种证法：假设$f(x) = a_nx^n + \cdots + a_1x + a_0$满足题设条件。任取$\alpha,\beta\in\mathbb{Z}$,
-有 $$\begin{aligned}
+有
+$$\begin{aligned}
 f(\alpha) - f(\beta) & = a_n(\alpha^n-\beta^n) + \cdots + a_1(\alpha-\beta) \\
 & = a_n(\alpha-\beta)(\alpha^{n-1}+\alpha^{n-2}\beta+\cdots+\alpha\beta^{n-2}+\beta^{n-1}) + \cdots + a_1(\alpha-\beta),\end{aligned}$$
 所以$(\alpha-\beta) \ |\ (f(\alpha) - f(\beta))$, 但题目中有
@@ -79,11 +85,14 @@ $$(30-10) \nmid (f(30)-f(10)).$$
 **证明.** 由于
 $$ab\ |\ a^n + C_n^1a^{n-1}b + C_n^2a^{n-2}b^2 + \cdots + C_n^{n-1}ab^{n-1} + b^n$$
 且右边前$n$项都被$a$整除，所以第$n+1$项$b^n$也被$a$整除，即存在整数$h$使得$b^n = ah$.
-故有 $$b\ |\ a^{n-1} + C_n^1a^{n-2}b + \cdots + C_n^{n-1}b^{n-1} + h,$$
-从此式能推出$b\ |\ a^{n-1} + h$. 也就是说，我们有 $$\begin{cases}
+故有
+$$b\ |\ a^{n-1} + C_n^1a^{n-2}b + \cdots + C_n^{n-1}b^{n-1} + h,$$
+从此式能推出$b\ |\ a^{n-1} + h$. 也就是说，我们有
+$$\begin{cases}
 b\ |\ a^{n-1} + h \\
 b^n = ah
-\end{cases}$$ 设$b$的素因子分解为有限乘积$b = \pm \prod p_i^{k_i}$,
+\end{cases}$$
+设$b$的素因子分解为有限乘积$b = \pm \prod p_i^{k_i}$,
 $p_i$为素数，$k_i>0$.
 那么上面第一式告诉我们，要么$p_i^{k_i}$同时整除$a^{n-1}$与$h$，要么都不整除$a^{n-1}$与$h$.
 上面第二式告诉我们，都不整除$a^{n-1}$与$h$的$p_i^{k_i}$是不存在的，否则左边$p_i$的次数大于等于$2k_i$,

@@ -54,7 +54,8 @@ $$A := \begin{pmatrix}
 
 当$n$为奇数时，化简后的系数矩阵满秩，此时$\alpha_1+\alpha_2, \alpha_2+\alpha_3, \cdots, \alpha_n+\alpha_1$线性相关当且仅当$\alpha_1, \alpha_2, \cdots, \alpha_n$线性相关。
 
-**习题2.1 第8题** 类似第7题，将问题写为 $$(\alpha_1, \cdots, \alpha_n)
+**习题2.1 第8题** 类似第7题，将问题写为
+$$(\alpha_1, \cdots, \alpha_n)
 \begin{pmatrix}
 1 & 0 & \cdots & \cdots & 0 & -\lambda \\
 -\lambda & 1 & 0 & & & 0 \\

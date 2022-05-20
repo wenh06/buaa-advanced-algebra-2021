@@ -8,7 +8,8 @@
 问：$y$是否可能是$x$的二次函数？如果可能，试求出满足要求的二次函数。
 
 **解**：假设$y$是$x$的二次函数，即存在实数$a,b,c$使得
-$$y = a + bx + cx^2$$ 我们有
+$$y = a + bx + cx^2$$
+我们有
 
 |   x   |  1  |  2  |  3  |  4  |
 |:-----:|:---:|:---:|:---:|:---:|
@@ -21,7 +22,8 @@ $$\begin{pmatrix} 2 \\ 7 \\ 16 \\ 29 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 1 \
 $$\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} a \\ b \\ c \end{pmatrix} = \begin{pmatrix} 1 \\ -1 \\ 2 \\ 2 \end{pmatrix}$$
 得$(a,b,c) = (1,-1,2)$, 即$y = 1 - x + 2x^2$。
 
-**习题1.2 第4题** 在实数范围内解线性方程组 $$\begin{cases}
+**习题1.2 第4题** 在实数范围内解线性方程组
+$$\begin{cases}
 x + 3y + 2z = 4 \\
 2x + 5y -3z = -1 \\
 4x + 11y + z = 7
@@ -31,14 +33,18 @@ x + 3y + 2z = 4 \\
 
 将这个方程组的常数项全部变成0，得到的方程组的解集在3维空间中的图像$\Pi_0$是什么？$\Pi_0$与$\Pi$有什么关系？
 
-**解**：该线性方程组的增广系数矩阵为 $$\begin{pmatrix}[ccc|c]
+**解**：该线性方程组的增广系数矩阵为
+$$\begin{pmatrix}[ccc|c]
   1 & 3 & 2 & 4\\
   2 & 5 & -3 & -1 \\
   4 & 11 & 1 & 7
-\end{pmatrix}$$ 通过高斯消元法化为阶梯形 $$\begin{pmatrix}[ccc|c]
+\end{pmatrix}$$
+通过高斯消元法化为阶梯形
+$$\begin{pmatrix}[ccc|c]
   1 & 0 & -19 & -23\\
   0 & 1 & 7 & 9
-\end{pmatrix}$$ 所以解集为$(x,y,z) = (19t-23,-7t+9,t)$,
+\end{pmatrix}$$
+所以解集为$(x,y,z) = (19t-23,-7t+9,t)$,
 $t\in\mathbb{R}$.
 它在3维空间中的图像$\Pi$是一条直线。将这个方程组的常数项全部变成0，得到的方程组的解集在3维空间中的图像$\Pi_0$一条过原点的直线。$\Pi_0$与$\Pi$之间可以通过平移相互得到，即$\Pi = \Pi_0 + \begin{pmatrix} -23 \\ 9 \\ 0 \end{pmatrix}$，$\begin{pmatrix} -23 \\ 9 \\ 0 \end{pmatrix}$可以换为原非齐次线性方程组的任意一个特解。
 
@@ -50,7 +56,8 @@ x_1 + x_2 + \lambda x_3 = \lambda^2 \\
 \end{cases}$$
 当方程组有解时求出解来，并讨论$\lambda$取什么值时方程组有唯一解，什么时候有无穷多组解。
 
-**解**：对增广系数矩阵做行变换 $$\begin{aligned}
+**解**：对增广系数矩阵做行变换
+$$\begin{aligned}
 & \begin{pmatrix}[ccc|c]
   \lambda & 1 & 1 & 1\\
   1 & \lambda & 1 & \lambda \\
@@ -73,7 +80,8 @@ x_1 + x_2 + \lambda x_3 = \lambda^2 \\
   1 & 1 & \lambda & \lambda^2 \\
   0 & \lambda-1 & -(\lambda-1) & -\lambda(\lambda-1) \\
   0 & 0 & (\lambda-1)(\lambda+2) & (\lambda-1)(\lambda+1)^2
-\end{pmatrix}\end{aligned}$$ 所以
+\end{pmatrix}\end{aligned}$$
+所以
 
 -   当$\lambda = 1$时，增广系数矩阵化为$\begin{pmatrix}[ccc|c] 1 & 1 & 1 & 1 \end{pmatrix}$，原线性方程组有无穷多组解
     $$\begin{pmatrix}
@@ -84,7 +92,8 @@ x_1 + x_2 + \lambda x_3 = \lambda^2 \\
     $$\begin{pmatrix}[ccc|c] 1 & 1 & -2 & 4 \\ 0 & -3 & 3 & -6 \\ 0 & 0 & 0 & -3 \end{pmatrix}$$
     此时原线性方程组无解。
 
--   其余情况，增广系数矩阵可进一步约化 $$\begin{aligned}
+-   其余情况，增广系数矩阵可进一步约化
+    $$\begin{aligned}
     & \to
     \begin{pmatrix}[ccc|c]
       1 & 1 & \lambda & \lambda^2 \\
@@ -95,7 +104,8 @@ x_1 + x_2 + \lambda x_3 = \lambda^2 \\
       1 & 0 & 0 & -\frac{\lambda+1}{\lambda+2} \\
       0 & 1 & 0 & \frac{1}{\lambda+2} \\
       0 & 0 & 1 & \frac{(\lambda+1)^2}{\lambda+2}
-    \end{pmatrix}\end{aligned}$$ 此时原线性方程组有唯一解
+    \end{pmatrix}\end{aligned}$$
+    此时原线性方程组有唯一解
     $$\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} -\frac{\lambda+1}{\lambda+2} \\ \frac{1}{\lambda+2} \\ \frac{(\lambda+1)^2}{\lambda+2} \end{pmatrix}$$
 
 可以用程序验证答案（在$\mathbb{Q}(\lambda)$中的解，适合一般情况，不适合$\lambda = 1,-2$这样的退化的情况）：
@@ -173,10 +183,12 @@ $$\mathbb{Q}(\sqrt[3]{2}) = \{ a + b\sqrt[3]{2} + c\sqrt[3]{4} \ |\ a,b,c\in\mat
 很容易看到任何包含$\sqrt[3]{2}$的数域都必须包含$\sqrt[3]{2}, \sqrt[3]{4}$，从而包含$\mathbb{Q}(\sqrt[3]{2})$，那么只要证明$\mathbb{Q}(\sqrt[3]{2})$是一个数域。
 
 解法一：直接验证$\mathbb{Q}(\sqrt[3]{2})$是对加、减、乘、除封闭。其中对加、减、乘封闭好验证。对于除法封闭，只要验证$1/(a + b\sqrt[3]{2} + c\sqrt[3]{4}) \in \mathbb{Q}(\sqrt[3]{2})$，$a,b,c$不全为零，即可。不妨设$a,b,c$都不为零（其余情况更简单）。这种情况下，又不妨设$c=1$，记$\theta = \sqrt[3]{2}$，要证明
-$$1/(a + b\theta + \theta^2) \in \mathbb{Q}(\theta)$$ 利用带余除法，有
+$$1/(a + b\theta + \theta^2) \in \mathbb{Q}(\theta)$$
+利用带余除法，有
 $$\theta^3-2 = (\theta^2 + b\theta + a) (\theta-b) + ((b^2-a)\theta + ab-2)$$
 若$b^2-a=0$，则$ab-2\neq 0$，此时有
-$$1/(\theta^2 + b\theta + a) = (\theta-b)/(2-ab).$$ 若$b^2-a\neq 0$，则
+$$1/(\theta^2 + b\theta + a) = (\theta-b)/(2-ab).$$
+若$b^2-a\neq 0$，则
 $$(\theta^2 + b\theta + a) = ((b^2-a)\theta + ab-2) \left(\frac{1}{b^2-a}\theta + \frac{b^3 - 2ab + 2}{(b^2-a)^2} \right) + a - (ab-2)\frac{b^3 - 2ab + 2}{(b^2-a)^2}$$
 将上式回代，有
 $$(\theta^3-2) \left(\frac{1}{b^2-a}\theta + \frac{b^3 - 2ab + 2}{(b^2-a)^2} \right) = (\theta^2 + b\theta + a) \left[ (\theta-b) \left(\frac{1}{b^2-a}\theta + \frac{b^3 - 2ab + 2}{(b^2-a)^2} \right) + 1 \right] - \gamma$$
@@ -190,7 +202,8 @@ monic）极小多项式[1](minimal polynomial over
 $\mathbb{Q}$)。令$F = \mathbb{Q}[x] / (m(x))$为$\mathbb{Q}$系数多项式全体的等价类组成的集合，其中的等价关系为
 $$f_1(x) \sim f_2(x) \quad \Longleftrightarrow \quad \exists g(x) \ s.t.\ f_1(x)-f_2(x) = g(x)m(x)$$
 作为一个$\mathbb{Q}$线性空间，$F$的一组基可以取作$1, \overline{x}, \overline{x}^2$。这是因为对于任意一个$f(x) \in \mathbb{Q}[x]$，都存在$g(x), r(x)$，$\deg r(x) < \deg m(x)$，使得
-$$f(x) = g(x)m(x) + r(x)$$ 于是
+$$f(x) = g(x)m(x) + r(x)$$
+于是
 $$F = \{ a + b\overline{x} + c\overline{x}^2 \ |\ a,b,c\in\mathbb{Q} \}$$
 定义
 $$\varphi : F \to \mathbb{Q}(\sqrt[3]{2}), \overline{x} \mapsto \sqrt[3]{2}$$

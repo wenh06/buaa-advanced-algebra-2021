@@ -72,7 +72,8 @@ $$B v_{i1} = B|_{V_{\lambda_i}} v_{i1} = \mu_{i1} v_{i1}, \quad \ldots, \quad  B
 于是在$V$的这组基$v_{11}, \ldots, v_{1r_1}, \ldots, v_{m1}, \ldots, v_{mr_m}$下，$A,B$的矩阵表示分别为$\operatorname{diag} (\underbrace{\lambda_1,\cdots,\lambda_1}_{r_1}, \cdots, \underbrace{\lambda_m,\cdots,\lambda_m}_{r_m})$,
 $\operatorname{diag} (\mu_{11}, \ldots, \mu_{1r_1}, \ldots, \mu_{m1}, \ldots, \mu_{mr_m})$.
 亦即令$P = (v_{11}, \ldots, v_{1r_1}, \ldots, v_{m1}, \ldots, v_{mr_m})$,
-有 $$\begin{aligned}
+有
+$$\begin{aligned}
 P^{-1}AP & = \operatorname{diag} (\underbrace{\lambda_1,\cdots,\lambda_1}_{r_1}, \cdots, \underbrace{\lambda_m,\cdots,\lambda_m}_{r_m}) \\
 P^{-1}BP & = \operatorname{diag} (\mu_{11}, \ldots, \mu_{1r_1}, \ldots, \mu_{m1}, \ldots, \mu_{mr_m})\end{aligned}$$
 
@@ -91,16 +92,19 @@ P^{-1}BP & = \operatorname{diag} (\mu_{11}, \ldots, \mu_{1r_1}, \ldots, \mu_{m1}
 
 **解**.
 由上一题第四题知$A,B$可同时对角化，即存在可逆矩阵$P$使得$P^{-1}AP$与$P^{-1}BP$同时为对角阵$D_A = \operatorname{diag}(a_1, \ldots, a_n), D_B = \operatorname{diag}(b_1, \ldots, b_n)$.
-考虑如下两个$V$上的线性变换 $$\begin{aligned}
+考虑如下两个$V$上的线性变换
+$$\begin{aligned}
 \theta: & V \to V, X \mapsto PXP^{-1},\\
 \mu: & V \to V, X \mapsto D_A X - X D_B.\end{aligned}$$
 若$X$为$\mu$的特征向量（假设有），即$\mu(X) = \lambda X$,
-$\lambda \in \mathbb{F}$, 那么 $$\begin{aligned}
+$\lambda \in \mathbb{F}$, 那么
+$$\begin{aligned}
 \sigma(\theta(X)) & = A PXP^{-1} - PXP^{-1} B = PP^{-1}APXP^{-1} - PXP^{-1}BPP^{-1} \\
 & = P(D_AX - XD_B)P^{-1} = P(\mu(X))P^{-1} = P (\lambda X) P^{-1} = \lambda PXP^{-1} \\
 & = \lambda \theta(X).\end{aligned}$$
 那么，$\theta(X)$是$\sigma$的特征向量，对应的特征值是$\lambda$.
-任取$X = (x_{ij}) \in M_n (\mathbb{F})$, 那么 $$\begin{aligned}
+任取$X = (x_{ij}) \in M_n (\mathbb{F})$, 那么
+$$\begin{aligned}
 D_AX - XD_B & = \operatorname{diag}(a_1, \ldots, a_n) X - X \operatorname{diag}(b_1, \ldots, b_n) \\
 & = \begin{pmatrix} a_1x_{11} & \cdots & a_1x_{1n} \\ \vdots & & \vdots \\ a_nx_{n1} & \cdots & a_nx_{nn} \end{pmatrix} - \begin{pmatrix} b_1x_{11} & \cdots & b_nx_{1n} \\ \vdots & & \vdots \\ b_1x_{n1} & \cdots & b_nx_{nn} \end{pmatrix} \\
 & = \begin{pmatrix} (a_1-b_1)x_{11} & \cdots & (a_1-b_n)x_{1n} \\ \vdots & & \vdots \\ (a_n-b_1)x_{n1} & \cdots & (a_n-b_n)x_{nn} \end{pmatrix}\end{aligned}$$

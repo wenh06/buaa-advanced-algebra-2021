@@ -6,16 +6,19 @@ $(1 \leqslant i \leqslant n)$,
 **解**.
 我们首先从分析的角度来看这个问题。$d(k, b) = \sum\limits_{i=1}^n (kx_i + b - y_i)^2$关于$k, b$都是（下）凸的，所以满足$\operatorname{grad} d(k, b) = (0,0)^T$的点都是使$d(k, b)$达到最小值的点。计算梯度得
 $$\operatorname{grad} d(k, b) = \begin{pmatrix} 2 \sum\limits_{i=1}^n x_i (kx_i + b - y_i) \\ 2 \sum\limits_{i=1}^n (kx_i + b - y_i) \end{pmatrix}$$
-得方程组 $$\begin{cases}
+得方程组
+$$\begin{cases}
 k \sum\limits_{i=1}^n x_i^2 + b \sum\limits_{i=1}^n x_i - \sum\limits_{i=1}^n x_i y_i = 0 \\
 k \sum\limits_{i=1}^n x_i + nb - \sum\limits_{i=1}^n y_i = 0
-\end{cases}$$ 或者写成矩阵的形式
+\end{cases}$$
+或者写成矩阵的形式
 $$M \begin{pmatrix} k \\ b \end{pmatrix} = \begin{pmatrix} \sum\limits_{i=1}^n x_i^2 & \sum\limits_{i=1}^n x_i \\ \sum\limits_{i=1}^n x_i & n \end{pmatrix} \begin{pmatrix} k \\ b \end{pmatrix} = \begin{pmatrix} \sum\limits_{i=1}^n x_i y_i \\ \sum\limits_{i=1}^n y_i \end{pmatrix}$$
 只要满足$x_i$不全相等，系数矩阵就非奇异，$(k, b)$有唯一解
 $$\begin{pmatrix} k \\ b \end{pmatrix} = M^{-1}\begin{pmatrix} \sum\limits_{i=1}^n x_i y_i \\ \sum\limits_{i=1}^n y_i \end{pmatrix}$$
 令$A = \begin{pmatrix} x_1 & 1 \\ \vdots & \vdots \\ x_n & 1 \end{pmatrix}$,
 $\mathbf{y} = \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix}$,
-那么$M = A^TA$, 上述解又可以写为 $$(A^TA)^{-1}A^T\mathbf{y}.$$
+那么$M = A^TA$, 上述解又可以写为
+$$(A^TA)^{-1}A^T\mathbf{y}.$$
 
 下面，我们从代数的角度来解这个问题。在最理想的情况下，所有数据点都满足某个线性方程$y = kx + b$,
 写成矩阵的形式即为
@@ -34,7 +37,8 @@ $\mathbf{b} \in \operatorname{span}(A)$
 $$\widehat{\mathbf{b}} = \mathop{\mathrm{arg\,min}}_{\mathbf{b}' \in \operatorname{span}(A)} \lvert \mathbf{b}' - \mathbf{b} \rvert$$
 $\mathbf{b}' - \mathbf{b}$就是下图虚线（dashed
 line）代表的向量，它最短当且仅当$\mathbf{b}'$是$\mathbf{b}$到$\operatorname{span}(A)$的投影（之后习题会证明），即$\widehat{\mathbf{b}} - \mathbf{b} = A\widehat{\mathbf{x}}-\mathbf{b} \in \operatorname{span}(A)^{\perp}$,
-这等价于正则方程 $$A^T(A\widehat{\mathbf{x}}-\mathbf{b}) = 0$$
+这等价于正则方程
+$$A^T(A\widehat{\mathbf{x}}-\mathbf{b}) = 0$$
 
 当$A$列满秩时，在这题里就是$x_i$不全相等时，$A^TA$是可逆方阵，上述正则方程有唯一解
 $$\widehat{\mathbf{x}} = (A^TA)^{-1}A^T\mathbf{b}.$$
@@ -62,7 +66,8 @@ $W$是由$\alpha_1, \ldots, \alpha_k \in E(\mathbb{R})$生成的子空间。当$
 下面我们用向量的内积来证明这题的结论。以下，我们用$\langle \cdot, \cdot \rangle$来表示向量内积。
 
 \(1\) 假设向量$\beta\in W$使得$\alpha - \beta \in W^{\perp}$,
-$\beta'\in W$是$W$中任意一个向量。那么 $$\begin{aligned}
+$\beta'\in W$是$W$中任意一个向量。那么
+$$\begin{aligned}
 \lvert \alpha - \beta' \rvert^2 & = \lvert (\alpha - \beta) + (\beta - \beta') \rvert^2 \\
 & = \langle (\alpha - \beta) + (\beta - \beta'), (\alpha - \beta) + (\beta - \beta') \rangle \\
 & = \lvert \alpha - \beta \rvert^2 + 2\langle \alpha-\beta, \beta-\beta' \rangle + \lvert \beta - \beta' \rvert^2 \\
@@ -80,7 +85,8 @@ $\beta'\in W$是$W$中任意一个向量。那么 $$\begin{aligned}
 $$0 = \langle \alpha_i, \alpha - (x_1\alpha_1 + \cdots + x_k\alpha_k) \rangle,$$
 即
 $$\sum\limits_{j=1}^k \langle \alpha_i, \alpha_j \rangle x_j = \langle \alpha_i, \alpha \rangle,$$
-写成矩阵形式即 $$\begin{pmatrix}
+写成矩阵形式即
+$$\begin{pmatrix}
 \langle \alpha_1, \alpha_1 \rangle & \cdots & \langle \alpha_1, \alpha_k \rangle \\
 \vdots & & \vdots \\
 \langle \alpha_k, \alpha_1 \rangle & \cdots & \langle \alpha_k, \alpha_k \rangle
@@ -102,12 +108,14 @@ $$A^TA \begin{pmatrix} x_1 \\ \vdots \\ x_k \end{pmatrix} = A^T \alpha.$$
 **第三题**. 习题9.2第9题. (1)
 设$W$是$\mathbb{R}^3$中过点$(0,0,0), (1,2,2), (3,4,0)$的平面，求点$A (5,0,0)$到平面$W$的最短距离；
 
-\(2\) 求方程组 $$\begin{cases}
+\(2\) 求方程组
+$$\begin{cases}
 0.39x - 1.89y = 1 \\
 0.61x - 1.80y = 1 \\
 0.93x - 1.68y = 1 \\
 1.35x - 1.50y = 1
-\end{cases}$$ 的最小二乘解。
+\end{cases}$$
+的最小二乘解。
 
 \(3\)
 设$A\in\mathbb{R}^{m\times n}, X = (x_1,\cdots,x_n)^T, \beta\in\mathbb{R}^{m\times 1}$.
@@ -128,7 +136,9 @@ x_1 \\ x_2
 \begin{pmatrix}
 \langle \alpha_1, \beta \rangle \\
 \langle \alpha_2, \beta \rangle
-\end{pmatrix}$$ 即 $$\begin{pmatrix}
+\end{pmatrix}$$
+即
+$$\begin{pmatrix}
 9 & 11 \\ 11 & 25
 \end{pmatrix}
 \begin{pmatrix}
@@ -136,7 +146,9 @@ x_1 \\ x_2
 \end{pmatrix} = 
 \begin{pmatrix}
 5 \\ 15
-\end{pmatrix}$$ 解得 $$\begin{pmatrix}
+\end{pmatrix}$$
+解得
+$$\begin{pmatrix}
 x_1 \\ x_2
 \end{pmatrix} = \dfrac{1}{104} \begin{pmatrix}
 25 & -11 \\ -11 & 9
@@ -150,7 +162,8 @@ x_1 \\ x_2
 \end{pmatrix}$$
 最短距离即等于$\lvert \beta - (x_1\alpha_1 + x_2\alpha_2) \rvert = \lvert (5,0,0) - \dfrac{5}{13} (5,6,-2) \rvert = \dfrac{5}{13} \lvert (8,-6,2) \rvert = 10 \sqrt{\dfrac{2}{13}}$.
 
-\(2\) 将问题写成矩阵的形式 $$A\begin{pmatrix}
+\(2\) 将问题写成矩阵的形式
+$$A\begin{pmatrix}
 x \\ y
 \end{pmatrix} = \begin{pmatrix}
 0.39 & -1.89 \\ 0.61 & -1.80 \\ 0.93 & -1.68 \\ 1.35 & -1.50
@@ -160,7 +173,8 @@ x \\ y
 \end{pmatrix} = 
 \begin{pmatrix}
 1 \\ 1 \\ 1 \\ 1
-\end{pmatrix} = \beta$$ 那么这个问题的最小二乘解为$(A^TA)^{-1}A^T\beta$,
+\end{pmatrix} = \beta$$
+那么这个问题的最小二乘解为$(A^TA)^{-1}A^T\beta$,
 编程解如下
 
     >>> import numpy as np
@@ -185,7 +199,8 @@ $\tau_{\alpha}$在适当的标准正交基下的矩阵为$\operatorname{diag}(-1
 
 **证明**. (1).
 要证$\tau_{\alpha}$是正交变换，我们只要证明任取$\beta_1, \beta_2 \in E_n(\mathbb{R})$都有$\langle \tau_{\alpha}(\beta_1), \tau_{\alpha}(\beta_2) \rangle = \langle \beta_1, \beta_2 \rangle$.
-我们来验证这个结论。 $$\begin{aligned}
+我们来验证这个结论。
+$$\begin{aligned}
 & \langle \tau_{\alpha}(\beta_1), \tau_{\alpha}(\beta_2) \rangle \\
 = & \langle \beta_1 - \dfrac{2\langle \beta_1, \alpha \rangle}{\langle \alpha, \alpha \rangle} \alpha, \beta_2 - \dfrac{2\langle \beta_2, \alpha \rangle}{\langle \alpha, \alpha \rangle} \alpha  \rangle \\
 = & \langle \beta_1, \beta_2 \rangle - \dfrac{2\langle \beta_2, \alpha \rangle \langle \beta_1, \alpha \rangle}{\langle \alpha, \alpha \rangle}- \dfrac{2\langle \beta_1, \alpha \rangle \langle \alpha, \beta_2 \rangle}{\langle \alpha, \alpha \rangle} + \dfrac{4\langle \beta_1, \alpha \rangle \langle \beta_2, \alpha \rangle \langle \alpha, \alpha \rangle}{\langle \alpha, \alpha \rangle^2} \\
