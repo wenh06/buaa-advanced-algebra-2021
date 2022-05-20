@@ -45,7 +45,7 @@ $$
 
 我们知道$A\mathbf{x} = \mathbf{b}$有解$\Longleftrightarrow$ $\mathbf{b} \in \operatorname{span}(A)$ （$A$的列空间）。当它无解时，$\mathbf{b} \not\in \operatorname{span}(A)$. 最小二乘解$\widehat{\mathbf{x}}$是使得$\lvert A\widehat{\mathbf{x}}-\mathbf{b} \rvert$ （向量长度一般用$\lVert \cdot \rVert$表示，这里遵从课本的记号，用$\lvert \cdot \rvert$表示）最小的向量。令$\widehat{\mathbf{b}} = A\widehat{\mathbf{x}} \in \operatorname{span}(A)$, 那么
 $$\widehat{\mathbf{b}} = \argmin_{\mathbf{b}' \in \operatorname{span}(A)} \lvert \mathbf{b}' - \mathbf{b} \rvert$$
-$\mathbf{b}' - \mathbf{b}$就是下图虚线代表的向量，它最短当且仅当$\mathbf{b}'$是$\mathbf{b}$到$\operatorname{span}(A)$的投影（之后习题会证明），即$\widehat{\mathbf{b}} - \mathbf{b} = A\widehat{\mathbf{x}}-\mathbf{b} \in \operatorname{span}(A)^{\perp}$, 这等价于正则方程
+$\mathbf{b}' - \mathbf{b}$就是下图虚线（dashed line）代表的向量，它最短当且仅当$\mathbf{b}'$是$\mathbf{b}$到$\operatorname{span}(A)$的投影（之后习题会证明），即$\widehat{\mathbf{b}} - \mathbf{b} = A\widehat{\mathbf{x}}-\mathbf{b} \in \operatorname{span}(A)^{\perp}$, 这等价于正则方程
 $$A^T(A\widehat{\mathbf{x}}-\mathbf{b}) = 0$$
 
 \begin{figure}[H]
@@ -60,7 +60,7 @@ $$A^T(A\widehat{\mathbf{x}}-\mathbf{b}) = 0$$
 \path[-Stealth, very thick] (0,0) edge (4,-1);
 \path[-Stealth, very thick] (0,0) edge (2.5,-1.5);
 \path[-Stealth, very thick, dashed] (4,2) edge (2.5,-1.5);
-\path[-Stealth, dashed] (4,-1) edge (2.5,-1.5);
+\path[-Stealth, dotted] (4,-1) edge (2.5,-1.5);
 \node at (4.7, 0.5) {$A\widehat{\mathbf{x}}-\mathbf{b}$};
 \node at (2.6, 0.5) {$A\mathbf{x}'-\mathbf{b}$};
 \node at (1, 0.7) {$\mathbf{b}$};
@@ -91,7 +91,7 @@ $$\widehat{\mathbf{x}} = (A^TA)^{-1}A^T\mathbf{b}.$$
 
 \newpageorvspace
 
-{\bf 证明}：我们还用一下上一题的图，从而有一个比较直观的认识：$\beta'-\alpha, \beta-\alpha, \beta'-\beta$组成了一个直角三角形，以$\beta'-\alpha$为斜边，垂线段$\beta-\alpha$是一条直角边，必然比斜边短。
+{\bf 证明}：我们还用一下上一题的图，从而有一个比较直观的认识：我们设$\beta \in W$是使得向量$\beta-\alpha$垂直于$W$的向量，$\beta' \in W$是空间$W$中任意的另外一个向量，那么$\beta'-\alpha, \beta-\alpha, \beta'-\beta$组成了一个直角三角形，以$\beta'-\alpha$为斜边，垂线段$\beta-\alpha$是一条直角边，必然比斜边短。
 
 \begin{figure}[H]
 \centering
@@ -105,7 +105,7 @@ $$\widehat{\mathbf{x}} = (A^TA)^{-1}A^T\mathbf{b}.$$
 \path[-Stealth, very thick] (0,0) edge (4,-1);
 \path[-Stealth, very thick] (0,0) edge (2.5,-1.5);
 \path[-Stealth, very thick, dashed] (4,2) edge (2.5,-1.5);
-\path[-Stealth, dashed] (4,-1) edge (2.5,-1.5);
+\path[-Stealth, dotted] (4,-1) edge (2.5,-1.5);
 \node at (4.7, 0.5) {$\beta-\alpha$};
 \node at (2.6, 0.5) {$\beta'-\alpha$};
 \node at (1, 0.7) {$\alpha$};
@@ -127,7 +127,7 @@ $$\widehat{\mathbf{x}} = (A^TA)^{-1}A^T\mathbf{b}.$$
 & = \lvert \alpha - \beta \rvert^2 + \lvert \beta - \beta' \rvert^2 \\
 & \geqslant \lvert \alpha - \beta \rvert^2
 \end{align*}
-上式中的$\geqslant$是相等当且仅当$\beta - \beta'$. 这就证明了当$\alpha - \beta \in W^{\perp}$时$\lvert \alpha - \beta \rvert$取最小值。
+上式中的$\geqslant$是相等当且仅当$\beta = \beta'$. 这就证明了当$\alpha - \beta \in W^{\perp}$时$\lvert \alpha - \beta \rvert$取最小值。
 
 (2) 和第(1)问的证明相同，因为(1)的证明与$W$的维数是无关的。
 
@@ -152,6 +152,9 @@ x_1 \\ \vdots \\ x_k
 \end{pmatrix}
 $$
 当$x_1, \ldots, x_k \in \mathbb{R}$是上述线性方程组的解时，$\lvert \alpha - (x_1\alpha_1 + \cdots + x_k\alpha_k) \rvert$取最小值。
+
+注意，假设我们在$E(\mathbb{R})$中取定了一组基，那么$\alpha, \alpha_1, \ldots, \alpha_k$就有（列向量形式的）坐标表示，这些坐标（列向量）我们还用$\alpha, \alpha_1, \ldots, \alpha_k$来记，并令矩阵$A = (\alpha_1, \ldots, \alpha_n)$, 那么上述方程就可以写为
+$$A^TA \begin{pmatrix} x_1 \\ \vdots \\ x_k \end{pmatrix} = A^T \alpha.$$
 
 
 \newpageorvspace
@@ -212,8 +215,8 @@ x_1 \\ x_2
 5 \\ 15
 \end{pmatrix} = \dfrac{1}{104} \begin{pmatrix}
 -40 \\ 80
-\end{pmatrix} = \begin{pmatrix}
--\frac{5}{13} \\ \frac{10}{13}
+\end{pmatrix} = \dfrac{5}{13}\begin{pmatrix}
+-1 \\ 2
 \end{pmatrix}
 $$
 最短距离即等于$\lvert \beta - (x_1\alpha_1 + x_2\alpha_2) \rvert = \lvert (5,0,0) - \dfrac{5}{13} (5,6,-2) \rvert = \dfrac{5}{13} \lvert (8,-6,2) \rvert = 10 \sqrt{\dfrac{2}{13}}$.
@@ -236,9 +239,9 @@ $$
 >>> import numpy as np
 
 >>> A = np.array([[0.39,-1.89], [0.61,-1.80], [0.93,-1.68], [1.35,-1.50]])
->>> b = np.array([1,1,1,1])
+>>> beta = np.array([1,1,1,1])
 
->>> sol = np.linalg.inv(A.T @ A) @ A.T @ b
+>>> sol = np.linalg.inv(A.T @ A) @ A.T @ beta
 >>> sol
 array([ 0.19722003, -0.48807896])
 \end{lstlisting}
@@ -249,7 +252,7 @@ array([ 0.19722003, -0.48807896])
 \newpageorvspace
 
 
-{\bf 第四题}. 习题9.3第6题. 给定$0 \neq \alpha \in E_n(\mathbb{R})$. 定义$E_n(\mathbb{R})$中的线性变换$\tau_{\alpha}: \beta \mapsto \beta - \dfrac{2(\beta, \alpha)}{(\alpha, \alpha)} \alpha$, 求证：
+{\bf 第四题}. 习题9.3第6题. 给定$0 \neq \alpha \in E_n(\mathbb{R})$. 定义$E_n(\mathbb{R})$中的线性变换$\tau_{\alpha}: \beta \mapsto \beta - \dfrac{2(\langle \beta, \alpha \rangle}{\langle \alpha, \alpha \rangle} \alpha$, 求证：
 
 (1) $\tau_{\alpha}$是正交变换；
 
@@ -259,18 +262,21 @@ array([ 0.19722003, -0.48807896])
 
 {\bf 证明}. (1). 要证$\tau_{\alpha}$是正交变换，我们只要证明任取$\beta_1, \beta_2 \in E_n(\mathbb{R})$都有$\langle \tau_{\alpha}(\beta_1), \tau_{\alpha}(\beta_2) \rangle = \langle \beta_1, \beta_2 \rangle$. 我们来验证这个结论。
 \begin{align*}
-\langle \tau_{\alpha}(\beta_1), \tau_{\alpha}(\beta_2) \rangle & = \langle \beta_1 - \dfrac{2(\beta_1, \alpha)}{(\alpha, \alpha)} \alpha, \beta_2 - \dfrac{2(\beta_2, \alpha)}{(\alpha, \alpha)} \alpha  \rangle \\
-& = \langle \beta_1, \beta_2 \rangle - \dfrac{2\langle \beta_2, \alpha \rangle \langle \beta_1, \alpha \rangle}{\langle \alpha, \alpha \rangle}- \dfrac{2\langle \beta_1, \alpha \rangle \langle \alpha, \beta_2 \rangle}{\langle \alpha, \alpha \rangle} + \dfrac{4\langle \beta_1, \alpha \rangle \langle \beta_2, \alpha \rangle \langle \alpha, \alpha \rangle}{\langle \alpha, \alpha \rangle^2} \\
-& = \langle \beta_1, \beta_2 \rangle
+& \langle \tau_{\alpha}(\beta_1), \tau_{\alpha}(\beta_2) \rangle \\
+= & \langle \beta_1 - \dfrac{2\langle \beta_1, \alpha \rangle}{\langle \alpha, \alpha \rangle} \alpha, \beta_2 - \dfrac{2\langle \beta_2, \alpha \rangle}{\langle \alpha, \alpha \rangle} \alpha  \rangle \\
+= & \langle \beta_1, \beta_2 \rangle - \dfrac{2\langle \beta_2, \alpha \rangle \langle \beta_1, \alpha \rangle}{\langle \alpha, \alpha \rangle}- \dfrac{2\langle \beta_1, \alpha \rangle \langle \alpha, \beta_2 \rangle}{\langle \alpha, \alpha \rangle} + \dfrac{4\langle \beta_1, \alpha \rangle \langle \beta_2, \alpha \rangle \langle \alpha, \alpha \rangle}{\langle \alpha, \alpha \rangle^2} \\
+= & \langle \beta_1, \beta_2 \rangle
 \end{align*}
 
-(2) 对于线性变换$\tau_{\alpha}: \beta \mapsto \beta - \dfrac{2(\beta, \alpha)}{(\alpha, \alpha)} \alpha$, 我们容易发现如下结论
+(2) 对于线性变换$\tau_{\alpha}: \beta \mapsto \beta - \dfrac{2\langle \beta, \alpha \rangle}{\langle \alpha, \alpha \rangle} \alpha$, 我们容易发现如下结论
 \begin{itemize}
-\item $\tau_{\alpha}(\alpha) = \alpha - \dfrac{2(\alpha, \alpha)}{(\alpha, \alpha)} \alpha = -\alpha$.
-\item 任取$\beta \in \operatorname{span}\{\alpha\}^{\perp}$, 有$\tau_{\alpha}(\beta) = \beta)$.
+\item $\tau_{\alpha}(\alpha) = \alpha - \dfrac{2\langle \alpha, \alpha \rangle}{\langle \alpha, \alpha \rangle} \alpha = -\alpha$.
+\item 任取$\beta \in \operatorname{span}\{\alpha\}^{\perp}$, 有$\tau_{\alpha}(\beta) = \beta$.
 \end{itemize}
 那么我们从向量$\alpha_1 = \dfrac{\alpha}{\lvert \alpha \rvert}$出发，扩充成$E_n(\mathbb{R})$的一组标准正交基$\alpha_1, \alpha_2, \ldots, \alpha_n$, 那么
 $$\tau_{\alpha}(\alpha_1) = \tau_{\alpha}(\dfrac{\alpha}{\lvert \alpha \rvert}) = \dfrac{1}{\lvert \alpha \rvert} \tau_{\alpha}(\alpha) = \dfrac{-\alpha}{\lvert \alpha \rvert} = -\alpha_1$$
 此外，$\alpha_2, \ldots, \alpha_n \in \operatorname{span}\{\alpha\}^{\perp}$, 故有$\tau_{\alpha}(\alpha_i) = \alpha_i$, $\forall 2 \leqslant i \leqslant n$. 那么在标准正交基$\alpha_1, \alpha_2, \ldots, \alpha_n$下，$\tau_{\alpha}$的矩阵为$\operatorname{diag}(-1, 1, \cdots, 1)$。
+
+这里我们容易看到，$\tau_{\alpha}$实际上就是关于以$\alpha$为法向量的超平面（由一个线性方程确定的$n-1$维子空间）的对称变换。
 
 \end{document}
