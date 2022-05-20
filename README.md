@@ -31,3 +31,5 @@
 ## 注意
 
 目前，gitee对带数学表达式的markdown文件的支持比GitHub更好，在[gitee](https://gitee.com/wenh06/buaa-advanced-algebra-2021/tree/master/markdown)下大部分内容能正确显示。
+
+\[2022-05-20\]GitHub[增强了对数学表达式的支持](https://github.blog/changelog/2022-05-19-render-mathematical-expressions-in-markdown/)，但对于多行（多行指的是Tex代码有多行）的数学表达式的支持还是缺失。
