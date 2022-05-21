@@ -17,7 +17,7 @@ import pandas as pd
 _EMAIL = "wenh06@buaa.edu.cn"
 _SERVER = "mail.buaa.edu.cn"
 _PORT = 993  # 接收端口
-_SUBJECT_PATTERN = "^(?P<id>[\d]{8})(?:[\s]*[\-_][\s]*)?(?P<name>[\u4e00-\u9FFF]{0,10})(?:[\s]*[\-_][\s]*)?第(?P<no>[\d一二三四五六七八九十]{1,2})次作业"
+_SUBJECT_PATTERN = "^(?P<id>[\\d]{8})(?:[\\s]*[\\-_][\\s]*)?(?P<name>[\u4e00-\u9FFF]{0,10})(?:[\\s]*[\\-_][\\s]*)?第(?P<no>[\\d一二三四五六七八九十]{1,2})次作业"
 # _BASE64_UTF8_PATTERN = "^=\?(?:utf|UTF)\-8\?(?:b|B)\?(?P<base64_string>.*)\?=$"
 
 _zh2num = {k: v for k, v in zip("一二三四五六七八九十", range(1, 11))}
@@ -77,13 +77,14 @@ def collect() -> NoReturn:
                 if isinstance(From, bytes):
                     try:
                         From = From.decode(encoding)
-                    except:
+                    except Exception:
                         pass
                 try:
                     From_email = re.findall(
-                        "\<(?P<email>[\w\d\_\-]+@[\w\d\.\_\-]+)\>", msg.get("From")
+                        "\\<(?P<email>[\\w\\d\\_\\-]+@[\\w\\d\\.\\_\\-]+)\\>",
+                        msg.get("From"),
                     )[0]
-                except:
+                except Exception:
                     From_email = ""
 
                 # decode the email subject
@@ -92,7 +93,7 @@ def collect() -> NoReturn:
                     # if it"s a bytes, decode to str
                     try:
                         subject = subject.decode(encoding)
-                    except:
+                    except Exception:
                         pass
                 if isinstance(subject, str):
                     subject = re.sub("高代|高等代数", "", subject)
@@ -171,7 +172,7 @@ def collect() -> NoReturn:
                         ):
                             try:
                                 body = part.get_payload(decode=True).decode()
-                            except:
+                            except Exception:
                                 body = ""
                             # print text/plain emails and skip attachments
                             print(body)
@@ -184,7 +185,7 @@ def collect() -> NoReturn:
                             if encoding:
                                 filename = filename.decode(encoding)
                             if filename:
-                                filename = re.sub("[\s]+", "-", filename)
+                                filename = re.sub("[\\s]+", "-", filename)
                                 filepath = os.path.join(save_folder_name, filename)
                                 # download attachment or inline image and save it
                                 # TODO: compress before saving

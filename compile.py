@@ -6,10 +6,8 @@ import shutil
 import subprocess
 import collections
 import time
-import signal
 import platform
 import argparse
-import datetime
 import shlex
 from logging import Logger
 from numbers import Real
@@ -95,7 +93,7 @@ def execute_cmd(
     return exitcode, output_msg
 
 
-def _str_center(s: str, length: int):
+def _str_center(s: str, length: int) -> str:
     """ """
     return s.center(length, "*").center(length + 2, "\n")
 
@@ -112,7 +110,7 @@ def get_parser() -> dict:
         "--compiler",
         type=str,
         default="xe",
-        help=f"compiler, `xe` for xelatex, `pdf` for pdflatex, `lua` for lualatex, "
+        help="compiler, `xe` for xelatex, `pdf` for pdflatex, `lua` for lualatex, "
         "`dvi` for dvi, `ps` for postscript, `ps2pdf` for ps2pdf, `pdfdvi` for dvipdf",
         dest="compiler",
     )
@@ -121,7 +119,7 @@ def get_parser() -> dict:
         "--main",
         type=str,
         default="main.tex",
-        help=f"filename of the main document (the compile entry)",
+        help="filename of the main document (the compile entry)",
         dest="main",
     )
     parser.add_argument(
@@ -129,7 +127,7 @@ def get_parser() -> dict:
         "--output",
         type=str,
         default="output",
-        help=f"filename of the output file",
+        help="filename of the output file",
         dest="output",
     )
     parser.add_argument(
@@ -137,14 +135,14 @@ def get_parser() -> dict:
         "--timeout",
         type=float,
         default=0.1,
-        help=f"maximum running time of pm, in hours",
+        help="maximum running time of pm, in hours",
         dest="timeout_hour",
     )
     parser.add_argument(
         "-q",
         "--quiet",
         action="store_true",
-        help=f"running quietly",
+        help="running quietly",
         dest="quiet",
     )
 
@@ -155,7 +153,7 @@ def get_parser() -> dict:
 
 def run(
     compiler: str, main: str, output: str, quiet: bool = False, timeout_hour: Real = 0.1
-):
+) -> NoReturn:
     cwd = os.path.dirname(os.path.abspath(__file__))
     build_dir = os.path.join(cwd, "tmp_build")
     os.makedirs(build_dir, exist_ok=True)
