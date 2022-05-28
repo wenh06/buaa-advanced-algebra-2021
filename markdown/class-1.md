@@ -108,7 +108,7 @@ $$\begin{aligned}
     此时原线性方程组有唯一解
     $$\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} -\frac{\lambda+1}{\lambda+2} \\ \frac{1}{\lambda+2} \\ \frac{(\lambda+1)^2}{\lambda+2} \end{pmatrix}$$
 
-可以用程序验证答案（在$\mathbb{Q}(\lambda)$中的解，适合一般情况，不适合$\lambda = 1,-2$这样的退化的情况）：
+可以用[程序](https://github.com/wenh06/buaa-advanced-algebra-2021/blob/master/notebooks/class-1.ipynb)验证答案（在$\mathbb{Q}(\lambda)$中的解，适合一般情况，不适合$\lambda = 1,-2$这样的退化的情况）：
 
 <div class="center">
 

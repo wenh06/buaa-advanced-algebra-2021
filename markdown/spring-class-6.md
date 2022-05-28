@@ -173,9 +173,7 @@ x \\ y
 \end{pmatrix} = 
 \begin{pmatrix}
 1 \\ 1 \\ 1 \\ 1
-\end{pmatrix} = \beta$$
-那么这个问题的最小二乘解为$(A^TA)^{-1}A^T\beta$,
-编程解如下
+\end{pmatrix} = \beta$$ 那么这个问题的最小二乘解为$(A^TA)^{-1}A^T\beta$, [编程](https://github.com/wenh06/buaa-advanced-algebra-2021/blob/master/notebooks/spring-class-6.ipynb)解如下
 
     >>> import numpy as np
 

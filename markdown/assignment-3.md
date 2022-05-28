@@ -9,7 +9,7 @@ columns）拿到一起，设其下标为$i_1,\cdots,i_m$，那么$\{\alpha_{i_1}
 $$(\beta_{i_1},\cdots,\beta_{i_m}) = \begin{pmatrix} 1 & & \makebox(0,0){\text{\huge $\ast$}} \\ & \ddots & \\ \makebox(0,0){\text{\huge\bf 0}} & & 1 \\ & & \\ & \makebox(0,0){\text{\huge\bf 0}} & \\ & & \end{pmatrix}$$
 要注意的是改变$\alpha_1,\cdots,\alpha_n$排列次序组成矩阵$A$，可能得到不同的极大线性无关组。
 
-矩阵化为阶梯形可以利用如下的程序进行
+矩阵化为阶梯形可以利用如下的[程序](https://github.com/wenh06/buaa-advanced-algebra-2021/blob/master/notebooks/assignment-3.ipynb)进行
 
 <div class="center">
 
