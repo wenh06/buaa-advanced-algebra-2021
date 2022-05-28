@@ -178,3 +178,5 @@ dmypy.json
 
 统计.csv
 attachments/
+
+!notebooks/*.ipynb
