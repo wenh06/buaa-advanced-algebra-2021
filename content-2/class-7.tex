@@ -1,0 +1,156 @@
+\usepackage{relsize}
+
+\renewcommand{\newpageorvspace}{\newpage}
+% \renewcommand{\newpageorvspace}{\vspace{2em}}
+
+\date{2022-6-17  第七次习题课}
+
+\begin{document}
+
+
+\maketitle
+
+
+\larger[2]
+
+
+{\bf 第一题}. 习题 9.5 第 9 题. 实数域$\mathbb{R}$上全体$n$阶方阵构成$\mathbb{R}$上$n^2$维线性空间$V = \mathbb{R}^{n\times n}$, 在$V$中定义了内积$\langle X, Y \rangle = \operatorname{tr} \left( XY^T \right)$之后称为欧氏空间。对$V$上如下的线性函数$f$, 求$B\in V$使$f(X) = \langle X, B \rangle.$
+
+(1) $f(X) = \operatorname{tr} X$;
+
+(2) 对给定的$A, D \in \mathbb{R}^{n\times n}$, $f(X) = \operatorname{tr}(AXD)$;
+
+(3) 对给定的$A, D \in \mathbb{R}^{n\times n}$, $f(X) = \operatorname{tr}(AX - XD)$;
+
+(4) 对给定的$\alpha, \beta \in \mathbb{R}^{1\times n}$, $f(X) = \alpha X \beta^T$.
+
+\newpageorvspace
+
+{\bf 解}. (1). 要满足$\operatorname{tr} \left( XY^T \right) = \langle X, B \rangle = f(X) = \operatorname{tr} X$, 只要令$B = I$即可。
+
+(2). 要满足$\operatorname{tr} \left( XY^T \right) = \langle X, B \rangle = f(X) = \operatorname{tr} (AXD) = {\color{red} \operatorname{tr} (XDA)}$, 只要令$B^T = DA$, 即$B = (DA)^T = A^T D^T$即可。
+
+(3). 要满足
+\begin{align*}
+\operatorname{tr} \left( XY^T \right) & = \langle X, B \rangle = f(X) = \operatorname{tr} (AX - XD) \\
+& = {\color{red} \operatorname{tr} (AX) - \operatorname{tr} (XD) = \operatorname{tr} (XA) - \operatorname{tr} (XD)} \\
+& = {\color{red} \operatorname{tr} \left( X(A-D) \right)}
+\end{align*}
+只要令$B^T = A-D$, 即$A = (A-D)^T$即可。
+
+(4). 要满足$\operatorname{tr} \left( XY^T \right) = \langle X, B \rangle = f(X) = \operatorname{tr} \left( \alpha X \beta^T \right) = {\color{red} \operatorname{tr} \left( X \beta^T \alpha \right)}$, 只要令$B^T = \beta^T \alpha$, 即$B = (\beta^T \alpha)^T = \alpha^T \beta$即可。
+
+\vspace{1em}
+
+这题主要利用了方阵迹的性质$\operatorname{tr}(AB) = \operatorname{tr}(BA)$.
+
+
+\newpageorvspace
+
+
+{\bf 第二题}. 习题 9.7 第 8 题. 设$U$为酉方阵，且$U^{-1}AU = B$, 证明：$\operatorname{tr} \left( A^* A \right) = \operatorname{tr} \left( B^* B \right).$
+
+\newpageorvspace
+
+{\bf 证明}：因为$U$为酉方阵，所以$U^{-1} = U^*$, 那么
+\begin{align*}
+\operatorname{tr} \left( B^* B \right) & = \operatorname{tr} \left( \left( U^{-1} A U \right)^* B \right) = \operatorname{tr} \left( \left( U^* A U \right)^* B \right) \\
+& = \operatorname{tr} \left( U^* A^* U^{**} B \right) = \operatorname{tr} \left( U^* A^* U B \right) \\
+& = \operatorname{tr} \left( A^* U B U^* \right) = \operatorname{tr} \left( A^* U U^* A U U^* \right) \\
+& = \operatorname{tr} \left( A^* A \right).
+\end{align*}
+
+
+\newpageorvspace
+
+
+{\bf 第三题}. 习题 9.7 第 9 题. 设$H_1, H_2$都是$n$阶正定Hermite方阵，且$H_1 - H_2$正定，求证：$H_2^{-1} - H_1^{-1}$正定。
+
+\newpageorvspace
+
+{\bf 证明}：由于$H_1$是$n$阶正定Hermite方阵，那么它共轭相合于$n$阶单位阵，即存在可逆的$n$阶复方阵$P$, 使得$P^* H_1 P = I_n$. 令$\widetilde{H}_2 = P^* H_2 P$, 由于$H_2$是正定Hermite方阵，那么
+\begin{itemize}
+\item $\widetilde{H}_2^* = \left( P^* H_2 P \right)^* = P^* H_2^* P = P^* H_2 P = \widetilde{H}_2^*$;
+\item 任取非零$x \in \mathbb{C}^n$, $\langle x, \widetilde{H}_2 x \rangle = \langle x, P^* H_2 P x \rangle = \langle Px, H_2 P x \rangle > 0$.
+\end{itemize}
+所以$\widetilde{H}_2$也是正定Hermite方阵，酉相似于对角线全为正实数的对角阵，即存在酉方阵$U$, 使得
+$$U^* \widetilde{H}_2 U = \operatorname{diag} (\lambda_1, \ldots, \lambda_n),$$
+$\lambda_1, \ldots, \lambda_n > 0$为$\widetilde{H}_2$的特征值。
+
+令$Q = PU$, 那么
+\begin{align*}
+Q^* H_1 Q & = U^* \left( P^* H_1 P \right) U = U^* I_n U = U^* U = I_n, \\
+Q^* H_2 Q & = U^* \left( P^* H_2 P \right) U = U^* \widetilde{H}_2 U = \operatorname{diag} (\lambda_1, \ldots, \lambda_n).
+\end{align*}
+从而有
+$$Q^* (H_1 - H_2) Q = I_n - \operatorname{diag} (\lambda_1, \ldots, \lambda_n) = \operatorname{diag} (1-\lambda_1, \ldots, 1-\lambda_n).$$
+因为$H_1 - H_2$正定，所以$Q^* (H_1 - H_2) Q$也是正定的，所以
+$$\lambda_1, \ldots, \lambda_n < 1.$$
+那么有
+\begin{align*}
+ Q^{-1} \left( H_2^{-1} - H_1^{-1} \right) \left( Q^* \right)^{-1} & = Q^{-1} H_2^{-1} \left( Q^* \right)^{-1} - Q^{-1} H_1^{-1} \left( Q^* \right)^{-1} \\
+& = \left( Q^* H_2 Q \right)^{-1} - \left( Q^* H_1 Q \right)^{-1} \\
+& = \left( \operatorname{diag} (\lambda_1, \ldots, \lambda_n) \right)^{-1} - \left( I_n \right)^{-1} \\
+& = \operatorname{diag} (\lambda_1^{-1} - 1, \ldots, \lambda_n^{-1} - 1)
+\end{align*}
+也是正定阵。
+
+
+\newpageorvspace
+
+
+{\bf 第四题}. 习题 9.8 第 7 题. 设数域$\mathbb{F}$上$n$维线性空间$V$上定义了非退化斜对称双线性函数$f$.
+
+(1) 证明：$n$是偶数。
+
+(2) 证明：$f$在$V$的适当的基$M$下的矩阵是$H = \begin{pmatrix} O & I_{(m)} \\ -I_{(m)} & O \end{pmatrix}$, 其中$m = \dfrac{n}{2}$.
+
+(3) 证明：$\mathcal{A}$是$V$上的辛变换 $\Leftrightarrow$ $A$在基$M$下的矩阵$A$满足条件$A^THA = H$.
+
+(4) 满足条件$A^THA = H$的方阵称为辛方阵。要使以下方阵:
+$$
+\begin{pmatrix} P & O \\ O & Q \end{pmatrix}, \quad
+\begin{pmatrix} I & X \\ O & I \end{pmatrix}, \quad
+\begin{pmatrix} I & O \\ X & I \end{pmatrix}
+$$
+是辛方阵，其中的$m$阶块$P, Q, X$应当满足什么样的充分必要条件？
+
+\newpageorvspace
+
+{\bf 证明}. (1) $f$是斜对称双线性函数，那么任取$u, v \in \mathbb{F}^n$, $f(u, v) = - f(v, u)$. 任取$\mathbb{F}^n$的一组基$\varepsilon_1, \ldots, \varepsilon_n$, 令
+\begin{align*}
+u = a_1 \varepsilon_1 + \cdots + a_n \varepsilon_n, \\
+v = b_1 \varepsilon_1 + \cdots + b_n \varepsilon_n,
+\end{align*}
+那么
+\begin{align*}
+f(u, v) & = f(a_1 \varepsilon_1 + \cdots + a_n \varepsilon_n, b_1 \varepsilon_1 + \cdots + b_n \varepsilon_n) \\
+& = \sum\limits_{1 \leqslant i,j \leqslant n} a_i b_j f(\varepsilon_i, \varepsilon_j) = \alpha^T H \beta
+\end{align*}
+其中$\alpha = (a_1, \ldots, a_n)^T, \beta = (b_1, \cdots, b_n)^T, H = \begin{pmatrix} f(\varepsilon_1, \varepsilon_1) & \cdots & f(\varepsilon_1, \varepsilon_n) \\ \vdots & & \vdots \\ f(\varepsilon_n, \varepsilon_1) & \cdots & f(\varepsilon_n, \varepsilon_n) \end{pmatrix}.$ 由于$f(\varepsilon_i, \varepsilon_j) = - f(\varepsilon_j, \varepsilon_i)$, 所以$H$是反对称阵。
+
+$f$是非退化的，也就是说任取非零的$u \in \mathbb{F}^n$, 都存在$v \in \mathbb{F}^n$, 使得$f(u, v) \neq 0$. 假设$\det H = 0$, 那么$H$列不满秩，即存在不全为$0$的$t_1, \ldots, t_n$, 使得
+\begin{align*}
+0 & = t_1 \begin{pmatrix} f(\varepsilon_1, \varepsilon_1) \\ \vdots \\ f(\varepsilon_n, \varepsilon_1) \end{pmatrix} + \cdots + t_n \begin{pmatrix} f(\varepsilon_1, \varepsilon_n) \\ \vdots \\ f(\varepsilon_n, \varepsilon_n) \end{pmatrix} \\
+& = \begin{pmatrix} f(\varepsilon_1, t_1 \varepsilon_1 + \cdots + t_n \varepsilon_n) \\ \vdots \\ f(\varepsilon_n, t_1 \varepsilon_1 + \cdots + t_n \varepsilon_n) \end{pmatrix},
+\end{align*}
+那么对非零向量$u = t_1 \varepsilon_1 + \cdots + t_n \varepsilon_n$, 不存在向量$v$使得$f(u, v) \neq 0$, 这与$f$非退化矛盾。
+
+综上，$H$是一个可逆的反对称阵，于是
+$$\det H = \det (-H) = (-1)^n \det H,$$
+故$n$为偶数。
+
+(2) 根据(1)小问，要证明$f$在$V$的适当的基$M = \{ \epsilon_1, \ldots, \epsilon_n \}$下的矩阵是$H = \begin{pmatrix} O & I_{(m)} \\ -I_{(m)} & O \end{pmatrix} = \begin{pmatrix} f(\epsilon_1, \epsilon_1) & \cdots & f(\epsilon_1, \epsilon_n) \\ \vdots & & \vdots \\ f(\epsilon_n, \epsilon_1) & \cdots & f(\epsilon_n, \epsilon_n) \end{pmatrix}$, 只要证明
+\begin{equation*}
+f(\epsilon_i, \epsilon_j) = \begin{cases}
+1, & j = i + m, \\
+-1, & j = i - m, \\
+0, & \text{其余情况}
+\end{cases}
+\end{equation*}
+
+(3) 
+
+(4) 
+
+\end{document}
