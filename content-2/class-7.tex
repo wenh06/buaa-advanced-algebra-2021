@@ -42,7 +42,7 @@
 
 \vspace{1em}
 
-这题主要利用了方阵迹的性质$\operatorname{tr}(AB) = \operatorname{tr}(BA)$.
+这题主要利用了方阵迹的性质$\operatorname{tr}(AB) = \operatorname{tr}(BA)$. 注意这里的$A, B$并不要求都是方阵，而只要求相应的矩阵乘法有定义即可，即$A$为$m\times n$阶矩阵，$B$为$n\times m$阶矩阵即可。
 
 
 \newpageorvspace
@@ -59,6 +59,8 @@
 & = \operatorname{tr} \left( A^* U B U^* \right) = \operatorname{tr} \left( A^* U U^* A U U^* \right) \\
 & = \operatorname{tr} \left( A^* A \right).
 \end{align*}
+
+这里，我们又用到了方阵迹的性质$\operatorname{tr}(AB) = \operatorname{tr}(BA)$.
 
 
 \newpageorvspace
@@ -134,7 +136,7 @@ $f$是非退化的，也就是说任取非零的$u \in \mathbb{F}^n$, 都存在$
 0 & = t_1 \begin{pmatrix} f(\varepsilon_1, \varepsilon_1) \\ \vdots \\ f(\varepsilon_n, \varepsilon_1) \end{pmatrix} + \cdots + t_n \begin{pmatrix} f(\varepsilon_1, \varepsilon_n) \\ \vdots \\ f(\varepsilon_n, \varepsilon_n) \end{pmatrix} \\
 & = \begin{pmatrix} f(\varepsilon_1, t_1 \varepsilon_1 + \cdots + t_n \varepsilon_n) \\ \vdots \\ f(\varepsilon_n, t_1 \varepsilon_1 + \cdots + t_n \varepsilon_n) \end{pmatrix},
 \end{align*}
-那么对非零向量$u = t_1 \varepsilon_1 + \cdots + t_n \varepsilon_n$, 不存在向量$v$使得$f(u, v) \neq 0$, 这与$f$非退化矛盾。
+那么对非零向量$u = t_1 \varepsilon_1 + \cdots + t_n \varepsilon_n$, 它与基中所有向量在双线性型$f$的作用下都等于$0$, 故不存在向量$v$使得$f(u, v) \neq 0$, 这与$f$非退化矛盾。
 
 综上，$H$是一个可逆的反对称阵，于是
 $$\det H = \det (-H) = (-1)^n \det H,$$
@@ -248,7 +250,7 @@ $$\alpha_i\otimes \beta_j, \quad 1\leqslant i\leqslant n, 1\leqslant j\leqslant 
 $$\sum\limits_{i,j} k_{ij} \alpha_i\otimes \beta_j.$$
 于是，$\dim V_1\otimes V_2 = \dim V_1 \times \dim V_2.$
 
-{\color{red}注意}！一般来说，$V_1\otimes V_2$中元素并不能表示成$\alpha\otimes\beta$, $\alpha\in V_1$, $\beta\in V_2$, 这种形式，例如$\alpha_1\otimes \beta_1 + \alpha_2\otimes\beta_2$.
+{\color{red}注意}！一般来说，$V_1\otimes V_2$中元素并不能表示成$\alpha\otimes\beta$, $\alpha\in V_1$, $\beta\in V_2$, 这种形式，例如$\alpha_1\otimes \beta_1 + \alpha_2\otimes\beta_2$. 这点在物理中的重要应用就是用来表示量子纠缠态 (Quantum Entanglement).
 
 在取定了$V_i (i=1,2,\ldots,s)$的一组基
 $$\varepsilon_{i1},\ldots,\varepsilon_{in_i}$$
