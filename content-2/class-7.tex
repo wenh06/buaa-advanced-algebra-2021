@@ -1,7 +1,7 @@
 \usepackage{relsize}
 
-\renewcommand{\newpageorvspace}{\newpage}
-% \renewcommand{\newpageorvspace}{\vspace{2em}}
+% \renewcommand{\newpageorvspace}{\newpage}
+\renewcommand{\newpageorvspace}{\vspace{2em}}
 
 \date{2022-6-17  第七次习题课}
 
@@ -11,7 +11,7 @@
 \maketitle
 
 
-\larger[2]
+% \larger[2]
 
 
 {\bf 第一题}. 习题 9.5 第 9 题. 实数域$\mathbb{R}$上全体$n$阶方阵构成$\mathbb{R}$上$n^2$维线性空间$V = \mathbb{R}^{n\times n}$, 在$V$中定义了内积$\langle X, Y \rangle = \operatorname{tr} \left( XY^T \right)$之后称为欧氏空间。对$V$上如下的线性函数$f$, 求$B\in V$使$f(X) = \langle X, B \rangle.$
@@ -26,19 +26,19 @@
 
 \newpageorvspace
 
-{\bf 解}. (1). 要满足$\operatorname{tr} \left( XY^T \right) = \langle X, B \rangle = f(X) = \operatorname{tr} X$, 只要令$B = I$即可。
+{\bf 解}. (1). 要满足$\operatorname{tr} \left( XB^T \right) = \langle X, B \rangle = f(X) = \operatorname{tr} X$, 只要令$B = I$即可。
 
-(2). 要满足$\operatorname{tr} \left( XY^T \right) = \langle X, B \rangle = f(X) = \operatorname{tr} (AXD) = {\color{red} \operatorname{tr} (XDA)}$, 只要令$B^T = DA$, 即$B = (DA)^T = A^T D^T$即可。
+(2). 要满足$\operatorname{tr} \left( XB^T \right) = \langle X, B \rangle = f(X) = \operatorname{tr} (AXD) = {\color{red} \operatorname{tr} (XDA)}$, 只要令$B^T = DA$, 即$B = (DA)^T = A^T D^T$即可。
 
 (3). 要满足
 \begin{align*}
-\operatorname{tr} \left( XY^T \right) & = \langle X, B \rangle = f(X) = \operatorname{tr} (AX - XD) \\
+\operatorname{tr} \left( XB^T \right) & = \langle X, B \rangle = f(X) = \operatorname{tr} (AX - XD) \\
 & = {\color{red} \operatorname{tr} (AX) - \operatorname{tr} (XD) = \operatorname{tr} (XA) - \operatorname{tr} (XD)} \\
 & = {\color{red} \operatorname{tr} \left( X(A-D) \right)}
 \end{align*}
-只要令$B^T = A-D$, 即$A = (A-D)^T$即可。
+只要令$B^T = A-D$, 即$B = (A-D)^T$即可。
 
-(4). 要满足$\operatorname{tr} \left( XY^T \right) = \langle X, B \rangle = f(X) = \operatorname{tr} \left( \alpha X \beta^T \right) = {\color{red} \operatorname{tr} \left( X \beta^T \alpha \right)}$, 只要令$B^T = \beta^T \alpha$, 即$B = (\beta^T \alpha)^T = \alpha^T \beta$即可。
+(4). 要满足$\operatorname{tr} \left( XB^T \right) = \langle X, B \rangle = f(X) = \operatorname{tr} \left( \alpha X \beta^T \right) = {\color{red} \operatorname{tr} \left( X \beta^T \alpha \right)}$, 只要令$B^T = \beta^T \alpha$, 即$B = (\beta^T \alpha)^T = \alpha^T \beta$即可。
 
 \vspace{1em}
 
@@ -56,7 +56,8 @@
 \begin{align*}
 \operatorname{tr} \left( B^* B \right) & = \operatorname{tr} \left( \left( U^{-1} A U \right)^* B \right) = \operatorname{tr} \left( \left( U^* A U \right)^* B \right) \\
 & = \operatorname{tr} \left( U^* A^* U^{**} B \right) = \operatorname{tr} \left( U^* A^* U B \right) \\
-& = \operatorname{tr} \left( A^* U B U^* \right) = \operatorname{tr} \left( A^* U U^* A U U^* \right) \\
+& = \operatorname{tr} \left( A^* U B U^* \right) = \operatorname{tr} \left( A^* U \left( U^* A U \right) U^* \right) \\
+& = \operatorname{tr} \left( A^* \left( U U^* \right) A \left( U U^* \right) \right) \\
 & = \operatorname{tr} \left( A^* A \right).
 \end{align*}
 
@@ -87,7 +88,7 @@ Q^* H_2 Q & = U^* \left( P^* H_2 P \right) U = U^* \widetilde{H}_2 U = \operator
 从而有
 $$Q^* (H_1 - H_2) Q = I_n - \operatorname{diag} (\lambda_1, \ldots, \lambda_n) = \operatorname{diag} (1-\lambda_1, \ldots, 1-\lambda_n).$$
 因为$H_1 - H_2$正定，所以$Q^* (H_1 - H_2) Q$也是正定的，所以
-$$\lambda_1, \ldots, \lambda_n < 1.$$
+$$0 < \lambda_1, \ldots, \lambda_n < 1.$$
 那么有
 \begin{align*}
  Q^{-1} \left( H_2^{-1} - H_1^{-1} \right) \left( Q^* \right)^{-1} & = Q^{-1} H_2^{-1} \left( Q^* \right)^{-1} - Q^{-1} H_1^{-1} \left( Q^* \right)^{-1} \\
@@ -107,7 +108,8 @@ $$\lambda_1, \ldots, \lambda_n < 1.$$
 
 (2) 证明：$f$在$V$的适当的基$M$下的矩阵是$H = \begin{pmatrix} O & I_{(m)} \\ -I_{(m)} & O \end{pmatrix}$, 其中$m = \dfrac{n}{2}$.
 
-(3) 证明：$\mathcal{A}$是$V$上的辛变换 $\Leftrightarrow$ $\mathcal{A}$在基$M$下的矩阵$A$满足条件$A^THA = H$.
+(3) 证明：$\mathcal{A}$是$V$上的辛变换 $\Leftrightarrow$ $\mathcal{A}$在基$M$下的矩阵$A$满足条件$A^THA = H$. 这里辛空间$(V, f)$上的一个辛变换$\mathcal{A}$换指的是保这种辛结构的线性变换，即
+$$f(\mathcal{A} \alpha, \mathcal{A} \beta) = f(\alpha, \beta), \quad \forall \alpha, \beta \in V.$$
 
 (4) 满足条件$A^THA = H$的方阵称为辛方阵。要使以下方阵:
 $$
@@ -139,7 +141,7 @@ $f$是非退化的，也就是说任取非零的$u \in \mathbb{F}^n$, 都存在$
 那么对非零向量$u = t_1 \varepsilon_1 + \cdots + t_n \varepsilon_n$, 它与基中所有向量在双线性型$f$的作用下都等于$0$, 故不存在向量$v$使得$f(u, v) \neq 0$, 这与$f$非退化矛盾。
 
 综上，$H$是一个可逆的反对称阵，于是
-$$\det H = \det (-H) = (-1)^n \det H,$$
+$$\det H = \det H^T = \det (-H) = (-1)^n \det H,$$
 故$n$为偶数。
 
 (2) 根据(1)小问，要证明$f$在$V$的适当的基$M = \{ \varepsilon_1, \ldots, \varepsilon_n \}$下的矩阵是$H = \begin{pmatrix} O & I_{(m)} \\ -I_{(m)} & O \end{pmatrix} = \begin{pmatrix} f(\varepsilon_1, \varepsilon_1) & \cdots & f(\varepsilon_1, \varepsilon_n) \\ \vdots & & \vdots \\ f(\varepsilon_n, \varepsilon_1) & \cdots & f(\varepsilon_n, \varepsilon_n) \end{pmatrix}$, 只要证明
@@ -192,6 +194,14 @@ $$\begin{pmatrix} O & I_{(m)} \\ -I_{(m)} & O \end{pmatrix} = H = \begin{pmatrix
 要使得$\begin{pmatrix} I & O \\ X & I \end{pmatrix}$是辛方阵，依定义，需要满足
 $$\begin{pmatrix} O & I_{(m)} \\ -I_{(m)} & O \end{pmatrix} = H = \begin{pmatrix} I & O \\ X & I \end{pmatrix}^T H \begin{pmatrix} I & O \\ X & I \end{pmatrix} = \begin{pmatrix} X - X^T & I \\ -I & O \end{pmatrix},$$
 于是，需要满足$X^T = X$.
+
+\newpage
+
+作业中的一些问题：
+
+9.4. 第4题. {\color{red}用正交方阵}化二次型为标准形。
+
+一般过程就是将二次型写成矩阵形式，求其特征值，以及对应的特征向量，再进行Gram–Schmidt正交化程序把这些特征向量化成标准正交的。很多同学只进行到了求特征值这步。
 
 \newpage
 
