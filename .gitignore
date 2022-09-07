@@ -30,6 +30,7 @@
 *.fdb_latexmk
 *.fls
 *.tmppart
+*.abs
 
 tikz/
 
@@ -180,3 +181,4 @@ dmypy.json
 attachments/
 
 !notebooks/*.ipynb
+!2021-archive/notebooks/*.ipynb
