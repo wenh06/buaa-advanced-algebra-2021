@@ -209,7 +209,7 @@ $$F = \{ a + b\overline{x} + c\overline{x}^2 \ |\ a,b,c\in\mathbb{Q} \}$$
 $$\varphi : F \to \mathbb{Q}(\sqrt[3]{2}), \overline{x} \mapsto \sqrt[3]{2}$$
 可以验证
 
--   $F$关于加、减、乘、除封闭。加、减、乘封闭很容易验证。任取$f(x)\\in \mathbb{Q}[x] \setminus m(x)\cdot\mathbb{Q}[x]$，即$\overline{f} \neq 0 \in F$，那么$f(x)$与$m(x)$互素，即他们的最大公因子为$1$，记作$(f(x), m(x)) = 1$。于是（通过辗转相除法）存在$g_1(x), g_2(x) \in \mathbb{Q}[x]$，使得$g_1(x)f(x) + g_2(x)m(x) = 1$，于是$\overline{f}$在$F$中的逆元即为$\overline{g}_1$。
+-   $F$关于加、减、乘、除封闭。加、减、乘封闭很容易验证。任取$f(x) \in \mathbb{Q}[x] \setminus m(x)\cdot\mathbb{Q}[x]$，即$\overline{f} \neq 0 \in F$，那么$f(x)$与$m(x)$互素，即他们的最大公因子为$1$，记作$(f(x), m(x)) = 1$。于是（通过辗转相除法）存在$g_1(x), g_2(x) \in \mathbb{Q}[x]$，使得$g_1(x)f(x) + g_2(x)m(x) = 1$，于是$\overline{f}$在$F$中的逆元即为$\overline{g}_1$。
 
 -   $\varphi$是一个一一对应（且保运算，即是一个域同构）。
 
