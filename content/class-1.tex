@@ -58,6 +58,7 @@ $$L(x) = \sum\limits_{i=0}^n \prod\limits_{j \neq i} y_j \dfrac{x-x_j}{x_i-x_j}.
 一般来说这是一个$n$次多项式，它也有可能退化为更低次的多项式。在这题中，我们有4个点，会得到次数$\leqslant 3$次的多项式。大家可以具体去算一算，最后答案还是$y = 1 - x + 2x^2$. 我们可以用\href{https://github.com/wenh06/buaa-advanced-algebra-2021/blob/master/notebooks/class-1.ipynb}{程序}验证这个结果：
 \begin{center}
 \begin{lstlisting}[language=Python]
+import numpy as np
 import sympy as sp
 
 def LagrangePolynomial(xs, ys):
