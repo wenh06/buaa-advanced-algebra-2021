@@ -53,6 +53,32 @@ $$\begin{pmatrix} 2 \\ 7 \\ 16 \\ 29 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 1 \
 $$\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} a \\ b \\ c \end{pmatrix} = \begin{pmatrix} 1 \\ -1 \\ 2 \\ 2 \end{pmatrix}$$
 得$(a,b,c) = (1,-1,2)$, 即$y = 1 - x + 2x^2$。
 
+这题也可以用拉格朗日插值多项式来做。一般来说，过$n+1$个点$(x_0, y_0), \ldots, (x_n, y_n)$的$n$次插值多项式为
+$$L(x) = \sum\limits_{i=0}^n \prod\limits_{j \neq i} y_j \dfrac{x-x_j}{x_i-x_j}.$$
+一般来说这是一个$n$次多项式，它也有可能退化为更低次的多项式。在这题中，我们有4个点，会得到次数$\leqslant 3$次的多项式。大家可以具体去算一算，最后答案还是$y = 1 - x + 2x^2$. 我们可以用\href{https://github.com/wenh06/buaa-advanced-algebra-2021/blob/master/notebooks/class-1.ipynb}{程序}验证这个结果：
+\begin{center}
+\begin{lstlisting}[language=Python]
+import sympy as sp
+
+def LagrangePolynomial(xs, ys):
+    X = sp.symbols("x")
+    assert len(xs) == len(ys)
+    y = 0
+    for k in range(len(xs)):
+        t = 1
+        for j in range(len(xs)):
+            if j != k:
+                t = t * ( (X - xs[j]) / (xs[k] - xs[j]) )
+        y += t * ys[k]
+    return sp.simplify(y)
+
+xs = np.array([1, 2, 3, 4])
+ys = np.array([2, 7, 16, 29])
+
+LagrangePolynomial(xs, ys)
+\end{lstlisting}
+\end{center}
+
 \newpageorvspace
 
 {\bf 习题1.2 第4题} 在实数范围内解线性方程组
