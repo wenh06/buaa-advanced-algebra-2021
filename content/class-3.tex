@@ -1,0 +1,106 @@
+
+% \renewcommand{\newpageorvspace}{\newpage}
+\renewcommand{\newpageorvspace}{\vspace{2em}}
+
+\date{2022-10-待定  第三次习题课}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+% \larger[2]
+
+{\bf 习题2.1 第7题}. (1). 若$\alpha_1, \ldots, \alpha_n$线性无关，问$\alpha_1 + \alpha_2, \alpha_2 + \alpha_3, \ldots, \alpha_{n-1} + \alpha_n, \alpha_n + \alpha_1$是否一定线性无关？为什么？
+
+(2). 若$\alpha_1, \ldots, \alpha_n$线性相关，问$\alpha_1 + \alpha_2, \alpha_2 + \alpha_3, \ldots, \alpha_{n-1} + \alpha_n, \alpha_n + \alpha_1$是否一定线性相关？为什么？
+
+\newpageorvspace
+
+{\bf 解}： 考虑
+$$\lambda_1 (\alpha_1+\alpha_2) + \lambda_2 (\alpha_2+\alpha_3) + \cdots + \lambda_n (\alpha_n+\alpha_1) = 0$$
+$\lambda_1, \cdots, \lambda_n\in\mathbb{R}$, 变形为
+$$(\alpha_1, \cdots, \alpha_n)
+\underbrace{\begin{pmatrix}
+1 & 0 & \cdots & \cdots & 0 & 1 \\
+1 & 1 & 0 & & & 0 \\
+0 & 1 & 1 & \ddots & & \vdots \\
+\vdots & \ddots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & & \ddots & \ddots & \ddots & 0 \\
+0 & \cdots & \cdots & 0 & 1 & 1
+\end{pmatrix}
+\begin{pmatrix}
+\lambda_1 \\ \vdots \\ \lambda_n
+\end{pmatrix}
+}_{\text{记为} A \lambda}= 0
+$$
+我们考虑齐次线性方程组$A\lambda = 0$的解的情况。对系数矩阵$A$进行从上往下进行上一行乘以-1加到下一行的操作，有
+$$
+A = \begin{pmatrix}
+1 & 0 & \cdots & \cdots & 0 & 1 \\
+1 & 1 & 0 & & & 0 \\
+0 & 1 & 1 & \ddots & & \vdots \\
+\vdots & \ddots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & & \ddots & \ddots & \ddots & 0 \\
+0 & \cdots & \cdots & 0 & 1 & 1
+\end{pmatrix}
+\to
+\begin{pmatrix}
+1 & 0 & \cdots & \cdots & 0 & 1 \\
+0 & 1 & 0 & & & -1 \\
+0 & 0 & 1 & \ddots & & 1 \\
+\vdots & \ddots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & & \ddots & 0 & 1 & (-1)^{n-2} \\
+0 & \cdots & \cdots & 0 & 0 & 1 + (-1)^{n-1}
+\end{pmatrix}
+$$
+当$n$为偶数时，此时化简后的系数矩阵最后一行全为零，故$A\begin{pmatrix}
+\lambda_1 \\ \vdots \\ \lambda_n
+\end{pmatrix} = 0$有非零解，此时$\alpha_1+\alpha_2, \alpha_2+\alpha_3, \alpha_n+\alpha_1$一定线性相关。
+
+当$n$为奇数时，化简后的系数矩阵满秩，此时$\alpha_1+\alpha_2, \alpha_2+\alpha_3, \cdots, \alpha_n+\alpha_1$线性相关当且仅当$\alpha_1, \alpha_2, \cdots, \alpha_n$线性相关。
+
+\newpageorvspace
+
+{\bf 习题2.1 第8题}. 设复数域上的向量$\alpha_1, \ldots, \alpha_n$线性无关。$\lambda$取什么复数值的时候，向量$\alpha_1 - \lambda \alpha_2, \alpha_2 - \lambda \alpha_3, \ldots, \alpha_{n-1} - \lambda \alpha_n, \alpha_n - \lambda \alpha_1$线性无关？
+
+\newpageorvspace
+
+{\bf 解}： 类似上一题习题2.1 第7题，将问题写为
+$$(\alpha_1, \cdots, \alpha_n)
+\underbrace{\begin{pmatrix}
+1 & 0 & \cdots & \cdots & 0 & -\lambda \\
+-\lambda & 1 & 0 & & & 0 \\
+0 & -\lambda & 1 & \ddots & & \vdots \\
+\vdots & \ddots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & & \ddots & \ddots & \ddots & 0 \\
+0 & \cdots & \cdots & 0 & -\lambda & 1
+\end{pmatrix}
+\begin{pmatrix}
+z_1 \\ \vdots \\ z_n
+\end{pmatrix}
+}_{\text{记为} Az}= 0
+$$
+$z_1, \cdots, z_n \in \mathbb{C}$.对系数矩阵$A$进行从上往下进行上一行乘以$\lambda$加到下一行的操作，有
+$$
+A = \begin{pmatrix}
+1 & 0 & \cdots & \cdots & 0 & -\lambda \\
+-\lambda & 1 & 0 & & & 0 \\
+0 & -\lambda & 1 & \ddots & & \vdots \\
+\vdots & \ddots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & & \ddots & \ddots & \ddots & 0 \\
+0 & \cdots & \cdots & 0 & -\lambda & 1
+\end{pmatrix}
+\to
+\begin{pmatrix}
+1 & 0 & \cdots & \cdots & 0 & -\lambda \\
+0 & 1 & 0 & & & -\lambda^2 \\
+0 & 0 & 1 & \ddots & & 1 \\
+\vdots & \ddots & \ddots & \ddots & \ddots & \vdots \\
+\vdots & & \ddots & 0 & 1 & -\lambda\cdot\lambda^{n-2} \\
+0 & \cdots & \cdots & 0 & 0 & 1-\lambda\cdot\lambda^{n-1}
+\end{pmatrix}
+$$
+若$\alpha_1,\cdots,\alpha_n$线性无关，则只需要$1-\lambda^{n} \neq 0$，即$\lambda$不取$n$次单位根$e^{2k\pi i/n},$ $k = 0, \ldots, n-1,$ 即可使$\alpha_1-\lambda\alpha_2,\cdots,\alpha_n-\lambda\alpha_1$线性无关。
+
+\end{document}
