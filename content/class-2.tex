@@ -89,19 +89,7 @@ $$x_1 \alpha_{i_1} + \cdots + x_r \alpha_{i_r} = (\beta_1, \ldots, \beta_r) A \b
 
 \newpageorvspace
 
-{\bf 习题2.3 第6题}. 设$S, T$是向量组。求证：$S$与$T$等价$\Longleftrightarrow$ $\operatorname{rank} S = \operatorname{rank} (S\cup T) = \operatorname{rank} T.$
-
-\newpageorvspace
-
-{\bf 证明}： $\Longrightarrow$: 若$S$与$T$等价，则他们可以相互线性表出，那么根据上一题（习题2.2 第7题），有$\operatorname{rank} S \leqslant \operatorname{rank} T$, 以及$\operatorname{rank} T \leqslant \operatorname{rank} S$. 所以必须有$\operatorname{rank} S = \operatorname{rank} T.$ 对于向量组$S\cup T,$ 它里面的每一个向量，要么属于$S$, 要么属于$T$, 都可以用$S$的向量线性表出。反之，$S$中每一个向量显然可以用向量组$S\cup T$的向量线性表出。所以向量组$S$与$S\cup T$线性等价，从而有$\operatorname{rank} S = \operatorname{rank} (S\cup T).$
-
-$\Longleftarrow$: 令向量组$S\cup T$的秩为$r$. 任取$S$的一个极大线性无关组，记为$\alpha_1, \ldots, \alpha_r$. 那么它们也是向量组$S\cup T$中的$r$个线性无关的的向量，根据习题2.2 第6题第(1)小题的结论，$\alpha_1, \ldots, \alpha_r$是向量组$S\cup T$的一个极大线性无关组，从而可以线性表出其中每一个向量。$T$作为$S\cup T$的一个子集，其中每一个向量也能被$\alpha_1, \ldots, \alpha_r$线性表出。所以$T$能被$S$线性表出。
-
-同样地可以证明$S$能被$T$线性表出。二者可以相互线性表出，所以它们是线性等价的。
-
-\newpageorvspace
-
-{\bf 第五题}. 设$A$是$\mathbb{R}$上$n$阶方阵。若$\lvert a_{ii} \rvert > \sum\limits_{j\neq i} \lvert a_{ij} \rvert,$ $i = 1, \ldots, n,$ 求矩阵$A$的秩$r(A)$.
+{\bf 第四题}. 设$A$是$\mathbb{R}$上$n$阶方阵。若$\lvert a_{ii} \rvert > \sum\limits_{j\neq i} \lvert a_{ij} \rvert,$ $i = 1, \ldots, n,$ 求矩阵$A$的秩$r(A)$.
 
 \newpageorvspace
 
@@ -127,6 +115,18 @@ D(a_{ii}, R_{i}) & = \left\{ x \in \mathbb{C} \ |\ \lvert x - a_{ii} \rvert \leq
 \end{align*}
 那么$A$的每个{\color{red}特征值}都落在某个$D(a_{ii}, R_{i})$中。
 \end{quote}
+
+\newpageorvspace
+
+{\bf 习题2.3 第6题}. 设$S, T$是向量组。求证：$S$与$T$等价$\Longleftrightarrow$ $\operatorname{rank} S = \operatorname{rank} (S\cup T) = \operatorname{rank} T.$
+
+\newpageorvspace
+
+{\bf 证明}： $\Longrightarrow$: 若$S$与$T$等价，则他们可以相互线性表出，那么根据上一题（习题2.2 第7题），有$\operatorname{rank} S \leqslant \operatorname{rank} T$, 以及$\operatorname{rank} T \leqslant \operatorname{rank} S$. 所以必须有$\operatorname{rank} S = \operatorname{rank} T.$ 对于向量组$S\cup T,$ 它里面的每一个向量，要么属于$S$, 要么属于$T$, 都可以用$S$的向量线性表出。反之，$S$中每一个向量显然可以用向量组$S\cup T$的向量线性表出。所以向量组$S$与$S\cup T$线性等价，从而有$\operatorname{rank} S = \operatorname{rank} (S\cup T).$
+
+$\Longleftarrow$: 令向量组$S\cup T$的秩为$r$. 任取$S$的一个极大线性无关组，记为$\alpha_1, \ldots, \alpha_r$. 那么它们也是向量组$S\cup T$中的$r$个线性无关的的向量，根据习题2.2 第6题第(1)小题的结论，$\alpha_1, \ldots, \alpha_r$是向量组$S\cup T$的一个极大线性无关组，从而可以线性表出其中每一个向量。$T$作为$S\cup T$的一个子集，其中每一个向量也能被$\alpha_1, \ldots, \alpha_r$线性表出。所以$T$能被$S$线性表出。
+
+同样地可以证明$S$能被$T$线性表出。二者可以相互线性表出，所以它们是线性等价的。
 
 \newpageorvspace
 
