@@ -85,7 +85,7 @@ $$x_1 \alpha_{i_1} + \cdots + x_r \alpha_{i_r} = (\beta_1, \ldots, \beta_r) A \b
 
 \newpageorvspace
 
-{\bf 解}： 这其实已经在上一题（习题2.2 第6题第(2)问）中证明了，因为在证明过程中，我们并没有假设$\beta_1, \cdots, \beta_r$是取自$\alpha_1, \ldots, \alpha_n$中的。
+{\bf 解}： 这其实已经在上一题（习题2.2 第6题第(2)问）中证明了，因为在证明过程中，我们并没有假设$\beta_1, \cdots, \beta_r$是取自$\alpha_1, \ldots, \alpha_n$中的。事实上，假设向量组(I)秩为$r$，可以由秩为$s$的向量组(II)线性表出，且$r > s$, 那么取向量组(II)的一个极大线性无关组，再从向量组(II)可重复地随机添加$r-s$个向量，构成一个数量为$r$的向量组，那么这个向量组可以线性表出向量组(I)可以由这个向量组线性表出。根据上一题结论，这个向量组秩为$r$，矛盾。
 
 \newpageorvspace
 
@@ -112,7 +112,7 @@ $$\lambda_{1} a_{i_01} + \cdots + \lambda_{i_0} a_{i_0i_0} + \cdots \lambda_n a_
 那么会有
 \begin{align*}
 & ~~ \lvert \lambda_{1} a_{i_01} + \cdots + \lambda_{i_0-1} a_{i_0,i_0-1} + \lambda_{i_0+1} a_{i_0,i_0+1} + \cdots + \lambda_n a_{i_0n} \rvert \\
-= & ~~ \lvert \lambda_{i_0} a_{i_0i_0} \rvert ~~ {\color{red} >} ~~ \lvert \lambda_{i_0} \rvert \sum\limits_{j\neq i_0} \lvert a_{i_0j} \rvert \\
+= & ~~ \lvert \lambda_{i_0} a_{i_0i_0} \rvert = \lvert \lambda_{i_0} \rvert \cdot \lvert a_{i_0i_0} \rvert ~~ {\color{red} >} ~~ \lvert \lambda_{i_0} \rvert \sum\limits_{j\neq i_0} \lvert a_{i_0j} \rvert \\
 \geqslant & ~~ \lvert \lambda_{1} a_{i_01} \rvert + \cdots + \lvert \lambda_{i_0-1} a_{i_0,i_0-1} \rvert + \lvert \lambda_{i_0+1} a_{i_0,i_0+1} \rvert + \cdots + \lvert \lambda_n a_{i_0n} \rvert.
 \end{align*}
 上述不等式是不可能成立的。所以假设不成立，级$A$是满秩的，$r(A) = n.$
