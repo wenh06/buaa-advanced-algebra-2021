@@ -15,7 +15,10 @@
 
 \newpageorvspace
 
-{\bf 证明}： 
+{\bf 证明}： 首先，由于$f$是$V_1$到$V_2$的一个同构映射，那么它是一个一一映射，故$f^{-1}$也是一一映射。接下来，我们只要证明$f^{-1}$是一个线性空间之间的同态映射即可。任取$\beta_1, \beta_2 \in V_2,$ 设$\alpha_1, \alpha_2 \in V_1$分别为$\beta_1, \beta_2$在$f$下的（唯一的）原像。那么任取两个数$\lambda_1, \lambda_2,$ 由于$f$是线性空间的同态映射，所以有
+$$f(\lambda_1 \alpha_1 + \lambda_2 \alpha_2) = \lambda_1 f(\alpha_1) + \lambda_2 f(\alpha_2) = \lambda_1 \beta_1 + \lambda_2 \beta_2.$$
+由于$f$是一一映射，所以$\lambda_1 \beta_1 + \lambda_2 \beta_2$的在$f$下的原像即是$\lambda_1 \alpha_1 + \lambda_2 \alpha_2.$ 那么
+$$f^{-1}(\lambda_1 \beta_1 + \lambda_2 \beta_2) = \lambda_1 \alpha_1 + \lambda_2 \alpha_2 = \lambda_1 f^{-1}(\beta_1) + \lambda_2 f^{-1}(\beta_2).$$
 
 \newpageorvspace
 
