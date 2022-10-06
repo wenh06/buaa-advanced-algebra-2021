@@ -2,7 +2,7 @@
 % \renewcommand{\newpageorvspace}{\newpage}
 \renewcommand{\newpageorvspace}{\vspace{2em}}
 
-\date{2022-10-待定  第三次习题课}
+\date{2022-10-7  第三次习题课}
 \author{}
 
 \begin{document}
@@ -25,13 +25,13 @@ $$\forall y\in B, \exists! x\in A, \text{ 使得 } f(x) = y.$$
 线性空间在集合之上加了一些结构（加法，数乘），因此在大部分时候，我们考察的线性空间之间的映射的范围要缩小一些，即这个映射不仅仅是集合之间的映射，还要求它保持线性空间的结构。我们把满足保持线性空间结构的映射就称之为线性空间之间的同态映射（homomorphism），意思就是保持（homo $\to$ same）形态（morph $\to$ shape）的映射，也称作线性映射。书上的线性映射的条件可以合并为一个
 $$f(\lambda_1 x_1 + \lambda_2 x_2) = \lambda_1 f(x_1) + \lambda_2 f(x_2).$$
 
-关于线性映射$f: A \to B$的核（kernel），像（image）等概念和性质，可以用下面的交换图表总结：
+关于线性映射$f: A \to B$的核（kernel），像（image）等概念和性质，可以用下面的交换图表总结（只要了解，不要求掌握）：
 
 $$
-\begin{tikzcd}[row sep = large]
-& & {\color{cyan} K'} \arrow[d, "i'"', cyan] \arrow[ld, dashed, "\exists ! j_1"', cyan] \arrow[rd, "f\circ i' = 0"', near start, cyan] & {\color{red} C'} \\
-0 \arrow[r] & K \arrow[r, "i", "\ker (f)"'] & A \arrow[r, "f"] \arrow[d, "\bar{p}"'] \arrow[ur, "p'\circ f = 0", near end, red] & B \arrow[r, "p", "\operatorname{coker} (f)"'] \arrow[u, "p'", red] & C \arrow[r] \arrow[lu, dashed, "\exists ! j_2"', red] & 0 \\
-& & \operatorname{coker} (i) =: \operatorname{coim} (f) \arrow[r, dashed, "\exists ! \bar{f}"'] \arrow[d] \arrow[ur, dashed, "\exists ! f_1", near start] & \operatorname{im} (f) := \ker (p) \arrow[u, "\bar{i}"'] \\[-3ex]
+\begin{tikzcd}[row sep = huge]
+& & {\color{cyan} K'} \arrow[d, "i'"', cyan] \arrow[ld, dashed, "\exists ! j_1"', cyan] \arrow[rd, "f\circ i' = 0"', near start, cyan] & {\color{brown} C'} \\
+0 \arrow[r] & {\color{red} K} \arrow[r, "i", "{\color{red} \ker (f)}"'] & A \arrow[r, "f"] \arrow[d, "\bar{p}"'] \arrow[ur, "p'\circ f = 0"', near end, brown] & B \arrow[r, "p", "{\color{red} \operatorname{coker} (f)}"'] \arrow[u, "p'"', brown] & {\color{red} C} \arrow[r] \arrow[lu, dashed, "\exists ! j_2"', brown] & 0 \\
+& & {\color{red} \operatorname{coker} (i) =: \operatorname{coim} (f)} \arrow[r, dashed, "\exists ! \bar{f}"'] \arrow[d] & {\color{red} \operatorname{im} (f) := \ker (p)} \arrow[u, "\bar{i}"'] \\[-5ex]
 & & 0 & 0 \arrow[u]
 \end{tikzcd}
 $$
