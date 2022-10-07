@@ -60,6 +60,15 @@ $$g(x) = f(x) - L(x) = (x-1)(x-2)(x-3) h(x)$$ 于是在$\mathbb{R}[X]$中有
 $$f(x) \equiv L(x) \mod (x-1)(x-2)(x-3)$$
 由于$f(X)$在$\mathbb{R}[x]$中利用辗转相除法除以$(x-1)(x-2)(x-3)$所得的商多项式与余多项式都是整系数的，所以上式不可能成立。
 
+另一种证明方法：假设这样的整系数多项式$f(x)$存在，令$g(x) = f(x+2) = a_nx^n + \cdots + a_1x + a_0$也是整系数多项式，且满足$g(-1) = f(1) = 1, g(0) = f(2) = 2, g(1) = 4,$
+即 $$\begin{cases}
+1 = g(-1) = (-1)^na_n + \cdots + (-1)a_1 + a_0, \\
+2 = g(0) = a_0, \\
+4 = g(1) = a_n + \cdots + a_1 + a_0.
+\end{cases}$$ 令$m = 1 + 2 \cdot \lfloor \dfrac{n-1}{2} \rfloor$,
+上面第三式减去第一式有 $$3 = 2a_m + 2a_{m-2} + \cdots 2a_1,$$
+这是不可能成立的。
+
 **第三题**. 已知$\mathbb{F}$上线性空间$V$的有限个真子空间之并不等于$V.$
 若$\dim(V) = n,$
 $V_1, \ldots, V_s$是$V$的$s$个真子空间。证明$\displaystyle V \setminus \bigcup_{i=1}^s V_i$中包含$V$的一组基。
@@ -142,7 +151,8 @@ $$A = \begin{pmatrix}
 \end{pmatrix}$$
 当$n$为偶数时，此时化简后的系数矩阵最后一行全为零，故$A\begin{pmatrix}
 \lambda_1 \\ \vdots \\ \lambda_n
-\end{pmatrix} = 0$有非零解，此时$\alpha_1+\alpha_2, \alpha_2+\alpha_3, \alpha_n+\alpha_1$一定线性相关。
+\end{pmatrix} = 0$有非零解，此时$\alpha_1+\alpha_2, \alpha_2+\alpha_3, \ldots, \alpha_n+\alpha_1$一定线性相关。这可以表现为前$n-1$个元素的交错和等于最后一个元素：
+$$(\alpha_1+\bcancel{\alpha_2}) - (\bcancel{\alpha_2}+\bcancel{\alpha_3}) + (\bcancel{\alpha_3}+\bcancel{\alpha_4}) - \cdots + (\bcancel{\alpha_{n-1}} + \alpha_n) =  (\alpha_n+\alpha_1)$$
 
 当$n$为奇数时，化简后的系数矩阵满秩，此时$\alpha_1+\alpha_2, \alpha_2+\alpha_3, \cdots, \alpha_n+\alpha_1$线性相关当且仅当$\alpha_1, \alpha_2, \cdots, \alpha_n$线性相关。
 
