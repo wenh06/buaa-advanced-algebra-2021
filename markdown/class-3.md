@@ -49,9 +49,10 @@ $$f^{-1}(\lambda_1 \beta_1 + \lambda_2 \beta_2) = \lambda_1 \alpha_1 + \lambda_2
 其中$x_1, \cdots, x_n$互不相同，则有拉格朗日插值多项式
 $$\begin{gathered}
 L(x) = \sum_{i=1}^{n}y_{i}\ell_{i}(x) \\
-\text{其中， } \ell_{i}(x) = \prod_{\begin{smallmatrix}1\leq \leq k \\ j\neq i\end{smallmatrix}}{\frac {x-x_{j}}{x_{i}-x_{j}}}={\frac {(x-x_{0})}{(x_{i}-x_{0})}}\cdots {\frac {(x-x_{i-1})}{(x_{i}-x_{i-1})}}{\frac {(x-x_{i+1})}{(x_{i}-x_{i+1})}}\cdots {\frac {(x-x_{n})}{(x_{i}-x_{n})}},\end{gathered}$$
+\text{其中， } \ell_{i}(x) = \prod_{\begin{smallmatrix}1\leq j \leq n \\ j\neq i\end{smallmatrix}}{\frac {x-x_{j}}{x_{i}-x_{j}}}={\frac {(x-x_{0})}{(x_{i}-x_{0})}}\cdots {\frac {(x-x_{i-1})}{(x_{i}-x_{i-1})}}{\frac {(x-x_{i+1})}{(x_{i}-x_{i+1})}}\cdots {\frac {(x-x_{n})}{(x_{i}-x_{n})}},\end{gathered}$$
 满足$L(x_i) = y_i, i=1, \dots ,n$。本题对应的拉格朗日插值多项式为$f(x) = L(x) = \dfrac{1}{2}x^2 - \dfrac{1}{2}x + 1$.
-这是之前习题课讲过的知识。当然也存在更高次多项式满足题目条件，例如$(x-1)^n(x-2)^m(x-3)^k + L(x)$.
+这是之前习题课讲过的知识。当然也存在更高次多项式满足题目条件，例如$(x-1)^n(x-2)^m(x-3)^k + L(x),$
+其中$n, m, k$同时为0，或者同时非0.
 
 假设存在整系数的多项式$f(x)$满足题设条件，那么考察$g(x) = f(x) - L(x).$
 由于$1, 2, 3$是$g(x)$的根，于是存在多项式$h(x)$使得
@@ -75,6 +76,21 @@ $V_1, \ldots, V_s$是$V$的$s$个真子空间。证明$\displaystyle V \setminus
 最后考察$V \setminus \left( W_{n-1} \cup \left( \bigcup_{i=1}^s V_i \right) \right) \neq \emptyset,$
 从这个集合中取（非零）向量$\alpha_n$.
 这样我们就得到了$V$的一组基$\alpha_1, \ldots, \alpha_n.$
+
+对于"$\mathbb{F}$上线性空间$V$的有限个真子空间之并不等于$V$"这个结论，可以进行如下的证明，一般我们还假设$\mathbb{F}$的域特征为零，它有无穷多个元素：
+
+对真子空间个数$s$进行归纳证明。$s=1$时，由于是真子空间，结论平凡成立。假设对$s-1$我们证明了结论。接下来对$s$，我们用反证法证明。假设$V_1\cup V_2\cup \cdots \cup V_s = V$。
+
+不妨设任意$V_i$满足$V_i \subsetneqq \bigcup\limits_{j\neq i} V_j$，否则由归纳假设即能得出矛盾。于是可以取$v\in V_i$,
+满足$v\not\in \bigcup\limits_{j\neq i} V_j$。同时任取$u\not\in V_i$（是真子空间）。这样取出来的$u,v$都不是零向量。
+
+考虑集合$S = \mathbb{F}v + u$. 有$S\cap V_i=\emptyset$,
+否则能推出$u\in V_i$，与$u$的取法矛盾。由假设$V_1\cup V_2\cup \cdots \cup V_s = V$，那么$S\subseteq \bigcup\limits_{j\neq i} V_j$。与此同时，$S$与每一个$V_j (j\neq i)$的交集至多含有一个元素。因为假设存在$V_j$使得有$\lambda_1v+u, \lambda_2v+u \in V_j\cap S$,
+$\lambda_1\neq\lambda_2 \in \mathbb{F}$,
+由于$V_j$是线性子空间，有$(\lambda_1v+u) - (\lambda_2v+u) = (\lambda_1 - \lambda_2)v \in V_j$，这与$v$的取法矛盾。于是
+$$S = S\cap (\bigcup\limits_{j\neq i} V_j) = \bigcup\limits_{j\neq i} (S \cap V_j)$$
+那么$S = \mathbb{F}v + u$的元素个数即不能超过$s-1$，这与域$\mathbb{F}$是特征为0的域，元素个数无穷多是矛盾的。所以$V_1\cup V_2\cup \cdots \cup V_s = V$的假设不成立。因此，对任意正整数$s$，以及$V$的真子空间$V_1,\cdots,V_s$，都有
+$$V_1\cup V_2\cup \cdots \cup V_s \subsetneqq V.$$
 
 **第四题**. 给定$n$元排列$(j_1j_2\cdots j_n),$
 若$\tau(j_1j_2\cdots j_n) = r,$

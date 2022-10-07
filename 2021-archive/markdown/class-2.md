@@ -59,7 +59,7 @@ $\lambda_1\neq\lambda_2 \in \mathbb{F}$,
 由于$V_j$是线性子空间，有$(\lambda_1v+u) - (\lambda_2v+u) = (\lambda_1 - \lambda_2)v \in V_j$，这与$v$的取法矛盾。于是
 $$S = S\cap (\bigcup\limits_{j\neq i} V_j) = \bigcup\limits_{j\neq i} (S \cap V_j)$$
 那么$S = \mathbb{F}v + u$的元素个数即不能超过$s-1$，这与域$\mathbb{F}$是特征为0的域，元素个数无穷多是矛盾的。所以$V_1\cup V_2\cup \cdots \cup V_s = V$的假设不成立。因此，对任意正整数$s$，以及$V$的真子空间$V_1,\cdots,V_s$，都有
-$$V_1\cup V_2\cup \cdots \cup V_s \subsetneqq V。$$
+$$V_1\cup V_2\cup \cdots \cup V_s \subsetneqq V.$$
 
 **习题2.5 第3题**
 
