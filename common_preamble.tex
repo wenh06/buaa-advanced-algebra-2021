@@ -17,9 +17,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
+%--------------------------------------------------------------
 %	PACKAGES AND THEMES
-%----------------------------------------------------------------------------------------
+%--------------------------------------------------------------
 
 \documentclass[UTF8, 12pt]{article}
 
@@ -42,21 +42,6 @@
     filecolor=magenta,      
     urlcolor=cyan,
 }
-
-\usepackage[slantfont,boldfont]{xeCJK}
-\usepackage{fontspec}
-
-% set font
-\setmainfont[Path = fonts/, BoldFont = timesbd.ttf, ItalicFont= timesi.ttf]{times.ttf}
-\setsansfont[Path = fonts/, BoldFont = timesbd.ttf, ItalicFont= timesi.ttf]{times.ttf}
-
-% set chn font
-% \setCJKmainfont[Path = fonts/, BoldFont = simhei.ttf]{simfang.ttf}
-% \setCJKsansfont[Path = fonts/, BoldFont = simhei.ttf]{simfang.ttf}
-
-\setCJKmainfont[Path = fonts/, BoldFont = simhei.ttf]{JDLangZhengTi.TTF}
-\setCJKsansfont{Noto Sans CJK SC}
-\setCJKmonofont{Noto Sans Mono CJK SC}
 
 \usepackage{latexsym}
 \usepackage{color}
@@ -89,10 +74,39 @@
 
 % \newcommand{\tikzmark}[1]{\tikz[baseline,remember picture] \coordinate (#1) {};}
 
+
+%--------------------------------------------------------------
+% bib settings
 % \usepackage{natbib}  % bibliography package
 \usepackage{bibentry}         %  full citation in the body of the text (turn off natbib if use it)
 \nobibliography*                   % no bib at the end
 
+%--------------------------------------------------------------
+
+
+%--------------------------------------------------------------
+% font settings
+
+\usepackage[slantfont,boldfont]{xeCJK}
+\usepackage{fontspec}
+
+% set font
+\setmainfont[Path = fonts/, BoldFont = timesbd.ttf, ItalicFont= timesi.ttf]{times.ttf}
+\setsansfont[Path = fonts/, BoldFont = timesbd.ttf, ItalicFont= timesi.ttf]{times.ttf}
+
+% set chn font
+% \setCJKmainfont[Path = fonts/, BoldFont = simhei.ttf]{simfang.ttf}
+% \setCJKsansfont[Path = fonts/, BoldFont = simhei.ttf]{simfang.ttf}
+
+\setCJKmainfont[Path = fonts/, BoldFont = simhei.ttf]{JDLangZhengTi.TTF}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+
+%--------------------------------------------------------------
+
+
+%--------------------------------------------------------------
+% new commands
 
 % https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
 \newcommand\blfootnote[1]{%
@@ -103,10 +117,7 @@
 }
 % \usepackage[hang,flushmargin]{footmisc}
 
-
-
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{ \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
-
 
 \newcommand{\fieldc}{\mathbb{C}}
 \newcommand{\fieldr}{\mathbb{R}}
@@ -173,12 +184,22 @@
 \newcommand{\newpageorvspace}{\newpage}
 % \newcommand{\newpageorvspace}{\vspace{2em}}
 
+%--------------------------------------------------------------
+
+
+%--------------------------------------------------------------
+% colors
 \definecolor{LightCyan}{rgb}{0.88,1,1}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{RGB}{242,242,235}
 
+%--------------------------------------------------------------
+
+
+%--------------------------------------------------------------
+% code block settings
 \lstset{frame=tb,
   language=Python,
   backgroundcolor=\color{backcolour},
@@ -200,3 +221,11 @@
   numbersep=7pt,
 }
 
+%--------------------------------------------------------------
+
+
+%-------------------------------------------
+% switches
+\newif\ifIncludeAnswer
+
+%-------------------------------------------
