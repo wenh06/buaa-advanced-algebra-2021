@@ -93,9 +93,12 @@ $$(\beta_1, \beta_2, \ldots, \beta_n) = (\alpha_1, \alpha_2, \ldots, \alpha_n) \
 $$0 = (\beta_1, \beta_2, \ldots, \beta_n) \underbrace{ \begin{pmatrix} \lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix} }_{\text{记作} \lambda} = (\alpha_1, \alpha_2, \ldots, \alpha_n) A \lambda.$$
 由于$\alpha_1, \alpha_2, \ldots, \alpha_n$是基，线性无关，所以要使上式成立，必须有$A\lambda = 0.$ 但是方阵$A$满秩，所以$A\lambda = 0$只能有零解，矛盾。
 
-(2) 沿用上一小题记号，我们有
-$$\alpha = \alpha_1 + 2 \alpha_2 + \cdots + n \alpha_n = (\alpha_1, \alpha_2, \ldots, \alpha_n) \begin{pmatrix} 1 \\ 2 \\ \vdots \\ n \end{pmatrix} = (\beta_1, \beta_2, \ldots, \beta_n) A^{-1} \begin{pmatrix} 1 \\ 2 \\ \vdots \\ n \end{pmatrix}.$$
-$A^{-1} \begin{pmatrix} 1 \\ 2 \\ \vdots \\ n \end{pmatrix}$即为$\alpha$在基$\beta_1, \beta_2, \ldots, \beta_n$下的坐标。可以直接求$A^{-1}$，但一般不这么做，因为计算代价较大。也可以通过解线性方程组$A \lambda = \begin{pmatrix} 1 \\ 2 \\ \vdots \\ n \end{pmatrix}$来求解：
+(2) 沿用上一小题记号，我们设$\alpha$在基$\beta_1, \beta_2, \ldots, \beta_n$下的坐标为$\lambda = (\lambda_1, \ldots, \lambda_n)^T,$ 那么
+\begin{align*}
+\alpha & = \alpha_1 + 2 \alpha_2 + \cdots + n \alpha_n = (\alpha_1, \alpha_2, \ldots, \alpha_n) \begin{pmatrix} 1 \\ 2 \\ \vdots \\ n \end{pmatrix} \\
+& = (\beta_1, \beta_2, \ldots, \beta_n) \lambda = (\alpha_1, \alpha_2, \ldots, \alpha_n) A \lambda
+\end{align*}
+解线性方程组$A \lambda = \begin{pmatrix} 1 \\ 2 \\ \vdots \\ n \end{pmatrix}$：
 $$\left( \begin{array}{ccccc|c}1 & 1 & 1 & \cdots & 1 & 1 \\ 0 & 1 & 1 & \cdots & 1 & 2 \\ 0 & 0 & 1 & \cdots & 1 & 3 \\ \vdots & \vdots & \ddots & \ddots & \vdots & \vdots \\ 0 & 0 & \cdots & 0 & 1 & n \end{array} \right) \rightarrow \left( \begin{array}{ccccc|c}1 & 0 & 0 & \cdots & 0 & -1 \\ 0 & 1 & 1 & \cdots & 1 & 2 \\ 0 & 0 & 1 & \cdots & 1 & 3 \\ \vdots & \vdots & \ddots & \ddots & \vdots & \vdots \\ 0 & 0 & \cdots & 0 & 1 & n \end{array} \right) \rightarrow \cdots \rightarrow \left( \begin{array}{ccccc|c}1 & 1 & 0 & \cdots & 0 & -1 \\ 0 & 1 & 0 & \cdots & 0 & -1 \\ 0 & 0 & 1 & \cdots & 0 & -1 \\ \vdots & \vdots & \ddots & \ddots & \vdots & \vdots \\ 0 & 0 & \cdots & 0 & 1 & n \end{array} \right)$$
 解得$\alpha$在基$\beta_1, \beta_2, \ldots, \beta_n$下的坐标为$\lambda = (-1, \ldots, -1, n)^T.$
 
@@ -121,7 +124,7 @@ $$\left( \begin{array}{ccccc|c}1 & 1 & 1 & \cdots & 1 & 1 \\ 0 & 1 & 1 & \cdots 
 
 用反证法，假设$\alpha_1, \ldots, \alpha_r$在$V$中线性相关，那么存在不全为0的数$\lambda_1, \ldots, \lambda_r,$ 使得$\lambda_1 \alpha_1 + \cdots + \lambda_r \alpha_r = 0 \in W.$ 那么
 $$\lambda_1 (\alpha_1 + W) + \cdots + \lambda_r (\alpha_r + W) = 0 + W.$$
-从这里我们可以看到，$\alpha_1, \ldots, \alpha_r$的选取需要比它们线性无关更强的条件，即要求
+从这里我们可以看到，$\alpha_1, \ldots, \alpha_r$的选取需要比它们线性无关更强的条件，即进一步要求
 $$\operatorname{span}\{ \alpha_1, \ldots, \alpha_r \} \cap W = \{0\}.$$
 
 \fi  % fi of \ifIncludeAnswer
@@ -151,7 +154,7 @@ x_1 + \cdots + x_n = 0 \\
 x_1 - \cdots - x_n = 0
 \end{cases}
 $$
-的解空间，维数至多为$n-2,$ 从而有$\dim (W_1 + W_2) = 2n - 2 - \dim(W_1 \cap W_2) \geqslant 2n - 2 - (n - 2) = n$. 所以必须有$\dim (W_1 + W_2) = n,$ 即$V = W_1 + W_2$.
+的解空间，维数为$n-2,$ 从而有$\dim (W_1 + W_2) = 2n - 2 - \dim(W_1 \cap W_2) = 2n - 2 - (n - 2) = n,$ 即有$V = W_1 + W_2$.
 
 另一种方法是，可以很容易写出$W_1$的一组基$(1, -1, 0, \ldots, 0)^T,$ $(1, 0, -1, 0, \ldots, 0)^T,$ $\ldots,$ $(1, 0, \ldots, 0, -1)^T,$ 以及$W_2$的一组基$(1, 1, 0, \ldots, 0)^T,$ $(1, 0, 1, 0, \ldots, 0)^T,$ $\ldots,$ $(1, 0, \ldots, 0, 1)^T.$ 把这两组基合并在一起组成$W_1 + W_2$中的一个向量组，容易看出这个向量组的秩为$n,$ 从而知$V = W_1 + W_2.$
 
@@ -193,6 +196,10 @@ f(\alpha_i) = \begin{cases}
 $$
 此时，$\operatorname{Im}(f) = \operatorname{span} \{ \beta_1, \beta_2, \ldots, \beta_r \},$ 即有$\dim(\operatorname{Im}(f)) = r,$ 那么根据维数公式有
 $$\dim(\ker(f)) = \dim V_1 - \dim(\operatorname{Im}(f)) = n - r.$$
+或者，你也可以通过$f$的定义算得
+$$\ker f = \{ \alpha_1 - \alpha_i \ |\ i = r + 1, \ldots, n \},$$
+再得到上述空间的维数为$n - r.$
+
 同时，根据维数公式可知，条件$f(\alpha_i) \in \operatorname{span} \{ \beta_1, \beta_2, \ldots, \beta_r \}, i = r+1, \ldots, n,$是满足题设条件的同态映射$f$必须要满足的条件。
 
 \fi  % fi of \ifIncludeAnswer
