@@ -58,11 +58,11 @@ a_1 & b_2 & \cdots & b_n \\ c_2 & a_2 & & \\ \vdots & & \ddots & \\ c_n & & & a_
 
 按最后一行展开有
 $$\begin{aligned}
-D_n & = a_nD_{n-1} + b_nc_na_2\cdots a_{n-1} = a_n(a_{n-1}D_{n-2} + b_{n-1}c_{n-1}a_2\cdots a_{n-2}) + b_nc_na_2\cdots a_{n-1} \\
-& = a_na_{n-1}D_{n-2} + b_nc_na_2\cdots a_{n-1} + b_{n-1}c_{n-1}a_2\cdots a_{n-2}a_n \\
+D_n & = a_nD_{n-1} + (-1)^{1+n} (-1)^{1+(n-1)} b_nc_na_2\cdots a_{n-1} = a_n(a_{n-1}D_{n-2} - b_{n-1}c_{n-1}a_2\cdots a_{n-2}) - b_nc_na_2\cdots a_{n-1} \\
+& = a_na_{n-1}D_{n-2} - b_nc_na_2\cdots a_{n-1} - b_{n-1}c_{n-1}a_2 \cdots a_{n-2}a_n \\
 & \cdots \\
-& = \left( \prod_{i=2}^n a_i \right) D_1 + \sum_{i=2}^n \left( b_ic_i \prod_{2 \leqslant j \leqslant n, j \neq i} a_j \right) \\
-& = \prod_{i=1}^n a_i + \sum_{i=2}^n \left( b_ic_i \prod_{2 \leqslant j \leqslant n, j \neq i} a_j \right)\end{aligned}$$
+& = \left( \prod_{i=2}^n a_i \right) D_1 - \sum_{i=2}^n \left( b_ic_i \prod_{2 \leqslant j \leqslant n, j \neq i} a_j \right) \\
+& = \prod_{i=1}^n a_i - \sum_{i=2}^n \left( b_ic_i \prod_{2 \leqslant j \leqslant n, j \neq i} a_j \right)\end{aligned}$$
 
 (3). 令原行列式为$D_n$，$e_i, i=1,\cdots,n,$
 为$\mathbb{F}^n$的自然基，$\beta = \begin{pmatrix} 1 \\ \vdots \\ 1 \end{pmatrix}$,
