@@ -5,6 +5,18 @@
 
 \input{common_preamble}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% switches
+
+\newif\ifIncludeAnswer
+
+\newif\ifNewPage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 习题课
 
@@ -13,11 +25,18 @@
 \IncludeAnswertrue
 % \IncludeAnswerfalse
 
+\NewPagefalse
+\ifNewPage
+\newcommand{\newpageorvspace}{\newpage}
+\else
+\newcommand{\newpageorvspace}{\vspace{2em}}
+\fi
+
 % \input{content/class-1.tex}
 % \input{content/class-2.tex}
 % \input{content/class-3.tex}
-\input{content/class-4.tex}
-% \input{content/class-5.tex}
+% \input{content/class-4.tex}
+\input{content/class-5.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
