@@ -59,7 +59,7 @@ $$d_{ij} = (AB)_{ji} = (-1)^{i+j} \det(\widehat{A}_j \widetilde{B}_i).$$
 $$(AB)^* = \det(AB) \cdot (AB)^{-1} = (\det B \cdot B^{-1}) \cdot (\det A \cdot A^{-1}) = B^*A^*.$$
 若$A$不可逆，则考虑$A(\lambda) = \lambda I + A$; 若$B$不可逆，$B(\lambda) = \lambda I + B$. 由于$\det A(\lambda)$, $\det B(\lambda)$都是$\lambda$的多项式，至多有有限多个根，在$0$的一个小的去心领域$\mathring{U}(0,\delta)$内，$A(\lambda), B(\lambda)$总是可逆的，从而有
 $$(A(\lambda)B(\lambda))^* = B(\lambda)^*A(\lambda)^*$$
-对上式取极限$\lim\limits_{\mathring{U}(0,\delta) \ni x\to 0}$即有$(AB)^* = B^*A^*$.
+对上式取极限$\lim\limits_{\mathring{U}(0,\delta) \ni x\to 0}$即有$(AB)^* = B^*A^*$. 这里可以取极限，是因为以上的每一个（伴随）矩阵的元素，都是$\lambda$的多项式，关于$\lambda$都是连续的。
 
 (3). 由于$A^*$的每个元素都是$A$的某个$n-1$阶代数余子式，所以若$r(A)\leqslant n-2$, 那么$A^* = 0$. 又由于$AA^* = \det A I_n$, 所以当$r(A) = n$时，$r(A^*) = n$. 当$r(A) = n-1$时，由于$r(A^*) + r(A) - n \leqslant r(AA^*)$, 所以$r(A^*) \leqslant 1$, 同时$A$至少有一个非零子式，即$A^*$至少有一个非零元，所以$r(A^*) \geqslant 1$, 从而必须有$r(A^*) = 1$. 于是，我们证明了
 $$r(A^*) = \begin{cases} n, & \text{ 若 } r(A) = n \\ 1, & \text{ 若 } r(A) = n-1 \\ 0, & \text{ 其余情况} \end{cases}$$
@@ -103,6 +103,10 @@ $$\begin{pmatrix} I & -A \\ 0 & I \end{pmatrix} \underbrace{\begin{pmatrix} 0 & 
 (2) 设$P_A A Q_A = \begin{pmatrix} I_{r(A)} & 0 \\ 0 & 0 \end{pmatrix}, P_B B Q_B = \begin{pmatrix} I_{r(B)} & 0 \\ 0 & 0 \end{pmatrix}$, 其中$P_A, Q_A, P_B, Q_B$分别是$m$阶，$n$阶，$n$阶，$s$阶可逆方阵。那么
 $$\begin{pmatrix} P_A & 0 \\ 0 & P_B \end{pmatrix} \underbrace{\begin{pmatrix} 0 & A \\ B & I \end{pmatrix}}_{C} \begin{pmatrix} Q_B & 0 \\ 0 & Q_A \end{pmatrix} = \begin{pmatrix} 0 & P_A A Q_A \\ P_B B Q_B & P_B Q_A \end{pmatrix} = \begin{pmatrix} {\Large \text{0}} & & I_{r(A)} & 0 \\ & & 0 & 0 \\ I_{r(B)} & 0 & E_{11} & E_{12} \\ 0 & 0 & E_{21} & E_{22} \end{pmatrix},$$
 其中$P_B Q_A$被划分为分块矩阵$\begin{pmatrix} E_{11} & E_{12} \\ E_{21} & E_{22} \end{pmatrix}.$ 于是$r(C) \geqslant r(A) + r(B),$ 并且只要$E_{22}$不是零矩阵，上述不等号就成立。
+
+一般来说，$r(C) = r \begin{pmatrix} 0 & A \\ B & I_n \end{pmatrix} = r(A) + n$ （或者$r(B) + n$）是不成立的。反例：
+$$A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, B = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, ~~ \text{ 此时 } C = \begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \end{pmatrix}.$$
+此时$r(C) = 2 \neq 1 + 2 = r(A) + 2.$
 
 (3) 由前面2个小问知有不等式
 $$r(A) + r(B) \leqslant r(C) = r(D) = r \begin{pmatrix} AB & 0 \\ 0 & I_n \end{pmatrix} = r(AB) + n,$$
