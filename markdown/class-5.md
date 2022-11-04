@@ -134,6 +134,8 @@ $$\begin{aligned}
 & = \begin{pmatrix} A^{-1} & \dfrac{-A^{-1}u}{1 + v^TA^{-1}u} \\ -v^T A^{-1} & \dfrac{1}{1 + v^TA^{-1}u} \end{pmatrix} \begin{pmatrix} I & u \\ v^TA^{-1} & 1 + v^TA^{-1}u \end{pmatrix} \\
 & = \begin{pmatrix} A^{-1} - \dfrac{ A^{-1}uv^TA^{-1}}{1 + v^TA^{-1}u} & 0 \\ 0 & 1 \end{pmatrix}\end{aligned}$$
 所以$(A + uv^T)^{-1} = A^{-1} - \dfrac{ A^{-1}uv^TA^{-1}}{1 + v^TA^{-1}u}.$
+注意，最后算得的这个矩阵非对角元一定是$0,$
+如果不是，说明你哪一步算错了，需要检查改正。
 
 扩展练习：设$A$为$n$阶可逆实方阵，$U$为$n\times m$的实方阵，$C$为$m$阶可逆实方阵，$V$为$m\times n$的实方阵。证明$n$阶方阵$A + UCV$可逆当且仅当$m$阶方阵$C^{-1} + VA^{-1}U$可逆，以及如下的Woodbury
 matrix identity
@@ -159,3 +161,5 @@ $$\det A \cdot \det W = \det(AW) = \det(f(u^0)\omega_0, \cdots, f(u^{n-1})\omega
 以上情况比较特殊，实际上我们直接观察出来了$A$的所有特征向量与特征值，于是有
 $$AW = W\operatorname{diag}(f(u^0), \ldots, f(u^{n-1})),$$
 从而有$\det A = \det(\operatorname{diag}(f(u^0), \ldots, f(u^{n-1})))$.
+
+这次期中考试第一个计算行列式就差不多是一个循环矩阵的行列式，如果把中间两行调换一下的话。不过它只是一个4阶的行列式，不太需要用到这里的结论。用这个结论反而会把问题复杂化。
