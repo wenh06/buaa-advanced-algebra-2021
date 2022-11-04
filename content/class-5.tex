@@ -20,8 +20,8 @@ $$\begin{pmatrix} \dfrac{1}{2} A & - \dfrac{\sqrt{3}}{2} A \\ \dfrac{\sqrt{3}}{2
 并且矩阵$\begin{pmatrix} A & \\ & A \end{pmatrix}$和$M$是可交换的。于是
 \begin{align*}
 \begin{pmatrix} \dfrac{1}{2} A & - \dfrac{\sqrt{3}}{2} A \\ \dfrac{\sqrt{3}}{2} A & \dfrac{1}{2} A \end{pmatrix}^{2000} & = \begin{pmatrix} A & \\ & A \end{pmatrix}^{2000} M^{2000} = \begin{pmatrix} A^{2000} & \\ & A^{2000} \end{pmatrix} \begin{pmatrix} \cos 2000\theta I_n & - \sin 2000\theta I_n \\ \sin 2000\theta I_n & \cos 2000\theta I_n \end{pmatrix} \\
-& = \begin{pmatrix} A^2 & \\ & A^2 \end{pmatrix} \begin{pmatrix} \cos 2\theta I_n & - \sin 2\theta I_n \\ \sin 2\theta I_n & \cos 2\theta I_n \end{pmatrix} = \begin{pmatrix} A^2 & \\ & A^2 \end{pmatrix} \begin{pmatrix} \dfrac{1}{2} I_n & \dfrac{\sqrt{3}}{2} I_n \\ - \dfrac{\sqrt{3}}{2} I_n & \dfrac{1}{2} I_n \end{pmatrix} \\
-& = \begin{pmatrix} \dfrac{1}{2} A^2 & \dfrac{\sqrt{3}}{2} A^2 \\ - \dfrac{\sqrt{3}}{2} A^2 & \dfrac{1}{2} A^2 \end{pmatrix}.
+& = \begin{pmatrix} A^2 & \\ & A^2 \end{pmatrix} \begin{pmatrix} \cos 2\theta I_n & - \sin 2\theta I_n \\ \sin 2\theta I_n & \cos 2\theta I_n \end{pmatrix} = \begin{pmatrix} A^2 & \\ & A^2 \end{pmatrix} \begin{pmatrix} - \dfrac{1}{2} I_n & - \dfrac{\sqrt{3}}{2} I_n \\ \dfrac{\sqrt{3}}{2} I_n & - \dfrac{1}{2} I_n \end{pmatrix} \\
+& = \begin{pmatrix} - \dfrac{1}{2} A^2 & - \dfrac{\sqrt{3}}{2} A^2 \\ \dfrac{\sqrt{3}}{2} A^2 & - \dfrac{1}{2} A^2 \end{pmatrix}.
 \end{align*}
 
 \fi  % fi of \ifIncludeAnswer
@@ -65,7 +65,7 @@ $$(A(\lambda)B(\lambda))^* = B(\lambda)^*A(\lambda)^*$$
 $$r(A^*) = \begin{cases} n, & \text{ 若 } r(A) = n \\ 1, & \text{ 若 } r(A) = n-1 \\ 0, & \text{ 其余情况} \end{cases}$$
 所以当$n > 2$时，当$r(A) = n$时，
 $$(A^*)^* = \det A^* \cdot (A^*)^{-1} = (\det A)^{n-1} (\det A \cdot A^{-1})^{-1} = (\det A)^{n-2} A.$$
-当$r(A) < n$，有$r(A*) \leqslant 1 < n-1$, 进而有$r((A^*)^*) = 0$, 也满足$(A^*)^* = (\det A)^{n-2}A$. 唯一需要额外讨论的是$n=2, r(A) = 1$的情形，但这种情况下能直接通过伴随矩阵的定义得出$n = 2$时，$(A^*)^* = A$的结论。
+当$r(A) < n$，有$r(A^*) \leqslant 1 < n-1$ (注意，这里用到了$n > 2$的条件), 进而有$r((A^*)^*) = 0$, 也满足$(A^*)^* = (\det A)^{n-2}A$. 唯一需要额外讨论的是$n=2, r(A) = 1$的情形，但这种情况下能直接通过伴随矩阵的定义得出$n = 2$时，$(A^*)^* = A$的结论。
 
 \fi  % fi of \ifIncludeAnswer
 
@@ -141,9 +141,8 @@ A + uv^T \text{ 可逆 } & \Longleftrightarrow \begin{pmatrix} A + uv^T & 0 \\ 0
 
 \vspace{2em}
 
-扩展练习：证明如下的Woodbury matrix identity
-$$\left( A + UCV \right)^{-1} = A^{-1} - A^{-1} U \left( C^{-1} + VA^{-1}U \right)^{-1} V A^{-1},$$
-其中$A$为$n$阶可逆实方阵，$U$为$n\times m$的实方阵，$C$为$m$阶可逆实方阵，$V$为$m\times n$的实方阵。
+扩展练习：设$A$为$n$阶可逆实方阵，$U$为$n\times m$的实方阵，$C$为$m$阶可逆实方阵，$V$为$m\times n$的实方阵。证明$n$阶方阵$A + UCV$可逆当且仅当$m$阶方阵$C^{-1} + VA^{-1}U$可逆，以及如下的Woodbury matrix identity
+$$\left( A + UCV \right)^{-1} = A^{-1} - A^{-1} U \left( C^{-1} + VA^{-1}U \right)^{-1} V A^{-1}.$$
 
 \fi  % fi of \ifIncludeAnswer
 
