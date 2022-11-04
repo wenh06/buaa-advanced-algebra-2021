@@ -1,6 +1,6 @@
-[GitHub](https://github.com/wenh06/buaa-advanced-algebra-2021/)  [gitee](https://gitee.com/wenh06/buaa-advanced-algebra-2021)
+# 高等代数2022年秋季学期习题课
 
-## 高等代数2022年秋季学期习题课
+[GitHub](https://github.com/wenh06/buaa-advanced-algebra-2021/)  [gitee](https://gitee.com/wenh06/buaa-advanced-algebra-2021)
 
 教材：《线性代数：数学专业用》，李尚志
 
@@ -9,6 +9,7 @@
 地点：J3-305
 
 ## 说明
+
 文件夹[markdown](markdown/)下为用[`pandoc`](https://pandoc.org/)自动生成的文件
 
 文件夹[pdf](pdf/)下为编译好的pdf文件
