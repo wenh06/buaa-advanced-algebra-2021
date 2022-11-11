@@ -10,9 +10,11 @@
 
 ## 说明
 
-文件夹[markdown](markdown/)下为用[`pandoc`](https://pandoc.org/)自动生成的文件
+文件夹[markdown](markdown/)下为用[`pandoc`](https://pandoc.org/)自动生成的文件。
 
-文件夹[pdf](pdf/)下为编译好的pdf文件
+文件夹[pdf](pdf/)下为编译好的pdf文件。
+
+文件夹[2021-archive](2021-archive/)为上一学年（2021秋，2022春）的习题课材料存档。
 
 ## 编译
 
