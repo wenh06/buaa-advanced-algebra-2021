@@ -1,0 +1,36 @@
+
+\date{2022-11-18 第六次习题课}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+% \larger[2]
+
+{\bf 第一题} (习题4.3第2题(3)) 设$A$是方阵，$A^k = 0$对某个正整数$k$成立。求证下列方阵可逆，并分别求他们的逆
+$$I + A + \dfrac{1}{2!}A^2 + \cdots + \dfrac{1}{(k-1)!}A^{k-1}.$$
+
+\ifIncludeAnswer
+
+\newpageorvspace
+
+{\bf 解}： 我们知道函数$f(x) = e^x$在$x = 0$附近有展开式
+$$f(x) = 1 + x + \dfrac{1}{2!}x^2 + \cdots + \dfrac{1}{(k-1)!}x^{k-1} + \cdots$$
+那么我们可以类比考虑$f(-A) = I + (-A) + \dfrac{1}{2!}(-A)^2 + \cdots + \dfrac{1}{(k-1)!}(-A)^{k-1},$ 看它与$I + A + \dfrac{1}{2!}A^2 + \cdots + \dfrac{1}{(k-1)!}A^{k-1}$相乘是否等于单位阵$I.$ 我们有
+\begin{align*}
+\sum\limits_{i=0}^{k-1} \dfrac{1}{i!} A^i \sum\limits_{j=0}^{k-1} \dfrac{1}{j!} (-A)^j & = \dfrac{1}{0!0!} I + \dfrac{1}{0!1!} A + \dfrac{1}{0!2!} A^2 + \dfrac{1}{0!3!} A^3 + \cdots + \dfrac{1}{0!(k-1)!} A^{k-1} \\
+& \hspace{4em} + \dfrac{-1}{1!0!} A + \dfrac{-1}{1!1!} A^2 + \dfrac{-1}{1!2!} A^3 + \cdots + \dfrac{-1}{1!(k-2)!} A^{k-1} \\
+& \hspace{8em} + \dfrac{1}{2!0!} A^2 + \dfrac{1}{2!1!} A^3 + \cdots + \dfrac{1}{2!(k-3)!} A^{k-1} \\
+& \hspace{22em} \vdots \\
+& \hspace{19em} + \dfrac{(-1)^{k-1}}{(k-1)!0!} A^{k-1}
+\end{align*}
+可以看到，当$1\leqslant n \leqslant k-1$时，上式右边$A^n$的系数等于
+$$\sum\limits_{i=0}^n \dfrac{(-1)^i}{i!(n-i)!} = \dfrac{1}{n!} \sum\limits_{i=0}^n C_n^i 1^{n-i} (-1)^i = \dfrac{1}{n!} (1-1)^n = 0.$$
+于是有$\sum\limits_{i=0}^{k-1} \dfrac{1}{i!} A^i \sum\limits_{j=0}^{k-1} \dfrac{1}{j!} (-A)^j = \dfrac{1}{0!0!} I = I.$ 所以$\sum\limits_{i=0}^{k-1} \dfrac{1}{i!} A^i$是可逆的，它的逆就是 $\sum\limits_{j=0}^{k-1} \dfrac{1}{j!} (-A)^j.$
+
+事实上，我们有所谓的方阵函数$f: M_n(\mathbb{F}) \to M_n(\mathbb{F})$, 可以从多项式扩展定义到一般的（复）函数（由所谓的代表多项式定义），例如$\sin, \cos, \exp, \log$等。这些方阵函数保留了很多原来函数的性质。
+
+\fi  % fi of \ifIncludeAnswer
+
+\end{document}
