@@ -103,12 +103,12 @@ $$\operatorname{rank}(I_m - AA^T) - \operatorname{rank}(I_n - A^TA) = m - n.$$
 
 \textbf{证明}：(1) 我们先证明广义逆$A^-$的存在性。考虑$A$的相抵标准形，即设$P,Q$分别为$m$阶与$n$阶可逆阵，使得$A = P \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}_{m\times n}\!\!\!\!\!\!\!\!\!\!\! Q$, 那么
 $$A^- = Q^{-1} \begin{pmatrix} I_r & * \\ *' & *'' \end{pmatrix}_{n\times m}\!\!\!\!\!\!\!\!\!\!\! P^{-1}$$
-其中$r = \operatorname{rank} A$, $*,*',*''$分别是大小为$r \times (m-r)$, $(n-r) \times r$, 以及$(n-r) \times (m-r)$的块，块中元素可以任取。那么很容易验证满足$AA^-A = A.$ 从以上$A^-$的形式可以看出，要使得$A^-$由$A$唯一决定，只有让$*,*',*''$都不存在，即$m - r = n - r = 0,$ 即$A$为可逆方阵。
+其中$r = \operatorname{rank} A$, $*,*',*''$分别是大小为$r \times (m-r)$, $(n-r) \times r$, 以及$(n-r) \times (m-r)$的块，块中元素可以任取。那么很容易验证满足$AA^-A = A.$ 从以上广义逆$A^-$的形式可以看出，一个矩阵$A$的广义逆并不唯一。要使得$A^-$由$A$唯一决定，只有让$*,*',*''$都不存在，即$m - r = n - r = 0,$ 即$A$为可逆方阵。
 
-(2) $\Longrightarrow:$ 若线性方程组$AX = \beta$有解，任取一个解，记为$X_0,$ 那么有
+(2) $\Rightarrow:$ 若线性方程组$AX = \beta$有解，任取一个解，记为$X_0,$ 那么有
 $$AA^-\beta = AA^-(AX_0) = (AA^-A)X_0 = AX_0 = \beta.$$
 
-$\Longleftarrow:$ 若$AA^-\beta = \beta,$ 那么令$X_0 = A^-\beta,$ 我们会有
+$\Leftarrow:$ 若$AA^-\beta = \beta,$ 那么令$X_0 = A^-\beta,$ 我们会有
 $$AX_0 = A(A^-\beta) = AA^-\beta = \beta,$$
 即知$X_0 = A^-\beta$为线性方程组$AX = \beta$的一个解。
 
@@ -119,9 +119,9 @@ $$\operatorname{col}(I_n - A^-A) \subseteq \operatorname{Null} (A),$$
 其中$\operatorname{col}(I_n - A^-A)$为矩阵$I_n - A^-A$的列空间，即由$I_n - A^-A$的列张成的线性空间，$\operatorname{Null} (A)$为矩阵$A$的零化空间，即$AX = 0$的解空间。要证明以上包含关系实际上是相等的关系，我们需要考察他们的维数。
 
 沿用第(1)问的记号，我们有
-$$A^-A = Q^{-1} \begin{pmatrix} I_r & * \\ *' & *'' \end{pmatrix}_{n\times m}\!\!\!\!\!\!\!\!\!\!\! P^{-1} P \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}_{m\times n}\!\!\!\!\!\!\!\!\!\!\! Q = Q^{-1} \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}_{n\times n}\!\!\!\!\!\!\!\!\!\! Q.$$
+$$A^-A = Q^{-1} \begin{pmatrix} I_r & * \\ *' & *'' \end{pmatrix}_{n\times m}\!\!\!\!\!\!\!\!\!\!\! P^{-1} P \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}_{m\times n}\!\!\!\!\!\!\!\!\!\!\! Q = Q^{-1} \begin{pmatrix} I_r & 0 \\ *' & 0 \end{pmatrix}_{n\times n}\!\!\!\!\!\!\!\!\!\! Q.$$
 所以
-$$\dim \left( \operatorname{col}(I_n - A^-A) \right) = \operatorname{rank} (I_n - A^-A) = \operatorname{rank} \left( Q^{-1} \begin{pmatrix} 0 & 0 \\ 0 & I_{n-r} \end{pmatrix}_{n\times n}\!\!\!\!\!\!\!\!\!\! Q \hspace{1em} \right) = n - r = \dim \left( \operatorname{Null} (A) \right).$$
+$$\dim \left( \operatorname{col}(I_n - A^-A) \right) = \operatorname{rank} (I_n - A^-A) = \operatorname{rank} \left( Q^{-1} \begin{pmatrix} 0 & 0 \\ -*' & I_{n-r} \end{pmatrix}_{n\times n}\!\!\!\!\!\!\!\!\!\! Q \hspace{1em} \right) = n - r = \dim \left( \operatorname{Null} (A) \right).$$
 也就是说，我们实质上有$$\{ (I_n - A^-A)Y ~|~ Y \in \mathbb{F}^{n\times 1} \} = \operatorname{col}(I_n - A^-A) = \operatorname{Null} (A).$$
 所以齐次线性方程组$AX = 0$的解的全体为$X = (I_n - A^-A)Y, \forall Y \in \mathbb{F}^{n\times 1}.$
 
@@ -129,14 +129,16 @@ $$\dim \left( \operatorname{col}(I_n - A^-A) \right) = \operatorname{rank} (I_n 
 
 以上是当我们取定了某一个广义逆$A^-$时，对线性方程组$AX = \beta$解集的刻画。实际上，当$\beta \neq 0$时，我们还有另一种刻画，即非齐次线性方程组$AX = \beta$解集等于
 $$\{ A^-\beta ~|~ A^- \text{ 是$A$的广义逆 } \}.$$
-我们已经知道了形如$A^-\beta$的向量是$AX = \beta$的解，我们只要证明对$AX = \beta$的任何一个解$X_0$都存在某个广义逆$A^-,$ 使得$X_0 = A^-\beta.$ 我们利用$A$的相抵标准形以及对应的$A^-$的一般形式。设$E_1, E_2, E_3$分别为元素未定的大小为$r \times (m-r)$, $(n-r) \times r$, 以及$(n-r) \times (m-r)$的矩阵。我们想要求解下列的方程
+我们已经知道了形如$A^-\beta$的向量是$AX = \beta$的解，这里的$A^-$是矩阵$A$的任何一个广义逆。我们只要证明对$AX = \beta$的任何一个解$X_0$都存在某个广义逆$A^-,$ 使得$X_0 = A^-\beta.$
+
+我们利用$A$的相抵标准形以及对应的$A^-$的一般形式。设$E_1, E_2, E_3$分别为元素未定的大小为$r \times (m-r)$, $(n-r) \times r$, 以及$(n-r) \times (m-r)$的矩阵。我们想要求解下列的方程
 $$Q^{-1} \begin{pmatrix} I_r & E_1 \\ E_2 & E_3 \end{pmatrix} P^{-1} \beta = X_0.$$
 我们已知的是$AX_0 = \beta,$ 即$P \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} Q X_0 = \beta.$ 记$X_0' = QX_0, \beta' = P^{-1}\beta,$ 那么我们有
-$$\begin{pmatrix} I_r & E_1 \\ E_2 & E_3 \end{pmatrix} \beta' = X_0', \quad \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} X_0' = \beta',$$
-从而有
+$$\begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} X_0' = \beta', \quad \text{要求解矩阵方程} \begin{pmatrix} I_r & E_1 \\ E_2 & E_3 \end{pmatrix} \beta' = X_0'.$$
+即求解
 $$X_0' = \begin{pmatrix} I_r & E_1 \\ E_2 & E_3 \end{pmatrix} \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} X_0' = \begin{pmatrix} I_r & 0 \\ E_2 & 0 \end{pmatrix} X_0'.$$
 令$X_0' = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix},$ 其中$v_1 \in \mathbb{F}^{r \times 1}, v_2 \in \mathbb{F}^{(n-s)\times 1},$ 有
-$$\begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} I_r & 0 \\ E_2 & 0 \end{pmatrix} \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} v_1 \\ E_2v_1 \end{pmatrix}, \quad \beta' = \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} v_1 \\ 0 \end{pmatrix}$$
+$$\beta' = \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} v_1 \\ 0 \end{pmatrix}, \quad \text{相应矩阵方程化为} \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} I_r & 0 \\ E_2 & 0 \end{pmatrix} \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} v_1 \\ E_2v_1 \end{pmatrix}.$$
 由于我们假设了$\beta \neq 0,$ 即有$\beta' \neq 0,$ 那么$v_1 \neq 0$. 设$v_1$的第$i$位元素等于$a \in \mathbb{F}, a \neq 0,$ 那么取
 $$E_2 = (0, \ldots, 0, \underbrace{\dfrac{1}{a}v_2}_{\text{第$i$列}}, 0, \ldots, 0),$$
 即可以满足$E_2v_2 = v_2.$ 其余的$E_1, E_3$任取，即可满足
