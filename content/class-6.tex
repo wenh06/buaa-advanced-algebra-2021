@@ -105,12 +105,22 @@ $$\operatorname{rank}(I_m - AA^T) - \operatorname{rank}(I_n - A^TA) = m - n.$$
 $$A^- = Q^{-1} \begin{pmatrix} I_r & * \\ *' & *'' \end{pmatrix}_{n\times m}\!\!\!\!\!\!\!\!\!\!\! P^{-1}$$
 其中$r = \operatorname{rank} A$, $*,*',*''$分别是大小为$r \times (m-r)$, $(n-r) \times r$, 以及$(n-r) \times (m-r)$的块，块中元素可以任取。那么很容易验证满足$AA^-A = A.$ 从以上广义逆$A^-$的形式可以看出，一个矩阵$A$的广义逆并不唯一。要使得$A^-$由$A$唯一决定，只有让$*,*',*''$都不存在，即$m - r = n - r = 0,$ 即$A$为可逆方阵。
 
+\vspace{0.5em}
+
+广义逆这个名字指的是``像是逆''的一个矩阵：
+$$(AA^-)A = A = A(A^-A)$$
+$AA^-$与$A^-A$都``像是''单位阵（左、右）作用于$A$上。他们分别在$A$的列空间与行空间上是恒等变换。这个虽然弱于在全空间上是恒等变换，但已经是比较强的条件了（比不变子空间强很多）。
+
+\vspace{0.5em}
+
 (2) $\Rightarrow:$ 若线性方程组$AX = \beta$有解，任取一个解，记为$X_0,$ 那么有
 $$AA^-\beta = AA^-(AX_0) = (AA^-A)X_0 = AX_0 = \beta.$$
 
 $\Leftarrow:$ 若$AA^-\beta = \beta,$ 那么令$X_0 = A^-\beta,$ 我们会有
 $$AX_0 = A(A^-\beta) = AA^-\beta = \beta,$$
 即知$X_0 = A^-\beta$为线性方程组$AX = \beta$的一个解。
+
+这一问比较好理解，就是我们知道$AX = \beta$有解，当且仅当$\beta$属于$A$的列空间$\operatorname{col}(A),$ 而上面已经提到了，$AA^-$在$A$的列空间上是恒等变换，自然会把$\beta$映成$\beta.$
 
 要证明线性方程组$AX = \beta$有解时的通解为$X = A^-\beta + (I - A^-A)Y, \forall Y \in \mathbb{F}^{m\times 1},$ 只要证明对应的齐次线性方程组$AX = 0$的解的全体为$X = (I_n - A^-A)Y, \forall Y \in \mathbb{F}^{n\times 1}.$
 
@@ -125,7 +135,7 @@ $$\dim \left( \operatorname{col}(I_n - A^-A) \right) = \operatorname{rank} (I_n 
 也就是说，我们实质上有$$\{ (I_n - A^-A)Y ~|~ Y \in \mathbb{F}^{n\times 1} \} = \operatorname{col}(I_n - A^-A) = \operatorname{Null} (A).$$
 所以齐次线性方程组$AX = 0$的解的全体为$X = (I_n - A^-A)Y, \forall Y \in \mathbb{F}^{n\times 1}.$
 
-\vspace{1em}
+\vspace{0.5em}
 
 以上是当我们取定了某一个广义逆$A^-$时，对线性方程组$AX = \beta$解集的刻画。实际上，当$\beta \neq 0$时，我们还有另一种刻画，即非齐次线性方程组$AX = \beta$解集等于
 $$\{ A^-\beta ~|~ A^- \text{ 是$A$的广义逆 } \}.$$
@@ -141,7 +151,7 @@ $$X_0' = \begin{pmatrix} I_r & E_1 \\ E_2 & E_3 \end{pmatrix} \begin{pmatrix} I_
 $$\beta' = \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} v_1 \\ 0 \end{pmatrix}, \quad \text{相应矩阵方程化为} \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} I_r & 0 \\ E_2 & 0 \end{pmatrix} \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = \begin{pmatrix} v_1 \\ E_2v_1 \end{pmatrix}.$$
 由于我们假设了$\beta \neq 0,$ 即有$\beta' \neq 0,$ 那么$v_1 \neq 0$. 设$v_1$的第$i$位元素等于$a \in \mathbb{F}, a \neq 0,$ 那么取
 $$E_2 = (0, \ldots, 0, \underbrace{\dfrac{1}{a}v_2}_{\text{第$i$列}}, 0, \ldots, 0),$$
-即可以满足$E_2v_2 = v_2.$ 其余的$E_1, E_3$任取，即可满足
+即可以满足$E_2v_1 = v_2.$ 其余的$E_1, E_3$任取，即可满足
 $$\begin{pmatrix} I_r & E_1 \\ E_2 & E_3 \end{pmatrix} \beta' = \begin{pmatrix} I_r & E_1 \\ E_2 & E_3 \end{pmatrix} \begin{pmatrix} v_1 \\ 0 \end{pmatrix} = \begin{pmatrix} v_1 \\ E_2v_1 \end{pmatrix} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = X_0'.$$
 也就是说，对于非齐次线性方程组$AX = \beta$的任取的一个解$X_0,$ 我们都找到了相应的$A$的广义逆
 $$A^- = Q^{-1} \begin{pmatrix} I_r & E_1 \\ E_2 & E_3 \end{pmatrix} P^{-1}$$
@@ -149,7 +159,7 @@ $$A^- = Q^{-1} \begin{pmatrix} I_r & E_1 \\ E_2 & E_3 \end{pmatrix} P^{-1}$$
 
 \vspace{1em}
 
-由于广义逆并不唯一，我们可以在$AA^-A = A$以外多加一些条件，得到满足唯一性的Moore–Penrose广义逆（或伪逆，pseudoinverse）$A^+.$ $A^+$的构造可以由$A$的奇异值分解引出。$A^+$可以用于求解最小二乘问题。
+由于广义逆并不唯一，我们可以在$AA^-A = A$以外多加一些条件（$A^-AA^- = A^-,$ $AA^-$与$A^-A$都对称），得到满足唯一性的Moore–Penrose广义逆（或伪逆，pseudoinverse）$A^+.$ $A^+$的构造可以由$A$的奇异值分解引出。$A^+$可以用于求解最小二乘问题。
 
 \fi  % fi of \ifIncludeAnswer
 
