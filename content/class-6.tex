@@ -29,7 +29,7 @@ $$f(x) = 1 + x + \dfrac{1}{2!}x^2 + \cdots + \dfrac{1}{(k-1)!}x^{k-1} + \cdots$$
 $$\sum\limits_{i=0}^n \dfrac{(-1)^i}{i!(n-i)!} = \dfrac{1}{n!} \sum\limits_{i=0}^n C_n^i 1^{n-i} (-1)^i = \dfrac{1}{n!} (1-1)^n = 0.$$
 于是有$\sum\limits_{i=0}^{k-1} \dfrac{1}{i!} A^i \sum\limits_{j=0}^{k-1} \dfrac{1}{j!} (-A)^j = \dfrac{1}{0!0!} I = I.$ 所以$\sum\limits_{i=0}^{k-1} \dfrac{1}{i!} A^i$是可逆的，它的逆就是 $\sum\limits_{j=0}^{k-1} \dfrac{1}{j!} (-A)^j.$
 
-事实上，我们有所谓的方阵函数$f: M_n(\mathbb{F}) \to M_n(\mathbb{F})$, 可以从多项式扩展定义到一般的（复）函数（由所谓的代表多项式定义），例如$\sin, \cos, \exp, \log$等。这些方阵函数保留了很多原来函数的性质。
+事实上，我们有所谓的方阵函数$f: M_n(\mathbb{F}) \to M_n(\mathbb{F})$, 可以从多项式扩展定义到一般的（复）函数（由所谓的代表多项式定义），例如$\sin, \cos, \exp, \log$等。这些方阵函数保留了很多原来函数的性质。这部分内容在学习完方阵的Jordan标准形之后比较好理解，所以这里暂时不展开讲了。这题的关键就在于利用实值函数的展开式，猜测一个逆，然后用矩阵的乘法去验证。
 
 \fi  % fi of \ifIncludeAnswer
 
