@@ -41,7 +41,7 @@ $\sum\limits_{j=0}^{k-1} \dfrac{1}{j!} (-A)^j.$
 方法一：考虑$m-s+1$个行向量组$\{v_{i_1}, \ldots, v_{i_s}\}, \{v_{i_1}, \ldots, v_{i_s}, v_{i_{s+1}}\}, \ldots, \{v_{i_1}, \ldots, v_{i_s}, \ldots, v_{i_m}\},$
 其中$v$为$A$的行向量。记这些向量组的秩为$r_0, \ldots, r_{m-s},$ 那么
 $$r_0 = \operatorname{rank} B, r_{m-s} = \operatorname{rank} A = r, \text{ 并且有 } r_{k+1} - r_k \leqslant 1, ~ k = 0, \ldots, m-s-1,$$
-其中等号成立当且仅当$v_{s+k+1}$落在前一个向量组张成的空间中。所以有
+其中等号成立当且仅当$v_{s+k+1}$不落在前一个向量组张成的空间中。所以有
 $$r - \operatorname{rank} B = r_{m-s} - r_0 = \sum\limits_{k=0}^{m-s-1} (r_{k+1} - r_k) \leqslant \sum\limits_{k=0}^{m-s-1} 1 = m-s.$$
 
 方法二：令$P$为$m$阶单位阵删去第$i_{s+1}, \ldots, i_m$行组成的$s\times m$矩阵，那么有$PA = B,$
@@ -88,13 +88,16 @@ identity的时候已经介绍过了，这里又应用了一次。
     方程组有解时的通解为$X = A^-\beta + (I_n - A^-A)Y, \forall Y \in \mathbb{F}^{n\times 1}.$
 
 **证明**：(1)
-我们先证明广义逆$A^-$的存在性。考虑$A$的相抵标准形，即设$P,Q$分别为$m$阶与$n$阶可逆阵，使得$A = P \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}_{m\times n}\!\!\!\!\!\!\!\!\!\!\! Q$,
-那么
-$$A^- = Q^{-1} \begin{pmatrix} I_r & * \\ *' & *'' \end{pmatrix}_{n\times m}\!\!\!\!\!\!\!\!\!\!\! P^{-1}$$
-其中$r = \operatorname{rank} A$, $*,*',*''$分别是大小为$r \times (m-r)$,
-$(n-r) \times r$,
-以及$(n-r) \times (m-r)$的块，块中元素可以任取。那么很容易验证满足$AA^-A = A.$
-从以上广义逆$A^-$的形式可以看出，一个矩阵$A$的广义逆并不唯一。要使得$A^-$由$A$唯一决定，只有让$*,*',*''$都不存在，即$m - r = n - r = 0,$
+我们先证明广义逆$A^-$的存在性。考虑$A$的相抵标准形，即设$P,Q$分别为$m$阶与$n$阶可逆阵，使得$A = P \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}_{m\times n}\!\!\!\!\!\!\!\!\!\!\! Q,$
+其中$r = \operatorname{rank} A.$ 假设$A^-$存在，并将其做对应的划分
+$$A^- = Q^{-1} \begin{pmatrix} E_0 & E_1 \\ E_2 & E_3 \end{pmatrix}_{n\times m}\!\!\!\!\!\!\!\!\!\!\! P^{-1},$$
+$E_0, E_1, E_2, E_3$分别是大小为$r\times r, r \times (m-r)$,
+$(n-r) \times r$, 以及$(n-r) \times (m-r)$的块。那么根据$A = AA^-A,$ 即
+$$P \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}_{m\times n}\!\!\!\!\!\!\!\!\!\!\! Q = P \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}_{m\times n}\!\!\!\!\!\!\!\!\!\!\! Q \cdot Q^{-1} \begin{pmatrix} E_0 & E_1 \\ E_2 & E_3 \end{pmatrix}_{n\times m}\!\!\!\!\!\!\!\!\!\!\! P^{-1} \cdot P \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}_{m\times n}\!\!\!\!\!\!\!\!\!\!\! Q = P \begin{pmatrix} E_0 & 0 \\ 0 & 0 \end{pmatrix}_{m\times n}\!\!\!\!\!\!\!\!\!\!\! Q$$
+知，只需要$E_0 = I_r$即可使上式恒成立。故$A$的广义逆$A^-$是一定存在的，其一般形式为
+$$A^- = Q^{-1} \begin{pmatrix} I_r & E_1 \\ E_2 & E_3 \end{pmatrix}_{n\times m}\!\!\!\!\!\!\!\!\!\!\! P^{-1},$$
+$E_1, E_2, E_3$是大小为$r \times (m-r)$, $(n-r) \times r$,
+以及$(n-r) \times (m-r)$的块，块中元素可以任取。从以上广义逆$A^-$的形式可以看出，一个矩阵$A$的广义逆并不唯一。要使得$A^-$由$A$唯一决定，只有让$E_1, E_2, E_3$都不存在，即$m - r = n - r = 0,$
 即$A$为可逆方阵。
 
 广义逆这个名字指的是"像是逆"的一个矩阵： $$(AA^-)A = A = A(A^-A)$$
@@ -119,9 +122,9 @@ $$\operatorname{col}(I_n - A^-A) \subseteq \operatorname{Null} (A),$$
 其中$\operatorname{col}(I_n - A^-A)$为矩阵$I_n - A^-A$的列空间，即由$I_n - A^-A$的列张成的线性空间，$\operatorname{Null} (A)$为矩阵$A$的零化空间，即$AX = 0$的解空间。要证明以上包含关系实际上是相等的关系，我们需要考察他们的维数。
 
 沿用第(1)问的记号，我们有
-$$A^-A = Q^{-1} \begin{pmatrix} I_r & * \\ *' & *'' \end{pmatrix}_{n\times m}\!\!\!\!\!\!\!\!\!\!\! P^{-1} P \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}_{m\times n}\!\!\!\!\!\!\!\!\!\!\! Q = Q^{-1} \begin{pmatrix} I_r & 0 \\ *' & 0 \end{pmatrix}_{n\times n}\!\!\!\!\!\!\!\!\!\! Q.$$
+$$A^-A = Q^{-1} \begin{pmatrix} I_r & E_1 \\ E_2 & E_3 \end{pmatrix}_{n\times m}\!\!\!\!\!\!\!\!\!\!\! P^{-1} P \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}_{m\times n}\!\!\!\!\!\!\!\!\!\!\! Q = Q^{-1} \begin{pmatrix} I_r & 0 \\ E_2 & 0 \end{pmatrix}_{n\times n}\!\!\!\!\!\!\!\!\!\! Q.$$
 所以
-$$\dim \left( \operatorname{col}(I_n - A^-A) \right) = \operatorname{rank} (I_n - A^-A) = \operatorname{rank} \left( Q^{-1} \begin{pmatrix} 0 & 0 \\ -*' & I_{n-r} \end{pmatrix}_{n\times n}\!\!\!\!\!\!\!\!\!\! Q \hspace{1em} \right) = n - r = \dim \left( \operatorname{Null} (A) \right).$$
+$$\dim \left( \operatorname{col}(I_n - A^-A) \right) = \operatorname{rank} (I_n - A^-A) = \operatorname{rank} \left( Q^{-1} \begin{pmatrix} 0 & 0 \\ -E_2 & I_{n-r} \end{pmatrix}_{n\times n}\!\!\!\!\!\!\!\!\!\! Q \hspace{1em} \right) = n - r = \dim \left( \operatorname{Null} (A) \right).$$
 也就是说，我们实质上有$$\{ (I_n - A^-A)Y ~|~ Y \in \mathbb{F}^{n\times 1} \} = \operatorname{col}(I_n - A^-A) = \operatorname{Null} (A).$$
 所以齐次线性方程组$AX = 0$的解的全体为$X = (I_n - A^-A)Y, \forall Y \in \mathbb{F}^{n\times 1}.$
 
