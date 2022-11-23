@@ -9,7 +9,6 @@ from email.header import decode_header
 import imaplib
 import getpass
 import warnings
-from typing import NoReturn
 
 import pandas as pd
 
@@ -32,7 +31,7 @@ _COLS = [
 ] + [f"第{i}次作业" for i in range(1, 20)]
 
 
-def collect() -> NoReturn:
+def collect() -> None:
     """ """
     start = time.time()
     # connect to the server and go to its inbox

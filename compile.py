@@ -11,7 +11,7 @@ import argparse
 import shlex
 from logging import Logger
 from numbers import Real
-from typing import Union, Optional, List, Tuple, NoReturn
+from typing import Union, Optional, List, Tuple
 
 
 def execute_cmd(
@@ -153,7 +153,7 @@ def get_parser() -> dict:
 
 def run(
     compiler: str, main: str, output: str, quiet: bool = False, timeout_hour: Real = 0.1
-) -> NoReturn:
+) -> None:
     cwd = os.path.dirname(os.path.abspath(__file__))
     build_dir = os.path.join(cwd, "tmp_build")
     os.makedirs(build_dir, exist_ok=True)
