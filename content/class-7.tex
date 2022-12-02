@@ -1,4 +1,6 @@
 
+\usepackage{polynom}
+
 \date{2022-12-2 第七次习题课}
 \author{}
 
@@ -58,6 +60,10 @@ r_2(x) & = r_1(x) - {\color{red} 2x} \cdot g(x) = - 2x^2 + x - 1 - 2x (- 4x + 1)
 & = 6x^2 - x - 1 \\
 r_3(x) & = r_2(x) - {\color{red} 6} \cdot g(x) = - x - 1 - 6 (- 4x + 1) = 23 x - 7
 \end{align*}
+或者写成更加熟悉的形式：
+\begin{center}
+\polylongdiv{x^5 - 4x^4 + 3x^3 - 2x^2 + x - 1}{x^2 - 4x + 1}
+\end{center}
 因为$\deg r_3 = 1 < 2 = \deg g,$ 辗转相除结束。可以看到和(2)中计算结果一致。
 
 \vspace{0.5em}
