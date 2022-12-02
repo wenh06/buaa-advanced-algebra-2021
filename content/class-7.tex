@@ -92,21 +92,20 @@ r_2(x) & = f'(x) - {\color{red} \left( \dfrac{9}{2p}x - \dfrac{27q}{4p^2} \right
 
 \vspace{0.5em}
 
-更一般地，我们可以通过多项式的判别式（determinant）来判断它是否有重根。一个多项式有重根当且仅当它的判别式为0. 例如我们在中学已经学习过了，对一个二次多项式$f(x) = ax^2 + bx + c,$ 它在实数域内的根的情况完全由它的判别式$\Delta = b^2 - 4ac$决定：
+更一般地，我们可以通过多项式的判别式（determinant）来判断它是否有重根。一个多项式有重根当且仅当它的判别式为0. 例如我们在中学已经学习过了，对一个二次多项式$f(x) = ax^2 + bx + c,$ $a \neq 0,$ 它在实数域内的根的情况完全由它的判别式$\Delta = b^2 - 4ac$决定：
 \begin{itemize}
 \item $\Delta > 0 \Rightarrow$ $f(x)$在$\mathbb{R}$内有两个不同的实根；
 \item $\Delta = 0 \Rightarrow$ $f(x)$在$\mathbb{R}$内有一个实根；
 \item $\Delta < 0 \Rightarrow$ $f(x)$在$\mathbb{R}$内无实根，但在$\mathbb{C}$内有两个共轭（不同）的虚根。
 \end{itemize}
 
-设$f(x) = a_{n}x^{n} + a_{n-1}x^{n-1} + \cdots + a_{0},$ 系数属于某个域$\mathbb{F},$ 那么它的判别式定义为
+设$f(x) = a_{n}x^{n} + a_{n-1}x^{n-1} + \cdots + a_{0},$ $a_n \neq 0,$ 系数属于某个域$\mathbb{F},$ 那么它的判别式定义为
 $$\operatorname{Disc}_x(f) = a_n^{2n-2} \prod_{\substack{1 \leqslant i < j \leqslant n \\ f(\lambda_i) = 0}} (\lambda_i - \lambda_j)^2 \in \mathbb{F}.$$
-判别式的计算可以利用多项式$f$与它的微商$f'$的结式（resultant）进行。设
-\begin{align*}
-f(x) & = a_{n}x^{n} + a_{n-1}x^{n-1} + \cdots + a_{0} \\
-g(x) & = b_{m}x^{m} + b_{m1}x^{m-1} + \cdots + b_{0}
-\end{align*}
-是系数在域$\mathbb{F}$内的两个多项式，那么它们的结式被定义为
+判别式可以利用多项式$f$与它的微商$f'$的结式（resultant）进行计算。设
+$$
+g(x) = b_{m}x^{m} + b_{m1}x^{m-1} + \cdots + b_{0}
+$$
+是另一个系数在域$\mathbb{F}$内的多项式，那么$f, g$的结式被定义为
 $$
 \operatorname{Res} (f, g) = a_n^n b_m^m \prod_{ \substack{(\lambda, \mu) \in \bar{\mathbb{F}}^2 \\ f(\lambda) = 0, g(\mu) = 0}} (\lambda - \mu) \in \mathbb{F}
 $$
@@ -126,13 +125,14 @@ $$
 $$
 
 可以算得三次多项式$f(x) = x^3 + px + q$的判别式为
-$$Disc_x(f) = -4p^3 - 27q^2.$$
+$$\operatorname{Disc}_x(f) = -4p^3 - 27q^2.$$
 
 可以通过如下的Python程序计算一般的多项式的判别式，以及两个多项式的Sylvester matrix
 \begin{center}
 \begin{lstlisting}[language=Python]
 import sympy as sp
 from typing import Union
+
 
 def polyn_determinant(
     f: Union[sp.Add, sp.Poly], x: sp.Symbol
