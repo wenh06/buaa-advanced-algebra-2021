@@ -120,7 +120,7 @@ $$
 \item $\operatorname{Res} (f_1f_2, g) = \operatorname{Res} (f_1, g) \cdot \operatorname{Res} (f_2, g)$
 \item 设$r(x) = f(x) - q(x) \cdot g(x)$, 那么$\operatorname{Res} (r, g) = b_m^{\deg r - n}\operatorname{Res} (f, g)$
 \end{itemize}
-结式可用如下的行列式进行计算
+结式可用如下的（Sylvester matrix的）行列式进行计算
 $$
 \operatorname{Res} (f, g) = \begin{vmatrix} a_{n} & 0 & \cdots & 0 & b_{m} & 0 & \cdots & 0 \\ a_{n-1} & a_{n} & \cdots & 0 & b_{m-1} & b_{m} & \cdots & 0 \\ a_{n-2} & a_{n-1} & \ddots & 0 & b_{m-2} & b_{m-1} & \ddots & 0 \\ \vdots & \vdots & \ddots & a_{n} & \vdots & \vdots & \ddots & b_{m} \\ a_{0} & a_{1} & \cdots & \vdots & b_{0} & b_{1} & \cdots & \vdots \\ 0 & a_{0} & \ddots & \vdots & 0 & b_{0} & \ddots & \vdots \\ \vdots & \vdots & \ddots & a_{1} & \vdots & \vdots & \ddots & b_{1} \\ 0 & 0 & \cdots & a_{0} & 0 & 0 & \cdots & b_{0}\end{vmatrix}_{(m+n) \times (m+n)}
 $$
@@ -128,19 +128,71 @@ $$
 可以算得三次多项式$f(x) = x^3 + px + q$的判别式为
 $$Disc_x(f) = -4p^3 - 27q^2.$$
 
-可以通过如下的Python程序计算一般的多项式的判别式
+可以通过如下的Python程序计算一般的多项式的判别式，以及两个多项式的Sylvester matrix
 \begin{center}
 \begin{lstlisting}[language=Python]
 import sympy as sp
 from typing import Union
 
-def polyn_determinant(f: Union[sp.Add, sp.Poly], x: sp.Symbol) -> Union[sp.Add, sp.Number]:
+def polyn_determinant(
+    f: Union[sp.Add, sp.Poly], x: sp.Symbol
+) -> Union[sp.Add, sp.Number]:
+    """
+    computes the determinant of a univariate polynomial
+
+    Parameters
+    ----------
+    f: sympy.Add or sympy.Poly,
+        the univariate polynomial
+    x: sympy.Symbol,
+        the variable
+
+    Returns
+    -------
+    pol_det: sympy.Add or sympy.Number,
+        the determinant of the input univariate polynomial `f`
+
+    """
     f = sp.Poly(f, x)
     f_prime = sp.diff(f, x)
     leading_coeff = f.coeffs()[0]
     n = f.degree()
-    pol_det = sp.resultant(f, f_prime, x) * (-1)**(n*(n-1)//2) / leading_coeff
-    return sp.simplify(pol_det)
+    pol_det = sp.resultant(f, f_prime, x) * (-1) ** (n * (n - 1) // 2) / leading_coeff
+    pol_det = sp.simplify(pol_det)
+    return pol_det
+
+
+def sylvester_mat(
+    f: Union[sp.Add, sp.Poly],
+    g: Union[sp.Add, sp.Poly],
+    x: sp.Symbol,
+) -> sp.Matrix:
+    """
+    computes the Sylvester matrix of two univariate polynomials
+
+    Parameters
+    ----------
+    f, g: sympy.Add or sympy.Poly,
+        the two univariate polynomials
+    x: sympy.Symbol,
+        the variable
+
+    Returns
+    -------
+    mat: sympy.Matrix,
+        the Sylvester matrix of `f` and `g`
+
+    """
+    f, g = sp.Poly(f, x), sp.Poly(g, x)
+    n, m = f.degree(), g.degree()
+    f_coeffs = f.all_coeffs()
+    g_coeffs = g.all_coeffs()
+    mat = sp.zeros(n + m, n + m)
+    for idx in range(m):
+        mat[idx : idx + n + 1, idx] = f_coeffs
+    for idx in range(n):
+        mat[idx : idx + m + 1, m + idx] = g_coeffs
+    return mat
 \end{lstlisting}
 \end{center}
 更多例子可见\href{https://gitee.com/wenh06/buaa-advanced-algebra-2021/blob/master/notebooks/class-7.ipynb}{Jupyter Notebook}.
