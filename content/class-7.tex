@@ -60,11 +60,10 @@ r_2(x) & = r_1(x) - {\color{red} 2x} \cdot g(x) = - 2x^2 + x - 1 - 2x (- 4x + 1)
 & = 6x^2 - x - 1 \\
 r_3(x) & = r_2(x) - {\color{red} 6} \cdot g(x) = - x - 1 - 6 (- 4x + 1) = 23 x - 7
 \end{align*}
-或者写成更加熟悉的形式：
+因为$\deg r_3 = 1 < 2 = \deg g,$ 带余除法结束。可以看到和(2)中计算结果一致。或者我们写成更加熟悉的形式：
 \begin{center}
 \polylongdiv{x^5 - 4x^4 + 3x^3 - 2x^2 + x - 1}{x^2 - 4x + 1}
 \end{center}
-因为$\deg r_3 = 1 < 2 = \deg g,$ 辗转相除结束。可以看到和(2)中计算结果一致。
 
 \vspace{0.5em}
 
@@ -96,9 +95,9 @@ r_2(x) & = f'(x) - {\color{red} \left( \dfrac{9}{2p}x - \dfrac{27q}{4p^2} \right
 
 若$p = 0,$ 那么显然只要$q$不等于0, $f(x)$就没有重根。所以，此时$f(x)$有重根$\Rightarrow q = 0.$ 这个关系也能用$4p^3 + 27q^2 = 0$表达。
 
-\vspace{0.5em}
+\vspace{1em}
 
-更一般地，我们可以通过多项式的判别式（determinant）来判断它是否有重根。一个多项式有重根当且仅当它的判别式为0. 例如我们在中学已经学习过了，对一个二次多项式$f(x) = ax^2 + bx + c,$ $a \neq 0,$ 它在实数域内的根的情况完全由它的判别式$\Delta = b^2 - 4ac$决定：
+更一般地，我们可以通过多项式的判别式（discriminant）来判断它是否有重根。一个多项式有重根当且仅当它的判别式为0. 例如我们在中学已经学习过了，对一个二次多项式$f(x) = ax^2 + bx + c,$ $a \neq 0,$ 它在实数域内的根的情况完全由它的判别式$\Delta = b^2 - 4ac$决定：
 \begin{itemize}
 \item $\Delta > 0 \Rightarrow$ $f(x)$在$\mathbb{R}$内有两个不同的实根；
 \item $\Delta = 0 \Rightarrow$ $f(x)$在$\mathbb{R}$内有一个实根；
@@ -133,72 +132,13 @@ $$
 可以算得三次多项式$f(x) = x^3 + px + q$的判别式为
 $$\operatorname{Disc}_x(f) = -4p^3 - 27q^2.$$
 
-可以通过如下的Python程序计算一般的多项式的判别式，以及两个多项式的Sylvester matrix
+Python软件包sympy提供了计算多项式判别式的功能，例子如下
 \begin{center}
 \begin{lstlisting}[language=Python]
-import sympy as sp
-from typing import Union
-
-
-def polyn_determinant(
-    f: Union[sp.Add, sp.Poly], x: sp.Symbol
-) -> Union[sp.Add, sp.Number]:
-    """
-    computes the determinant of a univariate polynomial
-
-    Parameters
-    ----------
-    f: sympy.Add or sympy.Poly,
-        the univariate polynomial
-    x: sympy.Symbol,
-        the variable
-
-    Returns
-    -------
-    pol_det: sympy.Add or sympy.Number,
-        the determinant of the input univariate polynomial `f`
-
-    """
-    f = sp.Poly(f, x)
-    f_prime = sp.diff(f, x)
-    leading_coeff = f.coeffs()[0]
-    n = f.degree()
-    pol_det = sp.resultant(f, f_prime, x) * (-1) ** (n * (n - 1) // 2) / leading_coeff
-    pol_det = sp.simplify(pol_det)
-    return pol_det
-
-
-def sylvester_mat(
-    f: Union[sp.Add, sp.Poly],
-    g: Union[sp.Add, sp.Poly],
-    x: sp.Symbol,
-) -> sp.Matrix:
-    """
-    computes the Sylvester matrix of two univariate polynomials
-
-    Parameters
-    ----------
-    f, g: sympy.Add or sympy.Poly,
-        the two univariate polynomials
-    x: sympy.Symbol,
-        the variable
-
-    Returns
-    -------
-    mat: sympy.Matrix,
-        the Sylvester matrix of `f` and `g`
-
-    """
-    f, g = sp.Poly(f, x), sp.Poly(g, x)
-    n, m = f.degree(), g.degree()
-    f_coeffs = f.all_coeffs()
-    g_coeffs = g.all_coeffs()
-    mat = sp.zeros(n + m, n + m)
-    for idx in range(m):
-        mat[idx : idx + n + 1, idx] = f_coeffs
-    for idx in range(n):
-        mat[idx : idx + m + 1, m + idx] = g_coeffs
-    return mat
+>>> import sympy as sp
+>>> x, p, q = sp.symbols("x, p, q")
+>>> f = sp.Poly(x**3 + p * x + q, x)
+>>> f.discriminant()
 \end{lstlisting}
 \end{center}
 更多例子可见\href{https://gitee.com/wenh06/buaa-advanced-algebra-2021/blob/master/notebooks/class-7.ipynb}{Jupyter Notebook}.
@@ -266,7 +206,7 @@ g(x) & = t \prod\limits_{i=1}^n (x - c\alpha_i) = t \sum\limits_{k=0}^n x^{n-k} 
 (2) 考虑有理式
 $$\tilde{f}(x) = f \left( \dfrac{1}{x} \right) = a_n \dfrac{1}{x^n} + \cdots + a_1 \dfrac{1}{x} + a_0 = \dfrac{\sum\limits_{k=0}^n a_k x^{n-k}}{x^n} = \dfrac{g(x)}{h(x)}.$$
 其中$g(x) = \sum\limits_{k=0}^n a_k x^{n-k}, h(x) = x^n$为多项式。那么任取$\alpha_k,$ 令$x = 1/\alpha_k,$ 有
-$$\title{f}(x) = f(1/x) = f(\alpha_k) = 0,$$
+$$\tilde{f}(x) = f(1/x) = f(\alpha_k) = 0,$$
 同时$h(x) = h(1/\alpha_k) = 1/\alpha_k^n \neq 0,$ 所以必须有$g(1/\alpha_k) = 0.$ 于是$g(x) = \sum\limits_{k=0}^n a_k x^{n-k}$就是一个以$1/\alpha_1, \ldots, 1/\alpha_n$为根的$n$次多项式。
 
 \fi  % fi of \ifIncludeAnswer
