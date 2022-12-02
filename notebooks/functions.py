@@ -148,11 +148,11 @@ def LagrangePolynomial(
     return poly
 
 
-def polyn_determinant(
+def polyn_discriminant(
     f: Union[sp.Add, sp.Poly], x: sp.Symbol
 ) -> Union[sp.Add, sp.Number]:
     """
-    computes the determinant of a univariate polynomial
+    computes the discriminant of a univariate polynomial
 
     Parameters
     ----------
@@ -164,7 +164,7 @@ def polyn_determinant(
     Returns
     -------
     pol_det: sympy.Add or sympy.Number,
-        the determinant of the input univariate polynomial `f`
+        the discriminant of the input univariate polynomial `f`
 
     """
     f = sp.Poly(f, x)
