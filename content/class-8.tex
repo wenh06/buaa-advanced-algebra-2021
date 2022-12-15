@@ -170,14 +170,14 @@ $$n = \prod\limits_{\substack{0 \leqslant j < n \\ j \neq i}} (1 - \omega_j) = \
 $$f(x) = \prod\limits_{i=1}^m (x - \lambda_i),$$
 其中$\lambda_1, \ldots, \lambda_m \in \mathbb{C}$为$f(x)$在$\mathbb{C}$内的$m$个根。那么对于$f(x^n),$ 我们有
 $$f(x^n) = \prod\limits_{i=1}^m (x^n - \lambda_i) = \prod\limits_{i=1}^m \prod\limits_{j=1}^n (x - \mu_{ij}),$$
-其中$\mu_{ij}$是$z^n = \lambda_i$在$\mathbb{C}$内的$m$个根。
+其中$\mu_{ij}, j = 1, \ldots, n,$ 是$z^n = \lambda_i$在$\mathbb{C}$内的$n$个根。
 
 如果有$f(x) | f(x^n),$ 即$\left.\prod\limits_{i=1}^m (x - \lambda_i) \middle| \prod\limits_{i=1}^m \prod\limits_{j=1}^n (x - \mu_{ij}) \right.,$ 那么$\forall i = 1, \ldots, m,$ 都存在下标$1 \leqslant k(i) \leqslant m, 1 \leqslant j(i) \leqslant n,$ 使得$\lambda_i = \mu_{k(i)j(i)}.$ （并且$(k(1), j(1)), \ldots, (k(m), j(m))$是$m$个互异的二元组）
 
-取定了这$m$个二元组之后，$\forall i = 1, \ldots, m,$ 如果$k_i = i,$ 那么我们有$\lambda_i = \mu_{ij(i)}.$ 两边同时$n$次方之后即有
+取定了这$m$个二元组之后，$\forall i = 1, \ldots, m,$ 如果$k(i) = i,$ 那么我们有$\lambda_i = \mu_{ij(i)}.$ 两边同时$n$次方之后即有
 $\lambda_i^n = \mu_{ij(i)}^n = \lambda_i,$ 此时必有$\lambda_i$为零或为$n - 1$次单位根。
 
-若$k_i \neq i,$ 我们可以考虑序列
+若$k(i) \neq i,$ 我们可以考虑取值在$\{ 1, 2, \ldots, m \}$的序列
 $$k^{(0)}(i) := i, ~~ k^{(1)}(i) := k(i), ~~ k^{(2)}(i) := k(k(i)), ~~ \ldots$$
 此序列前$m+1$个元素内必然出现重复的元素：
 \begin{figure}[H]
