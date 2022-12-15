@@ -184,23 +184,23 @@ $$k^{(0)}(i) := i, ~~ k^{(1)}(i) := k(i), ~~ k^{(2)}(i) := k(k(i)), ~~ \ldots$$
 \centering
 \begin{tikzpicture}
 \node[circle, fill, inner sep=2] at (0, -1) (p0) {};
-\node[above=0.1 of p0.north] {$k^{(0)}(i)$};
+\node[above = 0.1 of p0.north] {$k^{(0)}(i)$};
 \node[circle, fill, inner sep=2] at (3, 0) (p1) {};
 \node[above=0.1 of p1.north] {$k^{(1)}(i)$};
 \node[circle, fill, inner sep=2] at (6, 0) (p2) {};
-\node[above=0.1 of p2.north] {$k^{(a)}(i)$};
+\node[right = 0.1 of p2.east] {$k^{(a)}(i) = k^{(b)}(i)$};
 \node[circle, fill, inner sep=2] at (7.5, -2) (p3) {};
-\node[right=0.1 of p3.east] {$k^{(a+1)}(i)$};
+\node[right = 0.1 of p3.east] {$k^{(a+1)}(i)$};
 \node[circle, fill, inner sep=2] at (6.5, -3.5) (p4) {};
-\node[right=0.1 of p4.east] {$k^{(a+2)}(i)$};
+\node[right = 0.1 of p4.east] {$k^{(a+2)}(i)$};
 \node[circle, fill, inner sep=2] at (5, -3.5) (p5) {};
-\node[below=0.1 of p5.south] {$k^{(a+3)}(i)$};
+\node[below = 0.1 of p5.south] {$k^{(a+3)}(i)$};
 \node[circle, fill, inner sep=2] at (3.5, -1.5) (p6) {};
-\node[left=0.1 of p6.west] {$k^{(b)}(i)$};
+\node[left = 0.1 of p6.west] {$k^{(b-1)}(i)$};
 \draw (p0) -- (p1);
-\draw[dashed] (p1) -- (p2);
+\draw[dotted, very thick] (p1) -- (p2);
 \draw (p2) -- (p3) -- (p4) -- (p5);
-\draw[dashed] (p5) -- (p6);
+\draw[dotted, very thick] (p5) -- (p6);
 \draw (p6) -- (p2);
 \end{tikzpicture}
 \end{figure}
