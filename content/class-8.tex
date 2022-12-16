@@ -20,13 +20,13 @@
 \ifLargeLayout
 \begin{align*}
 f(x, y) & = (a_1x + b_1y + c_1)(a_2x + b_2y + c_2) \\
-& = a_1a_2 x^2 + b_1b_2 y^2 + c_1c_2 + (a_1b_2 + a_2b_1)xy + (a_1c_2 + a_2c_1)x \\
+& = a_1a_2 x^2 + b_1b_2 y^2 + c_1c_2 + (a_1b_2 + a_2b_1) xy + (a_1c_2 + a_2c_1)x \\
 & \phantom{=} + (b_1c_2 + b_2c_1)y
 \end{align*}
 \else  % else of \ifLargeLayout
 \begin{align*}
 f(x, y) & = (a_1x + b_1y + c_1)(a_2x + b_2y + c_2) \\
-& = a_1a_2 x^2 + b_1b_2 y^2 + c_1c_2 + (a_1b_2 + a_2b_1)xy + (a_1c_2 + a_2c_1)x + (b_1c_2 + b_2c_1)y
+& = a_1a_2 x^2 + b_1b_2 y^2 + c_1c_2 + (a_1b_2 + a_2b_1) xy + (a_1c_2 + a_2c_1)x + (b_1c_2 + b_2c_1)y
 \end{align*}
 \fi  % fi of \ifLargeLayout
 比较系数有
@@ -48,7 +48,12 @@ a_2c_1 = - a_1c_2 \\
 b_1c_2 = - b_2c_1
 \end{cases}
 $$
-将以上三个等式乘在一起有$a_1a_2b_1b_2c_1c_2 = (-1)^3 a_1a_2b_1b_2c_1c_2,$ 进而有$-1 = 1,$ 不可能成立。
+将以上三个等式乘在一起有$a_1a_2b_1b_2c_1c_2 = (-1)^3 a_1a_2b_1b_2c_1c_2,$ 进而有$-1 = 1,$ 在特征0的数域上不可能成立。
+
+\vspace{0.5em}
+
+在特征为2的域上，例如$\mathbb{F}_2,$ $f(x, y) = x^2 + y^2 - 1$是可以进行分解的：
+$$f(x, y) = x^2 + y^2 - 1 = (x + y + 1)^2$$
 
 \fi  % fi of \ifIncludeAnswer
 
@@ -100,7 +105,7 @@ $$-1, - (a+b+c), -(ab+ac+bc), -abc$$
 
 下面我们对$f$的次数用归纳法证明Descartes' Rule of Signs.
 
-$n = 1$时，$f(x) = a_1 x + a_0.$ 我们不考虑$a_0 = 0$的平凡情况。当$s(f) = 1$时，即$a_1, a_0$异号时，$f(x) = 0$的根$-a_0 / a_1$是正实数，有$p(f) = 1.$ $s(f) = 0$时，$a_1, a_0$同号，$f(x) = 0$的根$-a_0 / a_1$是负实数，有$p(f) = 0.$ 于是，$n = \deg(f) = 1$时，总有$s(f) - p(f) = 0.$
+$n = 1$时，$f(x) = a_1 x + a_0.$ 我们不考虑$a_0 = 0$的平凡情况。当$s(f) = 1$时，即$a_1, a_0$异号时，$f(x) = 0$的根$-a_0 / a_1$是正实数，有$p(f) = 1.$ $s(f) = 0$时，$a_1, a_0$同号，$f(x) = 0$的根$-a_0 / a_1$是负实数，有$p(f) = 0.$ 于是，$n = \deg(f) = 1$时，总有$s(f) - p(f) = 0,$ 满足我们要证明的结论$2 | s(f) - p(f) \geqslant 0.$
 
 假设对所有次数$\leqslant n$的实系数多项式$f,$ 都有$2 | s(f) - p(f) \geqslant 0$成立。现任取一个$n+1$次实系数多项式
 $$f(x) = a_{n+1}x^{n+1} + a_nx^n + \cdots + a_1x + a_0, ~~ a_{n+1}, a_0 \neq 0.$$
@@ -108,7 +113,7 @@ $$f(x) = a_{n+1}x^{n+1} + a_nx^n + \cdots + a_1x + a_0, ~~ a_{n+1}, a_0 \neq 0.$
 $$2 | s(g) - p(g).$$
 我们不妨设$a_n \neq 0.$ 由于$s(g) - p(g)$是一个偶数，那么$s(g), p(g)$必须同时是偶数或者同时是奇数。我们分情况讨论。
 
-情况1. $s(g), p(g)$同时为偶数。那么由于$s(g)$为偶数，即序列$a_n, \ldots, a_1, a_0$变号次数为偶数，因此$a_n$必须与$a_0$同号。
+情况1. $s(g), p(g)$同时为偶数。那么由于$s(g)$为偶数，即序列$a_n, \ldots, a_1, a_0$除去0之后得到的序列的变号次数为偶数，因此$a_n$必须与$a_0$同号。
 
 情况1.1 $a_{n+1}, a_n, a_0$都是正实数。由于$a_{n+1}, a_n$同号，所以$s(f) = s(g).$ 由于最高次项系数$a_{n+1}$与常数项$a_0$同号，所以$f(x)$的正实根数目$p(f)$为偶数（随后证明）。于是$2 | s(f) - p(f).$
 
@@ -153,14 +158,18 @@ $$(1 - \omega_1)(1 - \omega_2) \cdots (1 - \omega_{n-1}) = n$$
 
 {\bf 证明}： 令$f(x) = x^n - 1 = (x - \omega_0)(x - \omega_1) \cdots (x - \omega_{n-1}),$ 其中约定$\omega_0 = 1.$ 那么$f(x)$的微商为
 $$f'(x) = nx^{n-1} = \sum\limits_{i=0}^{n-1} \prod\limits_{\substack{0 \leqslant j < n \\ j \neq i}} (x - \omega_j).$$
-在上式中取$x = 1,$ 由于上式右边的和式中，$i \neq 0$的乘积中都有$(x - 1)$这一项，所以
-$$n = \prod\limits_{\substack{0 \leqslant j < n \\ j \neq i}} (1 - \omega_j) = \prod\limits_{0 < j < n } (x - \omega_j) = (1 - \omega_1)(1 - \omega_2) \cdots (1 - \omega_{n-1}).$$
+在上式中取$x = 1,$ 由于上式右边的和式中，$i \neq 0$的乘积式中都有$(x - 1)$这一项，所以
+\begin{align*}
+n & = \prod\limits_{\substack{0 \leqslant j < n \\ j \neq 0}} (1 - \omega_j) + \sum\limits_{i=1}^{n-1} \prod\limits_{\substack{0 \leqslant j < n \\ j \neq i}} (1 - \omega_j) \\
+& = \prod\limits_{0 < j < n } (1 - \omega_j) + \sum\limits_{i=1}^{n-1} 0 \\
+& = (1 - \omega_1)(1 - \omega_2) \cdots (1 - \omega_{n-1}).
+\end{align*}
 
 \fi  % fi of \ifIncludeAnswer
 
 \newpageorvspace
 
-{\bf 第四题} 设$f(x) \in \mathbb{C}, f(x) | f(x^n), n \in \mathbb{Z}^+.$ 证明$f(x)$的根是零或者单位根。
+{\bf 第四题} 设$f(x) \in \mathbb{C}[x], f(x) | f(x^n), n \in \mathbb{Z}^+.$ 证明$f(x)$的根是零或者单位根。
 
 \ifIncludeAnswer
 
@@ -172,7 +181,9 @@ $$f(x) = \prod\limits_{i=1}^m (x - \lambda_i),$$
 $$f(x^n) = \prod\limits_{i=1}^m (x^n - \lambda_i) = \prod\limits_{i=1}^m \prod\limits_{j=1}^n (x - \mu_{ij}),$$
 其中$\mu_{ij}, j = 1, \ldots, n,$ 是$z^n = \lambda_i$在$\mathbb{C}$内的$n$个根。
 
-如果有$f(x) | f(x^n),$ 即$\left.\prod\limits_{i=1}^m (x - \lambda_i) \middle| \prod\limits_{i=1}^m \prod\limits_{j=1}^n (x - \mu_{ij}) \right.,$ 那么$\forall i = 1, \ldots, m,$ 都存在下标$1 \leqslant k(i) \leqslant m, 1 \leqslant j(i) \leqslant n,$ 使得$\lambda_i = \mu_{k(i)j(i)}.$ （并且$(k(1), j(1)), \ldots, (k(m), j(m))$是$m$个互异的二元组）
+如果有$f(x) | f(x^n),$ 即
+$$\left.\prod\limits_{i=1}^m (x - \lambda_i) \middle| \prod\limits_{i=1}^m \prod\limits_{j=1}^n (x - \mu_{ij}) \right.,$$
+那么$\forall i = 1, \ldots, m,$ 都存在下标$1 \leqslant k(i) \leqslant m, 1 \leqslant j(i) \leqslant n,$ 使得$\lambda_i = \mu_{k(i)j(i)}.$ （并且$(k(1), j(1)), \ldots, (k(m), j(m))$是$m$个互异的二元组）
 
 取定了这$m$个二元组之后，$\forall i = 1, \ldots, m,$ 如果$k(i) = i,$ 那么我们有$\lambda_i = \mu_{ij(i)}.$ 两边同时$n$次方之后即有
 $\lambda_i^n = \mu_{ij(i)}^n = \lambda_i,$ 此时必有$\lambda_i$为零或为$n - 1$次单位根。
@@ -231,7 +242,7 @@ $$\operatorname{Disc}_x(f) = \frac{(-1)^{n(n-1)/2}}{a_n} R(f,f')$$
 
 对于一个一般形式的三次多项式$ax^3 + bx^2 + cx + d,$ 它的判别式等于
 $$b^{2}c^{2}-4ac^{3}-4b^{3}d-27a^{2}d^{2}+18abcd.$$
-通过变量替换，三次多项式一般可以化为$x^3 + px + q$的形式，而它的判别式等于
+通过变量替换，三次多项式一般可以（当域特征不等于3时）化为$x^3 + px + q$的形式，而它的判别式等于
 $$-4p^3 - 27q^2.$$
 
 \ifIncludeAnswer
@@ -239,24 +250,31 @@ $$-4p^3 - 27q^2.$$
 \newpageorvspace
 
 {\bf 证明}：对于一个一般的$n$次多项式$f(x) = a_{n}x^{n}+a_{n-1}x^{n-1}+\cdots +a_{1}x+a_{0}$, 其判别式为
-$$\operatorname{Disc}_x(f) = a_n^{2n-2} \prod_{1 \leqslant i < j \leqslant n} (\lambda_i - \lambda_j)^2 \in \mathbb{F}.$$
-这里的$\lambda_1, \ldots, \lambda_n$为$f(x)$在代数闭域$\bar{\mathbb{F}}$内的根。对于3次实多项式$f(x) = ax^3+bx^2+cx_1+d$来说，如果它有3个实根，那么显然它的判别式是一个非负实数；如果他有复根$\beta$, 那么$\beta$的复共轭$\bar{\beta}$也是它的复根。设它的另一个实根为$\alpha$，那么它的判别式为
+$$\Delta = \operatorname{Disc}_x(f) = a_n^{2n-2} \prod_{1 \leqslant i < j \leqslant n} (\lambda_i - \lambda_j)^2 \in \mathbb{F}.$$
+这里的$\lambda_1, \ldots, \lambda_n$为$f(x)$在代数闭域$\bar{\mathbb{F}}$内的根。对于3次实多项式$f(x) = ax^3+bx^2+cx+d$来说，如果它有3个实根，那么显然它的判别式是一个非负实数；如果他有复根$\beta$, 那么$\beta$的复共轭$\bar{\beta}$也是它的复根。设它的另一个实根为$\alpha$，那么它的判别式为
 $$\Delta = a^4 (\alpha-\beta)^2(\alpha-\bar{\beta})^2(\beta-\bar{\beta})^2 = a^4 (\alpha^2-\alpha(\beta+\bar{\beta})+\beta\bar{\beta})^2 (\beta-\bar{\beta})^2$$
-因为$\alpha^2-\alpha(\beta+\bar{\beta})+\beta\bar{\beta}$是实数，$\beta-\bar{\beta}$是纯虚数，所以判别式在这种情况下必然是一个负实数。
+因为$\alpha^2-\alpha(\beta+\bar{\beta})+\beta\bar{\beta}$是实数，$\beta-\bar{\beta}$是纯虚数，所以判别式在这种情况下必然是一个负实数。即对3次方程来说
+$$
+\begin{cases}
+\Delta > 0, & \text{有3个互异实根}; \\
+\Delta = 0, & \text{有3个实根，并且其中有重根}; \\
+\Delta < 0, & \text{有1个实根，1对共轭的复根} \\
+\end{cases}
+$$
 
 对于一般的三次方程，其判别式为
 $$\Delta = b^{2}c^{2}-4ac^{3}-4b^{3}d-27a^{2}d^{2}+18abcd$$
 对于本题的$x^3 - x^2 - \frac{1}{2}x - \frac{1}{6}$, 其判别式为
 \ifLargeLayout
 \begin{multline*}
-(-1)^2(-\frac{1}{2})^2 - 4(-\frac{1}{2})^3 - 4(-1)^3(-\frac{1}{6}) - 27(-\frac{1}{6})^2 + 18(-1)(-\frac{1}{2})(-\frac{1}{6}) \\
-= -\frac{13}{6} < 0
+(-1)^2 \left( -\frac{1}{2} \right)^2 - 4 \left( -\frac{1}{2} \right)^3 - 4(-1)^3 \left( -\frac{1}{6} \right) - 27 \left( -\frac{1}{6} \right)^2 \\
++ 18(-1) \left( -\frac{1}{2} \right) \left( -\frac{1}{6} \right) = -\frac{13}{6} < 0
 \end{multline*}
 \else
-$$(-1)^2(-\frac{1}{2})^2 - 4(-\frac{1}{2})^3 - 4(-1)^3(-\frac{1}{6}) - 27(-\frac{1}{6})^2 + 18(-1)(-\frac{1}{2})(-\frac{1}{6}) = -\frac{13}{6} < 0$$
+$$(-1)^2 \left( -\frac{1}{2} \right)^2 - 4 \left( -\frac{1}{2} \right)^3 - 4(-1)^3 \left( -\frac{1}{6} \right) - 27 \left( -\frac{1}{6} \right)^2 + 18(-1) \left( -\frac{1}{2} \right) \left( -\frac{1}{6} \right) = -\frac{13}{6} < 0$$
 \fi  % fi of LargeLayout
 或者做变量替换$x\to x+\frac{1}{3}$得到$x^{3} - \frac{5}{6}x - \frac{11}{27}$，这个多项式的判别式的计算更简单
-$$\Delta = -4(-\frac{5}{6})^3 - 27 (\frac{11}{27})^2 = -\frac{13}{6} < 0.$$
+$$\Delta = -4 \left( -\frac{5}{6} \right)^3 - 27 \left( \frac{11}{27} \right)^2 = -\frac{13}{6} < 0.$$
 所以它有一个实根，两个共轭的复根。
 
 \fi  % fi of \ifIncludeAnswer
