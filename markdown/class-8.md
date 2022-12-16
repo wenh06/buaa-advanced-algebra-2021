@@ -1,0 +1,190 @@
+---
+date: 2022-12-16 第八次习题课
+title: 2022秋高等代数习题课
+---
+
+**第一题** (习题5.6第1题)
+证明：二元多项式$x^2 + y^2 - 1$在任意数域上都不可约。
+
+**证明**：
+我们用反证法，假设二元多项式$f(x, y) = x^2 + y^2 - 1$可约，那么由于$\deg f = 2,$
+它能分解成两个一次多项式的乘积，设为
+
+**第二题** (习题5.7第1题)
+设$a, b, c$都是实数。求证$a, b, c$都是正数的充分必要条件是：$a + b + c > 0,$
+$ab + ac + bc > 0,$ $abc > 0.$
+
+Hint: 这题可以直接去做，也可以利用Descartes' Rule of
+Signs：一般地，设$f(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$为$n$次实系数多项式，$a_n \neq 0.$
+(一般还假设$a_0 \neq 0,$ 否则可以化为更低次的情况)
+记$f(x)$所有非零系数按相应的幂次降幂排列的序列记为
+$$b_m, b_{m-1}, \ldots, b_0,$$ 相应的幂次记为
+$$d_m > d_{m-1} > \cdots > d_0.$$ 定义 $$\begin{aligned}
+s(f) & := \sum\limits_{i=1}^{m} \dfrac{1}{2} \left\lvert \dfrac{|b_{i}|}{b_{i}} - \dfrac{|b_{i-1}|}{b_{i-1}} \right\rvert \\
+& = \# \{ i ~|~ 1 \leqslant i \leqslant m, ~ b_{i}b_{i-1} < 0 \} \\
+p(f) & := \text{$f(x)$的正实根数量}\end{aligned}$$ （重根计算重数）那么
+$$2 | (s(f) - p(f)) \geqslant 0.$$
+这里的$s(f)$实际上就是$f(x)$的非零系数序列$b_m, b_{m-1}, \ldots, b_0$相邻两项符号的变化次数。
+
+将此结论应用到多项式$f(-x)$上，可得出$f(x)$负实根数目的结论：
+$$2 | (s'(f) - p'(f)) \geqslant 0,$$ $$\begin{aligned}
+s'(f) & := \sum\limits_{i=1}^{m} \dfrac{1}{2} \left\lvert (-1)^{d_{i}}\dfrac{|b_{i}|}{b_{i}} - (-1)^{d_{i-1}}\dfrac{|b_{i-1}|}{b_{i-1}} \right\rvert \\
+& = \# \{ i ~|~ 1 \leqslant i \leqslant m, ~ (-1)^{d_i+d_{i-1}}b_{i}b_{i-1} < 0 \} \\
+p'(f) & := \text{$f(x)$的负实根数量}\end{aligned}$$
+
+**证明**： 先假定Descartes' Rule of
+Signs成立，并将其应用到此题。假设$a, b, c$都是实数，但不知道正负。现在有的条件是$a + b + c > 0,$
+$ab + ac + bc > 0,$ $abc > 0.$ 考察多项式
+$$f(x) = (x-a)(x-b)(x-c) = x^3 - (a+b+c)x^2 + (ab+ac+bc)x -abc.$$
+其非零系数按降幂排列为 $$1, - (a+b+c), ab+ac+bc, -abc,$$
+这个序列的符号为 $$+, ~ -, ~ +, ~-,$$
+变号次数为3，从而知其正实根数目为3或1. 而考察序列
+$$1\cdot(-1)^3, - (a+b+c)\cdot(-1)^2, (ab+ac+bc)\cdot(-1)^1, -abc\cdot(-1)^0$$
+即序列 $$-1, - (a+b+c), -(ab+ac+bc), -abc$$
+相邻两项的符号变化，知$f(x)$的负实根个数为0.
+所以在题设情况下，$f(x)$的根$a, b, c$都是正的。于是充分性得证。必要性是显然的。
+
+下面我们对$f$的次数用归纳法证明Descartes' Rule of Signs.
+
+$n = 1$时，$f(x) = a_1 x + a_0.$
+我们不考虑$a_0 = 0$的平凡情况。当$s(f) = 1$时，即$a_1, a_0$异号时，$f(x) = 0$的根$-a_0 / a_1$是正实数，有$p(f) = 1.$
+$s(f) = 0$时，$a_1, a_0$同号，$f(x) = 0$的根$-a_0 / a_1$是负实数，有$p(f) = 0.$
+于是，$n = \deg(f) = 1$时，总有$s(f) - p(f) = 0,$
+满足我们要证明的结论$2 | s(f) - p(f) \geqslant 0.$
+
+假设对所有次数$\leqslant n$的实系数多项式$f,$
+都有$2 | s(f) - p(f) \geqslant 0$成立。现任取一个$n+1$次实系数多项式
+$$f(x) = a_{n+1}x^{n+1} + a_nx^n + \cdots + a_1x + a_0, ~~ a_{n+1}, a_0 \neq 0.$$
+那么$g(x) = a_nx^n + \cdots + a_1x + a_0$就是一个次数$\leqslant n$的多项式，根据归纳假设，首先有
+$$2 | s(g) - p(g).$$ 我们不妨设$a_n \neq 0.$
+由于$s(g) - p(g)$是一个偶数，那么$s(g), p(g)$必须同时是偶数或者同时是奇数。我们分情况讨论。
+
+情况1.
+$s(g), p(g)$同时为偶数。那么由于$s(g)$为偶数，即序列$a_n, \ldots, a_1, a_0$除去0之后得到的序列的变号次数为偶数，因此$a_n$必须与$a_0$同号。
+
+情况1.1
+$a_{n+1}, a_n, a_0$都是正实数。由于$a_{n+1}, a_n$同号，所以$s(f) = s(g).$
+由于最高次项系数$a_{n+1}$与常数项$a_0$同号，所以$f(x)$的正实根数目$p(f)$为偶数（随后证明）。于是$2 | s(f) - p(f).$
+
+情况1.2
+$a_{n+1}$是负实数，$a_n, a_0$都是正实数。此时$a_{n+1}, a_n$异号，$s(f) = s(g) + 1$为奇数。由于最高次项系数$a_{n+1}$与常数项$a_0$异号，$f(x)$的正实根数目$p(f)$为奇数。于是依然有$2 | s(f) - p(f).$
+
+情况1.3 $a_{n+1}$是正实数，$a_n, a_0$都是负实数；情况1.4
+$a_{n+1}$是负实数，$a_n, a_0$都是负实数；以及情况2.
+$s(g), p(g)$同时为奇数的相应的4种情况都能类似证明有$2 | s(f) - p(f).$
+
+现在我们来证明，若$n+1$次多项式$f(x)$的最高次项系数$a_{n+1}$与常数项$a_0$同号，则$f(x)$的正实根数目为偶数。将$f(x)$的互不相等的正实根按从小到大排列为
+$$0 < \lambda_1 < \lambda_2 < \cdots < \lambda_m,$$
+对应的重数分别为$n_1, n_2, \ldots, n_m.$
+容易看出在$x \in [0, +\infty)$内，$f(x)$的值只有可能在$\lambda_1, \ldots, \lambda_m$附近变号。对$1 \leqslant i \leqslant m$有
+$$f(x) = (x - \lambda_i)^{n_i} g_i(x),$$
+$g_i(x)$在$\lambda_i$的某个小邻域内非零（从而是恒正或者恒负的）。若$n_i$为偶数，那么在这个小领域内，$f(x)$的值恒非负或者恒非正，不变号。类似可知，若$n_i$为奇数，则多项式$f(x)$在$\lambda_i$的某个小邻域内变号一次。$f(x)$的最高次项系数$a_{n+1}$与常数项$a_0$同号,所以要么$f(0) < 0, \lim\limits_{x\to+\infty} f(x) = -\infty$
+(对应$a_{n+1}, a_0$同负)
+或者$f(0) > 0, \lim\limits_{x\to+\infty} f(x) = +\infty$
+(对应$a_{n+1}, a_0$同正)。那么$f(x)$的值在$x \in [0, +\infty)$内需要变号偶数次。也就是说$n_1, n_2, \ldots, n_m$中的奇数的数目为一个偶数。所以
+$$p(f) = n_1 + n_2 + \cdots + n_m$$
+是一个偶数。同理可证，若$n+1$次多项式$f(x)$的最高次项系数$a_{n+1}$与常数项$a_0$异号，则$f(x)$的正实根数目为奇数。
+
+最后，我们需要证明$s(f) - p(f) \geqslant 0.$ 考虑$f(x)$的微商$f'(x).$
+它是一个$n$次实系数多项式，而且系数符号都不变（除了$a_0$变为0）。于是$s(f) = s(f') + 1,$
+或者$s(f) = s(f').$
+另一方面，由于$f(x)$有$p(f)$个正实根。当其中有$m > 1$个互异实根，它们构成了$m - 1$个闭区间。由微分中值定理，这些区间上都至少有一个点满足$f'(x) = 0.$
+而对于其中的每个$k$重根($k > 1$)都是$f'(x)$的至少$k-1$重根。于是有$p(f') \geqslant p(f) - 1.$
+当$p(f) \leqslant 1$时，$p(f') \geqslant p(f) - 1$平凡成立。对$f'(x)$用归纳假设，有
+$$s(f) \geqslant s(f') \geqslant p(f') \geqslant p(f) - 1,$$
+即$s(f) - p(f) \geqslant -1.$
+由于$s(f) - p(f)$为偶数，所以上述不等式实际上为$s(f) - p(f) \geqslant 0.$
+
+另一种做法：必要性显然。我们只要证明充分性。首先，因为有$abc > 0,$
+于是$a, b, c$中的负实数数目为偶数。若此数目为零，则证明完毕。下面我们只要证明$a, b, c$中有两个负实数的情况不可能成立即可。
+
+我们用反证法，不妨设$a, b < 0, c > 0.$ 由于$a + b + c > 0,$ 因此有
+$$c > -(a + b) > 0,$$ 那么 $$(a + b)c < -(a + b)^2 < 0,$$ 进而有
+$$ab + (a + b)c < ab - (a + b)^2 = -\dfrac{(a + b)^2}{2} - \dfrac{3}{4}(a^2 + b^2) < 0.$$
+这与条件$ab + ac + bc > 0$矛盾。因此$a, b, c$中不可能有两个负实数。因此充分性得证。
+
+**第三题** (习题5.7第2题)
+设$1, \omega_1, \ldots, \omega_{n-1}$是$x^n - 1,$ $n \geqslant 2,$
+的全部不同的复数根。求证：
+$$(1 - \omega_1)(1 - \omega_2) \cdots (1 - \omega_{n-1}) = n$$
+
+**证明**：
+令$f(x) = x^n - 1 = (x - \omega_0)(x - \omega_1) \cdots (x - \omega_{n-1}),$
+其中约定$\omega_0 = 1.$ 那么$f(x)$的微商为
+$$f'(x) = nx^{n-1} = \sum\limits_{i=0}^{n-1} \prod\limits_{\substack{0 \leqslant j < n \\ j \neq i}} (x - \omega_j).$$
+在上式中取$x = 1,$
+由于上式右边的和式中，$i \neq 0$的乘积式中都有$(x - 1)$这一项，所以
+$$\begin{aligned}
+n & = \prod\limits_{\substack{0 \leqslant j < n \\ j \neq 0}} (1 - \omega_j) + \sum\limits_{i=1}^{n-1} \prod\limits_{\substack{0 \leqslant j < n \\ j \neq i}} (1 - \omega_j) \\
+& = \prod\limits_{0 < j < n } (1 - \omega_j) + \sum\limits_{i=1}^{n-1} 0 \\
+& = (1 - \omega_1)(1 - \omega_2) \cdots (1 - \omega_{n-1}).\end{aligned}$$
+
+**第四题**
+设$f(x) \in \mathbb{C}[x], f(x) | f(x^n), n \in \mathbb{Z}^+.$
+证明$f(x)$的根是零或者单位根。
+
+**证明**： 不妨设$f(x)$的最高次项次数为$m,$ 系数为$1.$
+那么$f(x)$可以在$\mathbb{C}[x]$内分解为1次式乘积
+$$f(x) = \prod\limits_{i=1}^m (x - \lambda_i),$$
+其中$\lambda_1, \ldots, \lambda_m \in \mathbb{C}$为$f(x)$在$\mathbb{C}$内的$m$个根。那么对于$f(x^n),$
+我们有
+$$f(x^n) = \prod\limits_{i=1}^m (x^n - \lambda_i) = \prod\limits_{i=1}^m \prod\limits_{j=1}^n (x - \mu_{ij}),$$
+其中$\mu_{ij}, j = 1, \ldots, n,$
+是$z^n = \lambda_i$在$\mathbb{C}$内的$n$个根。
+
+如果有$f(x) | f(x^n),$ 即
+$$\left.\prod\limits_{i=1}^m (x - \lambda_i) \middle| \prod\limits_{i=1}^m \prod\limits_{j=1}^n (x - \mu_{ij}) \right.,$$
+那么$\forall i = 1, \ldots, m,$
+都存在下标$1 \leqslant k(i) \leqslant m, 1 \leqslant j(i) \leqslant n,$
+使得$\lambda_i = \mu_{k(i)j(i)}.$
+（并且$(k(1), j(1)), \ldots, (k(m), j(m))$是$m$个互异的二元组）
+
+取定了这$m$个二元组之后，$\forall i = 1, \ldots, m,$ 如果$k(i) = i,$
+那么我们有$\lambda_i = \mu_{ij(i)}.$ 两边同时$n$次方之后即有
+$\lambda_i^n = \mu_{ij(i)}^n = \lambda_i,$
+此时必有$\lambda_i$为零或为$n - 1$次单位根。
+
+若$k(i) \neq i,$ 我们可以考虑取值在$\{ 1, 2, \ldots, m \}$的序列
+$$k^{(0)}(i) := i, ~~ k^{(1)}(i) := k(i), ~~ k^{(2)}(i) := k(k(i)), ~~ \ldots$$
+此序列前$m+1$个元素内必然出现重复的元素：
+
+不妨设有$k^{(a)}(i) = k^{(b)}(i),$ $0 \leqslant a < b \leqslant m+1,$
+那么会有
+$$\mu_{k^{(b)}(i)j^{(b)}(i)} = \lambda_{k^{(b-1)}(i)} = \mu_{k^{(b-1)}(i)j^{(b-1)}(i)}^n = \cdots = \lambda_{k^{(a)}(i)}^{n(b-a-1)}.$$
+($j^{(*)}(i)$的定义类似$k^{(*)}(i)$) 两边同时$n$次方之后有
+$$\lambda_{k^{(a)}(i)}^{n(b-a)} = \mu_{k^{(b)}(i)j^{(b)}(i)}^n = \lambda_{k^{(b)}(i)} = \lambda_{k^{(a)}(i)},$$
+也就是说$\lambda_{k^{(a)}(i)}$是零或者$n(b-a) - 1$次单位根。但是我们又有
+$$\lambda_{k^{(a)}(i)} = \mu_{k^{(a)}(i)j^{(a)}(i)}^n = \lambda_{k^{(a-1)}(i)}^n = \mu_{k^{(a-1)}(i)j^{(a-1)}(i)}^{2n} = \cdots = \lambda_{i}^{an},$$
+即$\lambda_{i}$的$an$次幂是零或者某个单位根，那么它本身就是零或者（另一个）单位根。
+
+**第五题** (习题5.4 第10题)
+求证方程$x^3 - x^2 - \frac{1}{2}x - \frac{1}{6} = 0$的根不可能全为实数。
+
+Hint: 我们再来回顾一下上次课讲的系数在某个域$\mathbb{F}$内的$n$次多项式
+$$f(x) = a_{n}x^{n} + a_{n-1}x^{n-1} + \cdots + a_{0}, ~ a_n \neq 0,$$
+判别式的定义
+$$\operatorname{Disc}_x(f) = a_n^{2n-2} \prod_{1 \leqslant i < j \leqslant n} (\lambda_i - \lambda_j)^2 \in \mathbb{F}.$$
+这里的$\lambda_1, \ldots, \lambda_n$为$f(x)$在代数闭域$\bar{\mathbb{F}}$内的根。它可以通过$f$与其微商$f'$的结式$R(f,f')$来计算：
+$$\operatorname{Disc}_x(f) = \frac{(-1)^{n(n-1)/2}}{a_n} R(f,f')$$
+
+对于一个一般形式的三次多项式$ax^3 + bx^2 + cx + d,$ 它的判别式等于
+$$b^{2}c^{2}-4ac^{3}-4b^{3}d-27a^{2}d^{2}+18abcd.$$
+通过变量替换，三次多项式一般可以（当域特征不等于3时）化为$x^3 + px + q$的形式，而它的判别式等于
+$$-4p^3 - 27q^2.$$
+
+**证明**：对于一个一般的$n$次多项式$f(x) = a_{n}x^{n}+a_{n-1}x^{n-1}+\cdots +a_{1}x+a_{0}$,
+其判别式为
+$$\Delta = \operatorname{Disc}_x(f) = a_n^{2n-2} \prod_{1 \leqslant i < j \leqslant n} (\lambda_i - \lambda_j)^2 \in \mathbb{F}.$$
+这里的$\lambda_1, \ldots, \lambda_n$为$f(x)$在代数闭域$\bar{\mathbb{F}}$内的根。对于3次实多项式$f(x) = ax^3+bx^2+cx+d$来说，如果它有3个实根，那么显然它的判别式是一个非负实数；如果他有复根$\beta$,
+那么$\beta$的复共轭$\bar{\beta}$也是它的复根。设它的另一个实根为$\alpha$，那么它的判别式为
+$$\Delta = a^4 (\alpha-\beta)^2(\alpha-\bar{\beta})^2(\beta-\bar{\beta})^2 = a^4 (\alpha^2-\alpha(\beta+\bar{\beta})+\beta\bar{\beta})^2 (\beta-\bar{\beta})^2$$
+因为$\alpha^2-\alpha(\beta+\bar{\beta})+\beta\bar{\beta}$是实数，$\beta-\bar{\beta}$是纯虚数，所以判别式在这种情况下必然是一个负实数。即对3次方程来说
+$$\begin{cases}
+\Delta > 0, & \text{有3个互异实根}; \\
+\Delta = 0, & \text{有3个实根，并且其中有重根}; \\
+\Delta < 0, & \text{有1个实根，1对共轭的复根} \\
+\end{cases}$$
+
+对于一般的三次方程，其判别式为
+$$\Delta = b^{2}c^{2}-4ac^{3}-4b^{3}d-27a^{2}d^{2}+18abcd$$
+对于本题的$x^3 - x^2 - \frac{1}{2}x - \frac{1}{6}$, 其判别式为
